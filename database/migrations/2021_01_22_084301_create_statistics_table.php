@@ -15,6 +15,10 @@ class CreateStatisticsTable extends Migration
     {
         Schema::create('statistics', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('year_exp');
+            $table->unsignedInteger('works');
+            $table->unsignedInteger('work_brands');
+            $table->unsignedInteger('exp_workers');
             $table->timestamps();
         });
     }

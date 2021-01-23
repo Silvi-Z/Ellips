@@ -22,6 +22,10 @@ class CreateProductsTable extends Migration
             $table->longText('text_en');
             $table->longText('text_ru');
             $table->decimal('price',10,3);
+            $table->unsignedInteger('brand_id');
+                $table->foreign('brand_id')
+                    ->references('id')
+                    ->on('brands');
             $table->timestamps();
         });
     }
