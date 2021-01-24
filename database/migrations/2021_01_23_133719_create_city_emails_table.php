@@ -19,7 +19,7 @@ class CreateCityEmailsTable extends Migration
             $table->unsignedInteger('city_id');
             $table->foreign('city_id')
                 ->references('id')
-                ->on('cities');
+                ->on('cities')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

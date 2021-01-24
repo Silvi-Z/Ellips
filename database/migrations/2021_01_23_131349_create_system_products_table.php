@@ -18,11 +18,11 @@ class CreateSystemProductsTable extends Migration
             $table->unsignedInteger('product_id');
             $table->foreign('product_id')
                 ->references('id')
-                ->on('products');
+                ->on('products')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedInteger('system_id');
             $table->foreign('system_id')
                 ->references('id')
-                ->on('systems');
+                ->on('systems')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

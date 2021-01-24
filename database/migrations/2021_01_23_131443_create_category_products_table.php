@@ -18,11 +18,11 @@ class CreateCategoryProductsTable extends Migration
             $table->unsignedInteger('product_id');
             $table->foreign('product_id')
                 ->references('id')
-                ->on('products');
+                ->on('products')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedInteger('category_id');
             $table->foreign('category_id')
                 ->references('id')
-                ->on('categories');
+                ->on('categories')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
