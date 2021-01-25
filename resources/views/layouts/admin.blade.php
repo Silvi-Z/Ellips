@@ -66,7 +66,33 @@
 
             </li>
 
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Products">
 
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProducts" data-parent="#exampleAccordion">
+
+                    <i class="fa fa-fw fa-list"></i>
+
+                    <span class="nav-link-text">Categories</span>
+
+                </a>
+
+                <ul class="sidenav-second-level collapse" id="collapseProducts">
+
+                    <li>
+
+                        <a href="{{ route('admin.categories.create') }}">Create Category</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ route('admin.categories.index') }}">Categories list</a>
+
+                    </li>
+
+                </ul>
+
+            </li>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Users">
 
