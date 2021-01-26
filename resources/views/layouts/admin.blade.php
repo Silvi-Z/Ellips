@@ -68,7 +68,7 @@
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Products">
 
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProducts" data-parent="#exampleAccordion">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseCategories" data-parent="#exampleAccordion">
 
                     <i class="fa fa-fw fa-list"></i>
 
@@ -76,7 +76,7 @@
 
                 </a>
 
-                <ul class="sidenav-second-level collapse" id="collapseProducts">
+                <ul class="sidenav-second-level collapse" id="collapseCategories">
 
                     <li>
 
@@ -108,13 +108,13 @@
 
                     <li>
 
-                        <a href="{{ route('admin.systems.create') }}">Create User</a>
+                        <a href="{{ route('admin.systems.create') }}">Create System</a>
 
                     </li>
 
                     <li>
 
-                        <a href="{{ route('admin.systems.index') }}">Users list</a>
+                        <a href="{{ route('admin.systems.index') }}">Systems list</a>
 
                     </li>
 
@@ -568,7 +568,7 @@
 
     <script src="{{asset('js/adminlibs.js')}}"></script>
 
-
+<script src='{{ asset('js/tinymce/tinymce.min.js') }}'></script>
 
     <!-- Custom scripts for this page-->
 

@@ -1,157 +1,1 @@
-@extends('layouts.admin')
-
-@section('title') Create Product @endsection
-
-@section('breadcrumbs', Breadcrumbs::render('admin.dashboard.products.create'))
-
-@section('content')
-
-    <div class="row justify-content-center">
-        <div class="col-lg-6 mt-4">
-
-            <h1>Create product</h1>
-
-            {!! Form::open(['method'=>'POST', 'action' => 'Admin\AdminProductsController@store','files'=>true]) !!}
-
-
-
-            <div class= "form-group" >
-                {!! Form::label('brand', 'Brand *') !!}
-                {!! Form::text('brand', null, ['class' => $errors->has('brand') ? 'form-control is-invalid' : 'form-control']) !!}
-                @if ($errors->has('brand'))
-                    {{--{{ dd($errors->all()) }}--}}
-                    <div class="invalid-feedback">{{ $errors->first('brand') }}</div>
-                @endif
-            </div>
-
-            <div class= "form-group" >
-                {!! Form::label('model', 'Model *') !!}
-                {!! Form::text('model', null, ['class' => $errors->has('model') ? 'form-control is-invalid' : 'form-control']) !!}
-                @if ($errors->has('model'))
-                    <div class="invalid-feedback">{{ $errors->first('model') }}</div>
-                @endif
-            </div>
-
-
-            <div class= "form-group" >
-                {!! Form::label('price', 'Price *') !!}
-                {!! Form::number('price', null, ['class' => $errors->has('price') ? 'form-control is-invalid' : 'form-control']) !!}
-                @if ($errors->has('price'))
-                    <div class="invalid-feedback">{{ $errors->first('price') }}</div>
-                @endif
-            </div>
-
-            <div class= "form-group" >
-                {!! Form::label('description', 'Description *') !!}
-                {!! Form::textarea('description', null, ['rows'=>3, 'class' => $errors->has('description') ? 'form-control is-invalid' : 'form-control']) !!}
-                @if ($errors->has('description'))
-                    <div class="invalid-feedback">{{ $errors->first('description') }}</div>
-                @endif
-            </div>
-
-            <div class="form-group">
-                {!! Form::label('category_id', 'Category *') !!}
-                {!! Form::select('category_id', array(''=>'Choose Option') + $categories , null,  ['id'=>'my-category','class' => $errors->has('category_id') ? 'form-control is-invalid' : 'form-control']) !!}
-                @if ($errors->has('category_id'))
-                    <div class="invalid-feedback">{{ $errors->first('category_id') }}</div>
-                @endif
-            </div>
-
-            <div class="form-group">
-                {!! Form::label('subcategory_id', 'Subcategory *') !!}
-                {!! Form::select('subcategory_id', array(''=>'Choose Option'), null,  ['id'=>'my-subcategory','class' => $errors->has('subcategory_id') ? 'form-control is-invalid' : 'form-control']) !!}
-                @if ($errors->has('subcategory_id'))
-                    <div class="invalid-feedback">{{ $errors->first('subcategory_id') }}</div>
-                @endif
-            </div>
-
-            <div class="form-group">
-                {!! Form::label('icon_id', 'Icon *') !!}
-                {!! Form::file('icon_id', ['class' => $errors->has('photo_id') ? 'form-control is-invalid' : 'form-control']) !!}
-                @if ($errors->has('photo_id'))
-                    <div class="invalid-feedback">{{ $errors->first('photo_id') }}</div>
-                @endif
-            </div>
-
-            <div class="form-group">
-                {!! Form::label('photo_id', 'Photo *') !!}
-                {!! Form::file('photo_id', ['class' => $errors->has('photo_id') ? 'form-control is-invalid' : 'form-control']) !!}
-                @if ($errors->has('photo_id'))
-                    <div class="invalid-feedback">{{ $errors->first('photo_id') }}</div>
-                @endif
-            </div>
-
-
-            <div class="form-group">
-                {!! Form::label('released_on', 'Date of released *') !!}
-                {!! Form::date('released_on', null, ['class' => $errors->has('released_on') ? 'form-control is-invalid' : 'form-control']) !!}
-                @if ($errors->has('released_on'))
-                    <div class="invalid-feedback">{{ $errors->first('released_on') }}</div>
-                @endif
-            </div>
-
-
-            <div class="form-group">
-                {!! Form::token() !!}
-                {!! Form::submit('Create Product', ['class'=>'btn btn-primary btn-block']) !!}
-            </div>
-
-
-            {!! Form::close() !!}
-
-        </div>
-    </div>
-
-@endsection
-
-
-@section('modal')
-
-
-    <script>
-        /**
-         * Created by idgu on 10.12.2017.
-         */
-
-        function getSubcategories(categoryValue) {
-            const subcategoriesSelect = document.querySelector('#my-subcategory');
-            var xhr = new XMLHttpRequest();
-
-            if (categoryValue !== '') {
-
-                xhr.open('GET',  '{{ route('getSubcategories', null) }}' +'/' + categoryValue, true);
-
-                xhr.onload = function() {
-                    if (this.status == 200) {
-                        subcategories = JSON.parse(this.responseText);
-                        display = '<option value="" selected="selected">Choose Option</option>';
-                        subcategories.forEach(function(subcategory) {
-                            display += '<option value="'+ subcategory.id +'">' + subcategory.name +'</option>';
-                        });
-
-                        subcategoriesSelect.innerHTML = display;
-                    }
-
-
-                }
-                xhr.send();
-            } else {
-                subcategoriesSelect.innerHTML = '<option value="" selected="selected">Choose Option</option>';
-            }
-        }
-
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const category = document.querySelector('#my-category');
-
-            getSubcategories(category.value);
-            category.addEventListener('change', function () {
-                getSubcategories(category.value);
-            })
-        });
-    </script>
-
-
-
-@endsection
+@extends('layouts.admin')@section('title')  @if(!empty($product)) Create @else Edit @endif category @endsection@section('content')    <div class="row justify-content-center">        <div class="col-lg-6 mt-4">            <h1>@if(empty($product)) Create @else Edit @endif category</h1>            @if(empty($product))                {!! Form::open(['method'=>'POST', 'action' => 'ProductController@store']) !!}            @else                {!! Form::open(['method'=>'PUT', 'action' => ['ProductController@update', $product->id]]) !!}            @endif            <div class= "form-group" >                {!! Form::label('title_hy', 'Title AM *') !!}                {!! Form::text('title_hy', isset($product)?$product->title_hy:'', ['class' => $errors->has('title_hy') ? 'form-control is-invalid' : 'form-control',]) !!}                @if ($errors->has('title_hy'))                    {{--{{ dd($errors->all()) }}--}}                    <div class="invalid-feedback">{{ $errors->first('title_hy') }}</div>                @endif            </div>            <div class= "form-group" >                {!! Form::label('title_ru', 'Title RU *') !!}                {!! Form::text('title_ru', isset($product)?$product->title_ru:'', ['class' => $errors->has('title_ru') ? 'form-control is-invalid' : 'form-control' ]) !!}                @if ($errors->has('title_ru'))                    {{--{{ dd($errors->all()) }}--}}                    <div class="invalid-feedback">{{ $errors->first('title_ru') }}</div>                @endif            </div>            <div class= "form-group" >                {!! Form::label('title_en', 'Title EN *') !!}                {!! Form::text('title_en', isset($product)?$product->title_en:'', ['class' => $errors->has('title_en') ? 'form-control is-invalid' : 'form-control']) !!}                @if ($errors->has('title_en'))                    {{--{{ dd($errors->all()) }}--}}                    <div class="invalid-feedback">{{ $errors->first('title_en') }}</div>                @endif            </div>            <div class="form-group">                {!! Form::label('text_hy', 'DESCRIPTION AM *') !!}                {!! Form::textarea('text_hy', isset($product)?$product->text_hy:'', ['class' => $errors->has('text_hy') ? 'form-control html-editor is-invalid' : 'form-control html-editor']) !!}                @if ($errors->has('text_hy'))                    {{--{{ dd($errors->all()) }}--}}                    <div class="invalid-feedback">{{ $errors->first('text_hy') }}</div>                @endif            </div>            <div class="form-group">                {!! Form::label('text_ru', 'DESCRIPTION EN *') !!}                {!! Form::textarea('text_ru', isset($product)?$product->text_ru:'', ['class' => $errors->has('text_ru') ? 'form-control html-editor is-invalid' : 'form-control html-editor']) !!}                @if ($errors->has('text_ru'))                    {{--{{ dd($errors->all()) }}--}}                    <div class="invalid-feedback">{{ $errors->first('text_ru') }}</div>                @endif            </div>            <div class="form-group">                {!! Form::label('text_en', 'DESCRIPTION EN *') !!}                {!! Form::textarea('text_en', isset($product)?$product->text_en:'', ['class' => $errors->has('text_en') ? 'form-control html-editor is-invalid' : 'form-control html-editor']) !!}                @if ($errors->has('text_en'))                    {{--{{ dd($errors->all()) }}--}}                    <div class="invalid-feedback">{{ $errors->first('text_en') }}</div>                @endif            </div>            <div class= "form-group" >                {!! Form::label('price', 'Price *') !!}                {!! Form::text('price', isset($product)?$product->price:'', ['class' => $errors->has('price') ? 'form-control is-invalid' : 'form-control']) !!}                @if ($errors->has('price'))                    {{--{{ dd($errors->all()) }}--}}                    <div class="invalid-feedback">{{ $errors->first('price') }}</div>                @endif            </div>            <div class="form-group">                {!! Form::token() !!}                {!! Form::submit('Submit', ['class'=>'btn btn-primary btn-block']) !!}            </div>            {!! Form::close() !!}        </div>    </div>@endsection@section('modal')    <script type="text/javascript">        tinymce.init({            selector: '.html-editor',            menubar: false,            height: 200,            toolbar: "bold italic fontselect | removeformat | undo redo | styleselect | alignleft aligncenter alignright alignjustify | fontsizeselect forecolor",        });    </script>@endsection
