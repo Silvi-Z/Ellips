@@ -1,0 +1,37 @@
+.newForm>div>div{
+    margin-bottom: 15px;
+}
+.fileUpload, .imageUpload , .videoUpload{
+    width: 44%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.button{
+    height: fit-content;
+    width: fit-content;
+    padding: 10px;
+    border: none;
+    outline: none;
+    position: absolute;
+    right: 20px;
+}
+.newForm{
+    border-bottom: 1px solid #ccc;
+    padding: 30px 0;
+}
+
+.newForm input , .newForm textarea{
+    outline: none;
+}
+.toggle{
+    margin-left: 20px;
+    margin-bottom: 0;
+}
+.box.over {
+    border: 3px dotted #666;
+}
+.products .text_en,.text_ru,.text_hy,.slider_url{
+    display: none;
+}

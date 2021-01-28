@@ -6,7 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['title_am','title_ru','title_en','text_am','text_ru','text_en','brand_id','price'];
+    protected $fillable = ['title_am','title_ru','title_en','text_am','text_ru','text_en','brand_id','price','url'];
 
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class,'brand_id');
+    }
 
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'category_products', 'product_id', 'category_id');
+    }
 }

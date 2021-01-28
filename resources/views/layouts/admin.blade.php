@@ -21,6 +21,7 @@
     <!-- Bootstrap core CSS-->
 
     <link href="{{asset('css/adminlibs.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
     @yield('head')
 
@@ -87,6 +88,34 @@
                     <li>
 
                         <a href="{{ route('admin.categories.index') }}">Categories list</a>
+
+                    </li>
+
+                </ul>
+
+            </li>
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Brands">
+
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseBrands" data-parent="#exampleAccordion">
+
+                    <i class="fa fa-bandcamp"></i>
+
+                    <span class="nav-link-text">Brands</span>
+
+                </a>
+
+                <ul class="sidenav-second-level collapse" id="collapseBrands">
+
+                    <li>
+
+                        <a href="{{ route('admin.brands.create') }}">Create Brand</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ route('admin.brands.index') }}">Brands list</a>
 
                     </li>
 
@@ -567,6 +596,7 @@
     <!-- Bootstrap core JavaScript-->
 
     <script src="{{asset('js/adminlibs.js')}}"></script>
+    <script src="{{asset('js/script.js')}}"></script>
 
 <script src='{{ asset('js/tinymce/tinymce.min.js') }}'></script>
 

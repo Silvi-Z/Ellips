@@ -2,22 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BrandRequest;
 use App\Models\Brand;
-use App\Models\Category;
-use App\Models\Product;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class BrandController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $products = Product::all();
-        return view('admin.products.index')->with(['products'=>$products]);
+        $brands = Brand::all();
+        return view('admin.brands.index')->with(['brands'=>$brands]);
     }
 
     /**
@@ -27,14 +21,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-
-        return view('admin.products.create')
-            ->with(
-                [
-                    'categories'=>Category::all(),
-                    'barnds'=>Brand::all(),
-                    'barnds'=>Brand::all(),
-                ]);
+        return view('admin.brands.create');
     }
 
     /**
@@ -43,9 +30,12 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BrandRequest $request)
     {
-        //
+        Brand::create($request->all());
+        $request->session()->flash('alert-success', 'Brand was successful added!');
+        return redirect()->route('admin.brands.index');
+
     }
 
     /**
@@ -67,7 +57,11 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $brand = Brand::findOrFail($id);
+
+
+
+        return view('admin.brands.create', ['brand'=> $brand]);
     }
 
     /**
@@ -77,9 +71,15 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BrandRequest $request, $id)
     {
-        //
+        Brand::findOrFail($id)->update($request->all());
+
+
+
+        $request->session()->flash('alert-success', 'brand was successful edited!');
+
+        return redirect()->route('admin.brands.index');
     }
 
     /**
@@ -88,8 +88,15 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,Request $request)
     {
-        //
+
+        Brand::findOrFail($id)->delete();
+
+
+
+        $request->session()->flash('alert-success', 'Brand was successful deleted!');
+
+        return redirect()->route('admin.brands.index');
     }
 }
