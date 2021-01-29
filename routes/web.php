@@ -14,6 +14,8 @@
 
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('mainpage');
+Route::get('/systems', 'HomeController@systems');
+Route::get('/products', 'HomeController@products');
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 
 
