@@ -32,6 +32,10 @@
 .box.over {
     border: 3px dotted #666;
 }
-.products .text_en,.text_ru,.text_hy,.slider_url{
+.products .text_en,.products .text_ru,.products .text_hy,.products .slider_url{
+    display: none;
+}
+
+.systems .slider_url{
     display: none;
 }

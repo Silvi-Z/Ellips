@@ -35,17 +35,25 @@ class AddUrlInProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('url');
-        });
-        Schema::table('services', function (Blueprint $table) {
-            $table->dropColumn('url');
-        });
-        Schema::table('blogs', function (Blueprint $table) {
-            $table->dropColumn('url');
-        });
-        Schema::table('portfolios', function (Blueprint $table) {
-            $table->dropColumn('url');
-        });
+        if (Schema::hasColumn('products', 'url')) {
+            Schema::table('products', function (Blueprint $table) {
+                $table->dropColumn('url');
+            });
+        }
+        if (Schema::hasColumn('services', 'url')) {
+            Schema::table('services', function (Blueprint $table) {
+                $table->dropColumn('url');
+            });
+        }
+        if (Schema::hasColumn('portfolios', 'url')) {
+            Schema::table('blogs', function (Blueprint $table) {
+                $table->dropColumn('url');
+            });
+        }
+        if (Schema::hasColumn('portfolios', 'url')) {
+            Schema::table('portfolios', function (Blueprint $table) {
+                $table->dropColumn('url');
+            });
+        }
     }
 }

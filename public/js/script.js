@@ -9,27 +9,27 @@ function addUpload() {
         '                        <div class="d-flex flex-wrap justify-content-between">\n' +
         '                        <div class="imageUpload">\n' +
         '                            <label class="imageUploadInput" for="imageUploadInput">Image</label>\n' +
-        `                       <input type="file"  name="files['${key}'][image]" accept="image/*" class="uploadFile img" value="Upload Photo">\n` +
+        `                       <input type="file"  name="upload_files['${key}'][image]" accept="image/*" class="uploadFile img" value="Upload Photo">\n` +
         '                        </div>\n' +
         '                        <div class="videoUpload">\n' +
         '                            <label for="" class="videoUploadInput">YouTube video url</label>\n' +
-        `                            <input type="text" disabled  name="files[\'${key}\'][video]" class="uploadFile img" accept="video/*">\n` +
+        `                            <input type="text" disabled  name="upload_files[\'${key}\'][video]" class="uploadFile img" accept="video/*">\n` +
         '                        </div>\n' +
         '                        <div class="w-100 slider_url">\n' +
         '                            <label for="url">Slider URL</label>\n' +
-        `                            <input class="w-100 tox tox-tinymce" style="padding: 5px" type="url" name="files[\'${key}\'][url]" id="url"  pattern="https://.*" size="30" required="">\n` +
+        `                            <input class="w-100 tox tox-tinymce" style="padding: 5px" type="url" name="upload_files[\'${key}\'][url]" id="url" >\n` +
         '                        </div>\n' +
         '                        <div class="w-100 text_hy">\n' +
         '                            <label>ARM</label>\n' +
-        `                            <textarea name="files[\'${key}\'][text_hy]" class="w-100" cols="30" rows="1"></textarea>\n` +
+        `                            <textarea name="upload_files[\'${key}\'][text_hy]" class="w-100" cols="30" rows="1"></textarea>\n` +
         '                        </div>\n' +
         '                        <div class="w-100 text_ru">\n' +
         '                            <label>RU</label>\n' +
-        `                            <textarea name="files[\'${key}\'][text_ru]" class="w-100" cols="30" rows="1"></textarea>\n` +
+        `                            <textarea name="upload_files[\'${key}\'][text_ru]" class="w-100" cols="30" rows="1"></textarea>\n` +
         '                        </div>\n' +
         '                        <div class="w-100 text_en">\n' +
         '                            <label>EN</label>\n' +
-        `                            <textarea name="files[\'${key}\'][text_en]" class="w-100" cols="30" rows="1"></textarea>\n` +
+        `                            <textarea name="upload_files[\'${key}\'][text_en]" class="w-100" cols="30" rows="1"></textarea>\n` +
         '                        </div>\n' +
         '\n' +
         '                    </div>'
@@ -43,7 +43,7 @@ function addUpload() {
 
 $(document).ready(function () {
 
-    document.querySelector('.button').addEventListener('click', (e) => {
+    document.querySelector('.add_file_blog').addEventListener('click', (e) => {
         e.preventDefault();
         addUpload()
         check()

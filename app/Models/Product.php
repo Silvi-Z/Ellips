@@ -17,4 +17,8 @@ class Product extends Model
     {
         return $this->belongsToMany(Category::class, 'category_products', 'product_id', 'category_id');
     }
+    public function systems()
+    {
+        return $this->belongsToMany(System::class, 'system_products', 'product_id', 'system_id');
+    }
 }
