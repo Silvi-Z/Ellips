@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['title_am','title_ru','title_en','text_am','text_ru','text_en','brand_id','price','url'];
+    protected $fillable = ['title_hy','title_ru','title_en','text_hy','text_ru','text_en','brand_id','price','url'];
 
     public function brand()
     {
@@ -20,5 +20,9 @@ class Product extends Model
     public function systems()
     {
         return $this->belongsToMany(System::class, 'system_products', 'product_id', 'system_id');
+    }
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'owner');
     }
 }
