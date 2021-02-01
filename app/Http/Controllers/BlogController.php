@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BlogRequest;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -13,7 +15,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+
+        $blogs = Blog::all();
+        return view('admin.blogs.index')->with(['blogs'=>$blogs]);
     }
 
     /**
@@ -23,7 +27,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.blogs.create');
     }
 
     /**
@@ -32,9 +36,43 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BlogRequest $request)
     {
-        //
+//        dd($request->all());
+        $data = [
+            'title_hy'=>$request->title_hy,
+            'title_en'=>$request->title_en,
+            'title_ru'=>$request->title_ru,
+            'text_hy'=>$request->text_hy,
+            'text_en'=>$request->text_en,
+            'text_ru'=>$request->text_ru,
+        ];
+        $data['url'] = Helper::slugify($data['title_en']);
+        $files = [];
+
+        foreach ($request->upload_files as $key=>$file){
+            if(isset($file['video']) && $file['video']){
+                $files[$key]['video'] = $file['video'];
+            }else{
+                $file_name = 'upload_files.'.$key.'.image';
+
+                if ($request->hasFile($file_name)) {
+                    $photoName = time() . '.' . $request->$file_name->getClientOriginalExtension();
+                    $request->$file_name->move(public_path('files'), $photoName);
+
+                }else{
+                    $request->session()->flash('alert-danger', 'Uplade image or add video link');
+                    return redirect()->back();
+                }
+                $files[$key]['image_name'] = $photoName;
+            }
+        }
+//        dd($data);
+        $blog = Product::create($data);
+        
+        $blog->images()->createMany($files);
+        $request->session()->flash('alert-success', 'Blog has successful added!');
+        return redirect()->route('admin.blogs.index');
     }
 
     /**
@@ -56,7 +94,12 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $blog = Blog::findOrFail($id);
+        return view('admin.products.create')
+            ->with(
+                [
+                    'blog'=>$blog
+                ]);
     }
 
     /**
@@ -66,9 +109,56 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BlogRequest $request, $id)
     {
-        //
+        $blog = Blog::findOrFail($id);
+        $data = [
+            'title_hy'=>$request->title_hy,
+            'title_en'=>$request->title_en,
+            'title_ru'=>$request->title_ru,
+            'text_hy'=>$request->text_hy,
+            'text_en'=>$request->text_en,
+            'text_ru'=>$request->text_ru,
+        ];
+        $data['url'] = Helper::slugify($data['title_en']);
+        $files = [];
+
+        foreach ($request->upload_files as $key=>$file){
+
+            if(isset($file['video']) && $file['video']){
+                $files[$key]['video'] = $file['video'];
+            }else{
+                $file_name = 'upload_files.'.$key.'.image';
+
+                if ($request->hasFile($file_name)) {
+                    $photoName = time() . '.' . $request->$file_name->getClientOriginalExtension();
+                    $request->$file_name->move(public_path('files'), $photoName);
+
+                }else{
+
+                    if(isset($file['id'])){
+                        $image = Image::findOrFail($file['id']);
+
+                        if($image->image_name){
+                            $photoName = $image->image_name;
+                        }else{
+                            $request->session()->flash('alert-danger', 'Uplade image or add video link in '.($key+1).' block');
+                            return redirect()->back();
+                        }
+                    }else{
+                        $request->session()->flash('alert-danger', 'Uplade image or add video link in '.($key+1).' block');
+                        return redirect()->back();
+                    }
+                }
+                $files[$key]['image_name'] = $photoName;
+            }
+        }
+
+        $blog->update($data);
+        $blog->images()->delete();
+        $blog->images()->createMany($files);
+        $request->session()->flash('alert-success', 'Blog has successful updated!');
+        return redirect()->route('admin.products.index');
     }
 
     /**
@@ -77,8 +167,12 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        $blog = Blog::findOrFail($id);
+        $blog->images()->delete();
+        $blog->delete();
+        $request->session()->flash('alert-success', 'Product has successful deleted!');
+        return redirect()->route('admin.products.index');
     }
 }
