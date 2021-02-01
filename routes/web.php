@@ -23,6 +23,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 
 
     Route::get('/', 'DashboardController@index')->name('admin.index');
+    Route::any('/statistics', 'StatisticController@index')->name('admin.statistics');
 
 
 
@@ -195,6 +196,28 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
             'show' => 'admin.blogs.show',
 
             'edit' => 'admin.blogs.edit',
+
+        ]
+
+    ]);
+
+    Route::resource('clients', 'ClientController', [
+
+        'names' => [
+
+            'index' => 'admin.clients.index',
+
+            'store' => 'admin.clients.store',
+
+            'create' => 'admin.clients.create',
+
+            'destroy' => 'admin.clients.destroy',
+
+            'update' => 'admin.clients.update',
+
+            'show' => 'admin.clients.show',
+
+            'edit' => 'admin.clients.edit',
 
         ]
 

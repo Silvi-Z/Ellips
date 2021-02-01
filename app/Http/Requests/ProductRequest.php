@@ -23,21 +23,28 @@ class ProductRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules =  [
             'title_hy'=>'required',
             'title_ru'=>'required',
             'title_en'=>'required',
-            'upload_files'=>'required|array',
             'text_hy'=>'required',
             'text_ru'=>'required',
             'text_en'=>'required',
+            'price'=>'required|numeric|min:0.01',
             'categories'=>'required|array',
             'categories.*'=>'required|exists:categories,id',
             'brand_id'=>'required|exists:brands,id',
             'systems'=>'required|array',
             'systems.*'=>'required|exists:systems,id',
-//            'upload_files.*.image'=>'image',
-//            'upload_files.*.video'=>'string',
+            'upload_files'=>'required|array',
         ];
+        if ($this->method() == "PUT") {
+            $rules['upload_files.*.image'] = 'image|max:10240';
+            $rules['upload_files.*.video'] = 'string';
+        }else{
+            $rules['upload_files.*.image'] = 'required_without:upload_files.*.video|image|max:10240';
+            $rules['upload_files.*.video'] = 'required_without:upload_files.*.image|string';
+        }
+        return $rules;
     }
 }

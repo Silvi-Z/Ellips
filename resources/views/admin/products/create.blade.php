@@ -22,9 +22,9 @@
 
 
             @if(empty($product))
-                {!! Form::open(['method'=>'POST', 'action' => 'ProductController@store']) !!}
+                {!! Form::open(['method'=>'POST', 'action' => 'ProductController@store', 'files'=>true]) !!}
             @else
-                {!! Form::open(['method'=>'PUT', 'action' => ['ProductController@update', $product->id]]) !!}
+                {!! Form::open(['method'=>'PUT', 'action' => ['ProductController@update', $product->id], 'files'=>true]) !!}
             @endif
 
 

@@ -39,3 +39,6 @@
 .systems .slider_url{
     display: none;
 }
+.newForm .invalid-feedback{
+    display: block;
+}

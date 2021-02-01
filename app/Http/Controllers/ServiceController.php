@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ServiceRequest;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $services = Service::all();
+        return view('admin.services.index')->with(['services'=>$services]);
     }
 
     /**
@@ -23,7 +21,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.services.create');
     }
 
     /**
@@ -32,9 +30,12 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ServiceRequest $request)
     {
-        //
+        Service::create($request->all());
+        $request->session()->flash('alert-success', 'Service has successful added!');
+        return redirect()->route('admin.services.index');
+
     }
 
     /**
@@ -56,7 +57,11 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $service = Service::findOrFail($id);
+
+
+
+        return view('admin.services.create', ['service'=> $service]);
     }
 
     /**
@@ -66,9 +71,16 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ServiceRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        $data['top'] = isset($request->top)?1:0;
+        $data['bottom'] = isset($request->bottom)?1:0;
+        Service::findOrFail($id)->update($data);
+
+        $request->session()->flash('alert-success', 'Service has successful edited!');
+
+        return redirect()->route('admin.services.index');
     }
 
     /**
@@ -77,8 +89,15 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,Request $request)
     {
-        //
+
+        Service::findOrFail($id)->delete();
+
+
+
+        $request->session()->flash('alert-success', 'Service was successful deleted!');
+
+        return redirect()->route('admin.services.index');
     }
 }

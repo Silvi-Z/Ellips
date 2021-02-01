@@ -1,4 +1,4 @@
-let key = 1;
+let key = 0;
 
 function addUpload() {
     const divEL = document.createElement('div');

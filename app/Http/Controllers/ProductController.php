@@ -6,6 +6,7 @@ use App\Helpers\Helper;
 use App\Http\Requests\ProductRequest;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Image;
 use App\Models\Product;
 use App\Models\System;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ class ProductController extends Controller
      */
     public function index()
     {
+
         $products = Product::all();
         return view('admin.products.index')->with(['products'=>$products]);
     }
@@ -105,7 +107,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id,Request $request)
+    public function edit($id)
     {
         $product = Product::findOrFail($id);
         return view('admin.products.create')
@@ -144,8 +146,9 @@ class ProductController extends Controller
         $files = [];
 
         foreach ($request->upload_files as $key=>$file){
-            if(isset($file->video) && $file->video){
-                $files[$key]['video'] = $file->video;
+
+            if(isset($file['video']) && $file['video']){
+                $files[$key]['video'] = $file['video'];
             }else{
                 $file_name = 'upload_files.'.$key.'.image';
 
@@ -154,15 +157,27 @@ class ProductController extends Controller
                     $request->$file_name->move(public_path('files'), $photoName);
 
                 }else{
-                    $request->session()->flash('alert-danger', 'Uplade image or add video link');
-                    return redirect()->back();
+
+                    if(isset($file['id'])){
+                        $image = Image::findOrFail($file['id']);
+
+                        if($image->image_name){
+                            $photoName = $image->image_name;
+                        }else{
+                            $request->session()->flash('alert-danger', 'Uplade image or add video link in '.($key+1).' block');
+                            return redirect()->back();
+                        }
+                    }else{
+                        $request->session()->flash('alert-danger', 'Uplade image or add video link in '.($key+1).' block');
+                        return redirect()->back();
+                    }
                 }
                 $files[$key]['image_name'] = $photoName;
             }
         }
-//        dd($data);
+
         $product->update($data);
-        $product->systems()->sonyc($request->systems);
+        $product->systems()->sync($request->systems);
         $product->categories()->sync($request->categories);
         $product->images()->delete();
         $product->images()->createMany($files);
@@ -179,9 +194,10 @@ class ProductController extends Controller
     public function destroy(Request $request,$id)
     {
         $product = Product::findOrFail($id);
-        $product->systems()->sonyc($request->systems);
-        $product->categories()->sync($request->categories);
+        $product->systems()->detach();
+        $product->categories()->detach();
         $product->images()->delete();
+        $product->delete();
         $request->session()->flash('alert-success', 'Product has successful deleted!');
         return redirect()->route('admin.products.index');
     }
