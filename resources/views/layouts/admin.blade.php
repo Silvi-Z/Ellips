@@ -71,7 +71,7 @@
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseCategories" data-parent="#exampleAccordion">
 
-                    <i class="fa fa-fw fa-list"></i>
+                    <i class="fa fa-list-alt"></i>
 
                     <span class="nav-link-text">Categories</span>
 
@@ -99,7 +99,7 @@
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseClients" data-parent="#exampleAccordion">
 
-                    <i class="fa fa-fw fa-list"></i>
+                    <i class="fa fa-users"></i>
 
                     <span class="nav-link-text">Clients</span>
 
@@ -156,7 +156,7 @@
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseUsers" data-parent="#exampleAccordion">
 
-                    <i class="fa fa-fw fa-users"></i>
+                    <i class="fa  fa-assistive-listening-systems"></i>
 
                     <span class="nav-link-text">Systems</span>
 
@@ -209,6 +209,33 @@
                 </ul>
 
             </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Products">
+
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsePortfolios" data-parent="#exampleAccordion">
+
+                    <i class="fa fa-users"></i>
+
+                    <span class="nav-link-text">Portfolios</span>
+
+                </a>
+
+                <ul class="sidenav-second-level collapse" id="collapsePortfolios">
+
+                    <li>
+
+                        <a href="{{ route('admin.portfolios.create') }}">Create Portfolio</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ route('admin.portfolios.index') }}">Portfolios list</a>
+
+                    </li>
+
+                </ul>
+
+            </li>
 
 
 
@@ -244,7 +271,7 @@
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseBlogs">
 
-                    <i class="fa fa-fw fa-question"></i>
+                    <i class="fa fa-fw fa-rss"></i>
 
                     <span class="nav-link-text">Blogs</span>
 

@@ -34,34 +34,6 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 
 
 
-
-
-//    Route::resource('users', 'UsersController', [
-//
-//        'names' => [
-//
-//            'index' => 'admin.users.index',
-//
-//            'store' => 'admin.users.store',
-//
-//            'create' => 'admin.users.create',
-//
-//            'destroy' => 'admin.users.destroy',
-//
-//            'update' => 'admin.users.update',
-//
-//            'show' => 'admin.users.show',
-//
-//            'edit' => 'admin.users.edit',
-//
-//        ]
-//
-//    ]);
-
-
-
-
-
     Route::resource('products', 'ProductController', [
 
         'names' => [
@@ -219,6 +191,28 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
             'show' => 'admin.clients.show',
 
             'edit' => 'admin.clients.edit',
+
+        ]
+
+    ]);
+
+    Route::resource('portfolios', 'PortfolioController', [
+
+        'names' => [
+
+            'index' => 'admin.portfolios.index',
+
+            'store' => 'admin.portfolios.store',
+
+            'create' => 'admin.portfolios.create',
+
+            'destroy' => 'admin.portfolios.destroy',
+
+            'update' => 'admin.portfolios.update',
+
+            'show' => 'admin.portfolios.show',
+
+            'edit' => 'admin.portfolios.edit',
 
         ]
 
