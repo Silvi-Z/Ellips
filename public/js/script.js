@@ -5,7 +5,14 @@ function addUpload() {
     divEL.classList = 'newForm';
     document.querySelector(".form").appendChild(divEL);
     ++key
-    const uploads = `<input class="checkbox position-static" type="checkbox" name='upload_files[${key}][is_video]' aria-label="...">\n` +
+
+    const uploads ='<div class="d-flex align-items-center">\n' +
+        '                        <div class="d-flex align-items-center">\n' +
+        '                            <input class="checkbox position-static" type="checkbox" name=\'upload_files[${key}][is_video]\' aria-label="...">' +
+        '                            <p class="toggle">is_video</p>\n' +
+        '                        </div>\n' +
+        '                        <span class="delete"><i class="fa fa-trash" aria-hidden="true"></i></span>\n' +
+        '                        </div>' +
         '                        <div class="d-flex flex-wrap justify-content-between">\n' +
         '                        <div class="imageUpload">\n' +
         '                            <label class="imageUploadInput" for="imageUploadInput">Image</label>\n' +
@@ -39,14 +46,23 @@ function addUpload() {
     divEL.querySelectorAll('textarea').forEach(e=>{
         e.classList.add('html-editor')});
     tinymce.init({selector:'textarea'});
+    deleteItem()
 }
-
+    function deleteItem(){
+        if (document.querySelectorAll(".delete").length){
+            document.querySelectorAll(".delete").forEach(item=>{
+                item.addEventListener('click', ()=>{
+                    item.parentElement.parentElement.remove()
+                })
+            })
+        }
+    }
+deleteItem()
 $(document).ready(function () {
     if($('.add_file_blog').length){
         document.querySelector('.add_file_blog').addEventListener('click', (e) => {
             e.preventDefault();
             addUpload()
-
         })
     }
 
