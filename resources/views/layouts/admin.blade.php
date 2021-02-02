@@ -95,6 +95,35 @@
 
             </li>
 
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Clients">
+
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseClients" data-parent="#exampleAccordion">
+
+                    <i class="fa fa-fw fa-list"></i>
+
+                    <span class="nav-link-text">Clients</span>
+
+                </a>
+
+                <ul class="sidenav-second-level collapse" id="collapseClients">
+
+                    <li>
+
+                        <a href="{{ route('admin.clients.create') }}">Create Client</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ route('admin.clients.index') }}">Clients list</a>
+
+                    </li>
+
+                </ul>
+
+            </li>
+
+
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Brands">
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseBrands" data-parent="#exampleAccordion">
@@ -211,33 +240,51 @@
 
             </li>
 
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Blogs">
 
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseBlogs">
 
-
-
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-
-                <a class="nav-link" href="{{ route('admin.categories.index') }}">
-
-                    <i class="fa fa-fw fa-th-list"></i>
-
-                    <span class="nav-link-text">Categories</span>
-
-                </a>
-
-            </li>
-
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Orders">
-
-                <a class="nav-link" href="{{ route('admin.blogs.index') }}">
-
-                    <i class="fa fa-fw fa-shopping-cart"></i>
+                    <i class="fa fa-fw fa-question"></i>
 
                     <span class="nav-link-text">Blogs</span>
 
                 </a>
 
+                <ul class="sidenav-second-level collapse" id="collapseBlogs">
+
+                    <li>
+
+                        <a href="{{ route('admin.blogs.create') }}">Create Blog</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ route('admin.blogs.index') }}">Blogs list</a>
+
+                    </li>
+
+                </ul>
+
             </li>
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+
+                <a class="nav-link" href="{{ route('admin.statistics') }}">
+
+                    <i class="fa fa-fw fa-th-list"></i>
+
+                    <span class="nav-link-text">Statistics</span>
+
+                </a>
+
+            </li>
+
+
+
+
+
+
 
 
 

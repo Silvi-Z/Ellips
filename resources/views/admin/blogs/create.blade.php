@@ -91,7 +91,7 @@
             </div>
             <div class="form-group">
 
-                {!! Form::label('text_ru', 'DESCRIPTION EN *') !!}
+                {!! Form::label('text_ru', 'DESCRIPTION RU *') !!}
 
                 {!! Form::textarea('text_ru', isset($blog)?$blog->text_ru:'', ['class' => $errors->has('text_ru') ? 'form-control html-editor is-invalid' : 'form-control html-editor']) !!}
 

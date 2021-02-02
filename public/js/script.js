@@ -42,12 +42,14 @@ function addUpload() {
 }
 
 $(document).ready(function () {
+    if($('.add_file_blog').length){
+        document.querySelector('.add_file_blog').addEventListener('click', (e) => {
+            e.preventDefault();
+            addUpload()
 
-    document.querySelector('.add_file_blog').addEventListener('click', (e) => {
-        e.preventDefault();
-        addUpload()
+        })
+    }
 
-    })
 
     // function check() {
     //     const checkboxes = document.querySelectorAll(".checkbox");
