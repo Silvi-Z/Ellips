@@ -306,6 +306,17 @@
                 </a>
 
             </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+
+                <a class="nav-link" href="{{ route('admin.slider') }}">
+
+                    <i class="fa fa-slideshare"></i>
+
+                    <span class="nav-link-text">Slider</span>
+
+                </a>
+
+            </li>
 
 
 
