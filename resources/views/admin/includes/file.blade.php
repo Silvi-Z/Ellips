@@ -1,12 +1,12 @@
 
 <div class="form-group form {{$page}}"
      style="border: 1px solid #ccc; padding: 10px; display: flex; flex-direction: column">
-    <button class="button add_file_blog">+</button>
+    <button class="button add_file_blog"><i class="fa fa-plus-square" aria-hidden="true"></i></button>
 @if($item)
 
     @php
         $upload_files =  $item->images->toArray();
-       
+
     @endphp
 
 
@@ -14,11 +14,15 @@
             @foreach($upload_files as $key=>$upload_file)
                 <div class="newForm" draggable="true">
                     <div class="d-flex align-items-center">
-                        <input type="hidden" name="upload_files[{{$key}}][id]" value="{{$upload_file['id']}}">
-                        <input class="checkbox position-static" @if($upload_file["video"] ) checked @endif data-type="video" type="checkbox"
-                               name='upload_files[{{$key}}][is_video]' value="option1" aria-label="...">
-                        <p class="toggle">is_video</p>
-
+                        <div class="d-flex align-items-center">
+                            <input type="hidden" name="upload_files[{{$key}}][id]" value="{{$upload_file['id']}}">
+                            <input class="checkbox position-static" @if($upload_file["video"] ) checked @endif data-type="video" type="checkbox"
+                                   name='upload_files[{{$key}}][is_video]' value="option1" aria-label="...">
+                            <p class="toggle">is_video</p>
+                        </div>
+                        @if($key != 0)
+                        <span class="delete"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                            @endif
                     </div>
                     <div class="d-flex flex-wrap justify-content-between">
                         <div class="imageUpload upload" data-type="image">
@@ -108,9 +112,14 @@
 
             <div class="newForm" draggable="true">
                 <div class="d-flex align-items-center">
-                    <input class="checkbox position-static" @if(isset($upload_file["video"]) ) checked @endif data-type="video" type="checkbox"
-                           name='upload_files[{{$key}}][is_video]' value="option1" aria-label="...">
-                    <p class="toggle">is_video</p>
+                    <div class="d-flex align-items-center">
+                        <input class="checkbox position-static" @if(isset($upload_file["video"]) ) checked @endif data-type="video" type="checkbox"
+                               name='upload_files[{{$key}}][is_video]' value="option1" aria-label="...">
+                        <p class="toggle">is_video</p>
+                    </div>
+                    @if($key != 0)
+                        <span class="delete"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                    @endif
 
                 </div>
                 <div class="d-flex flex-wrap justify-content-between">
