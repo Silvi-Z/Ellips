@@ -24,6 +24,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 
     Route::get('/', 'DashboardController@index')->name('admin.index');
     Route::any('/statistics', 'StatisticController@index')->name('admin.statistics');
+    Route::post('/upload', 'DashboardController@upload')->name('admin.upload');
 
 
 

@@ -598,7 +598,7 @@
     <script src="{{asset('js/adminlibs.js')}}"></script>
     <script src="{{asset('js/script.js')}}"></script>
 
-<script src='{{ asset('js/tinymce/tinymce.min.js') }}'></script>
+    <script src='{{ asset('js/tinymce/tinymce.min.js') }}'></script>
 
     <!-- Custom scripts for this page-->
 

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Http\Requests\BlogRequest;
 use App\Models\Blog;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -38,7 +40,7 @@ class BlogController extends Controller
      */
     public function store(BlogRequest $request)
     {
-//        dd($request->all());
+
         $data = [
             'title_hy'=>$request->title_hy,
             'title_en'=>$request->title_en,
@@ -68,7 +70,7 @@ class BlogController extends Controller
             }
         }
 //        dd($data);
-        $blog = Product::create($data);
+        $blog = Blog::create($data);
         
         $blog->images()->createMany($files);
         $request->session()->flash('alert-success', 'Blog has successful added!');
@@ -95,7 +97,7 @@ class BlogController extends Controller
     public function edit($id)
     {
         $blog = Blog::findOrFail($id);
-        return view('admin.products.create')
+        return view('admin.blogs.create')
             ->with(
                 [
                     'blog'=>$blog
@@ -111,6 +113,7 @@ class BlogController extends Controller
      */
     public function update(BlogRequest $request, $id)
     {
+//        dd($request->text_en);
         $blog = Blog::findOrFail($id);
         $data = [
             'title_hy'=>$request->title_hy,
@@ -158,7 +161,7 @@ class BlogController extends Controller
         $blog->images()->delete();
         $blog->images()->createMany($files);
         $request->session()->flash('alert-success', 'Blog has successful updated!');
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.blogs.index');
     }
 
     /**
@@ -172,7 +175,7 @@ class BlogController extends Controller
         $blog = Blog::findOrFail($id);
         $blog->images()->delete();
         $blog->delete();
-        $request->session()->flash('alert-success', 'Product has successful deleted!');
-        return redirect()->route('admin.products.index');
+        $request->session()->flash('alert-success', 'Blog has successful deleted!');
+        return redirect()->route('admin.blogs.index');
     }
 }

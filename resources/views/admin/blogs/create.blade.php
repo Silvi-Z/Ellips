@@ -2,7 +2,7 @@
 
 
 
-@section('title')  @if(!empty($product)) Create @else Edit @endif blog @endsection
+@section('title')  @if(!empty($blog)) Create @else Edit @endif blog @endsection
 
 
 
@@ -18,13 +18,13 @@
         <div class="col-lg-6 mt-4">
 
 
-            <h1>@if(empty($product)) Create @else Edit @endif blog</h1>
+            <h1>@if(empty($blog)) Create @else Edit @endif blog</h1>
 
 
-            @if(empty($product))
-                {!! Form::open(['method'=>'POST', 'action' => 'ProductController@store', 'files'=>true]) !!}
+            @if(empty($blog))
+                {!! Form::open(['method'=>'POST', 'action' => 'BlogController@store', 'files'=>true]) !!}
             @else
-                {!! Form::open(['method'=>'PUT', 'action' => ['ProductController@update', $product->id], 'files'=>true]) !!}
+                {!! Form::open(['method'=>'PUT', 'action' => ['BlogController@update', $blog->id], 'files'=>true]) !!}
             @endif
 
 
@@ -32,7 +32,7 @@
 
                 {!! Form::label('title_hy', 'Title AM *') !!}
 
-                {!! Form::text('title_hy', isset($product)?$product->title_hy:'', ['class' => $errors->has('title_hy') ? 'form-control is-invalid' : 'form-control',]) !!}
+                {!! Form::text('title_hy', isset($blog)?$blog->title_hy:'', ['class' => $errors->has('title_hy') ? 'form-control is-invalid' : 'form-control',]) !!}
 
                 @if ($errors->has('title_hy'))
 
@@ -47,7 +47,7 @@
 
                 {!! Form::label('title_ru', 'Title RU *') !!}
 
-                {!! Form::text('title_ru', isset($product)?$product->title_ru:'', ['class' => $errors->has('title_ru') ? 'form-control is-invalid' : 'form-control' ]) !!}
+                {!! Form::text('title_ru', isset($blog)?$blog->title_ru:'', ['class' => $errors->has('title_ru') ? 'form-control is-invalid' : 'form-control' ]) !!}
 
                 @if ($errors->has('title_ru'))
 
@@ -63,7 +63,7 @@
 
                 {!! Form::label('title_en', 'Title EN *') !!}
 
-                {!! Form::text('title_en', isset($product)?$product->title_en:'', ['class' => $errors->has('title_en') ? 'form-control is-invalid' : 'form-control']) !!}
+                {!! Form::text('title_en', isset($blog)?$blog->title_en:'', ['class' => $errors->has('title_en') ? 'form-control is-invalid' : 'form-control']) !!}
 
                 @if ($errors->has('title_en'))
 
@@ -79,7 +79,7 @@
 
                 {!! Form::label('text_hy', 'DESCRIPTION AM *') !!}
 
-                {!! Form::textarea('text_hy', isset($product)?$product->text_hy:'', ['class' => $errors->has('text_hy') ? 'form-control html-editor is-invalid' : 'form-control html-editor']) !!}
+                {!! Form::textarea('text_hy', isset($blog)?$blog->text_hy:'', ['class' => $errors->has('text_hy') ? 'form-control html-editor is-invalid' : 'form-control html-editor']) !!}
 
                 @if ($errors->has('text_hy'))
 
@@ -93,7 +93,7 @@
 
                 {!! Form::label('text_ru', 'DESCRIPTION EN *') !!}
 
-                {!! Form::textarea('text_ru', isset($product)?$product->text_ru:'', ['class' => $errors->has('text_ru') ? 'form-control html-editor is-invalid' : 'form-control html-editor']) !!}
+                {!! Form::textarea('text_ru', isset($blog)?$blog->text_ru:'', ['class' => $errors->has('text_ru') ? 'form-control html-editor is-invalid' : 'form-control html-editor']) !!}
 
                 @if ($errors->has('text_ru'))
 
@@ -107,7 +107,7 @@
 
                 {!! Form::label('text_en', 'DESCRIPTION EN *') !!}
 
-                {!! Form::textarea('text_en', isset($product)?$product->text_en:'', ['class' => $errors->has('text_en') ? 'form-control html-editor is-invalid' : 'form-control html-editor']) !!}
+                {!! Form::textarea('text_en', isset($blog)?$blog->text_en:'', ['class' => $errors->has('text_en') ? 'form-control html-editor is-invalid' : 'form-control html-editor']) !!}
 
                 @if ($errors->has('text_en'))
 
@@ -119,7 +119,7 @@
             </div>
 
 
-            @include('admin.includes.file', ['page' => 'products', 'item'=>isset($product)?$product:false])
+            @include('admin.includes.file', ['page' => 'products', 'item'=>isset($blog)?$blog:false])
             <div class="form-group">
 
                 {!! Form::token() !!}
@@ -149,16 +149,58 @@
     <script type="text/javascript">
         tinymce.init({
             selector: '.html-editor',
-            menubar: false,
-            plugin:'print preview paste importcss  searchreplace autolink autosave save directionality formatpainter tinymcespellchecker code visualblocks visualchars fullscreen image   codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable  charmap  emoticons',
-            height: 200,
-            toolbar: "bold italic fontselect | image | removeformat | undo redo | styleselect | alignleft aligncenter alignright alignjustify | fontsizeselect forecolor",
-            image_advtab: true,
-            image_list: [
-                {title: 'My image 1', value: 'https://www.example.com/my1.gif'},
-                {title: 'My image 2', value: 'http://www.moxiecode.com/my2.gif'}
-            ]   
-
+            plugins: 'image code',
+            forced_root_block : "",
+            relative_urls: false,
+            remove_script_host: false,
+            toolbar: 'undo redo | link image | code | fontsizeselect forecolor',
+            /* enable title field in the Image dialog*/
+            image_title: true,
+            /* enable automatic uploads of images represented by blob or data URIs*/
+            images_upload_handler: example_image_upload_handler
         });
+        function example_image_upload_handler (blobInfo, success, failure, progress) {
+            var xhr, formData;
+
+            xhr = new XMLHttpRequest();
+            xhr.withCredentials = false;
+            xhr.open('POST', '/admin/upload');
+            xhr.setRequestHeader('X-CSRF-Token','{{csrf_token()}}')
+            xhr.upload.onprogress = function (e) {
+                progress(e.loaded / e.total * 100);
+            };
+
+            xhr.onload = function() {
+                var json;
+
+                if (xhr.status === 403) {
+                    failure('HTTP Error: ' + xhr.status, { remove: true });
+                    return;
+                }
+
+                if (xhr.status < 200 || xhr.status >= 300) {
+                    failure('HTTP Error: ' + xhr.status);
+                    return;
+                }
+
+                json = JSON.parse(xhr.responseText);
+
+                if (!json || typeof json.location != 'string') {
+                    failure('Invalid JSON: ' + xhr.responseText);
+                    return;
+                }
+
+                success(json.location);
+            };
+
+            xhr.onerror = function () {
+                failure('Image upload failed due to a XHR Transport error. Code: ' + xhr.status);
+            };
+
+            formData = new FormData();
+            formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+            xhr.send(formData);
+        };
     </script>
 @endsection
