@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\Helper;
-use App\Http\Requests\CategoryRequest;
-use App\Models\Category;
+use App\Http\Requests\CityRequest;
+use App\Models\City;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class CityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.categories.index')->with(['categories'=>$categories]);
+        $cities = City::all();
+        return view('admin.cities.index')->with(['cities'=>$cities]);
     }
 
     /**
@@ -27,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.cities.create');
     }
 
     /**
@@ -36,17 +35,15 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryRequest $request)
+    public function store(CityRequest $request)
     {
-        $data = $request->except('image');
-        $data['url'] = Helper::slugify($data['title_en']);
-        $photoName = '';
-        if ($request->hasFile('image')) {
-            $photoName = time() . '.' . $request->image->getClientOriginalExtension();
-            $request->image->move(public_path('files'), $photoName);
-        }
-        $data['image'] = $photoName;
-        Category::create($data);
+        $data = [
+            'title_hy'=>$request->title_hy,
+            'title_en'=>$request->title_en,
+            'title_ru'=>$request->title_ru,
+            ];
+        $city = City::create($data);
+
         $request->session()->flash('alert-success', 'Category was successful added!');
         return redirect()->route('admin.categories.index');
 
@@ -86,16 +83,14 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryRequest $request, $id)
+    public function update(CityRequest $request, $id)
     {
-        $category = Category::findOrFail($id);
-        $data = $request->except('image');
-        $data['url'] = Helper::slugify($data['title_en']);
-        if ($request->hasFile('image')) {
-            $photoName = time() . '.' . $request->image->getClientOriginalExtension();
-            $request->image->move(public_path('files'), $photoName);
-            $data['image'] = $photoName;
-        }
+        $category = City::findOrFail($id);
+        $data = [
+            'title_hy'=>$request->title_hy,
+            'title_en'=>$request->title_en,
+            'title_ru'=>$request->title_ru,
+        ];
         $category->update($data);
         $request->session()->flash('alert-success', 'Category was successful edited!');
 

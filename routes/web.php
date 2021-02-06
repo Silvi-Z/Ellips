@@ -219,6 +219,26 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 
     ]);
 
+    Route::resource('cities', 'CityController', [
 
+        'names' => [
+
+            'index' => 'admin.cities.index',
+
+            'store' => 'admin.cities.store',
+
+            'create' => 'admin.cities.create',
+
+            'destroy' => 'admin.cities.destroy',
+
+            'update' => 'admin.cities.update',
+
+            'show' => 'admin.cities.show',
+
+            'edit' => 'admin.cities.edit',
+
+        ]
+
+    ]);
 
 });

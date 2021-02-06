@@ -44,18 +44,14 @@ class SystemController extends Controller
             'title_hy'=>$request->title_hy,
             'title_en'=>$request->title_en,
             'title_ru'=>$request->title_ru,
+            'text_hy'=>$request->text_hy,
+            'text_en'=>$request->text_en,
+            'text_ru'=>$request->text_ru,
         ];
 
         $data['url'] = Helper::slugify($data['title_en']);
-//        dd($data);die;
-
         $files = [];
         foreach ($request->upload_files as $key=>$file){
-            $files[$key] = [
-                'text_hy'=>$file['text_hy'],
-                'text_en'=>$file['text_en'],
-                'text_ru'=>$file['text_ru'],
-            ];
             if(isset($file['video']) && $file['video']){
                 $files[$key]['video'] = $file['video'];
             }else{
@@ -117,15 +113,14 @@ class SystemController extends Controller
             'title_hy'=>$request->title_hy,
             'title_en'=>$request->title_en,
             'title_ru'=>$request->title_ru,
+            'text_hy'=>$request->text_hy,
+            'text_en'=>$request->text_en,
+            'text_ru'=>$request->text_ru,
         ];
 
         $data['url'] = Helper::slugify($data['title_en']);
+        $files = [];
         foreach ($request->upload_files as $key=>$file){
-            $files[$key] = [
-                'text_hy'=>$file['text_hy'],
-                'text_en'=>$file['text_en'],
-                'text_ru'=>$file['text_ru'],
-            ];
             if(isset($file['video']) && $file['video']){
                 $files[$key]['video'] = $file['video'];
             }else{

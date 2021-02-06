@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoryRequest extends FormRequest
+class CityRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,17 +23,13 @@ class CategoryRequest extends FormRequest
      */
     public function rules()
     {
-        $rules =  [
+        return [
             'title_hy'=>'required',
             'title_ru'=>'required',
             'title_en'=>'required',
+            'adresses'=>'array',
+            'emails'=>'array',
+            'phones'=>'array',
         ];
-        if ($this->method() == "PUT") {
-            $rules['image'] = 'image|max:10240';
-
-        }else{
-            $rules['image'] = 'required|image|max:10240';
-        }
-        return $rules;
     }
 }

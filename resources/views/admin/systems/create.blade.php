@@ -76,7 +76,51 @@
             </div>
 
 
-            @include('admin.includes.file', ['page' => 'systems','errors' => $errors, 'item'=>isset($system)?$system:false])
+            <div class="form-group">
+
+                {!! Form::label('text_hy', 'DESCRIPTION AM *') !!}
+
+                {!! Form::textarea('text_hy', isset($system)?$system->text_hy:'', ['class' => $errors->has('text_hy') ? 'form-control html-editor is-invalid' : 'form-control html-editor']) !!}
+
+                @if ($errors->has('text_hy'))
+
+                    {{--{{ dd($errors->all()) }}--}}
+
+                    <div class="invalid-feedback">{{ $errors->first('text_hy') }}</div>
+
+                @endif
+            </div>
+            <div class="form-group">
+
+                {!! Form::label('text_ru', 'DESCRIPTION RU *') !!}
+
+                {!! Form::textarea('text_ru', isset($system)?$system->text_ru:'', ['class' => $errors->has('text_ru') ? 'form-control html-editor is-invalid' : 'form-control html-editor']) !!}
+
+                @if ($errors->has('text_ru'))
+
+                    {{--{{ dd($errors->all()) }}--}}
+
+                    <div class="invalid-feedback">{{ $errors->first('text_ru') }}</div>
+
+                @endif
+            </div>
+            <div class="form-group">
+
+                {!! Form::label('text_en', 'DESCRIPTION EN *') !!}
+
+                {!! Form::textarea('text_en', isset($system)?$system->text_en:'', ['class' => $errors->has('text_en') ? 'form-control html-editor is-invalid' : 'form-control html-editor']) !!}
+
+                @if ($errors->has('text_en'))
+
+                    {{--{{ dd($errors->all()) }}--}}
+
+                    <div class="invalid-feedback">{{ $errors->first('text_en') }}</div>
+
+                @endif
+            </div>
+
+
+            @include('admin.includes.file', ['page' => 'products','errors' => $errors, 'item'=>isset($system)?$system:false])
             <div class="form-group">
 
                 {!! Form::token() !!}

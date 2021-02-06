@@ -99,10 +99,6 @@ class ClientController extends Controller
         $client->update($data);
         $request->session()->flash('alert-success', 'Client was successful added!');
         return redirect()->route('admin.clients.index');
-
-        $request->session()->flash('alert-success', 'Client was successful edited!');
-
-        return redirect()->route('admin.clients.index');
     }
 
     /**
@@ -115,9 +111,6 @@ class ClientController extends Controller
     {
 
         Client::findOrFail($id)->delete();
-
-
-
         $request->session()->flash('alert-success', 'Category was successful deleted!');
 
         return redirect()->route('admin.clients.index');
