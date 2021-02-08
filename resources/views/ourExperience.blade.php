@@ -1,14 +1,12 @@
-@extends('layouts.app')
 
-@section('content')
 <div class="about d-flex w-100 justify-content-center">
     <div class="d-flex flex-column">
         <span>ՄԵՐ ՓՈՐՁԸ</span>
         <div class="circles">
             <!--            <img src="./images/rings.png" alt="">-->
-            <img class="redCircle" src="../../public/front/images/redCircle.png" alt="">
-            <img class="transparentCircle" src="../../public/front/images/transparentCircle.png" alt="">
-            <img class="blueCircle" src="../../public/front/images/blueCircle.png" alt="">
+            <img class="redCircle" src="{{asset('images/redCircle.png')}}" alt="">
+            <img class="transparentCircle" src="{{asset('images/transparentCircle.png')}}" alt="">
+            <img class="blueCircle" src="{{asset('images/blueCircle.png')}}" alt="">
         </div>
     </div>
     <div>
@@ -37,4 +35,3 @@
         </div>
     </div>
 </div>
-@endsection

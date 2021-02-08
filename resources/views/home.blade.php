@@ -1,24 +1,36 @@
 @extends('layouts.app')
-
 @section('content')
     <main class="homePage d-flex flex-column">
         <h1 class="homePageTitle">ԱՆՎՏԱՆԳՈՒԹՅՈՒՆ․ ՈՐԱԿ․ ՀՈՒՍԱԼԻՈՒԹՅՈՒՆ</h1>
         <section>
             <div class="container">
                 <div class="d-flex justify-content-center slider w-100">
-                    <div class="w-100 position-relative">
+                    <div class="w-100 position-relative d-flex">
                         <div class="imagesSlide">
                             <div>
                                 <video loop  autoplay muted height="200" width="300">
-                                    <source src="./images/video.mp4" type="video/mp4">
-                                    Your browser does not support HTML5 video.
+                                    <source src="{{asset('images/systemVideo.mp4')}}" type="video/mp4">
                                 </video>
                             </div>
                             <div>
-                                <img src="/images/img2.jfif" alt="img1" data-text="ԼՈՒՍԱՑՈՒՅՑԻ">
+                                <img src="{{asset('images/img2.jfif')}}" alt="img1" data-text="ԼՈՒՍԱՑՈՒՅՑԻ">
                             </div>
                             <div>
-                                <img src="./images/img3.jfif" alt="img1" data-text="ԼՈՒՍԱՑՈՒՅՑԻ ԶԱՐԳԱՑՈՒՄԸ ԼՈՒՍԱՑՈՒՅՑԻ">
+                                <img src="{{asset('images/img3.jfif')}}" alt="img1" data-text="ԼՈՒՍԱՑՈՒՅՑԻ ԶԱՐԳԱՑՈՒՄԸ ԼՈՒՍԱՑՈՒՅՑԻ">
+                            </div>
+                        </div>
+
+                        <div class="imagesSmallSlide">
+                            <div>
+                                <video loop  autoplay muted height="200" width="300">
+                                    <source src="{{asset('images/systemVideo.mp4')}}" type="video/mp4">
+                                </video>
+                            </div>
+                            <div>
+                                <img src="{{asset('images/img2.jfif')}}" alt="img1" data-text="ԼՈՒՍԱՑՈՒՅՑԻ">
+                            </div>
+                            <div>
+                                <img src="{{asset('images/img3.jfif')}}" alt="img1" data-text="ԼՈՒՍԱՑՈՒՅՑԻ ԶԱՐԳԱՑՈՒՄԸ ԼՈՒՍԱՑՈՒՅՑԻ">
                             </div>
                         </div>
 
@@ -34,7 +46,7 @@
             </div>
         </section>
         <section>
-            <?php include 'ourExperience.php'; ?></div>
+             @include('ourExperience')
         </section>
         <div class="darkSection w-100 d-flex flex-column justify-content-center">
             <!--                <div>-->
@@ -42,7 +54,7 @@
             <div  class="services">
                 <div>
                     <div class="servicesTitle">
-                        <img src="./icons/slide01.svg" alt="">
+                        <img src="{{asset('icons/slide01.svg')}}" alt="">
                         <p>Տեխնիկական Խորհրդատվություն</p>
                     </div>
                     <p>«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է տեխնիկական խորհրդատվություն բարձրակարգ մասնագետների կողմից, ինչպես նոր ձեռք բերվող ապրանքների,
@@ -50,7 +62,7 @@
                 </div>
                 <div>
                     <div class="servicesTitle">
-                        <img src="./icons/slide02.svg" alt="">
+                        <img src="{{asset('icons/slide02.svg')}}" alt="">
                         <p> Նախագծում, Արտադրություն և Ներկրում</p>
                     </div>
                     <p>«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է տեխնիկական խորհրդատվություն բարձրակարգ մասնագետների կողմից, ինչպես նոր ձեռք բերվող ապրանքների,
@@ -58,7 +70,7 @@
                 </div>
                 <div>
                     <div class="servicesTitle">
-                        <img src="./icons/slide03.svg" alt="">
+                        <img src="{{asset('icons/slide03.svg')}}" alt="">
                         <p>Տեղադրում և Գործարկում</p>
                     </div>
                     <p>«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է տեխնիկական խորհրդատվություն բարձրակարգ մասնագետների կողմից, ինչպես նոր ձեռք բերվող ապրանքների,
@@ -66,7 +78,7 @@
                 </div>
                 <div>
                     <div class="servicesTitle">
-                        <img src="./icons/slide02.svg" alt="">
+                        <img src="{{asset('icons/slide02.svg')}}" alt="">
                         <p>Տեղադրում և Գործարկում</p>
                     </div>
                     <p>«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է տեխնիկական խորհրդատվություն բարձրակարգ մասնագետների կողմից, ինչպես նոր ձեռք բերվող ապրանքների,
@@ -74,7 +86,7 @@
                 </div>
                 <div>
                     <div class="servicesTitle">
-                        <img src="./icons/slide02.svg" alt="">
+                        <img src="{{asset('icons/slide02.svg')}}" alt="">
                         <p> Նախագծում, Արտադրություն և Ներկրում</p>
                     </div>
                     <p>«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է տեխնիկական խորհրդատվություն բարձրակարգ մասնագետների կողմից, ինչպես նոր ձեռք բերվող ապրանքների,
@@ -82,7 +94,7 @@
                 </div>
                 <div>
                     <div class="servicesTitle">
-                        <img src="./icons/slide03.svg" alt="">
+                        <img src="{{asset('icons/slide03.svg')}}" alt="">
                         <p>Տեղադրում և Գործարկում</p>
                     </div>
                     <p>«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է տեխնիկական խորհրդատվություն բարձրակարգ մասնագետների կողմից, ինչպես նոր ձեռք բերվող ապրանքների,
@@ -90,7 +102,7 @@
                 </div>
                 <div>
                     <div class="servicesTitle">
-                        <img src="./icons/slide02.svg" alt="">
+                        <img src="{{asset('icons/slide02.svg')}}" alt="">
                         <p>Տեղադրում և Գործարկում</p>
                     </div>
                     <p>«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է տեխնիկական խորհրդատվություն բարձրակարգ մասնագետների կողմից, ինչպես նոր ձեռք բերվող ապրանքների,
@@ -99,7 +111,7 @@
                 <!--                    </div>-->
             </div>
             <!--                        <div class="wrapper">-->
-            <div class="moreServices d-flex">
+            <div class="moreServices d-flex justify-content-center">
                 <p>«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է նաև ծառայությունների առանձին փաթեթներ,որոնք են․</p>
                 <div class="d-flex">
                     <div class="d-flex justify-content-center align-items-center w-250 ">Էլեկտրասնուցում</div>
@@ -108,14 +120,14 @@
                 </div>
             </div>
             <!--                        </div>-->
-            <div class="companies w-100">
+            <div class="newCompanies w-100">
                 <h3>Մեզ վստահում են</h3>
-                <?php include 'companies/companies.blade.php'; ?>
+                @include ('companies')
             </div>
             <div class="wrapper">
                 <div class="portfolio d-flex flex-column align-items-center">
                     <div class="portfolioBigImg">
-                        <img src="./images/portfolioBigImg.png" class="w-100 d-flex flex-column justify-content-center" alt="">
+                        <img src="{{asset('images/portfolioBigImg.png')}}" class="w-100 d-flex flex-column justify-content-center" alt="">
                         <h3 class="portfolioTitle">Կենդանաբանական այգի</h3>
                         <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային տեսախցիկներ)
                             Պահպանման և տագնապի ահազանգման համակարգ (EVO-192)
@@ -123,12 +135,12 @@
                     </div>
                     <div class="portfolioSmallImages d-flex w-100">
                         <div>
-                            <img src="./images/portfolioFirstSmallImg.png" class="w-100" alt="">
+                            <img src="{{asset('images/portfolioFirstSmallImg.png')}}" class="w-100" alt="">
                             <h3 class="portfolioTitle">«Էլիտ Պլազա» բիզնես կենտրոն</h3>
                             <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային տեսախցիկներ)</p>
                         </div>
                         <div>
-                            <img src="./images/portfolioSecondSmallImg.png" class="w-100" alt="">
+                            <img src="{{asset('images/portfolioSecondSmallImg.png')}}" class="w-100" alt="">
                             <h3 class="portfolioTitle">HSBC Բանկ Հայաստան</h3>
                             <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային տեսախցիկներ)</p>
                         </div>
@@ -145,7 +157,7 @@
                     <div class="d-flex">
                         <div class="col-sm product">
                             <div class="d-flex align-items-center justify-content-center flex-column">
-                                <img src="/images/camera1.png" alt="">
+                                <img src="{{asset('images/camera1.png')}}" alt="">
                             </div>
                             <div>
                                 <h6>5MP Super HD Ակտիվ զսպող տեսախցիկ</h6>
@@ -154,7 +166,7 @@
                         </div>
                         <div class="col-sm product">
                             <div class="d-flex align-items-center justify-content-center flex-column">
-                                <img src="/images/camera2.png" alt="">
+                                <img src="{{asset('images/camera2.png')}}" alt="">
                             </div>
                             <div>
                                 <h6>Տնային մոնիտորինգի հավաքածու, որն ունի Wi-Fi ջրհեղեղի տեսախցիկ և 1080p HD վիդեո դռան զանգ</h6>
@@ -163,7 +175,7 @@
                         </div>
                         <div class="col-sm product">
                             <div class="d-flex align-items-center justify-content-center flex-column">
-                                <img src="/images/camera3.png" alt="">
+                                <img src="{{asset('images/camera3.png')}}" alt="">
                             </div>
                             <div>
                                 <h6>2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն</h6>
@@ -197,7 +209,7 @@
             <div class="w-100">
                 <h3>Բլոգ</h3>
                 <div class="blog d-flex align-items-center justify-content-between">
-                    <img src="./images/blog1.png" alt="" >
+                    <img src="{{asset('images/blog1.png')}}" alt="" >
                     <div class="d-flex flex-column justify-content-center">
                         <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                         <p>12.28.2020</p>
@@ -208,7 +220,7 @@
                     </div>
                 </div>
                 <div class="blog d-flex align-items-center justify-content-between">
-                    <img src="./images/blog2.png" alt="">
+                    <img src="{{asset('images/blog2.png')}}" alt="">
                     <div class="d-flex flex-column justify-content-center">
                         <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                         <p>12.28.2020</p>
@@ -219,7 +231,7 @@
                     </div>
                 </div>
                 <div class="blog d-flex align-items-center justify-content-between">
-                    <img src="./images/blog3.png" alt="">
+                    <img src="{{asset('images/blog3.png')}}" alt="">
                     <div class="d-flex flex-column justify-content-center">
                         <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                         <p>12.28.2020</p>
@@ -236,3 +248,4 @@
         </div>
     </main>
 @endsection
+

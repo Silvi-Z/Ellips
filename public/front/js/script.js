@@ -1,10 +1,14 @@
 $(document).ready(function () {
     $('.imagesSlide').slick({
         speed: 1000,
+        slidesToShow: 1,
         autoplay: true,
         infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
+        arrows: false,
+        pauseOnFocus: false,
+        pauseOnHover: false,
+        pauseOnDotsHover: false,
+        letiableWidth: true,
         cssEase: 'ease-in-out',
         responsive: [{
             breakpoint: 1400,
@@ -13,19 +17,88 @@ $(document).ready(function () {
             }
         }]
     });
+    $('.imagesSmallSlide').slick({
+        speed: 1000,
+        slidesToShow: 1,
+        autoplay: true,
+        initialSlide: 1,
+        arrows: false,
+        infinite: true,
+        pauseOnFocus: false,
+        pauseOnHover: false,
+        pauseOnDotsHover: false,
+        letiableWidth: true,
+        cssEase: 'ease-in-out',
+        responsive: [{
+            breakpoint: 1400,
+            settings: {
+                arrows: false,
+            }
+        }]
+    });
+
+    $('.singleProduct').slick({
+        slidesToShow: 1,
+        infinite: true,
+        slidesToScroll: 1,
+        arrows: true,
+        dots: true,
+    });
+
     $('.imgVideo').slick({
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
         cssEase: 'linear',
         fade: true,
-        dots:true,
-        responsive: [{
-            breakpoint: 1400,
-            settings: {
-            }
-        }]
+        dots: true,
     });
+
+    $('.sliderBlog').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        cssEase: 'linear',
+        dots: true,
+    });
+    $('.sliderPortfolio').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        cssEase: 'linear',
+        dots: true,
+    });
+
+
+    function slideCount(slider) {
+        let currentSlide = slider.slick('slickCurrentSlide') + 1;
+        let slideCount = slider.slick("getSlick").slideCount;
+        let p = $(".slick-dots")[0]
+        p.innerHTML = currentSlide + '/' + slideCount;
+    }
+
+
+    if ($('.selectButtons').length) {
+        const selectButton = $('.selectButtons')[0].children;
+        Array.from(selectButton).forEach((button) => {
+            button.addEventListener('click', (e) => {
+                button.classList.toggle('activeButton')
+            })
+        })
+    }
+
+    $('.imgVideo').length > 0 && slideCount($('.imgVideo'));
+
+    $('.sliderBlog').length > 0 && slideCount($('.sliderBlog'));
+
+    $('.singleProduct').length > 0 && slideCount($('.singleProduct'));
+
+    $('.imgVideo').on("afterChange", () => slideCount($('.imgVideo')));
+
+    $('.singleProduct').on("afterChange", () => slideCount($('.singleProduct')));
+
+    $('.sliderBlog').on("afterChange", () => slideCount($('.sliderBlog')));
+
 
     $('.imagesSlide').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
         const p = document.querySelector("p")
@@ -39,7 +112,7 @@ $(document).ready(function () {
 
     // $(document).ready(function () {
     //     console.log('dsfs');
-        $('.dropdown-menu').dropdown();
+    $('.dropdown-menu').dropdown();
     // });
 
     $('.services').slick({
@@ -49,7 +122,7 @@ $(document).ready(function () {
         // swipeToSlide: true,
         arrows: false,
         infinite: false,
-        // variableWidth: true,
+        // letiableWidth: true,
         responsive: [{
             breakpoint: 1500,
             settings: {
@@ -71,7 +144,7 @@ $(document).ready(function () {
 
     });
 
-    $('.company').slick({
+    $('.companye').slick({
         // items: 4,
         // loop:true,
         slidesToShow: 4,
@@ -118,12 +191,26 @@ $(document).ready(function () {
 
 // })
     $('.systemsSlide').slick({
-        slidesToShow: 5,
-        slidesToScroll: 2,
-        infinite: false,
-        swipeToSlide: true,
-        arrows: false,
+        slidesToShow: 3,
+        // slidesToScroll: 2,
+        infinite: true,
+        arrows: true,
+        responsive: [{
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 2
+            }
+        },{
+            breakpoint: 850,
+            settings: {
+                slidesToShow:1,
+                arrows: false,
+            }
+        },
+        ]
     })
+
+
     $('.licenses').slick({
         slidesToShow: 5,
         slidesToScroll: 2,
@@ -156,6 +243,102 @@ $(document).ready(function () {
 //     // }
 //     // }
 // }
+
+    // document.querySelector('.img').addEventListener('click', showModal)
+
+    // function showImage() {
+    //    function showModal(){
+    //        let input = this;
+    //        //     let imgAlt = input.getAttribute("alt");
+    //        // console.log(imgAlt);
+    //        //     $("#theModal h4.modal-title").html(imgAlt);
+    //        let img = this;
+    //        let imageHeight = input.height;
+    //        // console.dir(input);
+    //        let imagWidth = input.width;
+    //        let NewimgWidth = imagWidth * 2;
+    //        let NewImgHeight = imageHeight * 2;
+    //        let picSrc = input.getAttribute("src");
+    //        document.querySelector("#picSrc img").setAttribute('src', picSrc);
+    //        document.querySelector("div.modal-dialog").style.width = NewimgWidth + 'px';
+    //        document.querySelector("#picSrc img").style.width = NewimgWidth + 'px';
+    //        document.querySelector("#picSrc img").style.height = NewImgHeight + 'px';
+    //
+    //            $("#theModal").modal("show");
+    //        console.log(NewimgWidth);
+    //        console.log(document.querySelector(".modal-dialog").style.width);
+    //    }
+    //     let MyHtml = '<div id="theModal" class="modal fade">' +
+    //         ' <div class="modal-dialog ">' +
+    //         '<div class="modal-content">' +
+    //         ' <div class="modal-header">' +
+    //         '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
+    //         '<h4 class="modal-title">Hello!</h4>' +
+    //         '</div>' +
+    //         '<div class="modal-body" id="picSrc">' +
+    //         '  <img  not-to-enlarge="true" class="img-responsive" + src=""alt="...">' +
+    //         '</div>' +
+    //         '<div class="modal-footer">' +
+    //         '<button type="button" class="btn btn-default" data-dismiss="modal">' +
+    //         'Close' +
+    //         '</button>' +
+    //         '</div>' +
+    //         '</div>' +
+    //         '</div>' +
+    //         '</div>';
+    //     $("div.body-content").append(MyHtml);
+    // $("img[not-to-enlarge!=true]").click(showModal);
+    // $("img[not-to-enlarge!=true]").css("cursor", "pointer");
+    // };
+
+    // $('#myModal').on('shown.bs.modal', function () {
+    //     $('#myInput').trigger('focus')
+    // })
+    $('.bigImgVideo').slick({
+        // slidesToShow: 5,
+        // slidesToScroll: 2,
+        infinite: false,
+        swipeToSlide: true,
+        arrows: false,
+    })
+    $('.newCompany').slick({
+        slidesToShow: 5,
+        autoplaySpeed: 0,
+        speed: 1000,
+        // slidesToScroll: 2,
+        infinite: true,
+        autoplay:true,
+        arrows: false,
+    })
+
+    if ($('.text').height()>='413'){
+        let seeText = $('.text')[0].nextElementSibling
+        seeText.classList.add('d-block')
+        seeText.addEventListener('click', ()=>{
+            console.log('dfs');
+            $('.text')[0].classList.add('fitContent');
+            console.log($('.text')[0].classList);
+        })
+        // $('.text')[0].classList.add('cutText');
+        // console.log($('.text')[0].classList);
+        // console.log($('.seeMore'));
+        // let color = window.getComputedStyle(
+        //     $('.text')[0], ':after'
+        // ).getPropertyValue('display');
+        // color = 'block';
+        // console.log(window.getComputedStyle(
+        //     $('.text')[0], ':after'
+        // ).display='block');
+        // console.log(color);
+        // console.log($('.text'), ':after');
+    }
+
+    document.querySelector('.selectMenu').addEventListener('click', () => {
+        const menu = document.querySelector('.subMenu').classList;
+        const header = document.querySelector('header').classList;
+        menu.toggle('d-flex');
+        header.toggle('whiteBackground')
+    })
 
     const elements = document.querySelectorAll("h2");
     elements.forEach((e) => {
@@ -195,20 +378,20 @@ $(document).ready(function () {
             imageSrc: "https://i.imgur.com/aDNdibj.png"
         },
     ];
-    const select = document.querySelector('.selectLang').children[0];
+    // const select = document.querySelector('.selectLang').children[0];
 
-    select.addEventListener('click', function () {
-        select.childNodes.forEach(e => {
-            if (e.nodeName === 'DIV') {
-                select.classList.toggle('selectClass')
-                setTimeout(() => {
-                    e.classList.toggle('openSelect')
-                }, 70)
-            }
-        })
-    })
+    // select.addEventListener('click', function () {
+    //     select.childNodes.forEach(e => {
+    //         if (e.nodeName === 'DIV') {
+    //             select.classList.toggle('selectClass')
+    //             setTimeout(() => {
+    //                 e.classList.toggle('openSelect')
+    //             }, 70)
+    //         }
+    //     })
+    // })
 
-    const elem = select.children;
+    // const elem = select.children;
 
 // for (let i = 0; i < elem.length; i++) {
 //     const value = elem[i].classList.value;
@@ -222,11 +405,12 @@ $(document).ready(function () {
         const toggleMenu = document.querySelector('.toggleMenu').classList;
         const inlineMenu = document.querySelector('.inline-menu').classList;
         if (window.innerWidth <= 1024) {
+            $('.responsiveMenu')[0].classList.remove('d-flex')
+            $('.toggleMenu')[0].classList.remove('open')
             inlineMenu.add('d-none')
             toggleMenu.remove('d-none')
             toggleMenu.add('d-flex')
-        }
-        else {
+        } else {
             inlineMenu.remove('d-none')
             toggleMenu.add('d-none')
             toggleMenu.remove('d-flex')
@@ -236,10 +420,12 @@ $(document).ready(function () {
     responsiveMenu()
     window.addEventListener('resize', responsiveMenu)
     document.querySelector('.toggleMenu').addEventListener('click', (e) => {
-        e.target.classList.toggle('open')
+        console.log(window.innerWidth);
+        e.target.classList.toggle('open');
+        $('.responsiveMenu')[0].classList.toggle('d-flex')
     })
-    window.addEventListener('scroll',  ()=> {
-        if (document.querySelector('.circles')){
+    window.addEventListener('scroll', () => {
+        if (document.querySelector('.circles')) {
             const top = document.querySelector('.circles').getBoundingClientRect().top
             const redCircle = document.querySelector('.redCircle')
             const transparentCircle = document.querySelector('.transparentCircle')
@@ -248,14 +434,35 @@ $(document).ready(function () {
                 redCircle.classList.add('redCirclePosition')
                 transparentCircle.classList.add('transparentCirclePosition')
                 blueCircle.classList.add('blueCirclePosition')
-
-                console.log("height", window.innerHeight);
-                console.log("element", document.querySelector('.circles').getBoundingClientRect().top)
-            } else {
-
             }
         }
     })
 
-})
+    ymaps.ready(init);
+
+    function init() {
+        let coords = [40.177200, 44.503490]
+        let myMap = new ymaps.Map("map", {
+            center: coords,
+            zoom: 7
+        });
+        ymaps.geocode('Նիկողայոս Տիգրանյան 27').then(function (res) {
+            let coordinates = res.geoObjects.get(0).geometry.getCoordinates();
+            coords = coordinates
+            let placemark = new ymaps.Placemark(coordinates);
+            myMap.geoObjects.add(placemark);
+        });
+
+        ymaps.geocode('Հաղթանակի պողոտա 42/9').then(function (res) {
+            let coordinates = res.geoObjects.get(0).geometry.getCoordinates();
+            coords = coordinates
+            let placemark = new ymaps.Placemark(coordinates);
+            myMap.geoObjects.add(placemark);
+        });
+
+
+    }
+
+
+});
 

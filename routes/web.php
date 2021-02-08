@@ -14,8 +14,16 @@
 
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('mainpage');
-Route::get('/systems', 'HomeController@systems');
-Route::get('/products', 'HomeController@products');
+Route::get('/systems', 'HomeController@systems')->name('systems');
+Route::get('/blogs', 'HomeController@blogs')->name('blogs');
+Route::get('/blog', 'HomeController@blog')->name('blog');
+Route::get('/company', 'HomeController@company')->name('company');
+Route::get('/products', 'HomeController@products')->name('products');
+Route::get('/portfolio', 'HomeController@portfolio')->name('portfolio');
+Route::get('/portfolioSingle', 'HomeController@portfolioSingle')->name('portfolioSingle');
+Route::get('/product', 'HomeController@product')->name('product');
+Route::get('/contact', 'HomeController@contact')->name('contact');
+Route::get('/system', 'HomeController@system')->name('system');
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 
 

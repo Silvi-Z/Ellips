@@ -76,7 +76,7 @@
             </div>
 
 
-            @include('admin.includes.file', ['page' => 'systems.systems','errors' => $errors, 'item'=>isset($system)?$system:false])
+            @include('admin.includes.file', ['page' => 'systems','errors' => $errors, 'item'=>isset($system)?$system:false])
             <div class="form-group">
 
                 {!! Form::token() !!}

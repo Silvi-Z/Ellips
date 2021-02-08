@@ -1,20 +1,120 @@
 @extends('layouts.app')
 
 @section('content')
-<main>
-    <h1>ԲԼՈԳ</h1>
-    <div class="blogsWrapper">
-        <div class="wrapper">
-            <div class="blog">
-                <img src="../../public/front/images/blog1.png" alt="">
-                <div>
-                    <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
-                    <p>12.28.2020</p>
+    <main>
+        <div class="blogWrapper flex-column align-items-center justify-content-center">
+            <div class="imageContainer">
+                <div class="d-flex justify-content-center">
+                    <div></div>
+                    <img src="{{asset('front/images/blogSlide1.jpg')}}" alt="">
                 </div>
-                <span></span>
             </div>
-            <button class="button">Տեսնել ավելին</button>
+            <div></div>
+            <div class="singleBlog">
+                <div class="blogSlider">
+                    <h3>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h3>
+                    <div>
+                        <div>
+                            <span data-toggle="modal" data-target="#blogModalSlide"></span>
+                            <div class="sliderBlog">
+                                <div>
+                                    <img src="{{asset('front/images/blog2.png')}}"
+                                         alt="">
+                                </div>
+                                <div>
+                                    <img src="{{asset('front/images/blog1.png')}}"
+                                         alt="">
+                                </div>
+                                <div>
+                                    <video autoplay muted loop>
+                                        <source src="{{asset('images/video.mp4')}}" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <p>Հետևելով և կարևորելով Հետևելով և կարևորելով Seaside Startup Summit-ի գործունեությունը՝ մենք
+                                որոշում
+                                կայացրեցինք աջակցել և հովանավորել այս տարվա գալա միջոցառումը, որը կկայանա Սևանում սույն
+                                թվականի
+                                հուլիսի 22-ից 29-ը: Seaside Startup Summint-ը վրանային ճամբար-ստարտափների միջոցառում է, որի
+                                նպատակն
+                                է ստեղծել կամուրջ ներդրողների և ձեռնարկատերերի համագործակցության համար: Սևան Ստարտափ Սամիթ
+                                2018-ը
+                                լինելու է այս տարի իրականցված բոլոր սամիթների գալա միջոցառումը: Այն միավորելու է 1000 ձե
+                                ռնարկատերերի
+                                աշխարհի տարբեր անկյուններից և ստեղծելու է համագործակցության կամուրջ: Էլլիպսը կավտոմատացնի
+                                ծառայությունները սամիթի ողջ տարածքում՝ սկսած մուտքի/ելքի համակարգից մինչև ուտեստի գնումները:
+                                Էլլիպսի
+                                շնորհիվ սամիթի տարածքում բոլոր գործողությունները կիրականացվեն առանց մարդկային միջամտության:
+                                Seaside
+                                Startup Summit-ի գործունեությունը՝ մենք որոշում կայացրեցինք աջակցել և հովանավորել այս տարվա
+                                գալա
+                                միջոցառումը, որը կկայանա Սևանում սույն թվականի հուլիսի 22-ից 29-ը: Seaside Startup Summint-ը
+                                վրանային ճամբար-ստարտափների միջոցառում է:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div class="blog d-flex align-items-center justify-content-between">
+                        <div class="d-flex justify-content-center">
+                            <div class="imgVideoWrapper">
+                                <img src="{{asset('front/images/blog3.png')}}" alt="">
+                            </div>
+                            <div class="d-flex flex-wrap ">
+                                <div>
+                                    <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
+                                </div>
+                                <p>12.28.2020</p>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog d-flex align-items-center justify-content-between">
+                        <div class="d-flex justify-content-center">
+                            <div class="imgVideoWrapper">
+                                <img src="{{asset('front/images/blog3.png')}}" alt="">
+                            </div>
+                            <div class="d-flex flex-wrap ">
+                                <div>
+                                    <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
+                                </div>
+                                <p>12.28.2020</p>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog d-flex align-items-center justify-content-between">
+                        <div class="d-flex justify-content-center">
+                            <div class="imgVideoWrapper">
+                                <img src="{{asset('front/images/blog3.png')}}" alt="">
+                            </div>
+                            <div class="d-flex flex-wrap ">
+                                <div>
+                                    <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
+                                </div>
+                                <p>12.28.2020</p>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade " id="blogModalSlide" tabindex="-1" role="dialog" aria-labelledby="blogModalSlide"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                        </div>
+                        <div class="modal-body">
+                            <video autoplay muted loop>
+                                <source src="{{asset('images/video.mp4')}}" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</main>
+    </main>
 @endsection
