@@ -177,19 +177,19 @@ $(document).ready(function () {
         }]
     });
 
-// $('.company').slick({
-//     slidesToShow: 4,
-//     slidesToScroll: 4,
-//     autoplay: true,
-//     infinite: true,
-//     // speed: 1000,
-//     cssEase: 'linear',
-//     pauseOnFocus: false,
-//     pauseOnHover: false,
-//     pauseOnDotsHover: false,
-//     arrows: false,
+$('.company').slick({
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    autoplay: true,
+    infinite: true,
+    // speed: 1000,
+    cssEase: 'linear',
+    pauseOnFocus: false,
+    pauseOnHover: false,
+    pauseOnDotsHover: false,
+    arrows: false,
 
-// })
+})
     $('.systemsSlide').slick({
         slidesToShow: 3,
         // slidesToScroll: 2,
@@ -307,7 +307,7 @@ $(document).ready(function () {
         speed: 1000,
         // slidesToScroll: 2,
         infinite: true,
-        autoplay:true,
+        // autoplay:true,
         arrows: false,
     })
 

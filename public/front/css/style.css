@@ -1622,7 +1622,13 @@ h1:not(.homePageTitle) {
 .fitContent{
     max-height: fit-content!important;
 }
-
+.fitContent:before, .fitContent~span{
+    display: none!important;
+}
+.newCompanies{
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
 .singleInfo p:not(.price) {
     font-size: 14px;
     line-height: 24px;
