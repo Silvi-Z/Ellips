@@ -14,7 +14,7 @@ class City extends Model
     }
     public function city_phones()
     {
-        return $this->hasMany(CityPhone::class, 'city_id');
+        return $this->hasMany(CityPhon::class, 'city_id');
     }
     public function city_emails()
     {

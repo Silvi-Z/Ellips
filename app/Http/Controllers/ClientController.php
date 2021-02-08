@@ -47,8 +47,13 @@ class ClientController extends Controller
         }
         $data['image'] = $photoName;
         Client::create($data);
+        $phones = [];
+        foreach ($request->phones as $phone){
+            $phones[] = ['phone'=>$phone];
+        }
+
         $request->session()->flash('alert-success', 'Client was successful added!');
-        return redirect()->route('admin.clients.index');
+        return redirect()->route('admin.clients.create');
 
     }
 

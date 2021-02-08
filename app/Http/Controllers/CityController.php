@@ -43,9 +43,12 @@ class CityController extends Controller
             'title_ru'=>$request->title_ru,
             ];
         $city = City::create($data);
+        $city->city_addresses()->createMany($request->adresses);
+        $city->city_emails()->createMany($request->emails);
+        $city->city_phones()->createMany($request->phones);
 
-        $request->session()->flash('alert-success', 'Category was successful added!');
-        return redirect()->route('admin.categories.index');
+        $request->session()->flash('alert-success', 'City was successful added!');
+        return redirect()->route('admin.cities.index');
 
     }
 
@@ -68,12 +71,8 @@ class CityController extends Controller
      */
     public function edit($id)
     {
-
-        $category = Category::findOrFail($id);
-
-
-
-        return view('admin.categories.create', ['category'=> $category]);
+        $city = City::findOrFail($id);
+        return view('admin.cities.create', ['city'=> $city]);
     }
 
     /**
@@ -85,16 +84,22 @@ class CityController extends Controller
      */
     public function update(CityRequest $request, $id)
     {
-        $category = City::findOrFail($id);
+        $city = City::findOrFail($id);
         $data = [
             'title_hy'=>$request->title_hy,
             'title_en'=>$request->title_en,
             'title_ru'=>$request->title_ru,
         ];
-        $category->update($data);
-        $request->session()->flash('alert-success', 'Category was successful edited!');
+        $city->update($data);
+        $city->city_addresses()->delete();
+        $city->city_addresses()->createMany($request->adresses);
+        $city->city_emails()->delete();
+        $city->city_emails()->createMany($request->emails);
+        $city->city_phones()->delete();
+        $city->city_phones()->createMany($request->phones);
+        $request->session()->flash('alert-success', 'City was successful edited!');
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.cities.index');
     }
 
     /**
@@ -106,12 +111,14 @@ class CityController extends Controller
     public function destroy($id,Request $request)
     {
 
-        Category::findOrFail($id)->delete();
+        $city = City::findOrFail($id);
+        $city->city_addresses()->delete();
+        $city->city_emails()->delete();
+        $city->city_phones()->delete();
+        $city->delete();
 
+        $request->session()->flash('alert-success', 'City was successful deleted!');
 
-
-        $request->session()->flash('alert-success', 'Category was successful deleted!');
-
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.cities.index');
     }
 }

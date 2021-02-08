@@ -294,6 +294,33 @@
                 </ul>
 
             </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cities">
+
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseCities">
+
+                    <i class="fa fa-fw fa-address-book"></i>
+
+                    <span class="nav-link-text">Cities</span>
+
+                </a>
+
+                <ul class="sidenav-second-level collapse" id="collapseCities">
+
+                    <li>
+
+                        <a href="{{ route('admin.cities.create') }}">Create City</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ route('admin.cities.index') }}">Cities list</a>
+
+                    </li>
+
+                </ul>
+
+            </li>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
 

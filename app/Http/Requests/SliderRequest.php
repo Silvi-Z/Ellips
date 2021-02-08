@@ -28,7 +28,6 @@ class SliderRequest extends FormRequest
             'upload_files.*.text_hy'=>'required',
             'upload_files.*.text_ru'=>'required',
             'upload_files.*.text_en'=>'required',
-            'upload_files.*.url'=>'required',
             ];
         if ($this->method() == "PUT") {
             $rules['upload_files.*.image'] = 'image|max:10240';

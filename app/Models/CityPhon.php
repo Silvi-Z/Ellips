@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CityPhone extends Model
+class CityPhon extends Model
 {
-    protected $fillable = ['phone'];
+    protected $fillable = ['phone','city_id'];
 
     public function city()
     {
