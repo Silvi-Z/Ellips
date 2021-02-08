@@ -8,7 +8,7 @@ function addUpload() {
 
     const uploads ='<div class="d-flex align-items-center">\n' +
         '                        <div class="d-flex align-items-center">\n' +
-        '                            <input class="checkbox position-static" type="checkbox" name=\'upload_files[${key}][is_video]\' aria-label="...">' +
+        '                            <input class="checkbox position-static" type="checkbox" aria-label="...">' +
         '                            <p class="toggle">is_video</p>\n' +
         '                        </div>\n' +
         '                        <span class="delete"><i class="fa fa-trash" aria-hidden="true"></i></span>\n' +

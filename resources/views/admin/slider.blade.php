@@ -23,7 +23,7 @@
 
 
         
-                {!! Form::open(['method'=>'POST', 'action' => 'SliderController@index']) !!}
+                {!! Form::open(['method'=>'POST', 'action' => 'SliderController@update','files'=>true]) !!}
 
 
             <input type="hidden" name="id" value="{{isset($slider)?$slider->id:''}}">

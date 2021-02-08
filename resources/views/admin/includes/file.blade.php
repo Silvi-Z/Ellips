@@ -17,7 +17,7 @@
                         <div class="d-flex align-items-center">
                             <input type="hidden" name="upload_files[{{$key}}][id]" value="{{$upload_file['id']}}">
                             <input class="checkbox position-static" @if($upload_file["video"] ) checked @endif data-type="video" type="checkbox"
-                                   name='upload_files[{{$key}}][is_video]' value="option1" aria-label="...">
+                                    value="option1" aria-label="...">
                             <p class="toggle">is_video</p>
                         </div>
                         @if($key != 0)
@@ -114,7 +114,7 @@
                 <div class="d-flex align-items-center">
                     <div class="d-flex align-items-center">
                         <input class="checkbox position-static" @if(isset($upload_file["video"]) ) checked @endif data-type="video" type="checkbox"
-                               name='upload_files[{{$key}}][is_video]' value="option1" aria-label="...">
+                                value="option1" aria-label="...">
                         <p class="toggle">is_video</p>
                     </div>
                     @if($key != 0)
@@ -204,7 +204,7 @@
         <div class="newForm" draggable="true">
             <div class="d-flex align-items-center">
                 <input class="checkbox position-static" data-type="video" type="checkbox"
-                       name='upload_files[0][is_video]' value="option1" aria-label="...">
+                        value="option1" aria-label="...">
                 <p class="toggle">is_video</p>
             </div>
             <div class="d-flex flex-wrap justify-content-between">

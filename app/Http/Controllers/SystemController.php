@@ -54,6 +54,7 @@ class SystemController extends Controller
         foreach ($request->upload_files as $key=>$file){
             if(isset($file['video']) && $file['video']){
                 $files[$key]['video'] = $file['video'];
+                $files[$key]['image_name'] = '';
             }else{
                 $file_name = 'upload_files.'.$key.'.image';
 
@@ -66,6 +67,7 @@ class SystemController extends Controller
                     return redirect()->back();
                 }
                 $files[$key]['image_name'] = $photoName;
+                $files[$key]['video'] = '';
             }
         }
 
@@ -123,6 +125,7 @@ class SystemController extends Controller
         foreach ($request->upload_files as $key=>$file){
             if(isset($file['video']) && $file['video']){
                 $files[$key]['video'] = $file['video'];
+                $files[$key]['image_name'] = '';
             }else{
                 $file_name = 'upload_files.'.$key.'.image';
 
@@ -145,6 +148,7 @@ class SystemController extends Controller
                     }
                 }
                 $files[$key]['image_name'] = $photoName;
+                $files[$key]['video'] = '';
             }
         }
         $system->update($data);

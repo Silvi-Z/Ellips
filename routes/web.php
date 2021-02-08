@@ -35,6 +35,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
     Route::get('/', 'DashboardController@index')->name('admin.index');
     Route::any('/statistics', 'StatisticController@index')->name('admin.statistics');
     Route::any('/slider', 'SliderController@index')->name('admin.slider');
+    Route::post('/slider', 'SliderController@update')->name('admin.slider.update');
     Route::post('/upload', 'DashboardController@upload')->name('admin.upload');
 
 

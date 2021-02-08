@@ -67,6 +67,7 @@ class ProductController extends Controller
         foreach ($request->upload_files as $key=>$file){
             if(isset($file['video']) && $file['video']){
                 $files[$key]['video'] = $file['video'];
+                $files[$key]['image_name'] = '';
             }else{
                 $file_name = 'upload_files.'.$key.'.image';
 
@@ -79,6 +80,7 @@ class ProductController extends Controller
                     return redirect()->back();
                 }
                 $files[$key]['image_name'] = $photoName;
+                $files[$key]['video'] = '';
             }
         }
 //        dd($data);
@@ -149,6 +151,7 @@ class ProductController extends Controller
 
             if(isset($file['video']) && $file['video']){
                 $files[$key]['video'] = $file['video'];
+                $files[$key]['image_name'] = '';
             }else{
                 $file_name = 'upload_files.'.$key.'.image';
 
@@ -173,6 +176,7 @@ class ProductController extends Controller
                     }
                 }
                 $files[$key]['image_name'] = $photoName;
+                $files[$key]['video'] = '';
             }
         }
 
