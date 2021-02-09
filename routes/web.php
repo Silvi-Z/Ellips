@@ -252,4 +252,27 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 
     ]);
 
+    Route::resource('social_networks', 'SotialNetworkController', [
+
+        'names' => [
+
+            'index' => 'admin.social_networks.index',
+
+            'store' => 'admin.social_networks.store',
+
+            'create' => 'admin.social_networks.create',
+
+            'destroy' => 'admin.social_networks.destroy',
+
+            'update' => 'admin.social_networks.update',
+
+            'show' => 'admin.social_networks.show',
+
+            'edit' => 'admin.social_networks.edit',
+
+        ]
+
+    ]);
+
+
 });
