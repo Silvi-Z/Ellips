@@ -71,13 +71,13 @@
                 @endphp
                 @foreach ($products as $key => $value)
                     <div class="product d-flex justify-content-center">
-                        <a href="{{route('product')}}">
+                        <a href="{{route('productPage')}}">
                             <div class="d-flex align-items-center justify-content-center flex-column">
                                 <img src={{asset($value["productImage"])}} alt="">
                             </div>
                             <div>
                                 <h6>{{$value["productName"]}}</h6>
-                                <p>{{$value["productPrice"]}} </p>
+{{--                                <p>{{$value["productPrice"]}} </p>--}}
                             </div>
                         </a>
                     </div>

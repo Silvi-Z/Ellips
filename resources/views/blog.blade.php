@@ -108,9 +108,7 @@
                             <span aria-hidden="true"></span>
                         </div>
                         <div class="modal-body">
-                            <video autoplay muted loop>
-                                <source src="{{asset('images/video.mp4')}}" type="video/mp4">
-                            </video>
+                            <img src="{{asset('front/images/blog3.png')}}" alt="">
                         </div>
                     </div>
                 </div>
