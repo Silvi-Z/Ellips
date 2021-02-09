@@ -281,6 +281,7 @@ h1 {
 .wrap {
     position: absolute;
     display: flex;
+    left: 0;
     top: 0;
     pointer-events: none;
 }

@@ -36,13 +36,13 @@
                             </div>
                         </div>
 
-{{--                        <div class="wrap">--}}
-{{--                            <div class="bigSlide">--}}
-{{--                                <p>ԼՈՒՍԱՑՈՒՅՑԻ ԶԱՐԳԱՑՈՒՄԸ</p>--}}
-{{--                            </div>--}}
+                        <div class="wrap">
+                            <div class="bigSlide">
+                                <p>ԼՈՒՍԱՑՈՒՅՑԻ ԶԱՐԳԱՑՈՒՄԸ</p>
+                            </div>
 {{--                            <div class="distance"></div>--}}
-{{--                            <div class="smallSlide"></div>--}}
-{{--                        </div>--}}
+                            <div class="smallSlide"></div>
+                        </div>
                     </div>
                 </div>
             </div>
