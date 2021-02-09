@@ -5,11 +5,11 @@
         <section>
             <div class="container">
                 <div class="d-flex justify-content-center slider w-100">
-                    <div class="w-100 position-relative d-flex">
+                    <div class="w-100 position-relative d-flex justify-content-end">
                         <div class="imagesSlide">
                             <div>
                                 <video loop autoplay muted height="200" width="300">
-                                    <source src="{{asset('images/systemVideo.mp4')}}" type="video/mp4">
+                                    <source src="{{asset('images/systemVideo.mp4')}}" data-text="ԼՈՒՍԱՑՈՒՅՑԻ ԶԱՐԳԱՑՈՒՄԸ" type="video/mp4">
                                 </video>
                             </div>
                             <div>
@@ -24,7 +24,7 @@
                         <div class="imagesSmallSlide">
                             <div>
                                 <video loop autoplay muted height="200" width="300">
-                                    <source src="{{asset('images/systemVideo.mp4')}}" type="video/mp4">
+                                    <source src="{{asset('images/systemVideo.mp4')}}" data-text="ԼՈՒՍԱՑՈՒՅՑԻ ԼՈՒՍԱՑՈՒՅՑԻ" type="video/mp4">
                                 </video>
                             </div>
                             <div>
@@ -36,13 +36,13 @@
                             </div>
                         </div>
 
-                        <div class="wrap">
-                            <div class="bigSlide">
-                                <p>ԼՈՒՍԱՑՈՒՅՑԻ ԶԱՐԳԱՑՈՒՄԸ</p>
-                            </div>
-                            <div class="distance"></div>
-                            <div class="smallSlide"></div>
-                        </div>
+{{--                        <div class="wrap">--}}
+{{--                            <div class="bigSlide">--}}
+{{--                                <p>ԼՈՒՍԱՑՈՒՅՑԻ ԶԱՐԳԱՑՈՒՄԸ</p>--}}
+{{--                            </div>--}}
+{{--                            <div class="distance"></div>--}}
+{{--                            <div class="smallSlide"></div>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>

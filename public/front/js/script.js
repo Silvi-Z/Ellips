@@ -4,7 +4,8 @@ $(document).ready(function () {
         slidesToShow: 1,
         autoplay: true,
         infinite: true,
-        arrows: false,
+        arrows: true,
+        swipe: false,
         pauseOnFocus: false,
         pauseOnHover: false,
         pauseOnDotsHover: false,
@@ -13,9 +14,17 @@ $(document).ready(function () {
         responsive: [{
             breakpoint: 1400,
             settings: {
-                arrows: false,
+                // arrows: false,
             }
-        }]
+        },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    swipe: true,
+                }
+            }
+        ]
     });
     $('.imagesSmallSlide').slick({
         speed: 1000,
@@ -23,6 +32,7 @@ $(document).ready(function () {
         autoplay: true,
         initialSlide: 1,
         arrows: false,
+        swipe: false,
         infinite: true,
         pauseOnFocus: false,
         pauseOnHover: false,
@@ -201,10 +211,10 @@ $(document).ready(function () {
             settings: {
                 slidesToShow: 2
             }
-        },{
+        }, {
             breakpoint: 850,
             settings: {
-                slidesToShow:1,
+                slidesToShow: 1,
                 arrows: false,
             }
         },
@@ -223,10 +233,10 @@ $(document).ready(function () {
             settings: {
                 slidesToShow: 3
             }
-        },{
+        }, {
             breakpoint: 850,
             settings: {
-                slidesToShow:1,
+                slidesToShow: 1,
                 arrows: false,
             }
         },
@@ -332,18 +342,19 @@ $(document).ready(function () {
     })
     console.log($('.productDescription').height());
 
-    function seeAllText(element, height){
-        if (element.height()>=height){
+    function seeAllText(element, height) {
+        if (element.height() >= height) {
             console.log('sdfvs');
             let seeText = element[0].nextElementSibling
             console.log(element[0].nextElementSibling);
             seeText.classList.add('d-block')
-            seeText.addEventListener('click', ()=>{
+            seeText.addEventListener('click', () => {
                 element[0].classList.add('fitContent');
                 element[0].classList.add('pointEvent')
             })
         }
     }
+
     seeAllText($('.systemDescription'), '413')
     seeAllText($('.productDescription'), '215')
 
@@ -476,7 +487,7 @@ $(document).ready(function () {
 
     let videos = document.getElementsByClassName("youtube");
 
-    for (let i=0; i<videos.length; i++) {
+    for (let i = 0; i < videos.length; i++) {
 
         let youtube = videos[i];
         let img = document.createElement("img");
@@ -484,20 +495,39 @@ $(document).ready(function () {
         img.setAttribute("class", "thumb");
 
         let circle = document.createElement("div");
-        circle.setAttribute("class","circle");
+        circle.setAttribute("class", "circle");
 
         youtube.appendChild(img);
         youtube.appendChild(circle);
 
-        youtube.onclick = function() {
+        youtube.onclick = function () {
             let iframe = document.createElement("iframe");
             iframe.setAttribute("src", "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1&border=0&wmode=opaque&enablejsapi=1");
-            iframe.style.width  = this.style.width;
+            iframe.style.width = this.style.width;
             iframe.style.height = this.style.height;
             this.parentNode.replaceChild(iframe, this);
 
         };
     }
 
+    //
+    // $('.homePageTitle')[0].addEventListener('click', ()=>{
+    //     $('.imagesSmallSlide').slick("slickNext")
+    // })
+    // console.log($('.imagesSmallSlide')[0].slickNext());
+
+
+    // [0]
+
+
+    document.querySelectorAll('.imagesSlide .slick-arrow').forEach(item => {
+        item.addEventListener('click', () => {
+            if (item.classList.contains('slick-next')) {
+                $('.imagesSmallSlide').slick("slickNext")
+            } else if (item.classList.contains('slick-prev')) {
+                $('.imagesSmallSlide').slick("slickPrev")
+            }
+        })
+    });
 });
 
