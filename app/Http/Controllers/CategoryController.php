@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -37,7 +38,15 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        Category::create($request->all());
+        $data = $request->except('image');
+        $data['url'] = Helper::slugify($data['title_en']);
+        $photoName = '';
+        if ($request->hasFile('image')) {
+            $photoName = time() . '.' . $request->image->getClientOriginalExtension();
+            $request->image->move(public_path('files'), $photoName);
+        }
+        $data['image'] = $photoName;
+        Category::create($data);
         $request->session()->flash('alert-success', 'Category was successful added!');
         return redirect()->route('admin.categories.index');
 
@@ -62,6 +71,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
+
         $category = Category::findOrFail($id);
 
 
@@ -78,10 +88,15 @@ class CategoryController extends Controller
      */
     public function update(CategoryRequest $request, $id)
     {
-        Category::findOrFail($id)->update($request->all());
-
-
-
+        $category = Category::findOrFail($id);
+        $data = $request->except('image');
+        $data['url'] = Helper::slugify($data['title_en']);
+        if ($request->hasFile('image')) {
+            $photoName = time() . '.' . $request->image->getClientOriginalExtension();
+            $request->image->move(public_path('files'), $photoName);
+            $data['image'] = $photoName;
+        }
+        $category->update($data);
         $request->session()->flash('alert-success', 'Category was successful edited!');
 
         return redirect()->route('admin.categories.index');

@@ -1,0 +1,103 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\ServiceRequest;
+use App\Models\Service;
+use Illuminate\Http\Request;
+
+class ServiceController extends Controller
+{
+    public function index()
+    {
+        $services = Service::all();
+        return view('admin.services.index')->with(['services'=>$services]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin.services.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(ServiceRequest $request)
+    {
+        Service::create($request->all());
+        $request->session()->flash('alert-success', 'Service has successful added!');
+        return redirect()->route('admin.services.index');
+
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $service = Service::findOrFail($id);
+
+
+
+        return view('admin.services.create', ['service'=> $service]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(ServiceRequest $request, $id)
+    {
+        $data = $request->all();
+        $data['top'] = isset($request->top)?1:0;
+        $data['bottom'] = isset($request->bottom)?1:0;
+        Service::findOrFail($id)->update($data);
+
+        $request->session()->flash('alert-success', 'Service has successful edited!');
+
+        return redirect()->route('admin.services.index');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id,Request $request)
+    {
+
+        Service::findOrFail($id)->delete();
+
+
+
+        $request->session()->flash('alert-success', 'Service was successful deleted!');
+
+        return redirect()->route('admin.services.index');
+    }
+}

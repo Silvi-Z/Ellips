@@ -71,7 +71,7 @@
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseCategories" data-parent="#exampleAccordion">
 
-                    <i class="fa fa-fw fa-list"></i>
+                    <i class="fa fa-list-alt"></i>
 
                     <span class="nav-link-text">Categories</span>
 
@@ -94,6 +94,35 @@
                 </ul>
 
             </li>
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Clients">
+
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseClients" data-parent="#exampleAccordion">
+
+                    <i class="fa fa-users"></i>
+
+                    <span class="nav-link-text">Clients</span>
+
+                </a>
+
+                <ul class="sidenav-second-level collapse" id="collapseClients">
+
+                    <li>
+
+                        <a href="{{ route('admin.clients.create') }}">Create Client</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ route('admin.clients.index') }}">Clients list</a>
+
+                    </li>
+
+                </ul>
+
+            </li>
+
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Brands">
 
@@ -127,7 +156,7 @@
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseUsers" data-parent="#exampleAccordion">
 
-                    <i class="fa fa-fw fa-users"></i>
+                    <i class="fa  fa-assistive-listening-systems"></i>
 
                     <span class="nav-link-text">Systems</span>
 
@@ -180,6 +209,33 @@
                 </ul>
 
             </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Products">
+
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsePortfolios" data-parent="#exampleAccordion">
+
+                    <i class="fa fa-users"></i>
+
+                    <span class="nav-link-text">Portfolios</span>
+
+                </a>
+
+                <ul class="sidenav-second-level collapse" id="collapsePortfolios">
+
+                    <li>
+
+                        <a href="{{ route('admin.portfolios.create') }}">Create Portfolio</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ route('admin.portfolios.index') }}">Portfolios list</a>
+
+                    </li>
+
+                </ul>
+
+            </li>
 
 
 
@@ -211,33 +267,143 @@
 
             </li>
 
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Blogs">
 
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseBlogs">
 
-
-
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-
-                <a class="nav-link" href="{{ route('admin.categories.index') }}">
-
-                    <i class="fa fa-fw fa-th-list"></i>
-
-                    <span class="nav-link-text">Categories</span>
-
-                </a>
-
-            </li>
-
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Orders">
-
-                <a class="nav-link" href="{{ route('admin.blogs.index') }}">
-
-                    <i class="fa fa-fw fa-shopping-cart"></i>
+                    <i class="fa fa-fw fa-rss"></i>
 
                     <span class="nav-link-text">Blogs</span>
 
                 </a>
 
+                <ul class="sidenav-second-level collapse" id="collapseBlogs">
+
+                    <li>
+
+                        <a href="{{ route('admin.blogs.create') }}">Create Blog</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ route('admin.blogs.index') }}">Blogs list</a>
+
+                    </li>
+
+                </ul>
+
             </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cities">
+
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseCities">
+
+                    <i class="fa fa-fw fa-address-book"></i>
+
+                    <span class="nav-link-text">Cities</span>
+
+                </a>
+
+                <ul class="sidenav-second-level collapse" id="collapseCities">
+
+                    <li>
+
+                        <a href="{{ route('admin.cities.create') }}">Create City</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ route('admin.cities.index') }}">Cities list</a>
+
+                    </li>
+
+                </ul>
+
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cities">
+
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseContactservices">
+
+                    <i class="fa fa-id-card-o"></i>
+
+                    <span class="nav-link-text">Contact services</span>
+
+                </a>
+
+                <ul class="sidenav-second-level collapse" id="collapseContactservices">
+
+                    <li>
+
+                        <a href="{{ route('admin.contact_services.create') }}">Create Contact service</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ route('admin.contact_services.index') }}">Contact services list</a>
+
+                    </li>
+
+                </ul>
+
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cities">
+
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseContactservices">
+
+                    <i class="fa fa-id-card-o"></i>
+
+                    <span class="nav-link-text">Contact services</span>
+
+                </a>
+
+                <ul class="sidenav-second-level collapse" id="collapseContactservices">
+
+                    <li>
+
+                        <a href="{{ route('admin.contact_services.create') }}">Create Contact service</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ route('admin.contact_services.index') }}">Contact services list</a>
+
+                    </li>
+
+                </ul>
+
+            </li>
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+
+                <a class="nav-link" href="{{ route('admin.statistics') }}">
+
+                    <i class="fa fa-fw fa-th-list"></i>
+
+                    <span class="nav-link-text">Statistics</span>
+
+                </a>
+
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+
+                <a class="nav-link" href="{{ route('admin.slider') }}">
+
+                    <i class="fa fa-slideshare"></i>
+
+                    <span class="nav-link-text">Slider</span>
+
+                </a>
+
+            </li>
+
+
+
+
+
+
 
 
 
@@ -598,7 +764,7 @@
     <script src="{{asset('js/adminlibs.js')}}"></script>
     <script src="{{asset('js/script.js')}}"></script>
 
-<script src='{{ asset('js/tinymce/tinymce.min.js') }}'></script>
+    <script src='{{ asset('js/tinymce/tinymce.min.js') }}'></script>
 
     <!-- Custom scripts for this page-->
 
