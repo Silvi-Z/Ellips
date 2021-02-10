@@ -9,9 +9,7 @@
                     <img src="{{asset('images/camera3.png')}}">
                 </div>
                 <div>
-                    <video autoplay muted loop>
-                        <source src="{{asset('images/video.mp4')}}" type="video/mp4">
-                    </video>
+                    <img src="{{asset('front/images/Isopoly.gif')}}"alt="">
                 </div>
             </div>
             <div class="singleInfo">

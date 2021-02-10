@@ -4,9 +4,9 @@
             <span>ՄԵՐ ՓՈՐՁԸ</span>
             <div class="circles">
                 <!--            <img src="./images/rings.png" alt="">-->
-                <img class="redCircle redCirclePosition" src="http://elips.local/images/redCircle.png" alt="">
-                <img class="transparentCircle transparentCirclePosition" src="http://elips.local/images/transparentCircle.png" alt="">
-                <img class="blueCircle blueCirclePosition" src="http://elips.local/images/blueCircle.png" alt="">
+                <img class="redCircle" src="http://elips.local/images/redCircle.png" alt="">
+                <img class="transparentCircle" src="http://elips.local/images/transparentCircle.png" alt="">
+                <img class="blueCircle" src="http://elips.local/images/blueCircle.png" alt="">
             </div>
         </div>
         <div>

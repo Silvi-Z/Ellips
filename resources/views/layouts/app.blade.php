@@ -35,7 +35,7 @@
                         </svg>
                     </a>
                     <a href="{{route('portfolio')}}">Պորտֆոլիո</a>
-                    <a href="{{route('blog')}}">Բլոգ</a>
+                    <a href="{{route('blogs')}}">Բլոգ</a>
                 </nav>
                 <div class="d-flex align-items-center">
                     <button class="btn btn-dark"><a href={{route("contact")}}>Կապ մեզ հետ</a></button>
@@ -53,39 +53,6 @@
         <div class="subMenuWrapper">
             <div class="subMenu">
                 <br>
-                <div>
-                    <a href="{{route('systems')}}" class="title">
-                        <h5>Համակարգեր</h5>
-                        <div class="arrow"></div>
-                    </a>
-                    <div class="row">
-                        <ul class="col-4">
-                            <li>Հրդեհամարման համակարգ</li>
-                            <li>Անվտանգության համակարգ</li>
-                            <li>Ցածրավոլտ համակարգեր,
-                                տեղեկատվական ցանցեր,
-                                հեռախոս,TV
-                            </li>
-                            <li>Տեսահսկման համակարգեր</li>
-                            <li>Հերթերի կառավարման համակարգ</li>
-                            <li>Սելեկտիվ անցումային համակարգ և աշխ․ժ-ի հաշվարկ</li>
-                        </ul>
-                        <ul class="col-4">
-                            <li>Սելեկտիվ անցումային համակարգ և աշխ․ժ-ի հաշվարկ</li>
-                            <li>Սելեկտիվ անցումային համակարգ և աշխ․ժ-ի հաշվարկ</li>
-                            <li>Ջերմաստիճանի/խոնավություն վերահսկման համակարգ</li>
-                            <li>Ճաշարանի վճարային համակարգ էլեկտրոնային քարտերով</li>
-                            <li>Կշեռքներ և հաշվարկային ծրագրեր</li>
-                        </ul>
-                        <ul class="col-4">
-                            <li>Վերելակների քարտային համակարգեր</li>
-                            <li>Քնությունների ավտոմատացված համակարգ</li>
-                            <li>Քնությունների ավտոմատացված համակարգ</li>
-                            <li>Պարագծային անվտանգության համակարգ</li>
-                            <li>Հյուրանոցների Էներգախնայողության համակարգ</li>
-                        </ul>
-                    </div>
-                </div>
                 <div>
                     <a href="{{route('products')}}" class="title">
                         <h5>Ապրանքներ</h5>
@@ -123,6 +90,39 @@
                         </ul>
                     </div>
                 </div>
+                <div>
+                    <a href="{{route('systems')}}" class="title">
+                        <h5>Համակարգեր</h5>
+                        <div class="arrow"></div>
+                    </a>
+                    <div class="row">
+                        <ul class="col-4">
+                            <li>Հրդեհամարման համակարգ</li>
+                            <li>Անվտանգության համակարգ</li>
+                            <li>Ցածրավոլտ համակարգեր,
+                                տեղեկատվական ցանցեր,
+                                հեռախոս,TV
+                            </li>
+                            <li>Տեսահսկման համակարգեր</li>
+                            <li>Հերթերի կառավարման համակարգ</li>
+                            <li>Սելեկտիվ անցումային համակարգ և աշխ․ժ-ի հաշվարկ</li>
+                        </ul>
+                        <ul class="col-4">
+                            <li>Սելեկտիվ անցումային համակարգ և աշխ․ժ-ի հաշվարկ</li>
+                            <li>Սելեկտիվ անցումային համակարգ և աշխ․ժ-ի հաշվարկ</li>
+                            <li>Ջերմաստիճանի/խոնավություն վերահսկման համակարգ</li>
+                            <li>Ճաշարանի վճարային համակարգ էլեկտրոնային քարտերով</li>
+                            <li>Կշեռքներ և հաշվարկային ծրագրեր</li>
+                        </ul>
+                        <ul class="col-4">
+                            <li>Վերելակների քարտային համակարգեր</li>
+                            <li>Քնությունների ավտոմատացված համակարգ</li>
+                            <li>Քնությունների ավտոմատացված համակարգ</li>
+                            <li>Պարագծային անվտանգության համակարգ</li>
+                            <li>Հյուրանոցների Էներգախնայողության համակարգ</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="responsiveMenu">
@@ -131,7 +131,7 @@
                 <li><a href="{{route('systems')}}">Համակարգեր</a></li>
                 <li><a href="{{route('products')}}">Ապրանքներ</a></li>
                 <li><a href="{{route('portfolio')}}">Պորտֆոլիո</a></li>
-                <li><a href="{{route('blog')}}">Բլոգ</a></li>
+                <li><a href="{{route('blogs')}}">Բլոգ</a></li>
             </ul>
             <div class="d-flex align-items-center">
                 <button class="btn btn-dark">Կապ մեզ հետ</button>
@@ -149,36 +149,38 @@
 
 @yield('content')
 
-<footer class="row">
-    <div class="col-lg-2 col-md col footerLogo">
-        <div>
-            <img src="{{asset('front/icons/logo.svg')}}" alt="">
-            <span>ellips</span>
-        </div>
-    </div>
-    <div class="col-lg-7 col-md col-12 contact <!--d-flex justify-content-center-->">
-        <div>
-            <h4>Կապ</h4>
+<footer>
+    <div  class="row">
+        <div class="col-lg-2 col-md col footerLogo">
             <div>
-                <ul>
-                    <li>Երևան Նիկողայոս Տիգրանյան 27</li>
-                    <li>(010) 23 01 07, (010) 23 01 08</li>
-                    <li>office@sec.am</li>
-                </ul>
-                <ul>
-                    <li>Երևան Նիկողայոս Տիգրանյան 27</li>
-                    <li>(010) 23 01 07, (010) 23 01 08</li>
-                    <li>office@sec.am</li>
-                </ul>
+                <img src="{{asset('front/icons/logo.svg')}}" alt="">
+                <span>ellips</span>
             </div>
         </div>
-    </div>
-    <div class="col-lg-3 col-md col follow">
-        <h4>Հետևեք Մեզ</h4>
-        <div>
-            <img src="{{asset('front/icons/fb.svg')}}" alt="">
-            <img src="{{asset('front/icons/youtube.svg')}}" alt="">
-            <img src="{{asset('front/icons/google.svg')}}" alt="">
+        <div class="col-lg-7 col-md col-12 contact <!--d-flex justify-content-center-->">
+            <div>
+                <h4>Կապ</h4>
+                <div>
+                    <ul>
+                        <li>Երևան Նիկողայոս Տիգրանյան 27</li>
+                        <li>(010) 23 01 07, (010) 23 01 08</li>
+                        <li>office@sec.am</li>
+                    </ul>
+                    <ul>
+                        <li>Երևան Նիկողայոս Տիգրանյան 27</li>
+                        <li>(010) 23 01 07, (010) 23 01 08</li>
+                        <li>office@sec.am</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md col follow">
+            <h4>Հետևեք Մեզ</h4>
+            <div>
+                <img src="{{asset('front/icons/fb.svg')}}" alt="">
+                <img src="{{asset('front/icons/youtube.svg')}}" alt="">
+                <img src="{{asset('front/icons/google.svg')}}" alt="">
+            </div>
         </div>
     </div>
 </footer>
