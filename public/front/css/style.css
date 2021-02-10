@@ -418,9 +418,12 @@ h1 {
 .about {
     /*display: flex;*/
     /*width: 100%;*/
-    margin-top: 120px;
+    /*margin-top: 120px;*/
     /*justify-content: center;*/
     padding: 0 40px 120px;
+}
+.homePage .about{
+    margin-top: 120px;
 }
 
 .about img {
@@ -3343,7 +3346,7 @@ form button {
         padding: 20px;
     }
 
-    .about {
+    .homePage .about {
         margin-top: 100px;
     }
 
