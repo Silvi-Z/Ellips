@@ -1548,7 +1548,9 @@ h1:not(.homePageTitle) {
     max-width: 210px;
     margin-right: 100px;
 }
-
+.homePage .portfolio{
+    padding: 0 7%;
+}
 .licenses .slick-slide:first-of-type {
     margin-left: 50px;
 }
@@ -2846,7 +2848,7 @@ form button {
         padding-left: 40px;
     }
 
-    .homePage .darkSection h3:not(.portfolioTitle) {
+    .homePage .darkSection > h3:not(.portfolioTitle) {
         margin-bottom: 80px;
     }
 
@@ -3355,7 +3357,7 @@ form button {
         flex-direction: column;
     }
 
-    .homePage .darkSection h3:not(.portfolioTitle) {
+    .homePage .darkSection > h3:not(.portfolioTitle) {
         margin-bottom: 50px;
     }
 
