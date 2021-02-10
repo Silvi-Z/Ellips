@@ -251,7 +251,7 @@
                     <!--                        </div>-->
                     <!---->
                     <!--                    </div>-->
-                    <button type="button" class="btn btn-light button">Տեսնել ավելին</button>
+                    <button type="button" class="btn btn-dark button">Տեսնել ավելին</button>
                     <!--                    <button class="button">Տեսնել ավելին</button>-->
                 </div>
             </div>
