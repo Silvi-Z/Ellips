@@ -274,6 +274,27 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
         ]
 
     ]);
+    Route::resource('contact_services', 'ContactServiceController', [
+
+        'names' => [
+
+            'index' => 'admin.contact_services.index',
+
+            'store' => 'admin.contact_services.store',
+
+            'create' => 'admin.contact_services.create',
+
+            'destroy' => 'admin.contact_services.destroy',
+
+            'update' => 'admin.contact_services.update',
+
+            'show' => 'admin.contact_services.show',
+
+            'edit' => 'admin.contact_services.edit',
+
+        ]
+
+    ]);
 
 
 });
