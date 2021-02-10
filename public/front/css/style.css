@@ -1871,10 +1871,10 @@ iframe{
     display: none !important;
 }
 
-.companies {
-    margin-top: 120px;
-    margin-bottom: 120px;
-}
+/*.companies {*/
+/*    margin-top: 120px;*/
+/*    margin-bottom: 120px;*/
+/*}*/
 
 .singleInfo p:not(.price) {
     font-size: 14px;
@@ -2632,6 +2632,9 @@ form button {
 }
 
 @media only screen and (max-width: 1024px) {
+    .companyPage .companies{
+        padding: 0 0 100px;
+    }
     .bigSlide > *{
         right: 400px;
     }
@@ -3011,6 +3014,9 @@ form button {
     }
 }
 @media only screen and (max-width: 768px) {
+    .companyPage .companies{
+        padding: 0 0 70px 0;
+    }
     .companies span{
         font-size: 18px;
         margin: 0 0 0 10px ;
@@ -3295,9 +3301,9 @@ form button {
         max-width: 67px;
     }
 
-    .companies {
-        margin: 70px 0;
-    }
+    /*.companies {*/
+    /*    margin: 70px 0;*/
+    /*}*/
 
     .homePage .darkSection h3:not(.portfolioTitle), .products h3 {
         font-size: 24px;
