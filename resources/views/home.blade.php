@@ -55,7 +55,6 @@
                 </div>
             </div>
         </section>
-        <div id="player"></div>
         @include('ourExperience')
         <div class="darkSection w-100 d-flex flex-column justify-content-center">
             <!--                <div>-->

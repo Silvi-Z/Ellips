@@ -1551,9 +1551,9 @@ h1:not(.homePageTitle) {
     max-width: 210px;
     margin-right: 100px;
 }
-.homePage .portfolio{
-    padding: 0 7%;
-}
+/*.homePage .portfolio{*/
+/*    padding: 0 7%;*/
+/*}*/
 .licenses .slick-slide:first-of-type {
     margin-left: 50px;
 }
@@ -1648,7 +1648,7 @@ h1:not(.homePageTitle) {
 }
 
 /*    portfolio    */
-.portfolioPage {
+.portfolioPage, .homePage .portfolio {
     width: 100%;
     padding: 90px 110px 0 110px;
 }
@@ -2518,7 +2518,7 @@ form button {
 
     .history > div:not(.companyImage) {
         order: 2;
-        margin-bottom: 80px;
+        margin-bottom: 0;
         margin-left: 0;
     }
 
@@ -2635,6 +2635,13 @@ form button {
 }
 
 @media only screen and (max-width: 1024px) {
+    .darkSection h3{
+        font-size: 24px;
+        line-height: 35px;
+    }
+    .homePage .companies{
+        padding: 100px 0;
+    }
     .companyPage .companies{
         padding: 0 0 100px;
     }
@@ -2816,7 +2823,7 @@ form button {
     /*.portfolio {*/
     /*    padding: 0 60px;*/
     /*}*/
-    .portfolioPage {
+    .portfolioPage , .homePage .portfolio{
         padding: 50px 40px 0 40px;
     }
 
@@ -2845,7 +2852,7 @@ form button {
         padding: 10px 0 10px 0;
     }
 
-    .darkSection {
+    .darkSection:not(.homePage .darkSection) {
         margin-top: 100px;
         padding: 100px 0;
     }
@@ -3001,6 +3008,9 @@ form button {
 }
 
 @media only screen and (max-width: 940px) {
+    .homePage .companies{
+        padding: 70px 0;
+    }
 
     .prev, .next{
         display: none;
@@ -3017,6 +3027,9 @@ form button {
     }
 }
 @media only screen and (max-width: 768px) {
+    .portfolioBigImg > div, .portfolioSmallImages > div{
+        margin-bottom: 50px;
+    }
     .companyPage .companies{
         padding: 0 0 70px 0;
     }
@@ -3233,7 +3246,7 @@ form button {
     /*.singleProduct {*/
     /*    width: 320px;*/
     /*}*/
-    .portfolioPage {
+    .portfolioPage, .homePage .portfolio {
         padding: 50px 10px 0 10px;
     }
 
@@ -3340,6 +3353,7 @@ form button {
         font-size: 22px;
         line-height: 35px;
         margin-bottom: 40px;
+        padding-bottom: 0;
     }
 
     header > section > div, .responsiveMenu ul ~ div, header > section > div:not(.subMenuWrapper, .responsiveMenu) {
@@ -3350,7 +3364,7 @@ form button {
         margin-top: 100px;
     }
 
-    .darkSection, .moreServices {
+    .darkSection:not(.homePage .darkSection), .moreServices {
         margin-top: 70px;
     }
 
