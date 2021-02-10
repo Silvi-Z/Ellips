@@ -9,7 +9,7 @@
                     <img src="{{asset('images/camera3.png')}}">
                 </div>
                 <div>
-                    <div class="youtube" id="KycxvpHe6JA"></div>
+                    <div class="youtube" id="uLv3Up6Rkd0"></div>
                 </div>
             </div>
             <div class="singleInfo">

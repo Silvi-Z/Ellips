@@ -52,7 +52,7 @@
 
 @endphp
 
-<div class="newCompany">
+<div class="company">
     @foreach ($companies as $key => $value)
     <div class="d-flex flex-column align-items-center justify-content-center">
         <div class="d-flex justify-content-center align-items-center">

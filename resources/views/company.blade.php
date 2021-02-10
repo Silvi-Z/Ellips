@@ -4,7 +4,8 @@
     {{--    $licenses = json_decode(file_get_contents("licenses.json"),true);--}}
     <main class="companyPage">
         <h1>ԸՆԿԵՐՈՒԹՅՈՒՆ</h1>
-        <div class="wrapper">
+        <div class="background">
+            <div class="wrapper">
             <div class="aboutCompany">
                 <p>
                     <span>ԸՆԿԵՐՈՒԹՅՈՒՆ</span> «Էլլիպս Ջիէյ»-ի առաքելությունն է ուսումնասիրել, նախագծել, արտադրել և
@@ -28,6 +29,7 @@
                     </p>
                 </div>
             </div>
+        </div>
         </div>
         <div class="licenses">
         @php
@@ -68,7 +70,7 @@
         @include('ourExperience')
         <div class="companies">
             <span>ՄԵՐ ԳՈՐԾԸՆԿԵՐՆԵՐԸ</span>
-{{--            @include('companies')--}}
+            @include('companies')
         </div>
         <div class="darkSection companiesHistory">
             <h3>ՊԱՏՄՈՒԹՅՈՒՆ</h3>
@@ -113,6 +115,28 @@
                     <div class="companyImage">
                         <img src="{{asset('front/images/historyImg1.jpg')}}" alt="">
                     </div>
+                </div>
+                <div class="history">
+                    <div class="companyImage">
+                        <img src="{{asset('front/images/historyImg1.jpg')}}" alt="">
+                    </div>
+                    <div>
+                        <p>1976 թ.-ին Պոլիտեխնիկական ինստիտուտի ուսանող 22-ամյա Գուրգենը ձեռք է բերում Phakard H8
+                            մակնիշի ավտոմեքենա և
+                            10 տարի շարունակ սեփական ուժերով վերանորոգելուց հետո այն վաճառում է գերմանացի մի գնորդի:
+                            1989թ. Էր, Սովետական
+                            Միության մութ ու ցուրտ տարիները, երբ Գուրգենի փոքր եղբայրը՝ Ալեքսանը, Ռուսաստանի
+                            դաշնությունում պաշտպանում է
+                            գիտական ատենախոսությունը, վերադառնում հայրենիք և եղբոր հետ որոշում հիմնել ավտոմատ դարպասների
+                            արտադրություն:
+                            Մեքենայի վաճառքից վաստակած ամբողջ հասույթով բազմազավակ ընտանիքի տղաները վարձակալում են 216
+                            ք/մ մակերեսով ծածկ,
+                            կառուցում պատերը, գնո
+                            ւմ տարբեր հաստատություններից դուրս գրված հաստոցները, վերանորոգում դրանք և սկսում
+                            արտադրությունը:
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </div>
