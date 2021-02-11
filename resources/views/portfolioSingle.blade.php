@@ -101,9 +101,7 @@
                 <div class="archivePortfolio d-flex align-items-center justify-content-between">
                     <div class="d-flex justify-content-center">
                         <div class="imgVideoWrapper">
-                            <video loop autoplay muted height="200" width="300">
-                                <source src="{{asset('images/video.mp4')}}" type="video/mp4">
-                            </video>
+                            <img src="{{asset('front/images/giphy.gif')}}"alt="">
                         </div>
                         <div class="d-flex flex-column justify-content-center">
                             <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
