@@ -13,10 +13,10 @@ return [
     |
     */
 
-    'password' => 'Passwords must be at least six characters and match the confirmation.',
-    'reset' => 'Your password has been reset!',
-    'sent' => 'We have e-mailed your password reset link!',
-    'token' => 'This password reset token is invalid.',
-    'user' => "We can't find a user with that e-mail address.",
+    'reset'     => 'Ձեր գաղտնաբառը վերականգնվել է',
+    'sent'      => 'Ձեր գաղտնաբառի վերականգնման հղումն ուղարկվել է ձեր Էլ․ հասցեին',
+    'throttled' => 'Խնդրում ենք սպասել նախքան կրկին փորձելը։',
+    'token'     => 'Գաղտնաբառի վերականգնման կոդը սխալ է։',
+    'user'      => 'Տվյալ Էլ․ հասցեով օգտատեր չի գտնվել։',
 
 ];
