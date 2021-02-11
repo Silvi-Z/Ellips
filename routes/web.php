@@ -11,7 +11,10 @@
 |
 */
 
-
+Route::get('locale/{locale}', function ($locale){
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('mainpage');
 Route::get('/systems', 'HomeController@systems')->name('systems');
@@ -38,6 +41,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
     Route::any('/slider', 'SliderController@index')->name('admin.slider');
     Route::post('/slider', 'SliderController@update')->name('admin.slider.update');
     Route::post('/upload', 'DashboardController@upload')->name('admin.upload');
+    Route::any('/about', 'AboutController@index')->name('admin.about');
 
 
 
@@ -295,6 +299,49 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
         ]
 
     ]);
+    Route::resource('certificates', 'CertificateController', [
+
+        'names' => [
+
+            'index' => 'admin.certificates.index',
+
+            'store' => 'admin.certificates.store',
+
+            'create' => 'admin.certificates.create',
+
+            'destroy' => 'admin.certificates.destroy',
+
+            'update' => 'admin.certificates.update',
+
+            'show' => 'admin.certificates.show',
+
+            'edit' => 'admin.certificates.edit',
+
+        ]
+
+    ]);
+    Route::resource('histories', 'HistoryController', [
+
+        'names' => [
+
+            'index' => 'admin.histories.index',
+
+            'store' => 'admin.histories.store',
+
+            'create' => 'admin.histories.create',
+
+            'destroy' => 'admin.histories.destroy',
+
+            'update' => 'admin.histories.update',
+
+            'show' => 'admin.histories.show',
+
+            'edit' => 'admin.histories.edit',
+
+        ]
+
+    ]);
+
 
 
 });

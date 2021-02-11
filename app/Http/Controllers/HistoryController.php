@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ClientRequest;
-use App\Models\Client;
+use App\Http\Requests\HistoryRequest;
+use App\Models\History;
 use Illuminate\Http\Request;
 
-class ClientController extends Controller
+class HistoryController extends Controller
 
 {
     /**
@@ -16,8 +16,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::all();
-        return view('admin.clients.index')->with(['clients'=>$clients]);
+        $histories = History::all();
+        return view('admin.histories.index')->with(['histories'=>$histories]);
     }
 
     /**
@@ -27,7 +27,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('admin.clients.create');
+        return view('admin.histories.create');
     }
 
     /**
@@ -36,7 +36,7 @@ class ClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ClientRequest $request)
+    public function store(HistoryRequest $request)
     {
         $data = $request->except('image');
         $photoName = '';
@@ -46,10 +46,10 @@ class ClientController extends Controller
 
         }
         $data['image'] = $photoName;
-        Client::create($data);
+        History::create($data);
 
-        $request->session()->flash('alert-success', 'Client was successful added!');
-        return redirect()->route('admin.clients.create');
+        $request->session()->flash('alert-success', 'History was successful added!');
+        return redirect()->route('admin.histories.index');
 
     }
 
@@ -72,11 +72,11 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        $client = Client::findOrFail($id);
+        $history = History::findOrFail($id);
 
 
 
-        return view('admin.clients.create', ['client'=> $client]);
+        return view('admin.histories.create', ['history'=> $history]);
     }
 
     /**
@@ -86,9 +86,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ClientRequest $request, $id)
+    public function update(HistoryRequest $request, $id)
     {
-        $client = Client::findOrFail($id);
+        $history = History::findOrFail($id);
 
         $data = $request->except('image');
 
@@ -97,9 +97,9 @@ class ClientController extends Controller
             $request->image->move(public_path('files'), $photoName);
             $data['image'] = $photoName;
         }
-        $client->update($data);
-        $request->session()->flash('alert-success', 'Client was successful added!');
-        return redirect()->route('admin.clients.index');
+        $history->update($data);
+        $request->session()->flash('alert-success', 'History was successful added!');
+        return redirect()->route('admin.histories.index');
     }
 
     /**
@@ -111,9 +111,9 @@ class ClientController extends Controller
     public function destroy($id,Request $request)
     {
 
-        Client::findOrFail($id)->delete();
-        $request->session()->flash('alert-success', 'Client was successful deleted!');
+        History::findOrFail($id)->delete();
+        $request->session()->flash('alert-success', 'History was successful deleted!');
 
-        return redirect()->route('admin.clients.index');
+        return redirect()->route('admin.histories.index');
     }
 }

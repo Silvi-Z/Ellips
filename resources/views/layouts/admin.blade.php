@@ -376,6 +376,50 @@
 
             </li>
 
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cities">
+
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseAbout">
+
+                    <i class="fa fa-info"></i>
+
+                    <span class="nav-link-text">About</span>
+
+                </a>
+
+                <ul class="sidenav-second-level collapse" id="collapseAbout">
+
+                    <li>
+
+                        <a href="{{ route('admin.about') }}">About us</a>
+
+                    </li>
+                    <li>
+
+                        <a href="{{ route('admin.certificates.create') }}">Create Certificate</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ route('admin.certificates.index') }}">Certificates list</a>
+
+                    </li>
+                    <li>
+
+                        <a href="{{ route('admin.histories.create') }}">Create History</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ route('admin.histories.index') }}">Histories list</a>
+
+                    </li>
+
+                </ul>
+
+            </li>
+
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
 
                 <a class="nav-link" href="{{ route('admin.statistics') }}">
