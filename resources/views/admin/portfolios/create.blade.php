@@ -119,6 +119,51 @@
             </div>
 
 
+            <div class="form-group">
+
+                {!! Form::label('small_text_hy', 'SMALL DESCRIPTION AM *') !!}
+
+                {!! Form::textarea('small_text_hy', isset($portfolio)?$portfolio->small_text_hy:'', ['class' => $errors->has('small_text_hy') ? 'form-control  is-invalid' : 'form-control ']) !!}
+
+                @if ($errors->has('small_text_hy'))
+
+                    {{--{{ dd($errors->all()) }}--}}
+
+                    <div class="invalid-feedback">{{ $errors->first('small_text_hy') }}</div>
+
+                @endif
+            </div>
+            <div class="form-group">
+
+                {!! Form::label('small_text_ru', 'SMALL DESCRIPTION RU *') !!}
+
+                {!! Form::textarea('small_text_ru', isset($portfolio)?$portfolio->small_text_ru:'', ['class' => $errors->has('small_text_ru') ? 'form-control is-invalid' : 'form-control ']) !!}
+
+                @if ($errors->has('small_text_ru'))
+
+                    {{--{{ dd($errors->all()) }}--}}
+
+                    <div class="invalid-feedback">{{ $errors->first('small_text_ru') }}</div>
+
+                @endif
+            </div>
+            <div class="form-group">
+
+                {!! Form::label('small_text_en', 'SMALL DESCRIPTION EN *') !!}
+
+                {!! Form::textarea('small_text_en', isset($portfolio)?$portfolio->small_text_en:'', ['class' => $errors->has('small_text_en') ? 'form-control is-invalid' : 'form-control']) !!}
+
+                @if ($errors->has('small_text_en'))
+
+                    {{--{{ dd($errors->all()) }}--}}
+
+                    <div class="invalid-feedback">{{ $errors->first('small_text_en') }}</div>
+
+                @endif
+            </div>
+
+
+
             @include('admin.includes.file', ['page' => 'products', 'item'=>isset($portfolio)?$portfolio:false])
             <div class="form-group">
 

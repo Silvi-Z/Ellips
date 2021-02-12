@@ -48,6 +48,9 @@ class PortfolioController extends Controller
             'text_hy'=>$request->text_hy,
             'text_en'=>$request->text_en,
             'text_ru'=>$request->text_ru,
+            'small_text_hy'=>$request->small_text_hy,
+            'small_text_en'=>$request->small_text_en,
+            'small_text_ru'=>$request->small_text_ru,
         ];
         $data['url'] = Helper::slugify($data['title_en']);
         $files = [];
@@ -124,6 +127,9 @@ class PortfolioController extends Controller
             'text_hy'=>$request->text_hy,
             'text_en'=>$request->text_en,
             'text_ru'=>$request->text_ru,
+            'small_text_hy'=>$request->small_text_hy,
+            'small_text_en'=>$request->small_text_en,
+            'small_text_ru'=>$request->small_text_ru,
         ];
         $data['url'] = Helper::slugify($data['title_en']);
         $files = [];

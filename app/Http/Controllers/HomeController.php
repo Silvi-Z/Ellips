@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Portfolio;
+use App\Models\Service;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $slider = Slider::first();
+        $top_services = Service::where('top',1)->get();
+        $bottom_services = Service::where('bottom',1)->get();
+        $portfolios = Portfolio::inRandomOrder()->take(5)->get();;
+
         return view('home');
     }
 
