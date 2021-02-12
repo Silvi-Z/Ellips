@@ -104,7 +104,6 @@ $(document).ready(function () {
         p.innerHTML = currentSlide + '/' + slideCount;
     }
 
-
     if ($('.selectButtons').length) {
         const selectButton = $('.selectButtons')[0].children;
         Array.from(selectButton).forEach((button, index) => {
@@ -186,32 +185,32 @@ $(document).ready(function () {
         // autoplayHoverPause:true
         // autoplaySpeed: 2000,
         responsive: [{
+            breakpoint: 1500,
+            settings: {
+                slidesToShow: 4
+            }
+        }, {
             breakpoint: 1200,
             settings: {
+                // initialSlide: 5,
                 slidesToShow: 3
             }
         }, {
-            breakpoint: 900,
-            settings: {
-                initialSlide: 5,
-                slidesToShow: 2
-            }
-        },{
             breakpoint: 768,
             settings: {
-                initialSlide: 5,
+                // initialSlide: 5,
                 slidesToShow: 4
             }
-        },{
-            breakpoint: 500,
+        }, {
+            breakpoint: 550,
             settings: {
-                initialSlide: 5,
+                // initialSlide: 5,
                 slidesToShow: 3
             }
-        },{
-            breakpoint: 370,
+        }, {
+            breakpoint: 400,
             settings: {
-                initialSlide: 5,
+                // initialSlide: 5,
                 slidesToShow: 2
             }
         }]
@@ -255,18 +254,18 @@ $(document).ready(function () {
         slidesToShow: 5,
         slidesToScroll: 2,
         infinite: false,
+        variableWidth: true,
         swipeToSlide: true,
         arrows: false,
         responsive: [{
             breakpoint: 1024,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 3,
             }
         }, {
             breakpoint: 850,
             settings: {
                 slidesToShow: 1,
-                arrows: false,
             }
         },
         ]
@@ -392,19 +391,20 @@ $(document).ready(function () {
         }
     }
 
-    seeAllText($('.systemDescription'), '413')
-    seeAllText($('.productDescription'), '215')
+    // seeAllText($('.systemDescription'), '413')
+    // seeAllText($('.productDescription'), '215')
 
     $('.selectMenu')[0].addEventListener('click', () => {
-        console.log('dsfgsd');
+        console.log('sdfsdf');
         const menu = $('.subMenuWrapper')[0].classList;
         const header = $('header')[0].classList;
         menu.toggle('d-flex');
         header.toggle('whiteBackground')
     })
 
-    const elements = document.querySelectorAll("h2");
-    elements.forEach((e) => {
+    const elements = document.querySelectorAll(".experienceCount");
+    elements.forEach((e
+    ) => {
         const finalCount = Number(e.getAttribute('data-number'));
         let counter = 0;
         const timer = setInterval(() => {
@@ -454,18 +454,37 @@ $(document).ready(function () {
         })
     })
 
+    window.addEventListener('scroll', ()=> {
+        if ($('.singleProduct').length > 0) {
+            if ($('.singleProduct')[0].getBoundingClientRect().top < 10) {
+                $('.singleProduct')[0].classList.add('fixed');
+                if ($('.singleInfo')[0].clientHeight - Math.abs($('.singleInfo')[0].getBoundingClientRect().top) < $('.singleProduct')[0].scrollHeight) {
+                    $('.singleProduct')[0].classList.remove('fixed');
+                    $('.singleProduct')[0].classList.add('abs');
+                } else if ($('.singleInfo')[0].getBoundingClientRect().top < 0) {
+                    $('.singleProduct')[0].classList.add('fixed');
+                    $('.singleProduct')[0].classList.remove('abs');
+                } else {
+                    $('.singleProduct')[0].classList.remove('fixed');
+                    $('.singleProduct')[0].classList.remove('abs');
+                }
+            }
+        }
+    })
+
     function responsiveMenu() {
-        console.log(window.innerWidth);
         if (window.innerWidth <= 1090) {
-            console.log('tgyer');
-            $('.responsiveMenu')[0].classList.remove('d-flex')
-            $('.toggleMenu')[0].classList.remove('open')
+            // $('.responsiveMenu')[0].classList.remove('d-flex')
+            // $('.toggleMenu')[0].classList.remove('open')
             $('.subMenuWrapper')[0].classList.remove('d-flex')
             $('header')[0].classList.remove('whiteBackground')
             $('.inline-menu')[0].classList.add('d-none')
             $('.toggleMenu')[0].classList.remove('d-none')
             $('.toggleMenu')[0].classList.add('d-flex')
         } else {
+            $('header')[0].classList.remove('headerFix')
+            $('body')[0].classList.remove('overflow')
+            $('.responsiveMenu')[0].classList.remove('d-flex')
             $('.inline-menu')[0].classList.remove('d-none')
             $('.toggleMenu')[0].classList.add('d-none')
             $('.toggleMenu')[0].classList.remove('d-flex')
@@ -476,19 +495,23 @@ $(document).ready(function () {
     window.addEventListener('resize', responsiveMenu)
 
     document.querySelector('.toggleMenu').addEventListener('click', (e) => {
-        console.log(window.innerWidth);
-        e.target.classList.toggle('open');
-        $('.responsiveMenu')[0].classList.toggle('d-flex')
-    })
+            e.target.classList.toggle('open');
+            $('.responsiveMenu')[0].classList.toggle('d-flex')
+            $('header')[0].classList.toggle('headerFix')
+            $('body')[0].classList.toggle('overflow')
+        }
+    )
 
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', circleAnimation)
+
+    function circleAnimation(){
         if (document.querySelector('.circles')) {
             const top = document.querySelector('.circles').getBoundingClientRect().top
             const redCircle = document.querySelector('.redCircle')
             const transparentCircle = document.querySelector('.transparentCircle')
             const blueCircle = document.querySelector('.blueCircle')
 
-            if (top > 0 && top <= window.innerHeight - 100) {
+            if (top > 0 && top <= window.innerHeight - 200) {
                 // console.log('innerHeight', window.innerHeight - 100);
                 // console.log('top', top);
                 redCircle.classList.add('redCirclePosition')
@@ -501,32 +524,67 @@ $(document).ready(function () {
                 $('.blueCircle')[0].classList.add('blueCirclePosition')
             }
         }
-    })
-
+    }
+    circleAnimation()
     ymaps.ready(init);
 
     function init() {
         let coords = [40.177200, 44.503490]
         let myMap = new ymaps.Map("map", {
             center: coords,
-            zoom: 7
+            zoom: 9
         });
-        ymaps.geocode('Նիկողայոս Տիգրանյան 27').then(function (res) {
-            let coordinates = res.geoObjects.get(0).geometry.getCoordinates();
-            coords = coordinates
-            let placemark = new ymaps.Placemark(coordinates);
-            myMap.geoObjects.add(placemark);
-        });
+        myMap.behaviors.disable('scrollZoom');
+        document.querySelectorAll('.address').forEach(item=>{
+            item.addEventListener('click', e => {
+                ymaps.geocode(e.target.innerHTML).then(function (res) {
+                    let coordinates = res.geoObjects.get(0).geometry.getCoordinates();
+                    coords = coordinates;
+                    console.log(coordinates);
+                    let placemark = new ymaps.Placemark(coordinates);
+                    myMap.geoObjects.add(placemark);
 
-        ymaps.geocode('Հաղթանակի պողոտա 42/9').then(function (res) {
-            let coordinates = res.geoObjects.get(0).geometry.getCoordinates();
-            coords = coordinates
-            let placemark = new ymaps.Placemark(coordinates);
-            myMap.geoObjects.add(placemark);
-        });
+                    myMap = new ymaps.Map("map", {
+                        center: coords,
+                        zoom: 15
+                    });
+                    myMap.setBounds(bounds, {
+                        checkZoomRange: true
+                    });
+
+                    // myMap.events.add('boundschange', function(e){
+                    //     console.log(e);
+                    //     if (e.get('newZoom') !== e.get('oldZoom')) {
+                    //         console.log('zoomchange')
+                    //     }
+                    // })
+                    // myMap = new ymaps.Map("map", {
+                    //     center: coords,
+                    //     zoom: 15
+                    // });
+                    // myMap = new ymaps.Map.center(coords)
+                    // myMap = new ymaps.Map.zoom(15)
+                        // zoom: 15
+                    // });
+                    // console.log(myMap);
+                });
+
+            })
+        })
+
+        //
+        // ymaps.geocode('Հաղթանակի պողոտա 42/9').then(function (res) {
+        //     let coordinates = res.geoObjects.get(0).geometry.getCoordinates();
+        //     coords = coordinates
+        //     let placemark = new ymaps.Placemark(coordinates);
+        //     myMap.geoObjects.add(placemark);
+        // });
 
 
     }
+
+
+
 
     let videos = document.getElementsByClassName("youtube");
 
@@ -591,9 +649,39 @@ $(document).ready(function () {
             }
         })
     });
-    $('.imagesSlide').on('swipe', function(event, slick, direction){
+    $('.imagesSlide').on('swipe', function (event, slick, direction) {
         direction === 'left' ? $('.textSlide').slick("slickNext") : $('.textSlide').slick("slickPrev");
         // $('.textSlide')
     });
+
+    let didScroll;
+    let lastScrollTop = 0;
+    let delta = 5;
+    let navbarHeight = $('header').outerHeight();
+
+    // $(window).scroll(function (event) {
+    //     didScroll = true;
+    // });
+    //
+    // setInterval(function () {
+    //     if (didScroll) {
+    //         hasScrolled();
+    //         didScroll = false;
+    //     }
+    // }, 250);
+    //
+    // function hasScrolled() {
+    //     let st = $(this).scrollTop();
+    //
+    //     if (Math.abs(lastScrollTop - st) <= delta)
+    //         return;
+    //     if (st > lastScrollTop && st > navbarHeight) {
+    //         $('header').removeClass('nav-down').addClass('nav-up');
+    //     } else if (st + $(window).height() < $(document).height()) {
+    //         $('header').removeClass('nav-up').addClass('nav-down');
+    //     }
+    //     lastScrollTop = st;
+    // }
+
 });
 

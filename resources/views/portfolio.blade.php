@@ -2,13 +2,15 @@
 
 @section('content')
     <main>
-        <h1>ՊՈՐՏՖՈԼԻՈ</h1>
+        <div class="h1Title">ՊՈՐՏՖՈԼԻՈ</div>
         <div class="portfolioPage">
             <div class="portfolio">
-                <div class="portfolioBigImg">
-                    <div>
+                <div class="portfolioBigImg row">
+                    <div class="col-12">
                         <a href="{{route("portfolioSingle")}}">
-                            <img src="{{asset('images/portfolioBigImg.png')}}" alt="">
+                            <div class="portfolioBigImgContainer">
+                                <img src="{{asset('images/portfolioBigImg.png')}}" alt="">
+                            </div>
                             <h3>Կենդանաբանական այգի</h3>
                             <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային
                                 տեսախցիկներ)
@@ -17,32 +19,39 @@
                         </a>
                     </div>
                 </div>
-                <div class="portfolioSmallImages">
-                    <div>
-                        <img src="{{asset('images/portfolioFirstSmallImg.png')}}" alt="">
+                <div class="portfolioSmallImages row">
+                    <div class="col-12 col-md-6">
+                        <div class="portfolioContainer">
+                            <img src="{{asset('images/portfolioFirstSmallImg.png')}}" alt="">
+                        </div>
                         <h3>«Էլիտ Պլազա» բիզնես կենտրոն</h3>
                         <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային
                             տեսախցիկներ)</p>
                     </div>
-                    <div>
-                        <img src="{{asset('images/portfolioSecondSmallImg.png')}}" alt="">
+                    <div class="col-12 col-md-6">
+                        <div class="portfolioContainer">
+                            <img src="{{asset('images/portfolioSecondSmallImg.png')}}" alt="">
+                        </div>
                         <h3>HSBC Բանկ Հայաստան</h3>
                         <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային
                             տեսախցիկներ)</p>
                     </div>
-                    <div>
-                        <img src="{{asset('images/portfolioFirstSmallImg.png')}}" alt="">
+                    <div class="col-12 col-md-6">
+                        <div class="portfolioContainer">
+                            <img src="{{asset('images/portfolioFirstSmallImg.png')}}" alt="">
+                        </div>
                         <h3>«Էլիտ Պլազա» բիզնես կենտրոն</h3>
                         <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային
                             տեսախցիկներ)</p>
                     </div>
-                    <div>
-                        <img src="{{asset('images/portfolioSecondSmallImg.png')}}" alt="">
+                    <div class="col-12 col-md-6">
+                        <div class="portfolioContainer">
+                            <img src="{{asset('front/images/giphy.gif')}}" alt="">
+                        </div>
                         <h3>HSBC Բանկ Հայաստան</h3>
                         <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային
                             տեսախցիկներ)</p>
                     </div>
-
                 </div>
                 <!--                <button class="button">Պորտֆոլիո</button>-->
             </div>
@@ -60,7 +69,7 @@
                                 <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                             </div>
                         </div>
-                        <span></span>
+                        <span class="navigateBtn"></span>
                     </div>
                 </a>
                 <a href="{{route('portfolioSingle')}}">
@@ -73,7 +82,7 @@
                                 <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                             </div>
                         </div>
-                        <span></span>
+                        <span class="navigateBtn"></span>
                     </div>
                 </a>
                 <a href="{{route('portfolioSingle')}}">
@@ -86,20 +95,20 @@
                                 <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                             </div>
                         </div>
-                        <span></span>
+                        <span class="navigateBtn"></span>
                     </div>
                 </a>
                 <a href="{{route('portfolioSingle')}}">
                     <div class="archivePortfolio d-flex align-items-center justify-content-between">
                         <div class="d-flex justify-content-center">
                             <div class="imgVideoWrapper">
-                                <img src="{{asset('front/images/Isopoly.gif')}}"alt="">
+                                <img src="{{asset('front/images/Isopoly.gif')}}" alt="">
                             </div>
                             <div class="d-flex flex-column justify-content-center">
                                 <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                             </div>
                         </div>
-                        <span></span>
+                        <span class="navigateBtn"></span>
                     </div>
                 </a>
                 <a href="{{route('portfolioSingle')}}">
@@ -112,7 +121,7 @@
                                 <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                             </div>
                         </div>
-                        <span></span>
+                        <span class="navigateBtn"></span>
                     </div>
                 </a>
             </div>

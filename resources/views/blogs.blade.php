@@ -2,7 +2,7 @@
 
 @section('content')
     <main class="blogsPage">
-        <h1>ԲԼՈԳ</h1>
+        <div class="h1Title">ԲԼՈԳ</div>
         <div class="blogsWrapper">
             <div class="wrapper">
                 <a href="{{route('blog')}}">
@@ -16,7 +16,7 @@
                                     <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                                 </div>
                                 <p>12.28.2020</p>
-                                <span></span>
+                                <span class="navigateBtn"></span>
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                                     <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                                 </div>
                                 <p>12.28.2020</p>
-                                <span></span>
+                                <span class="navigateBtn"></span>
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                                     <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                                 </div>
                                 <p>12.28.2020</p>
-                                <span></span>
+                                <span class="navigateBtn"></span>
                             </div>
                         </div>
                     </div>

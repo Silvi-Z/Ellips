@@ -2,19 +2,21 @@
 
 @section('content')
     <main class="singleProductPage">
-        <h1>Տեսախցիկներ</h1>
-        <div class="wrapper">
-            <div class="singleProduct">
-                <div>
-                    <img src="{{asset('images/camera3.png')}}">
-                </div>
-                <div>
-                    <img src="{{asset('front/images/Isopoly.gif')}}"alt="">
+        <div class="h1Title">Տեսախցիկներ</div>
+        <div class="wrapper row">
+            <div class="col-6 position-relative">
+                <div class="singleProduct">
+                    <div class="singleProductSlide">
+                        <img src="{{asset('front/images/camera3.jpg')}}" alt="img">
+                    </div>
+                    <div class="singleProductSlide">
+                        <img src="{{asset('front/images/giphy.gif')}}" alt="img">
+                    </div>
                 </div>
             </div>
-            <div class="singleInfo">
+            <div class="col-6 singleInfo">
                 <h6>Տեսահսկման անալոգային և թվային համակարգեր</h6>
-                <p class="systemDescription">Տեսահսկումը հանդիսանում է օբյեկտի անվտանգության համակարգի անբաժանելի մասը: Տեսահսկման համակարգերի
+                <div class="systemDescription">Տեսահսկումը հանդիսանում է օբյեկտի անվտանգության համակարգի անբաժանելի մասը: Տեսահսկման համակարգերի
                     հիմնական գործառույթը վիզուալ վերահսկողությունն է, ահազանգումը իրական ժամանակի ռեժիմում և պահպանվող
                     տարածքում գործողությունների ձայնագրումը: Ինտերնետին միացված տեսահսկման համակարգի օգնությամբ հնարավոր
                     է իրական ժամանակում վերահսկել ընկերության այլ մասնաճյուղերի աշխատանքը, որոնք գտնվում են այլ
@@ -38,17 +40,19 @@
                     է իրական ժամանակում վերահսկել ընկերության այլ մասնաճյուղերի աշխատանքը, որոնք գտնվում են այլ
                     քաղաքներում և երկրներում: Տեսահսկման համակարգերը տեղադրվում են բնակարաններում, ամառանոցներում,
                     բանկերում, խանութներում և սուպերմարկետներում, գրասենյակներում, արտադրության և պահեստավորման
-                    վայրերում, ավտոկայանատեղերում և այլն:</p>
-                <span class="seeAllText"><img src="{{asset('front/icons/arrowSeeMore.svg')}}" alt=""></span>
+                    վայրերում, ավտոկայանատեղերում և այլն:</div>
+{{--                <span class="seeAllText">--}}
+{{--                    <img src="{{asset('front/icons/arrowSeeMore.svg')}}" alt="">--}}
+{{--                </span>--}}
             </div>
         </div>
         <div class="moreSystems container ">
-            <h5>Նմանատիպ ապրանքեր</h5>
+            <div class="moreSystemsTitle">Ներգրավված ապրանքեր</div>
             <div class="systemsSlide">
                 <div class="product">
                     <a href="{{route('system')}}">
                         <div class="d-flex align-items-center justify-content-center flex-column">
-                            <img src='{{asset('images/camera1.png')}}' alt="">
+                            <img src='{{asset('front/images/camera1.png')}}' alt="">
                         </div>
                         <div>
                             <h6>5MP Super HD Ակտիվ զսպող տեսախցիկ</h6>
@@ -71,7 +75,7 @@
                 <div class="product">
                     <a href="{{route('product')}}">
                         <div class="d-flex align-items-center justify-content-center flex-column">
-                            <img src='{{asset('images/camera3.png')}}' alt="">
+                            <img src='{{asset('front/images/camera3.jpg')}}' alt="">
                         </div>
                         <div>
                             <h6>2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն</h6>
@@ -82,7 +86,7 @@
                 <div class="product">
                     <a href="{{route('product')}}">
                         <div class="d-flex align-items-center justify-content-center flex-column">
-                            <img src='{{asset('images/camera3.png')}}' alt="">
+                            <img src='{{asset('front/images/camera3.jpg')}}' alt="">
                         </div>
                         <div>
                             <h6>2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն</h6>
@@ -93,7 +97,7 @@
                 <div class="product">
                     <a href="{{route('product')}}">
                         <div class="d-flex align-items-center justify-content-center flex-column">
-                            <img src='{{asset('images/camera3.png')}}' alt="">
+                            <img src='{{asset('front/images/camera3.jpg')}}' alt="">
                         </div>
                         <div>
                             <h6>2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն</h6>
@@ -104,5 +108,5 @@
             </div>
         </div>
     </main>
+    @endsection
 
-@endsection

@@ -4,81 +4,81 @@
     @php
         $systems = [
             [
-                "image" => "../images/camera1.png",
+                "image" => "front/images/camera1.png",
                 "title" => "Հրդեհամարման համակարգ",
             ],
             [
-                "image" => "../images/camera2.png",
+                "image" => "front/images/camera2.png",
                 "title" => "Անվտանգության համակարգ",
             ],
             [
-                "image" => "../images/camera3.png",
+                "image" => "front/images/camera3.jpg",
                 "title" => "Ցածրավոլտ համակարգեր, տեղեկատվական ցանցեր, հեռախոս,TV",
             ],
             [
-                "image" => "../images/camera1.png",
+                "image" => "front/images/camera1.png",
                 "title" => "Տեսահսկման համակարգեր",
             ],
             [
-                "image" => "../images/camera2.png",
+                "image" => "front/images/camera2.png",
                 "title" => "Հերթերի կառավարման համակարգ",
             ],
             [
-                "image" => "../images/camera3.png",
+                "image" => "front/images/camera3.jpg",
                 "title" => "Սելեկտիվ անցումային համակարգ և աշխ․ժ-ի հաշվարկ",
             ],
             [
-                "image" => "../images/camera3.png",
+                "image" => "front/images/camera3.jpg",
                 "title" => "Ավտոմատացված կայանման համակարգ (parking)",
             ],
             [
-                "image" => "../images/camera3.png",
+                "image" => "front/images/camera3.jpg",
                 "title" => "Ձայնի ծանուցման համակարգ",
             ],
             [
-                "image" => "../images/camera3.png",
+                "image" => "front/images/camera3.jpg",
                 "title" => "Ջերմաստիճանի/խոնավություն վերահսկման համակարգ",
             ],
             [
-                "image" => "../images/camera3.png",
+                "image" => "front/images/camera3.jpg",
                 "title" => "Ճաշարանի վճարային համակարգ էլեկտրոնային քարտերով",
             ],
             [
-                "image" => "../images/camera3.png",
+                "image" => "front/images/camera3.jpg",
                 "title" => "Կշեռքներ և հաշվարկային ծրագրեր",
             ],
             [
-                "image" => "../images/camera3.png",
+                "image" => "front/images/camera3.jpg",
                 "title" => "Վերելակների քարտային համակարգեր",
             ],
             [
-                "image" => "../images/camera3.png",
+                "image" => "front/images/camera3.jpg",
                 "title" => "Քնությունների ավտոմատացված համակարգ",
             ],
             [
-                "image" => "../images/camera3.png",
+                "image" => "front/images/camera3.jpg",
                 "title" => "Էլեկտրոնային աբոնենտային համակարգ",
             ],
             [
-                "image" => "../images/camera3.png",
+                "image" => "front/images/camera3.jpg",
                 "title" => "Պարագծային անվտանգության համակարգ",
             ],
             [
-                "image" => "../images/camera3.png",
+                "image" => "front/images/camera3.jpg",
                 "title" => "Հյուրանոցների Էներգախնայողության համակարգ",
             ]
         ]
     @endphp
     <main>
-        <h1>Համակարգեր և ապրանքներ</h1>
+        <div class="h1Title">Համակարգեր և ապրանքներ</div>
         @include('selectButtons')
         <div class="wrapper">
             <div class="systemsWrapper d-grid">
                 @foreach ($systems as $key => $value)
                     <div class="system">
                         <a href="{{route('system')}}">
-                            <div class="d-flex align-items-center justify-content-center flex-column">
-                                <img src={{asset($value["image"])}} alt="">
+                            <div class="systemImgContainer d-flex align-items-center justify-content-center flex-column">
+                                <img src="{{asset($value["image"])}}" alt="">
                             </div>
                             <div>
                                 <h6>{{$value["title"]}}</h6>

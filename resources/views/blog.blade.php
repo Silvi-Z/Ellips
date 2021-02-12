@@ -15,7 +15,7 @@
                     <h3>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h3>
                     <div>
                         <div>
-                            <span data-toggle="modal" data-target="#blogModalSlide"></span>
+                            <span class="modalSpan" data-toggle="modal" data-target="#blogModalSlide"></span>
                             <div class="sliderBlog">
                                 <div>
                                     <img src="{{asset('front/images/blog2.png')}}"
@@ -26,7 +26,7 @@
                                          alt="">
                                 </div>
                                 <div>
-                                    <img src="{{asset('front/images/giphy.gif')}}"alt="">
+                                    <img src="{{asset('front/images/giphy.gif')}}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="wrapper">
-                    <a href="{{route('blogs')}}">
+                    <a href="{{route('blog')}}">
                         <div class="blog d-flex align-items-center justify-content-between">
                             <div class="d-flex justify-content-center">
                                 <div class="imgVideoWrapper">
@@ -73,12 +73,12 @@
                                         <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                                     </div>
                                     <p>12.28.2020</p>
-                                    <span></span>
+                                    <span class="navigateBtn"></span>
                                 </div>
                             </div>
                         </div>
                     </a>
-                    <a href="{{route('blogs')}}">
+                    <a href="{{route('blog')}}">
                         <div class="blog d-flex align-items-center justify-content-between">
                             <div class="d-flex justify-content-center">
                                 <div class="imgVideoWrapper">
@@ -89,12 +89,12 @@
                                         <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                                     </div>
                                     <p>12.28.2020</p>
-                                    <span></span>
+                                    <span class="navigateBtn"></span>
                                 </div>
                             </div>
                         </div>
                     </a>
-                    <a href="{{route('blogs')}}">
+                    <a href="{{route('blog')}}">
                         <div class="blog d-flex align-items-center justify-content-between">
                             <div class="d-flex justify-content-center">
                                 <div class="imgVideoWrapper">
@@ -105,7 +105,7 @@
                                         <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                                     </div>
                                     <p>12.28.2020</p>
-                                    <span></span>
+                                    <span class="navigateBtn"></span>
                                 </div>
                             </div>
                         </div>

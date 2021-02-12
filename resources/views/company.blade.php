@@ -3,7 +3,7 @@
 @section('content')
     {{--    $licenses = json_decode(file_get_contents("licenses.json"),true);--}}
     <main class="companyPage">
-        <h1>ԸՆԿԵՐՈՒԹՅՈՒՆ</h1>
+        <div class="h1Title">ԸՆԿԵՐՈՒԹՅՈՒՆ</div>
         <div class="background">
             <div class="wrapper">
             <div class="aboutCompany">
@@ -39,12 +39,12 @@
                 "text" => "էներգետիկայի ոլորտում նախագծման"
               ],
               [
-                "number" => "N14394",
-                "text" => "կապի ոլորտում նախագծման"
-              ],
-              [
                 "number" => "N14392",
                 "text" => "հիդրոտեխնիկայի ոլորտում շինարարության"
+              ],
+              [
+                "number" => "N14394",
+                "text" => "կապի ոլորտում նախագծման"
               ],
               [
                 "number" => "N11110",
@@ -61,25 +61,25 @@
             ]
            @endphp
             @foreach ($licenses as $key => $value)
-                <div>
-                    <h5>{{$value["number"]}}</h5>
-                    <p>{{$value["text"]}}</p>
+                <div class="licensesSlideWrapper">
+                    <div>{{$value["number"]}}</div>
+                    <div>{{$value["text"]}}</div>
                 </div>
             @endforeach
         </div>
         @include('ourExperience')
         <div class="companies">
-            <span>ՄԵՐ ԳՈՐԾԸՆԿԵՐՆԵՐԸ</span>
+            <div class="ourPartners">ՄԵՐ ԳՈՐԾԸՆԿԵՐՆԵՐԸ</div>
             @include('companies')
         </div>
         <div class="darkSection companiesHistory">
             <h3>ՊԱՏՄՈՒԹՅՈՒՆ</h3>
-            <div class="wrapper">
-                <div class="history firstHistory">
-                    <div class="companyImage">
+            <div class="wrapper container">
+                <div class="history row firstHistory">
+                    <div class="col-6 col-12 companyImage">
                         <img src="{{asset('front/images/historyImg1.jpg')}}" alt="">
                     </div>
-                    <div>
+                    <div class="col-6 col-12">
                         <p>1976 թ.-ին Պոլիտեխնիկական ինստիտուտի ուսանող 22-ամյա Գուրգենը ձեռք է բերում Phakard H8
                             մակնիշի ավտոմեքենա և
                             10 տարի շարունակ սեփական ուժերով վերանորոգելուց հետո այն վաճառում է գերմանացի մի գնորդի:
@@ -95,8 +95,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="history">
-                    <div>
+                <div class="history row">
+                    <div class="col-6 col-12">
                         <p>1976 թ.-ին Պոլիտեխնիկական ինստիտուտի ուսանող 22-ամյա Գուրգենը ձեռք է բերում Phakard H8
                             մակնիշի ավտոմեքենա և
                             10 տարի շարունակ սեփական ուժերով վերանորոգելուց հետո այն վաճառում է գերմանացի մի գնորդի:
@@ -112,15 +112,15 @@
                             արտադրությունը:
                         </p>
                     </div>
-                    <div class="companyImage">
+                    <div class="col-6 col-12 companyImage">
                         <img src="{{asset('front/images/historyImg1.jpg')}}" alt="">
                     </div>
                 </div>
-                <div class="history">
-                    <div class="companyImage">
+                <div class="history row">
+                    <div class="col-6 col-12 companyImage">
                         <img src="{{asset('front/images/historyImg1.jpg')}}" alt="">
                     </div>
-                    <div>
+                    <div class="col-6 col-12">
                         <p>1976 թ.-ին Պոլիտեխնիկական ինստիտուտի ուսանող 22-ամյա Գուրգենը ձեռք է բերում Phakard H8
                             մակնիշի ավտոմեքենա և
                             10 տարի շարունակ սեփական ուժերով վերանորոգելուց հետո այն վաճառում է գերմանացի մի գնորդի:
