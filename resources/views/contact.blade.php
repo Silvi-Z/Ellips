@@ -2,7 +2,7 @@
 
 @section('content')
     <main class="contactPageWrapper">
-        <h1>ԿԱՊ ՄԵԶ ՀԵՏ</h1>
+        <div class="h1Title">ԿԱՊ ՄԵԶ ՀԵՏ</div>
         <div class="contactPage">
             <div class="container">
                 <div class="row contactInfo">
@@ -59,20 +59,28 @@
                     <div class="col-xl-6 form">
                         <form action="">
                             <div class="d-flex flex-column w-100 justify-content-end">
-                                <label for="name"></label>
-                                <input id="name" type="text" placeholder="ՁԵՐ ԱՆՈՒՆԸ">
+                                <label for="name">
+                                    <span class="errorMessage">Please enter you name </span>
+                                    <input id="name" type="text" placeholder="ՁԵՐ ԱՆՈՒՆԸ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ՁԵՐ ԱՆՈՒՆԸ'">
+                                </label>
                             </div>
                             <div class="d-flex flex-column w-100 justify-content-end">
-                                <label for="email"></label>
-                                <input id="email" type="email" placeholder="ՁԵՐ ԷԼ․ ՀԱՍՑԵՆ">
+                                <label for="email">
+                                    <span class="errorMessage">Please enter you email </span>
+                                    <input id="email" type="email" placeholder="ՁԵՐ ԷԼ․ ՀԱՍՑԵՆ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ՁԵՐ ԷԼ․ ՀԱՍՑԵՆ'">
+                                </label>
                             </div>
                             <div class="d-flex flex-column w-100 justify-content-end">
-                                <label for="phone"></label>
-                                <input id="phone" type="number" placeholder="ՁԵՐ ՀԵՌԱԽՈՍԱՀԱՄԱՐԸ">
+                                <label for="phone">
+                                    <span class="errorMessage">Please enter you phone </span>
+                                    <input id="phone" type="tel" placeholder="ՁԵՐ ՀԵՌԱԽՈՍԱՀԱՄԱՐԸ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ՁԵՐ ՀԵՌԱԽՈՍԱՀԱՄԱՐԸ'">
+                                </label>
                             </div>
                             <div class="d-flex flex-column w-100 justify-content-end">
-                                <label for="message"></label>
-                                <input id="message" type="text" placeholder="ՁԵՐ ՆԱՄԱԿԸ">
+                                <label for="message">
+                                    <span class="errorMessage">Please enter you phone </span>
+                                    <textarea rows="1" id="message" type="textarea" placeholder="ՁԵՐ ՆԱՄԱԿԸ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ՁԵՐ ՆԱՄԱԿԸ'"></textarea>
+                                </label>
                             </div>
                             <button type="submit">ՈՒղարկել</button>
                         </form>

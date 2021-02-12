@@ -2,9 +2,8 @@
 
 @section('content')
     <main class="productsPage wrapper">
-        <h1>Համակարգեր և ապրանքներ</h1>
+        <div class="h1Title">ապրանքներ և համակարգեր</div>
         @include ('selectButtons')
-{{--        <div class="">--}}
             <div class="filter row">
                 <div class="col">
                     <label>
@@ -38,32 +37,32 @@
                 @php
                     $products = [
                         [
-                            "productImage" => "../images/camera1.png",
+                            "productImage" => "front/images/camera1.png",
                             "productName" => "5MP Super HD Ակտիվ զսպող տեսախցիկ",
                             "productPrice" => "20․000  դր․"
                         ],
                         [
-                            "productImage" => "../images/camera2.png",
+                            "productImage" => "front/images/camera2.png",
                             "productName" => "Տնային մոնիտորինգի հավաքածու, որն ունի Wi-Fi ջրհեղեղի տեսախցիկ և 1080p HD վիդեո դռան զանգ",
                             "productPrice" => "20․000  դր․"
                         ],
                         [
-                            "productImage" => "../images/camera3.png",
+                            "productImage" => "front/images/camera3.jpg",
                             "productName" => "2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն",
                             "productPrice" => "20․000  դր․"
                         ],
                         [
-                            "productImage" => "../images/camera1.png",
+                            "productImage" => "front/images/camera1.png",
                             "productName" => "5MP Super HD Ակտիվ զսպող տեսախցիկ",
                             "productPrice" => "20․000  դր․"
                         ],
                         [
-                            "productImage" => "../images/camera2.png",
+                            "productImage" => "front/images/camera2.png",
                             "productName" => "Տնային մոնիտորինգի հավաքածու, որն ունի Wi-Fi ջրհեղեղի տեսախցիկ և 1080p HD վիդեո դռան զանգ",
                             "productPrice" => "20․000  դր․"
                         ],
                         [
-                            "productImage" => "../images/camera3.png",
+                            "productImage" => "front/images/camera3.jpg",
                             "productName" => "2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն",
                             "productPrice" => "20․000  դր․"
                         ]
@@ -73,7 +72,7 @@
                     <div class="product d-flex justify-content-center">
                         <a href="{{route('productPage')}}">
                             <div class="d-flex align-items-center justify-content-center flex-column">
-                                <img src={{asset($value["productImage"])}} alt="">
+                                <img src="{{asset($value["productImage"])}}" alt="">
                             </div>
                             <div>
                                 <h6>{{$value["productName"]}}</h6>
@@ -84,6 +83,5 @@
                 @endforeach
             </div>
 
-{{--        </div>--}}
     </main>
 @endsection

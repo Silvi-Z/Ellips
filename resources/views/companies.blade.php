@@ -51,14 +51,13 @@
       ]
 
 @endphp
-
 <div class="company">
     @foreach ($companies as $key => $value)
-    <div class="d-flex flex-column align-items-center justify-content-center">
-        <div class="d-flex justify-content-center align-items-center">
+    <div class="companySlideWrapper d-flex flex-column align-items-center justify-content-center">
+        <div class="companyCircle d-flex justify-content-center align-items-center">
             <img src='{{asset($value["src"])}}' alt="">
         </div>
-        <p>{{$value["text"]}}</p>
+        <div class="companyName">{{$value["text"]}}</div>
     </div>
     @endforeach
 </div>

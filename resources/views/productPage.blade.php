@@ -2,16 +2,33 @@
 
 @section('content')
     <main>
-        <h1>ՏԵՍԱԽՑԻԿՆԵՐ</h1>
+        <div class="h1Title">ՏԵՍԱԽՑԻԿՆԵՐ</div>
         @include('selectButtons')
         <div class="productPageWrapper">
             <div class="filter row">
-                <div class="col">
+                <div class="col-md-12 col-lg-6 col">
                     <label>
                         <input type="text" placeholder="Փնտրել">
                     </label>
                 </div>
-                <div class="nav-item dropdown col-md-4">
+                <div class="nav-item dropdown col-md-6 col-lg-3">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                        ԸՍՏ Բրենդի
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Բրենդ 1</a></li>
+                        <li><a class="dropdown-item" href="#">Բրենդ 2</a></li>
+                        <li><a class="dropdown-item" href="#">Բրենդ 3</a></li>
+                        <li><a class="dropdown-item" href="#">Բրենդ 3</a></li>
+                        <li><a class="dropdown-item" href="#">Բրենդ 3</a></li>
+                        <li><a class="dropdown-item" href="#">Բրենդ 3</a></li>
+                        <li><a class="dropdown-item" href="#">Բրենդ 3</a></li>
+                        <li><a class="dropdown-item" href="#">Բրենդ 3</a></li>
+                        <li><a class="dropdown-item" href="#">Բրենդ 3</a></li>
+                        <li><a class="dropdown-item" href="#">Բրենդ 3</a></li>
+                    </ul>
+                </div>
+                <div class="nav-item dropdown col-md-6 col-lg-3">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
                         ԸՍՏ ՀամակարգերԻ
                     </a>
@@ -61,7 +78,7 @@
                 <div class="product d-flex justify-content-center">
                     <a href="{{route('product')}}">
                         <div class="d-flex align-items-center justify-content-center flex-column">
-                            <img src="{{asset('front/images/camera3.png')}}" alt="">
+                            <img src="{{asset('front/images/camera3.jpg')}}" alt="">
                         </div>
                         <div>
                             <h6>2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն</h6>
@@ -95,7 +112,7 @@
                 <div class="product d-flex justify-content-center">
                     <a href="{{route('product')}}">
                         <div class="d-flex align-items-center justify-content-center flex-column">
-                            <img src="{{asset('front/images/camera3.png')}}" alt="">
+                            <img src="{{asset('front/images/camera3.jpg')}}" alt="">
                         </div>
                         <div>
                             <h6>2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն</h6>

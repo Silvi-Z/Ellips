@@ -2,10 +2,10 @@
 
 @section('content')
     <main>
-        <h1>ԿԵՆԴԱՆԱԲԱՆԱԿԱՆ ԱՅԳԻ</h1>
+        <div class="h1Title">ԿԵՆԴԱՆԱԲԱՆԱԿԱՆ ԱՅԳԻ</div>
         <div class="portfolioPage singlePortfolio">
             <div>
-                <img src="{{asset("front/images/portfolioImage.jpg")}}" alt="">
+                <img src="{{asset("front/images/portfolioBigImg.png")}}" alt="">
             </div>
             <div class="row">
                 <div class="col-md-6">
@@ -68,59 +68,60 @@
                 <div class="archivePortfolio d-flex align-items-center justify-content-between">
                     <div class="d-flex justify-content-center">
                         <div class="imgVideoWrapper">
-                            <img src="{{asset('images/portfolioImg.jpg')}}" alt="">
+                            <img src="{{asset('front/images/portfolioSecondSmallImg.png')}}" alt="">
                         </div>
                         <div class="d-flex flex-column justify-content-center">
                             <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                         </div>
                     </div>
-                    <span></span>
+                    <span class="navigateBtn"></span>
                 </div>
                 <div class="archivePortfolio d-flex align-items-center justify-content-between">
                     <div class="d-flex justify-content-center">
                         <div class="imgVideoWrapper">
-                            <img src="{{asset('images/portfolioImg.jpg')}}" alt="">
+                            <img src="{{asset('front/images/portfolioFirstSmallImg.png')}}" alt="">
                         </div>
                         <div class="d-flex flex-column justify-content-center">
                             <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                         </div>
                     </div>
-                    <span></span>
+                    <span class="navigateBtn"></span>
                 </div>
                 <div class="archivePortfolio d-flex align-items-center justify-content-between">
                     <div class="d-flex justify-content-center">
                         <div class="imgVideoWrapper">
-                            <img src="{{asset('images/portfolioImg.jpg')}}" alt="">
+                            <img src="{{asset('front/images/portfolioSecondSmallImg.png')}}" alt="">
                         </div>
                         <div class="d-flex flex-column justify-content-center">
                             <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                         </div>
                     </div>
-                    <span></span>
+                    <span class="navigateBtn"></span>
                 </div>
                 <div class="archivePortfolio d-flex align-items-center justify-content-between">
                     <div class="d-flex justify-content-center">
                         <div class="imgVideoWrapper">
-                            <img src="{{asset('front/images/giphy.gif')}}"alt="">
+                            <video loop autoplay muted height="200" width="300">
+                                <source src="{{asset('front/images/video.mp4')}}" type="video/mp4">
+                            </video>
                         </div>
                         <div class="d-flex flex-column justify-content-center">
                             <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                         </div>
                     </div>
-                    <span></span>
+                    <span class="navigateBtn"></span>
                 </div>
                 <div class="archivePortfolio d-flex align-items-center justify-content-between">
                     <div class="d-flex justify-content-center">
                         <div class="imgVideoWrapper">
-                            <img src="{{asset('images/portfolioImg.jpg')}}" alt="">
+                            <img src="{{asset('front/images/portfolioSecondSmallImg.png')}}" alt="">
                         </div>
                         <div class="d-flex flex-column justify-content-center">
                             <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
                         </div>
                     </div>
-                    <span></span>
+                    <span class="navigateBtn"></span>
                 </div>
-
             </div>
         </div>
     </main>
