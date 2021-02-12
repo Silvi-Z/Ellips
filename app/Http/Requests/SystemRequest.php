@@ -23,16 +23,24 @@ class SystemRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+
+        $rules =  [
             'title_hy'=>'required',
             'title_ru'=>'required',
             'title_en'=>'required',
+            'text_hy'=>'required',
+            'text_ru'=>'required',
+            'text_en'=>'required',
             'upload_files'=>'required|array',
-            'upload_files.*.text_hy'=>'required',
-            'upload_files.*.text_ru'=>'required',
-            'upload_files.*.text_en'=>'required',
-//            'upload_files.*.image'=>'image',
-//            'upload_files.*.video'=>'string',
         ];
+
+        if ($this->method() == "PUT") {
+            $rules['upload_files.*.image'] = 'image|max:10240';
+            $rules['upload_files.*.video'] = 'string';
+        }else{
+            $rules['upload_files.*.image'] = 'required_without:upload_files.*.video|image|max:10240';
+            $rules['upload_files.*.video'] = 'required_without:upload_files.*.image|string';
+        }
+        return $rules;
     }
 }

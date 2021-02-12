@@ -32,4 +32,19 @@ class DashboardController extends Controller
         );
 
     }
+
+    public function upload(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|image',
+
+        ]);
+
+        if ($request->hasFile('file')) {
+            $photoName = time() . '.' . $request->file->getClientOriginalExtension();
+            $request->file->move(public_path('files'), $photoName);
+            return response()->json(['location'=>asset('files/'.$photoName)]);
+        }
+
+    }
 }

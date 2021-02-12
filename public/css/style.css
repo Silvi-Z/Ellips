@@ -1,4 +1,4 @@
-.newForm>div>div{
+.newForm>div:not(:first-of-type)>div{
     margin-bottom: 15px;
 }
 .fileUpload, .imageUpload , .videoUpload{
@@ -16,12 +16,33 @@
     outline: none;
     position: absolute;
     right: 20px;
+    background-color: transparent;
+}
+.button i{
+    font-size: 20px;
 }
 .newForm{
     border-bottom: 1px solid #ccc;
-    padding: 30px 0;
+    padding: 40px 0 100px;
 }
-
+.newForm:not(:first-of-type)>div:first-child{
+    display: flex;
+    justify-content: space-between;
+}
+.add_file_blog{
+    margin-top: 10px;
+}
+.add_file_blog, .delete{
+    cursor: pointer;
+    outline: none;
+}
+.delete{
+    height: 22px;
+    width: 21px;
+}
+.delete i{
+    font-size: 20px;
+}
 .newForm input , .newForm textarea{
     outline: none;
 }
@@ -38,4 +59,7 @@
 
 .systems .slider_url{
     display: none;
+}
+.newForm .invalid-feedback{
+    display: block;
 }

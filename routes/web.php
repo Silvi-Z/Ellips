@@ -34,38 +34,14 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 
 
     Route::get('/', 'DashboardController@index')->name('admin.index');
+    Route::any('/statistics', 'StatisticController@index')->name('admin.statistics');
+    Route::any('/slider', 'SliderController@index')->name('admin.slider');
+    Route::post('/slider', 'SliderController@update')->name('admin.slider.update');
+    Route::post('/upload', 'DashboardController@upload')->name('admin.upload');
 
 
 
 //    Route::get('/orders', 'OrdersController@index')->name('admin.orders.index');
-
-
-
-
-
-
-
-//    Route::resource('users', 'UsersController', [
-//
-//        'names' => [
-//
-//            'index' => 'admin.users.index',
-//
-//            'store' => 'admin.users.store',
-//
-//            'create' => 'admin.users.create',
-//
-//            'destroy' => 'admin.users.destroy',
-//
-//            'update' => 'admin.users.update',
-//
-//            'show' => 'admin.users.show',
-//
-//            'edit' => 'admin.users.edit',
-//
-//        ]
-//
-//    ]);
 
 
 
@@ -211,6 +187,114 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 
     ]);
 
+    Route::resource('clients', 'ClientController', [
+
+        'names' => [
+
+            'index' => 'admin.clients.index',
+
+            'store' => 'admin.clients.store',
+
+            'create' => 'admin.clients.create',
+
+            'destroy' => 'admin.clients.destroy',
+
+            'update' => 'admin.clients.update',
+
+            'show' => 'admin.clients.show',
+
+            'edit' => 'admin.clients.edit',
+
+        ]
+
+    ]);
+
+    Route::resource('portfolios', 'PortfolioController', [
+
+        'names' => [
+
+            'index' => 'admin.portfolios.index',
+
+            'store' => 'admin.portfolios.store',
+
+            'create' => 'admin.portfolios.create',
+
+            'destroy' => 'admin.portfolios.destroy',
+
+            'update' => 'admin.portfolios.update',
+
+            'show' => 'admin.portfolios.show',
+
+            'edit' => 'admin.portfolios.edit',
+
+        ]
+
+    ]);
+
+    Route::resource('cities', 'CityController', [
+
+        'names' => [
+
+            'index' => 'admin.cities.index',
+
+            'store' => 'admin.cities.store',
+
+            'create' => 'admin.cities.create',
+
+            'destroy' => 'admin.cities.destroy',
+
+            'update' => 'admin.cities.update',
+
+            'show' => 'admin.cities.show',
+
+            'edit' => 'admin.cities.edit',
+
+        ]
+
+    ]);
+
+    Route::resource('social_networks', 'SotialNetworkController', [
+
+        'names' => [
+
+            'index' => 'admin.social_networks.index',
+
+            'store' => 'admin.social_networks.store',
+
+            'create' => 'admin.social_networks.create',
+
+            'destroy' => 'admin.social_networks.destroy',
+
+            'update' => 'admin.social_networks.update',
+
+            'show' => 'admin.social_networks.show',
+
+            'edit' => 'admin.social_networks.edit',
+
+        ]
+
+    ]);
+    Route::resource('contact_services', 'ContactServiceController', [
+
+        'names' => [
+
+            'index' => 'admin.contact_services.index',
+
+            'store' => 'admin.contact_services.store',
+
+            'create' => 'admin.contact_services.create',
+
+            'destroy' => 'admin.contact_services.destroy',
+
+            'update' => 'admin.contact_services.update',
+
+            'show' => 'admin.contact_services.show',
+
+            'edit' => 'admin.contact_services.edit',
+
+        ]
+
+    ]);
 
 
 });

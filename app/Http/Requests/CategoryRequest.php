@@ -23,10 +23,17 @@ class CategoryRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules =  [
             'title_hy'=>'required',
             'title_ru'=>'required',
             'title_en'=>'required',
         ];
+        if ($this->method() == "PUT") {
+            $rules['image'] = 'image|max:10240';
+
+        }else{
+            $rules['image'] = 'required|image|max:10240';
+        }
+        return $rules;
     }
 }
