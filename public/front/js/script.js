@@ -682,6 +682,10 @@ $(document).ready(function () {
     //     }
     //     lastScrollTop = st;
     // }
+    $(document).on('click',".openSelect", function () {
+        console.log(1000)
+        window.location.href = '/locale/'+$(this).data('id')
 
+    })
 });
 

@@ -26,8 +26,8 @@ Route::get('/portfolio', 'HomeController@portfolio')->name('portfolio');
 Route::get('/portfolioSingle', 'HomeController@portfolioSingle')->name('portfolioSingle');
 Route::get('/product', 'HomeController@product')->name('product');
 Route::get('/contact', 'HomeController@contact')->name('contact');
-Route::get('/system', 'HomeController@system')->name('system');
-Route::get('/productPage', 'HomeController@productPage')->name('productPage');
+Route::get('/system/{$url}', 'HomeController@system')->name('system');
+Route::get('/category/{$url}', 'HomeController@productPage')->name('category');
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 
 

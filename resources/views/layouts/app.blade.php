@@ -6,12 +6,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
+    <title>@yield('title')</title>
     <link rel="stylesheet" href="{{asset('front/bootstrapCSS/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('front/slick-1.8.1/slick/slick.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('front/slick-1.8.1/slick/slick-theme.css')}}"/>
     <link rel="stylesheet" href="{{asset('front/css/style.css')}}">
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=1973b4f0-00a7-49c0-9e22-9baaee610410&lang=ru_RU" type="text/javascript">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=1973b4f0-00a7-49c0-9e22-9baaee610410&lang=ru_RU"
+            type="text/javascript">
     </script>
 </head>
 <body>
@@ -26,24 +27,24 @@
             </a>
             <div class="inline-menu d-flex col-xl-9 col-lg-10 justify-content-between">
                 <nav class="d-flex align-items-center">
-                    <a href="{{route('company')}}">Ընկերություն</a>
-                    <a class="selectMenu">Ապրանքներ / համակարգեր
+                    <a href="{{route('company')}}">@lang('static.Company')</a>
+                    <a class="selectMenu">@lang('static.Products / Systems')
                         <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
-                                d="M3.60396 5.11608L0.164193 1.6762C-0.0547314 1.45738 -0.0547314 1.10261 0.164193 0.883896C0.382921 0.665166 0.737679 0.665166 0.95639 0.883896L4.00006 3.92766L7.04362 0.883984C7.26244 0.665255 7.61716 0.665255 7.83589 0.883984C8.0547 1.10271 8.0547 1.45747 7.83589 1.67629L4.39607 5.11617C4.28665 5.22553 4.1434 5.28016 4.00008 5.28016C3.85668 5.28016 3.71332 5.22543 3.60396 5.11608Z"
-                                fill="black"/>
+                                    d="M3.60396 5.11608L0.164193 1.6762C-0.0547314 1.45738 -0.0547314 1.10261 0.164193 0.883896C0.382921 0.665166 0.737679 0.665166 0.95639 0.883896L4.00006 3.92766L7.04362 0.883984C7.26244 0.665255 7.61716 0.665255 7.83589 0.883984C8.0547 1.10271 8.0547 1.45747 7.83589 1.67629L4.39607 5.11617C4.28665 5.22553 4.1434 5.28016 4.00008 5.28016C3.85668 5.28016 3.71332 5.22543 3.60396 5.11608Z"
+                                    fill="black"/>
                         </svg>
                     </a>
-                    <a href="{{route('portfolio')}}">Պորտֆոլիո</a>
-                    <a href="{{route('blogs')}}">Բլոգ</a>
+                    <a href="{{route('portfolio')}}">@lang('static.Portfolio')</a>
+                    <a href="{{route('blogs')}}">@lang('static.Blog')</a>
                 </nav>
                 <div class="d-flex align-items-center">
-                    <button class="btn btn-dark"><a href={{route("contact")}}>Կապ մեզ հետ</a></button>
+                    <button class="btn btn-dark"><a href={{route("contact")}}>@lang('static.Contact us')</a></button>
                     <div class="selectLang">
                         <div>
-                            <div data-id="hy" class="hy first"></div>
-                            <div data-id="en" class="en"></div>
-                            <div data-id="ru" class="ru"></div>
+                            <div data-id="hy" class="setLang hy @if(app()->getLocale() == 'hy' ) first @endif"></div>
+                            <div data-id="en" class="setLang en @if(app()->getLocale() == 'en' ) first @endif"></div>
+                            <div data-id="ru" class="setLang ru @if(app()->getLocale() == 'ru' ) first @endif"></div>
                         </div>
                     </div>
                 </div>
@@ -55,86 +56,95 @@
                 <br>
                 <div>
                     <a href="{{route('products')}}" class="title">
-                        <h5>Ապրանքներ</h5>
+                        <h5>@lang('static.Products')</h5>
                         <div class="arrow"></div>
                     </a>
                     <div class="row">
-                        <ul class="col-4">
-                            <li>Կոդային փականներ</li>
-                            <li>Դարպասներ</li>
-                            <li>Դռներ և պատուհաններ</li>
-                            <li>Մետաղաորսիչներ</li>
-                            <li>Ծածկեր,տաղավարներ,
-                                բազրիքներ,մետաղյա կոնստրուկցիաներ
-                            </li>
-                            <li>Արգելափակոցներ
-                                (шлагбаум)
-                            </li>
-                            <li>Ազդարարիչներ</li>
-                            <li>Ազդարարիչներ</li>
-                        </ul>
-                        <ul class="col-4">
-                            <li>Ճաղավանդակներ</li>
-                            <li>Մարկիզաներ</li>
-                            <li>Լուսացույցեր</li>
-                            <li>Տեսախցիկներ</li>
-                            <li>Ահազանգման համակարգեր</li>
-                            <li>Չհրկիզվող պահարաններ</li>
-                            <li>Շչակներ</li>
-                            <li>Տվիչներ</li>
-                        </ul>
-                        <ul class="col-4">
-                            <li>Այլ (մագնիսական կոնտակտ, քարտեր, բրիկոլներ, մալուխներ, DVRներ,պատռուլ, դրամափոխանակման
-                                հանգույցներ)
-                            </li>
-                        </ul>
+                        @if(!empty($categories))
+
+                            <ul class="col-4">
+                                @foreach($categories as $catgory)
+                                    @if($loop->index%3 == 0 )
+                                        <li>
+                                            <a href="{{route('category',['url'=>$catgory->url])}}">{{ $catgory->title_{$lang} }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                            <ul class="col-4">
+                                @foreach($categories as $catgory)
+                                    @if($loop->index%3 == 1 )
+                                        <li>
+                                            <a href="{{route('category',['url'=>$catgory->url])}}">{{ $catgory->title_{$lang} }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                            <ul class="col-4">
+                                @foreach($categories as $catgory)
+                                    @if($loop->index%3 == 2 )
+                                        <li>
+                                            <a href="{{route('category',['url'=>$catgory->url])}}">{{ $catgory->title_{$lang} }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ul>
+
+
+                        @endif
+
                     </div>
                 </div>
                 <div>
                     <a href="{{route('systems')}}" class="title">
-                        <h5>Համակարգեր</h5>
+                        <h5>@lang('static.Systems')</h5>
                         <div class="arrow"></div>
                     </a>
                     <div class="row">
-                        <ul class="col-4">
-                            <li>Հրդեհամարման համակարգ</li>
-                            <li>Անվտանգության համակարգ</li>
-                            <li>Ցածրավոլտ համակարգեր,
-                                տեղեկատվական ցանցեր,
-                                հեռախոս,TV
-                            </li>
-                            <li>Տեսահսկման համակարգեր</li>
-                            <li>Հերթերի կառավարման համակարգ</li>
-                            <li>Սելեկտիվ անցումային համակարգ և աշխ․ժ-ի հաշվարկ</li>
-                        </ul>
-                        <ul class="col-4">
-                            <li>Սելեկտիվ անցումային համակարգ և աշխ․ժ-ի հաշվարկ</li>
-                            <li>Սելեկտիվ անցումային համակարգ և աշխ․ժ-ի հաշվարկ</li>
-                            <li>Ջերմաստիճանի/խոնավություն վերահսկման համակարգ</li>
-                            <li>Ճաշարանի վճարային համակարգ էլեկտրոնային քարտերով</li>
-                            <li>Կշեռքներ և հաշվարկային ծրագրեր</li>
-                        </ul>
-                        <ul class="col-4">
-                            <li>Վերելակների քարտային համակարգեր</li>
-                            <li>Քնությունների ավտոմատացված համակարգ</li>
-                            <li>Քնությունների ավտոմատացված համակարգ</li>
-                            <li>Պարագծային անվտանգության համակարգ</li>
-                            <li>Հյուրանոցների Էներգախնայողության համակարգ</li>
-                        </ul>
+                        @if(!empty($systems))
+                            <ul class="col-4">
+                                @foreach($systems as $system)
+                                    @if($loop->index%3 == 0 )
+                                        <li>
+                                            <a href="{{route('system',['url'=>$system->url])}}">{{ $system->title_{$lang} }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                            <ul class="col-4">
+                                @foreach($systems as $system)
+                                    @if($loop->index%3 == 1 )
+                                        <li>
+                                            <a href="{{route('system',['url'=>$system->url])}}">{{ $system->title_{$lang} }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                            <ul class="col-4">
+                                @foreach($systems as $system)
+                                    @if($loop->index%3 == 2 )
+                                        <li>
+                                            <a href="{{route('system',['url'=>$system->url])}}">{{ $system->title_{$lang} }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ul>
+
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
         <div class="responsiveMenu">
             <ul>
-                <li><a href="{{route('company')}}">Ընկերություն</a></li>
-                <li><a href="{{route('systems')}}">Համակարգեր</a></li>
-                <li><a href="{{route('products')}}">Ապրանքներ</a></li>
-                <li><a href="{{route('portfolio')}}">Պորտֆոլիո</a></li>
-                <li><a href="{{route('blogs')}}">Բլոգ</a></li>
+                <li><a href="{{route('company')}}">@lang('static.Company')</a></li>
+                <li><a href="{{route('systems')}}">@lang('static.Systems')</a></li>
+                <li><a href="{{route('products')}}">@lang('static.Products')</a></li>
+                <li><a href="{{route('portfolio')}}">@lang('static.Portfolio')</a></li>
+                <li><a href="{{route('blogs')}}">@lang('static.Blog')</a></li>
             </ul>
             <div class="d-flex align-items-center">
-                <button class="btn btn-dark">Կապ մեզ հետ</button>
+                <button class="btn btn-dark">@lang('static.Contact us')</button>
                 <div class="selectLang">
                     <div>
                         <div data-id="hy" class="hy first"></div>
@@ -150,7 +160,7 @@
 @yield('content')
 
 <footer>
-    <div  class="row">
+    <div class="row">
         <div class="col-lg-2 col-md col footerLogo">
             <div>
                 <img src="{{asset('front/icons/logo.svg')}}" alt="">
@@ -175,7 +185,7 @@
             </div>
         </div>
         <div class="col-lg-3 col-md col follow">
-            <h4>Հետևեք Մեզ</h4>
+            <h4>@lang('static.Follow Us!')</h4>
             <div>
                 <img src="{{asset('front/icons/fb.svg')}}" alt="">
                 <img src="{{asset('front/icons/youtube.svg')}}" alt="">
