@@ -82,27 +82,27 @@
 
                             <ul class="col-4">
                                 @foreach($categories as $catgory)
-                                    @if($loop->index%3 == 0 )
+                                    @if($loop->index % 3 == 0 )
                                         <li>
-                                            <a href="{{route('category',['url'=>$catgory->url])}}">{{ $catgory->title_{$lang} }}</a>
+                                            <a href="{{route('category',['url'=>$catgory->url])}}">{{ $catgory->{'title_'.$lang} }}</a>
                                         </li>
                                     @endif
                                 @endforeach
                             </ul>
                             <ul class="col-4">
                                 @foreach($categories as $catgory)
-                                    @if($loop->index%3 == 1 )
+                                    @if($loop->index % 3 == 1 )
                                         <li>
-                                            <a href="{{route('category',['url'=>$catgory->url])}}">{{ $catgory->title_{$lang} }}</a>
+                                            <a href="{{route('category',['url'=>$catgory->url])}}">{{ $catgory->{'title_'.$lang} }}</a>
                                         </li>
                                     @endif
                                 @endforeach
                             </ul>
                             <ul class="col-4">
                                 @foreach($categories as $catgory)
-                                    @if($loop->index%3 == 2 )
+                                    @if($loop->index % 3 == 2 )
                                         <li>
-                                            <a href="{{route('category',['url'=>$catgory->url])}}">{{ $catgory->title_{$lang} }}</a>
+                                            <a href="{{route('category',['url'=>$catgory->url])}}">{{ $catgory->{'title_'.$lang} }}</a>
                                         </li>
                                     @endif
                                 @endforeach
@@ -124,7 +124,7 @@
                                 @foreach($systems as $system)
                                     @if($loop->index%3 == 0 )
                                         <li>
-                                            <a href="{{route('system',['url'=>$system->url])}}">{{ $system->title_{$lang} }}</a>
+                                            <a href="{{route('system',['url'=>$system->url])}}">{{ $system->{'title_'.$lang} }}</a>
                                         </li>
                                     @endif
                                 @endforeach
@@ -133,7 +133,7 @@
                                 @foreach($systems as $system)
                                     @if($loop->index%3 == 1 )
                                         <li>
-                                            <a href="{{route('system',['url'=>$system->url])}}">{{ $system->title_{$lang} }}</a>
+                                            <a href="{{route('system',['url'=>$system->url])}}">{{ $system->{'title_'.$lang} }}</a>
                                         </li>
                                     @endif
                                 @endforeach
@@ -142,7 +142,7 @@
                                 @foreach($systems as $system)
                                     @if($loop->index%3 == 2 )
                                         <li>
-                                            <a href="{{route('system',['url'=>$system->url])}}">{{ $system->title_{$lang} }}</a>
+                                            <a href="{{route('system',['url'=>$system->url])}}">{{ $system->{'title_'.$lang} }}</a>
                                         </li>
                                     @endif
                                 @endforeach

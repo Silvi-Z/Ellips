@@ -2,20 +2,29 @@
 
 @section('content')
     <main class="singleProductPage">
-        <div class="h1Title">{{ $product->{'title_'.$lang} }}</div>
+        <div class="h1Title">{{ $product->brand->{'title_'.$lang} }}</div>
         <div class="wrapper row">
             <div class="col-6 position-relative">
                 <div class="singleProduct">
-                    <div class="singleProductSlide">
-                        <img src="{{asset('front/images/camera3.jpg')}}" alt="img">
-                    </div>
-                    <div class="singleProductSlide">
-                        <img src="{{asset('front/images/giphy.gif')}}" alt="">
-                    </div>
+                    @if(!empty($product->images))
+                        @foreach($product->images as  $image)
+                            @if($image->image_name)
+                                <div class="singleProductSlide">
+                                    <img src="{{asset('files/'.$image->image_name)}}" alt="img">
+                                </div>
+                            @else
+                                <div class="singleProductSlide">
+                                    <iframe width="100%" src="{{$image->video}}?autoplay=1&showinfo=0&controls=0">
+                                    </iframe>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endif
+
                 </div>
             </div>
             <div class="col-6 singleInfo">
-                <h6>2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն</h6>
+                <h6>{{ $product->{'title_'.$lang} }}</h6>
                 <p class="price">{{ $product->price }} @lang('static.AMD')</p>
                 <div class="productDescription">{!!  $product->{'text_'.$lang}  !!}</div>
                 <div class="tags">

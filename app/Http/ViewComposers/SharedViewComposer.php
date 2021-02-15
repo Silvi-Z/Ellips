@@ -36,6 +36,7 @@ class SharedViewComposer
 
     public function categories(View $view)
     {
+
          return $view->with('categories', Category::all());
     }
     public function systems(View $view)
