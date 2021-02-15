@@ -5,10 +5,13 @@
         <div class="h1Title">ՏԵՍԱԽՑԻԿՆԵՐ</div>
         @include('selectButtons')
         <div class="productPageWrapper">
+            <div class="lastNavigate">
+                <a href="{{route('products')}}">ԱՊՐԱՆՔՆԵՐ</a>
+            </div>
             <div class="filter row">
                 <div class="col-md-12 col-lg-6 col">
                     <label>
-                        <input type="text" placeholder="Փնտրել">
+                        <input type="text" data-name="product"  class="searchInput" placeholder="Փնտրել">
                     </label>
                 </div>
                 <div class="nav-item dropdown col-md-6 col-lg-3">

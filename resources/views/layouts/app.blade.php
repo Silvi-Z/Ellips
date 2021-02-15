@@ -16,7 +16,7 @@
 </head>
 <body>
 <header class="d-flex justify-content-center w-100 align-items-center">
-    <section>
+    <section class="d-flex flex-column">
         <div class="row d-flex flex-row justify-content-between w-100 align-items-center">
             <a class="col navbar-brand d-flex align-items-center text-decoration-none text-dark logo"
                href="{{route('mainpage')}}">
@@ -134,7 +134,7 @@
                 <li><a href="{{route('blogs')}}">Բլոգ</a></li>
             </ul>
             <div class="d-flex align-items-center">
-                <button class="btn btn-dark">Կապ մեզ հետ</button>
+                <button class="btn btn-dark"><a href="{{route('contact')}}">Կապ մեզ հետ</a></button>
                 <div class="selectLang">
                     <div>
                         <div data-id="hy" class="hy first"></div>

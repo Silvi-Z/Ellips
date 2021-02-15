@@ -137,10 +137,10 @@ $(document).ready(function () {
     $('.sliderBlog').on("afterChange", () => slideCount($('.sliderBlog')));
 
     $('.services').slick({
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 1,
         // cssEase: 'ease-in-out',
-        // swipeToSlide: true,
+        swipeToSlide: false,
         arrows: false,
         infinite: false,
         // letiableWidth: true,
@@ -164,6 +164,32 @@ $(document).ready(function () {
             }],
 
     });
+    $('.moreServicesSlide').slick({
+        slidesToShow: 3,
+        arrows: false,
+        infinite: false,
+        responsive: [{
+            // breakpoint: 1500,
+            // settings: {
+            //     slidesToShow: 2,
+            // }
+        },
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows:true,
+                    slidesToShow: 1,
+                }
+            }],
+
+    });
+
 
     $('.company').slick({
         // items: 4,
@@ -252,7 +278,7 @@ $(document).ready(function () {
 
     $('.licenses').slick({
         slidesToShow: 5,
-        slidesToScroll: 2,
+        slidesToScroll: 1,
         infinite: false,
         variableWidth: true,
         swipeToSlide: true,
@@ -374,7 +400,7 @@ $(document).ready(function () {
 
     // $(document).ready(function () {
     //     console.log('dsfs');
-    $('.dropdown-menu').dropdown();
+    // $('.dropdown-menu').dropdown();
 
     // });
 
@@ -391,6 +417,15 @@ $(document).ready(function () {
         }
     }
 
+
+    document.querySelectorAll('.searchInput').forEach(item => {
+        item.addEventListener('keyup', (e)=>{
+            if (e.target.value.length === 3){
+                alert(e.target.getAttribute('data-name'))
+            }
+        })
+    })
+    // $('.searchInput').forEach(console.log(e.target));
     // seeAllText($('.systemDescription'), '413')
     // seeAllText($('.productDescription'), '215')
 
@@ -444,19 +479,24 @@ $(document).ready(function () {
     const select = document.querySelector('.selectLang').children[0];
 
     select.addEventListener('click', function () {
+        console.log(select);
         select.childNodes.forEach(e => {
             if (e.nodeName === 'DIV') {
                 select.classList.toggle('selectClass')
                 setTimeout(() => {
+                    console.log(e);
                     e.classList.toggle('openSelect')
                 }, 70)
+                e.addEventListener('click', ()=>{
+                    e.target.classList.add('first')
+                })
             }
         })
     })
 
     window.addEventListener('scroll', ()=> {
         if ($('.singleProduct').length > 0) {
-            if ($('.singleProduct')[0].getBoundingClientRect().top < 10) {
+            if ($('.singleProduct')[0].getBoundingClientRect().top < 100) {
                 $('.singleProduct')[0].classList.add('fixed');
                 if ($('.singleInfo')[0].clientHeight - Math.abs($('.singleInfo')[0].getBoundingClientRect().top) < $('.singleProduct')[0].scrollHeight) {
                     $('.singleProduct')[0].classList.remove('fixed');
@@ -529,29 +569,43 @@ $(document).ready(function () {
     ymaps.ready(init);
 
     function init() {
-        let coords = [40.177200, 44.503490]
+        let coords = [40.213236, 44.520613]
         let myMap = new ymaps.Map("map", {
             center: coords,
-            zoom: 9
+            zoom: 18,
+            // iconColor:black,
+            controls: [],
+
         });
         myMap.behaviors.disable('scrollZoom');
-        document.querySelectorAll('.address').forEach(item=>{
+        let placemark = new ymaps.Placemark((coords),{}, {
+            iconContentOffset: [150, 150],
+            iconImageSize: [150, 150],
+            iconColor:'#FE0C11',
+        });
+        myMap.geoObjects.add(placemark);
+        console.log(myMap);
+
+        document.querySelectorAll('.showMap').forEach(item=>{
             item.addEventListener('click', e => {
-                ymaps.geocode(e.target.innerHTML).then(function (res) {
+                ymaps.geocode(e.target.nextElementSibling.innerHTML).then(function (res) {
                     let coordinates = res.geoObjects.get(0).geometry.getCoordinates();
                     coords = coordinates;
-                    console.log(coordinates);
-                    let placemark = new ymaps.Placemark(coordinates);
+                    placemark = new ymaps.Placemark(coordinates);
                     myMap.geoObjects.add(placemark);
 
-                    myMap = new ymaps.Map("map", {
-                        center: coords,
-                        zoom: 15
-                    });
-                    myMap.setBounds(bounds, {
-                        checkZoomRange: true
-                    });
+                    // myMap = new ymaps.Map("map", {
+                    //     center: coords,
+                    //     zoom: 15
+                    // });
 
+                    myMap.setCenter(coords, 15, {
+                        center: coords,
+                        checkZoomRange: true,
+                        duration: 0,
+                    })
+                    console.log(coords);
+                    window.scrollTo(0,document.body.scrollHeight);
                     // myMap.events.add('boundschange', function(e){
                     //     console.log(e);
                     //     if (e.get('newZoom') !== e.get('oldZoom')) {
@@ -649,39 +703,42 @@ $(document).ready(function () {
             }
         })
     });
-    $('.imagesSlide').on('swipe', function (event, slick, direction) {
-        direction === 'left' ? $('.textSlide').slick("slickNext") : $('.textSlide').slick("slickPrev");
-        // $('.textSlide')
-    });
+    // $('.imagesSlide').on('swipe', function (event, slick, direction) {
+    //     direction === 'left' ? $('.textSlide').slick("slickNext") : $('.textSlide').slick("slickPrev");
+    //     // $('.textSlide')
+    // });
 
     let didScroll;
     let lastScrollTop = 0;
     let delta = 5;
     let navbarHeight = $('header').outerHeight();
 
-    // $(window).scroll(function (event) {
-    //     didScroll = true;
-    // });
-    //
-    // setInterval(function () {
-    //     if (didScroll) {
-    //         hasScrolled();
-    //         didScroll = false;
-    //     }
-    // }, 250);
-    //
-    // function hasScrolled() {
-    //     let st = $(this).scrollTop();
-    //
-    //     if (Math.abs(lastScrollTop - st) <= delta)
-    //         return;
-    //     if (st > lastScrollTop && st > navbarHeight) {
-    //         $('header').removeClass('nav-down').addClass('nav-up');
-    //     } else if (st + $(window).height() < $(document).height()) {
-    //         $('header').removeClass('nav-up').addClass('nav-down');
-    //     }
-    //     lastScrollTop = st;
-    // }
+    $(window).scroll(function (event) {
+        didScroll = true;
+    });
+
+    setInterval(function () {
+        if (didScroll) {
+            hasScrolled();
+            didScroll = false;
+        }
+    }, 250);
+
+    function hasScrolled() {
+        let st = $(this).scrollTop();
+        if (Math.abs(lastScrollTop - st) <= delta)
+            return;
+        if (st > lastScrollTop && st > navbarHeight) {
+            $('header section').removeClass('nav-down').addClass('nav-up');
+        } else if (st + $(window).height() < $(document).height()) {
+            $('header section').removeClass('nav-up').addClass('nav-down');
+        }
+        if(st === 0){
+            $('header section')[0].classList.remove('nav-up');
+            $('header section')[0].classList.remove('nav-down');
+        }
+        lastScrollTop = st;
+    }
 
 });
 

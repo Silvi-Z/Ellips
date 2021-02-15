@@ -76,10 +76,10 @@
             <h3>ՊԱՏՄՈՒԹՅՈՒՆ</h3>
             <div class="wrapper container">
                 <div class="history row firstHistory">
-                    <div class="col-6 col-12 companyImage">
+                    <div class="col-xl-6 col-12 companyImage">
                         <img src="{{asset('front/images/historyImg1.jpg')}}" alt="">
                     </div>
-                    <div class="col-6 col-12">
+                    <div class="col-xl-6 col-12">
                         <p>1976 թ.-ին Պոլիտեխնիկական ինստիտուտի ուսանող 22-ամյա Գուրգենը ձեռք է բերում Phakard H8
                             մակնիշի ավտոմեքենա և
                             10 տարի շարունակ սեփական ուժերով վերանորոգելուց հետո այն վաճառում է գերմանացի մի գնորդի:
@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="history row">
-                    <div class="col-6 col-12">
+                    <div class="col-xl-6 col-12">
                         <p>1976 թ.-ին Պոլիտեխնիկական ինստիտուտի ուսանող 22-ամյա Գուրգենը ձեռք է բերում Phakard H8
                             մակնիշի ավտոմեքենա և
                             10 տարի շարունակ սեփական ուժերով վերանորոգելուց հետո այն վաճառում է գերմանացի մի գնորդի:
@@ -112,15 +112,15 @@
                             արտադրությունը:
                         </p>
                     </div>
-                    <div class="col-6 col-12 companyImage">
+                    <div class="col-xl-6 col-12 companyImage">
                         <img src="{{asset('front/images/historyImg1.jpg')}}" alt="">
                     </div>
                 </div>
                 <div class="history row">
-                    <div class="col-6 col-12 companyImage">
+                    <div class="col-xl-6 col-12 companyImage">
                         <img src="{{asset('front/images/historyImg1.jpg')}}" alt="">
                     </div>
-                    <div class="col-6 col-12">
+                    <div class="col-xl-6 col-12">
                         <p>1976 թ.-ին Պոլիտեխնիկական ինստիտուտի ուսանող 22-ամյա Գուրգենը ձեռք է բերում Phakard H8
                             մակնիշի ավտոմեքենա և
                             10 տարի շարունակ սեփական ուժերով վերանորոգելուց հետո այն վաճառում է գերմանացի մի գնորդի:

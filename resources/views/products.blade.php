@@ -7,7 +7,7 @@
             <div class="filter row">
                 <div class="col">
                     <label>
-                        <input type="text" placeholder="Փնտրել">
+                        <input data-name="category" class="searchInput" type="text" placeholder="Փնտրել">
                     </label>
                 </div>
                 <div class="nav-item dropdown col-md-4">
@@ -76,7 +76,6 @@
                             </div>
                             <div>
                                 <h6>{{$value["productName"]}}</h6>
-{{--                                <p>{{$value["productPrice"]}} </p>--}}
                             </div>
                         </a>
                     </div>
