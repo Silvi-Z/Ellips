@@ -34,8 +34,11 @@ class HomeController extends Controller
         $top_services = Service::where('top',1)->get();
         $bottom_services = Service::where('bottom',1)->get();
         $portfolios = Portfolio::inRandomOrder()->take(5)->get();
+        $products = Product::inRandomOrder()->take(3)->get();
 
-        return view('home');
+        return view('home')->with([
+            'products'=>$products,
+        ]);
     }
 
     public function company()

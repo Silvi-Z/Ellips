@@ -7,7 +7,7 @@
             <div class="filter row">
                 <div class="col">
                     <label>
-                        <input type="text" placeholder=" @lang('static.Search')">
+                        <input data-name="category" class="searchInput" type="text" placeholder=" @lang('static.Search')">
                     </label>
                 </div>
                 <div class="nav-item dropdown col-md-4">

@@ -50,8 +50,8 @@
         <div class="darkSection w-100 d-flex flex-column justify-content-center">
             <!--                <div>-->
             <h3>Ծառայություններ</h3>
-            <div class="services">
-                <div>
+            <div class="services d-flex">
+                <div class="serviceWrapper">
                     <div class="servicesTitle">
                         <img src="{{asset('front/icons/slide01.svg')}}" alt="">
                         <p>Տեխնիկական Խորհրդատվություն</p>
@@ -61,7 +61,7 @@
                         այնպես էլ գործող անվտանգության համակարգերի վերաբերյալ: Վերջինիս համար խորհրդատվությունը տրվում է
                         պայմանագրային հիմունքներով:</p>
                 </div>
-                <div>
+                <div class="serviceWrapper">
                     <div class="servicesTitle">
                         <img src="{{asset('front/icons/slide02.svg')}}" alt="">
                         <p> Նախագծում, Արտադրություն և Ներկրում</p>
@@ -71,7 +71,7 @@
                         այնպես էլ գործող անվտանգության համակարգերի վերաբերյալ: Վերջինիս համար խորհրդատվությունը տրվում է
                         պայմանագրային հիմունքներով:</p>
                 </div>
-                <div>
+                <div class="serviceWrapper">
                     <div class="servicesTitle">
                         <img src="{{asset('front/icons/slide03.svg')}}" alt="">
                         <p>Տեղադրում և Գործարկում</p>
@@ -81,7 +81,7 @@
                         այնպես էլ գործող անվտանգության համակարգերի վերաբերյալ: Վերջինիս համար խորհրդատվությունը տրվում է
                         պայմանագրային հիմունքներով:</p>
                 </div>
-                <div>
+                <div class="serviceWrapper">
                     <div class="servicesTitle">
                         <img src="{{asset('front/icons/slide02.svg')}}" alt="">
                         <p>Տեղադրում և Գործարկում</p>
@@ -91,7 +91,7 @@
                         այնպես էլ գործող անվտանգության համակարգերի վերաբերյալ: Վերջինիս համար խորհրդատվությունը տրվում է
                         պայմանագրային հիմունքներով:</p>
                 </div>
-                <div>
+                <div class="serviceWrapper">
                     <div class="servicesTitle">
                         <img src="{{asset('front/icons/slide02.svg')}}" alt="">
                         <p> Նախագծում, Արտադրություն և Ներկրում</p>
@@ -101,7 +101,7 @@
                         այնպես էլ գործող անվտանգության համակարգերի վերաբերյալ: Վերջինիս համար խորհրդատվությունը տրվում է
                         պայմանագրային հիմունքներով:</p>
                 </div>
-                <div>
+                <div class="serviceWrapper">
                     <div class="servicesTitle">
                         <img src="{{asset('front/icons/slide03.svg')}}" alt="">
                         <p>Տեղադրում և Գործարկում</p>
@@ -111,7 +111,7 @@
                         այնպես էլ գործող անվտանգության համակարգերի վերաբերյալ: Վերջինիս համար խորհրդատվությունը տրվում է
                         պայմանագրային հիմունքներով:</p>
                 </div>
-                <div>
+                <div class="serviceWrapper">
                     <div class="servicesTitle">
                         <img src="{{asset('front/icons/slide02.svg')}}" alt="">
                         <p>Տեղադրում և Գործարկում</p>
@@ -124,13 +124,22 @@
                 <!--                    </div>-->
             </div>
             <!--                        <div class="wrapper">-->
-            <div class="moreServices d-flex justify-content-center">
-                <p>«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է նաև ծառայությունների առանձին փաթեթներ,որոնք են․</p>
-                <div class="d-flex">
-                    <div class="d-flex justify-content-center align-items-center w-250 ">Էլեկտրասնուցում</div>
-                    <div class="d-flex justify-content-center align-items-center w-250 ">Բակի լուսավորություն</div>
-                    <div class="d-flex justify-content-center align-items-center w-250 ">Սանտեխնիկա նախագծումից մինչև
-                        իրականացում, ջրահեռացում, ջրամատակարարում
+            <div class="moreServices row d-flex justify-content-center">
+                <div class="col servicesDescription">«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է նաև ծառայությունների առանձին փաթեթներ,որոնք են․</div>
+                <div class="d-flex col-12 col-xl-9 moreServicesSlide">
+                    <div>
+                        <div class="d-flex moreService justify-content-center align-items-center w-250 ">Էլեկտրասնուցում</div>
+                    </div>
+                    <div>
+                        <div class="d-flex moreService justify-content-center align-items-center w-250 ">Բակի լուսավորություն</div>
+                    </div>
+                    <div>
+                        <div class="d-flex moreService justify-content-center align-items-center w-250 ">Բակի լուսավորություն</div>
+                    </div>
+                    <div>
+                        <div class="d-flex moreService justify-content-center align-items-center w-250 ">Սանտեխնիկա նախագծումից մինչև
+                            իրականացում, ջրահեռացում, ջրամատակարարում
+                        </div>
                     </div>
                 </div>
             </div>
@@ -172,22 +181,6 @@
                             <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային
                                 տեսախցիկներ)</p>
                         </div>
-                        <div class="col-12 col-md-6">
-                            <div class="portfolioContainer">
-                                <img src="{{asset('images/portfolioFirstSmallImg.png')}}" alt="">
-                            </div>
-                            <h3>«Էլիտ Պլազա» բիզնես կենտրոն</h3>
-                            <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային
-                                տեսախցիկներ)</p>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="portfolioContainer">
-                                <img src="{{asset('front/images/giphy.gif')}}" alt="">
-                            </div>
-                            <h3>HSBC Բանկ Հայաստան</h3>
-                            <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային
-                                տեսախցիկներ)</p>
-                        </div>
                     </div>
                     <button class="button">Պորտֆոլիո</button>
                 </div>
@@ -195,12 +188,13 @@
         </div>
         <section>
             <div class="container">
+                
                 <div class="productPageWrapper d-flex flex-column">
                     <h3>Համակարգեր և ապրանքեր</h3>
                     <!--                    <div class="container">-->
                     <div class="contentWrapper d-grid">
                         <div class="product d-flex justify-content-center">
-                            <a href="{{route('product')}}">
+                            <a href="{{route('product',['url'=>111])}}">
                                 <div class="d-flex align-items-center justify-content-center flex-column">
                                     <img src="{{asset('front/images/camera2.png')}}" alt="">
                                 </div>
@@ -213,7 +207,7 @@
                             </a>
                         </div>
                         <div class="product d-flex justify-content-center">
-                            <a href="{{route('product')}}">
+                            <a href="{{route('product',['url'=>111])}}">
                                 <div class="d-flex align-items-center justify-content-center flex-column">
                                     <img src="{{asset('front/images/camera3.jpg')}}" alt="">
                                 </div>
@@ -236,22 +230,7 @@
                         </div>
                         <div class="w-100"></div>
                     </div>
-                    <!--                    </div>-->
-                    <!--                    <div class="d-flex">-->
-                    <!---->
-                    <!--                        <div class="product">-->
-                    <!--                            <div class="d-flex align-items-center justify-content-center flex-column">
-
-                                                    <img src="/images/camera3.png" alt="">-->
-                    <!--                            </div>-->
-                    <!--                            <div>-->
-                    <!--                                <h6>2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն</h6>
-
-                                                    <p>20․000  դր․</p>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
-                    <!---->
-                    <!--                    </div>-->
+                 
                     <button type="button" class="btn btn-dark button">Տեսնել ավելին</button>
                     <!--                    <button class="button">Տեսնել ավելին</button>-->
                 </div>

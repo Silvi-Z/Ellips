@@ -3,9 +3,9 @@
         <div class="d-flex flex-column circleWrapper">
             <span>ՄԵՐ ՓՈՐՁԸ</span>
             <div class="circles">
-                <img class="redCircle" src="http://elips.local/images/redCircle.png" alt="redCircle">
-                <img class="transparentCircle" src="http://elips.local/images/transparentCircle.png" alt="transparentCircle">
-                <img class="blueCircle" src="http://elips.local/images/blueCircle.png" alt="blueCircle">
+                <img class="redCircle" src="{{asset('front/images/redCircle.png')}}" alt="redCircle">
+                <img class="transparentCircle" src="{{asset('front/images/transparentCircle.png')}}" alt="transparentCircle">
+                <img class="blueCircle" src="{{asset('front/images/blueCircle.png')}}" alt="blueCircle">
             </div>
         </div>
         <div>
