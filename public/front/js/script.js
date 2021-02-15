@@ -64,14 +64,14 @@ $(document).ready(function () {
     //     cssEase: 'ease-in-out',
     // });
 
+
     $('.singleProduct').slick({
         slidesToShow: 1,
-        infinite: true,
+        infinite: false,
         slidesToScroll: 1,
         arrows: true,
         dots: true,
     });
-
     $('.imgVideo').slick({
         infinite: true,
         slidesToShow: 1,

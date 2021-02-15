@@ -11,6 +11,25 @@
     <link rel="stylesheet" type="text/css" href="{{asset('front/slick-1.8.1/slick/slick.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('front/slick-1.8.1/slick/slick-theme.css')}}"/>
     <link rel="stylesheet" href="{{asset('front/css/style.css')}}">
+    <script src="{{ asset('jquery-3.5.1.min.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('https://code.jquery.com/jquery-1.11.0.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('https://code.jquery.com/jquery-migrate-1.2.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/bootstrapJS/bootstrap.js') }}"></script>
+    <script src="{{ asset('https://code.jquery.com/jquery-3.3.1.slim.min.js') }}"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js') }}"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="{{ asset('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js') }}"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ asset('/front/slick-1.8.1/slick/slick.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('./front/slick-1.8.1/slick/slick.min.js') }}"></script>
+
+    <script src="{{ asset('/front/js/ddslick.js') }}"></script>
+    <script src="{{ asset('/front/js/script.js') }}"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=1973b4f0-00a7-49c0-9e22-9baaee610410&lang=ru_RU" type="text/javascript">
     </script>
 </head>
@@ -184,23 +203,6 @@
         </div>
     </div>
 </footer>
-<script src="{{ asset('jquery-3.5.1.min.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset('https://code.jquery.com/jquery-1.11.0.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('https://code.jquery.com/jquery-migrate-1.2.1.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('front/bootstrapJS/bootstrap.js') }}"></script>
-<script src="{{ asset('https://code.jquery.com/jquery-3.3.1.slim.min.js') }}"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js') }}"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="{{ asset('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js') }}"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-<script type="text/javascript" src="{{ asset('/front/slick-1.8.1/slick/slick.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('./front/slick-1.8.1/slick/slick.min.js') }}"></script>
-<script src="{{ asset('/front/js/script.js') }}"></script>
-<script src="{{ asset('/front/js/ddslick.js') }}"></script>
 </body>
 </html>

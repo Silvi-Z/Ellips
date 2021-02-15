@@ -19,7 +19,7 @@ button {
 
 @font-face {
     font-family: 'Arial';
-    src: url('Arial-AMU-Regular-8891.ttf') format('ttf')
+    src: url('../fonts/Arial-AMU-Regular-8891.ttf') format('ttf')
 }
 
 body {
