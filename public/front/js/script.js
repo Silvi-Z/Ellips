@@ -67,7 +67,7 @@ $(document).ready(function () {
 
     $('.singleProduct').slick({
         slidesToShow: 1,
-        infinite: false,
+        infinite: true,
         slidesToScroll: 1,
         arrows: true,
         dots: true,
