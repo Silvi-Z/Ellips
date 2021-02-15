@@ -25,7 +25,7 @@ Route::get('/company', 'HomeController@company')->name('company');
 Route::get('/categories', 'HomeController@categories')->name('categories');
 Route::get('/portfolio', 'HomeController@portfolio')->name('portfolio');
 Route::get('/portfolioSingle', 'HomeController@portfolioSingle')->name('portfolioSingle');
-Route::get('/product', 'HomeController@product')->name('product');
+Route::get('/product/{url}', 'HomeController@product')->name('product');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/system/{url}', 'HomeController@system')->name('system');
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {

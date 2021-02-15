@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Portfolio;
+use App\Models\Product;
 use App\Models\Service;
 use App\Models\Slider;
 use App\Models\System;
@@ -32,7 +33,7 @@ class HomeController extends Controller
         $slider = Slider::first();
         $top_services = Service::where('top',1)->get();
         $bottom_services = Service::where('bottom',1)->get();
-        $portfolios = Portfolio::inRandomOrder()->take(5)->get();;
+        $portfolios = Portfolio::inRandomOrder()->take(5)->get();
 
         return view('home');
     }
@@ -94,9 +95,18 @@ class HomeController extends Controller
         return view('blog');
     }
 
-    public function product()
+    public function product($url)
     {
-        return view('product');
+        $product = Product::where('url', $url)->firstOrFail();
+        $ids = $product->categories()->pluck('category_id');
+        $similars = Product::whereHas('categories',function ($query) use($ids){
+            $query->whereIn('category_id',$ids);
+        })->inRandomOrder()->take(3)->get();
+
+        return view('product')->with([
+            'product'=>$product,
+            'similars'=>$similars,
+        ]);
     }
     public function system()
     {

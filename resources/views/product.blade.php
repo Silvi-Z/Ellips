@@ -2,7 +2,7 @@
 
 @section('content')
     <main class="singleProductPage">
-        <div class="h1Title">Տեսախցիկներ</div>
+        <div class="h1Title">{{ $product->{'title_'.$lang} }}</div>
         <div class="wrapper row">
             <div class="col-6 position-relative">
                 <div class="singleProduct">
@@ -16,82 +16,35 @@
             </div>
             <div class="col-6 singleInfo">
                 <h6>2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն</h6>
-                <p class="price">20․000 դր․</p>
-                <div class="productDescription">Այս անվտանգության տեսախցիկը կարող է արձանագրել 4K Ultra HD տեսանյութ ՝
-                    ավելի քան 8 միլիոն պիքսել ՝
-                    հիանալի մանրամասնությամբ և լուծաչափով: Այսօր անվտանգության արդյունաբերության ամենաբարձր չափանիշը `4K
-                    թույլտվությունը տալիս է ճշգրիտ պատկերներ և գույների վերարտադրություն: Սա նաև կբարձրացնի թվային
-                    խոշորացումը, որպեսզի հեռվից հեռու տեսնեք:Այս անվտանգության տեսախցիկը կարող է արձանագրել 4K Ultra HD
-                    տեսանյութ ՝ ավելի քան 8 միլիոն պիքսել ՝
-                    հիանալի մանրամասնությամբ և լուծաչափով: Այսօր անվտանգության արդյունաբերության ամենաբարձր չափանիշը `4K
-                    թույլտվությունը տալիս է ճշգրիտ պատկերներ և գույների վերարտադրություն: Սա նաև կբարձրացնի թվային
-                    խոշորացումը, որպեսզի հեռվից հեռու տեսնեք:Այս անվտանգության տեսախցիկը կարող է արձանագրել 4K Ultra HD
-                    տեսանյութ ՝ ավելի քան 8 միլիոն պիքսել ՝
-                    հիանալի մանրամասնությամբ և լուծաչափով: Այսօր անվտանգության արդյունաբերության ամենաբարձր չափանիշը `4K
-                    թույլտվությունը տալիս է ճշգրիտ պատկերներ և գույների վերարտադրություն: Սա նաև կբարձրացնի թվային
-                    խոշորացումը, որպեսզի հեռվից հեռու տեսնեք:Այս անվտանգության տեսախցիկը կարող է արձանագրել 4K Ultra HD
-                    տեսանյութ ՝ ավելի քան 8 միլիոն պիքսել ՝
-                    հիանալի մանրամասնությամբ և լուծաչափով: Այսօր անվտանգության արդյունաբերության ամենաբարձր չափանիշը `4K
-                    թույլտվությունը տալիս է ճշգրիտ պատկերներ և գույների վերարտադրություն: Սա նաև կբարձրացնի թվային
-                    խոշորացումը, որպեսզի հեռվից հեռու տեսնեք:Այս անվտանգության տեսախցիկը կարող է արձանագրել 4K Ultra HD
-                    տեսանյութ ՝ ավելի քան 8 միլիոն պիքսել ՝
-                    հիանալի մանրամասնությամբ և լուծաչափով: Այսօր անվտանգության արդյունաբերության ամենաբարձր չափանիշը `4K
-                    թույլտվությունը տալիս է ճշգրիտ պատկերներ և գույների վերարտադրություն: Սա նաև կբարձրացնի թվային
-                    խոշորացումը, որպեսզի հեռվից հեռու տեսնեք:Այս անվտանգության տեսախցիկը կարող է արձանագրել 4K Ultra HD
-                    տեսանյութ ՝ ավելի քան 8 միլիոն պիքսել ՝
-                    հիանալի մանրամասնությամբ և լուծաչափով: Այսօր անվտանգության արդյունաբերության ամենաբարձր չափանիշը `4K
-                    թույլտվությունը տալիս է ճշգրիտ պատկերներ և գույների վերարտադրություն: Սա նաև կբարձրացնի թվային
-                    խոշորացումը, որպեսզի հեռվից հեռու տեսնեք:Այս անվտանգության տեսախցիկը կարող է արձանագրել 4K Ultra HD
-                    տեսանյութ ՝ ավելի քան 8 միլիոն պիքսել ՝
-                    հիանալի մանրամասնությամբ և լուծաչափով: Այսօր անվտանգության արդյունաբերության ամենաբարձր չափանիշը `4K
-                    թույլտվությունը տալիս է ճշգրիտ պատկերներ և գույների վերարտադրություն: Սա նաև կբարձրացնի թվային
-                    խոշորացումը, որպեսզի հեռվից հեռու տեսնեք:</div>
+                <p class="price">{{ $product->price }} @lang('static.AMD')</p>
+                <div class="productDescription">{!!  $product->{'text_'.$lang}  !!}</div>
                 <div class="tags">
-                    <a href="#">տեսախցիկներ</a>
-                    <a href="#">անվտանգության համակարգ</a>
-                    <a href="#">տեսահսկման համակարգ</a>
+                    @foreach($product->systems as $system)
+                    <a href="{{route('system',['url'=>$system->url])}}">{{ $system->{'title_'.$lang} }}</a>
+                    @endforeach
                 </div>
 {{--                <span class="seeAllText"><img src="{{asset('front/icons/arrowSeeMore.svg')}}" alt=""></span>--}}
             </div>
         </div>
-        <div class="moreProducts">
-            <h5>Նմանատիպ ապրանքեր</h5>
-            <div class="d-flex justify-content-center">
-                <div class="product">
-                    <a href="{{route('product')}}">
-                        <div class="d-flex align-items-center justify-content-center flex-column">
-                            <img src='{{asset('images/camera1.png')}}' alt="">
+        @if(!empty($similars))
+            <div class="moreProducts">
+                <h5>@lang('static.Similar products')</h5>
+                <div class="d-flex justify-content-center">
+                    @foreach($similars as  $similar)
+                        <div class="product">
+                            <a href="{{route('product',['url'=>$similar->url])}}">
+                                <div class="d-flex align-items-center justify-content-center flex-column">
+                                    <img src='{{$similar->first_image()}}' alt="">
+                                </div>
+                                <div>
+                                    <h6>{{ $similar->{'title_'.$lang} }}</h6>
+                                    <p>{{ $similar->price }} @lang('static.AMD')</p>
+                                </div>
+                            </a>
                         </div>
-                        <div>
-                            <h6>5MP Super HD Ակտիվ զսպող տեսախցիկ</h6>
-                            <p>20․000 դր․</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="product">
-                    <a href="{{route('product')}}">
-                        <div class="d-flex align-items-center justify-content-center flex-column">
-                            <img src='{{asset('images/camera2.png')}}' alt="">
-                        </div>
-                        <div>
-                            <h6>Տնային մոնիտորինգի հավաքածու, որն ունի Wi-Fi ջրհեղեղի տեսախցիկ և 1080p HD վիդեո դռան
-                                զանգ</h6>
-                            <p>20․000 դր․</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="product">
-                    <a href="{{route('product')}}">
-                        <div class="d-flex align-items-center justify-content-center flex-column">
-                            <img src='{{asset('front/images/camera3.jpg')}}' alt="">
-                        </div>
-                        <div>
-                            <h6>2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն</h6>
-                            <p>20․000 դր․</p>
-                        </div>
-                    </a>
+                    @endforeach
                 </div>
             </div>
-        </div>
+        @endif
     </main>
 @endsection
