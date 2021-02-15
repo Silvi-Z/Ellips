@@ -16,18 +16,18 @@ Route::get('locale/{locale}', function ($locale){
     return redirect()->back();
 });
 Auth::routes();
+Route::get('/category/{url}', 'HomeController@category')->name('category');
 Route::get('/', 'HomeController@index')->name('mainpage');
 Route::get('/systems', 'HomeController@systems')->name('systems');
 Route::get('/blogs', 'HomeController@blogs')->name('blogs');
 Route::get('/blog', 'HomeController@blog')->name('blog');
 Route::get('/company', 'HomeController@company')->name('company');
-Route::get('/products', 'HomeController@products')->name('products');
+Route::get('/categories', 'HomeController@categories')->name('categories');
 Route::get('/portfolio', 'HomeController@portfolio')->name('portfolio');
 Route::get('/portfolioSingle', 'HomeController@portfolioSingle')->name('portfolioSingle');
 Route::get('/product', 'HomeController@product')->name('product');
 Route::get('/contact', 'HomeController@contact')->name('contact');
-Route::get('/system/{$url}', 'HomeController@system')->name('system');
-Route::get('/category/{$url}', 'HomeController@productPage')->name('category');
+Route::get('/system/{url}', 'HomeController@system')->name('system');
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 
 

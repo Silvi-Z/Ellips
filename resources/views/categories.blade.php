@@ -2,34 +2,25 @@
 
 @section('content')
     <main class="productsPage wrapper">
-        <div class="h1Title">ապրանքներ և համակարգեր</div>
+        <div class="h1Title">@lang('static.products and systems')</div>
         @include ('selectButtons')
             <div class="filter row">
                 <div class="col">
                     <label>
-                        <input type="text" placeholder="Փնտրել">
+                        <input type="text" placeholder=" @lang('static.Search')">
                     </label>
                 </div>
                 <div class="nav-item dropdown col-md-4">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
-                        ԸՍՏ ՀամակարգերԻ
+                       @lang('static.BY SYSTEMS')
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Համակարգ 1</a></li>
-                        <li><a class="dropdown-item" href="#">Համակարգ 2</a></li>
-                        <li><a class="dropdown-item" href="#">Համակարգ 3</a></li>
-                        <li><a class="dropdown-item" href="#">Համակարգ 3</a></li>
-                        <li><a class="dropdown-item" href="#">Համակարգ 3</a></li>
-                        <li><a class="dropdown-item" href="#">Համակարգ 3</a></li>
-                        <li><a class="dropdown-item" href="#">Համակարգ 3</a></li>
-                        <li><a class="dropdown-item" href="#">Համակարգ 3</a></li>
-                        <li><a class="dropdown-item" href="#">Համակարգ 3</a></li>
-                        <li><a class="dropdown-item" href="#">Համակարգ 3</a></li>
-                        <li><a class="dropdown-item" href="#">Համակարգ 3</a></li>
-                        <li><a class="dropdown-item" href="#">Համակարգ 3</a></li>
-                        <li><a class="dropdown-item" href="#">Համակարգ 3</a></li>
-                        <li><a class="dropdown-item" href="#">Համակարգ 3</a></li>
-                        <li><a class="dropdown-item" href="#">Համակարգ 3</a></li>
+                        @if(!empty($systems))
+                            @foreach($systems as $system)
+                                <li><a class="dropdown-item" href="{{route('categories',['system_id'=>$system->id])}}">{{ $system->{'title_'.$lang} }}</a></li>
+                            @endforeach
+                        @endif
+
                     </ul>
                 </div>
             </div>
@@ -68,14 +59,14 @@
                         ]
                     ]
                 @endphp
-                @foreach ($products as $key => $value)
+                @foreach ($categories as $key => $category)
                     <div class="product d-flex justify-content-center">
-                        <a href="{{route('productPage')}}">
+                        <a href="{{route('category',['url'=>$category->url])}}">
                             <div class="d-flex align-items-center justify-content-center flex-column">
-                                <img src="{{asset($value["productImage"])}}" alt="">
+                                <img src="{{asset('files/'.$category->image)}}" alt="">
                             </div>
                             <div>
-                                <h6>{{$value["productName"]}}</h6>
+                                <h6>{{ $category->{'title_'.$lang} }}</h6>
 {{--                                <p>{{$value["productPrice"]}} </p>--}}
                             </div>
                         </a>

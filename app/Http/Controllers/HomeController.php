@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Portfolio;
 use App\Models\Service;
 use App\Models\Slider;
+use App\Models\System;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -39,14 +42,33 @@ class HomeController extends Controller
         return view('company');
     }
 
-    public function products()
+    public function categories(Request $request)
     {
-        return view('products');
+        $categories = Category::search($request)->orderBy('updated_at','DESC')->get();
+        $systems = System::all();
+        return view('categories')->with([
+            'categories'=>$categories,
+            'systems'=>$systems
+            ]);
+    }
+    public function category($url)
+    {
+        $category = Category::where('url', $url)->firstOrFail();
+        $systems = System::all();
+        $brands = Brand::all();
+        return view('productPage')->with([
+            'category'=>$category,
+            'brands'=>$brands,
+            'systems'=>$systems
+        ]);
     }
 
     public function systems()
     {
-        return view('systems');
+        $systems = System::all();
+        return view('systems')->with([
+            'systems'=>$systems
+        ]);
     }
 
     public function services()
@@ -85,9 +107,6 @@ class HomeController extends Controller
     {
         return view('contact');
     }
-    public function productPage()
-    {
-        return view('productPage');
-    }
+
 
 }

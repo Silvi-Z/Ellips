@@ -374,7 +374,6 @@ $(document).ready(function () {
 
     // $(document).ready(function () {
     //     console.log('dsfs');
-    $('.dropdown-menu').dropdown();
 
     // });
 

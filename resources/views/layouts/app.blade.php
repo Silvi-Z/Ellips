@@ -55,7 +55,7 @@
             <div class="subMenu">
                 <br>
                 <div>
-                    <a href="{{route('products')}}" class="title">
+                    <a href="{{route('categories')}}" class="title">
                         <h5>@lang('static.Products')</h5>
                         <div class="arrow"></div>
                     </a>
@@ -139,7 +139,7 @@
             <ul>
                 <li><a href="{{route('company')}}">@lang('static.Company')</a></li>
                 <li><a href="{{route('systems')}}">@lang('static.Systems')</a></li>
-                <li><a href="{{route('products')}}">@lang('static.Products')</a></li>
+                <li><a href="{{route('categories')}}">@lang('static.Products')</a></li>
                 <li><a href="{{route('portfolio')}}">@lang('static.Portfolio')</a></li>
                 <li><a href="{{route('blogs')}}">@lang('static.Blog')</a></li>
             </ul>

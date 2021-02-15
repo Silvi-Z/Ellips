@@ -12,4 +12,13 @@ class Image extends Model
     {
         return $this->morphTo();
     }
+    public function first_image()
+    {
+        $first = $this->owner()->images()->whereNotNull('image_name')->first();
+        if($first){
+            return asset('files/'.$first->image_name);
+        }else{
+            return asset('front/images/camera1.png');
+        }
+    }
 }

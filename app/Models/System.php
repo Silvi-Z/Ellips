@@ -16,4 +16,13 @@ class System extends Model
     {
         return $this->belongsToMany(Product::class,'system_products','system_id','product_id');
     }
+    public function first_image()
+    {
+        $first = $this->images()->whereNotNull('image_name')->first();
+        if($first){
+            return asset('files/'.$first->image_name);
+        }else{
+            return asset('front/images/camera1.png');
+        }
+    }
 }

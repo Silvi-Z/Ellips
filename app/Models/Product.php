@@ -25,4 +25,13 @@ class Product extends Model
     {
         return $this->morphMany(Image::class, 'owner');
     }
+    public function first_image()
+    {
+        $first = $this->images()->whereNotNull('image_name')->first();
+        if($first){
+            return asset('files/'.$first->image_name);
+        }else{
+            return asset('front/images/camera1.png');
+        }
+    }
 }
