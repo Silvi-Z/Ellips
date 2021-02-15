@@ -981,6 +981,9 @@ main {
 
 .archivePortfolio {
     padding: 50px 0;
+
+}
+.archive > a:not(:last-child) > .archivePortfolio{
     border-bottom: 1px solid #FFFFFF;
 }
 
@@ -2163,7 +2166,7 @@ iframe{
 .archive {
     max-width: 1220px;
     margin: auto;
-    height: 1050px;
+    height: 1100px;
     overflow: auto;
     border-top: 1px solid rgba(255, 255, 255, 1);
     border-bottom: 1px solid rgba(255, 255, 255, 1);

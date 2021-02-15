@@ -574,7 +574,7 @@ $(document).ready(function () {
             center: coords,
             zoom: 18,
             // iconColor:black,
-            controls: [],
+            controls: ['zoomControl'],
 
         });
         myMap.behaviors.disable('scrollZoom');
@@ -599,7 +599,7 @@ $(document).ready(function () {
                     //     zoom: 15
                     // });
 
-                    myMap.setCenter(coords, 15, {
+                    myMap.setCenter(coords, 18, {
                         center: coords,
                         checkZoomRange: true,
                         duration: 0,
