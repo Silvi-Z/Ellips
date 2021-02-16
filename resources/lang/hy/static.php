@@ -15,7 +15,8 @@ return [
     'AMD'   => 'դր.',
     'Similar products'   => 'Նմանատիպ ապրանքեր',
     'Products involved'   => 'Ներգրավված ապրանքեր',
-    'Company'   => 'Ընկերություն',
+    'ARCHIVE'   => 'ԱՐԽԻՎ',
+    'DESCRIPTION'   => 'ՆԿԱՐԱԳԻՐ',
     'Company'   => 'Ընկերություն',
     'Company'   => 'Ընկերություն',
 

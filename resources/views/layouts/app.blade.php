@@ -53,7 +53,7 @@
                                     fill="black"/>
                         </svg>
                     </a>
-                    <a href="{{route('portfolio')}}">@lang('static.Portfolio')</a>
+                    <a href="{{route('portfolios')}}">@lang('static.Portfolio')</a>
                     <a href="{{route('blogs')}}">@lang('static.Blog')</a>
                 </nav>
                 <div class="d-flex align-items-center">
@@ -158,7 +158,7 @@
                 <li><a href="{{route('company')}}">@lang('static.Company')</a></li>
                 <li><a href="{{route('systems')}}">@lang('static.Systems')</a></li>
                 <li><a href="{{route('categories')}}">@lang('static.Products')</a></li>
-                <li><a href="{{route('portfolio')}}">@lang('static.Portfolio')</a></li>
+                <li><a href="{{route('portfolios')}}">@lang('static.Portfolio')</a></li>
                 <li><a href="{{route('blogs')}}">@lang('static.Blog')</a></li>
             </ul>
             <div class="d-flex align-items-center">

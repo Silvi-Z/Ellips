@@ -2,129 +2,72 @@
 
 @section('content')
     <main>
-        <div class="h1Title">ՊՈՐՏՖՈԼԻՈ</div>
+        <div class="h1Title">@lang('static.Portfolio')</div>
         <div class="portfolioPage">
             <div class="portfolio">
                 <div class="portfolioBigImg row">
-                    <div class="col-12">
-                        <a href="{{route("portfolioSingle")}}">
-                            <div class="portfolioBigImgContainer">
-                                <img src="{{asset('images/portfolioBigImg.png')}}" alt="">
-                            </div>
-                            <h3>Կենդանաբանական այգի</h3>
-                            <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային
-                                տեսախցիկներ)
-                                Պահպանման և տագնապի ահազանգման համակարգ (EVO-192)
-                            </p>
-                        </a>
-                    </div>
+                    @if(!empty($top_portfolios) && count($top_portfolios))
+                        @foreach($top_portfolios as $top_portfolio)
+                            @if($loop->index == 0)
+                                <div class="col-12">
+                                    <a href="{{route("portfolio",['url'=>$top_portfolio->url])}}">
+                                        <div class="portfolioBigImgContainer">
+                                            <img src="{{$top_portfolio->first_image()}}" alt="">
+                                        </div>
+                                        <h3>{{ $top_portfolio->{'title_'.$lang} }}</h3>
+                                        <p>{{ $top_portfolio->{'small_text_'.$lang} }}</p>
+                                    </a>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endif
                 </div>
                 <div class="portfolioSmallImages row">
-                    <div class="col-12 col-md-6">
-                        <div class="portfolioContainer">
-                            <img src="{{asset('images/portfolioFirstSmallImg.png')}}" alt="">
-                        </div>
-                        <h3>«Էլիտ Պլազա» բիզնես կենտրոն</h3>
-                        <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային
-                            տեսախցիկներ)</p>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="portfolioContainer">
-                            <img src="{{asset('images/portfolioSecondSmallImg.png')}}" alt="">
-                        </div>
-                        <h3>HSBC Բանկ Հայաստան</h3>
-                        <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային
-                            տեսախցիկներ)</p>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="portfolioContainer">
-                            <img src="{{asset('images/portfolioFirstSmallImg.png')}}" alt="">
-                        </div>
-                        <h3>«Էլիտ Պլազա» բիզնես կենտրոն</h3>
-                        <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային
-                            տեսախցիկներ)</p>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="portfolioContainer">
-                            <img src="{{asset('front/images/giphy.gif')}}" alt="">
-                        </div>
-                        <h3>HSBC Բանկ Հայաստան</h3>
-                        <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային
-                            տեսախցիկներ)</p>
-                    </div>
+
+
+                    @if(!empty($top_portfolios) && count($top_portfolios))
+                        @foreach($top_portfolios as $top_portfolio)
+                            @if($loop->index > 0)
+                                <div class="col-12 col-md-6">
+                                    <a href="{{route("portfolio",['url'=>$top_portfolio->url])}}">
+                                    <div class="portfolioContainer">
+                                        <img src="{{$top_portfolio->first_image()}}" alt="">
+                                    </div>
+                                    <h3>{{ $top_portfolio->{'title_'.$lang} }}</h3>
+                                    <p>{{ $top_portfolio->{'small_text_'.$lang} }}</p>
+                                    </a>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endif
+
                 </div>
                 <!--                <button class="button">Պորտֆոլիո</button>-->
             </div>
         </div>
+        @if(!empty($portfolios) && count($portfolios))
         <div class="darkSection">
-            <h3>ԱՐԽԻՎ</h3>
+            <h3>@lang('static.ARCHIVE')</h3>
             <div class="archive">
-                <a href="{{route('portfolioSingle')}}">
-                    <div class="archivePortfolio d-flex align-items-center justify-content-between">
-                        <div class="d-flex justify-content-center">
-                            <div class="imgVideoWrapper">
-                                <img src="{{asset('images/portfolioImg.jpg')}}" alt="">
+
+                    @foreach($portfolios as $portfolio)
+                        <a href="{{route('portfolio',['url'=>$portfolio->url])}}">
+                            <div class="archivePortfolio d-flex align-items-center justify-content-between">
+                                <div class="d-flex justify-content-center">
+                                    <div class="imgVideoWrapper">
+                                        <img src="{{$portfolio->first_image()}}" alt="">
+                                    </div>
+                                    <div class="d-flex flex-column justify-content-center">
+                                        <h4>{{ $portfolio->{'title_'.$lang} }}</h4>
+                                    </div>
+                                </div>
+                                <span class="navigateBtn"></span>
                             </div>
-                            <div class="d-flex flex-column justify-content-center">
-                                <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
-                            </div>
-                        </div>
-                        <span class="navigateBtn"></span>
-                    </div>
-                </a>
-                <a href="{{route('portfolioSingle')}}">
-                    <div class="archivePortfolio d-flex align-items-center justify-content-between">
-                        <div class="d-flex justify-content-center">
-                            <div class="imgVideoWrapper">
-                                <img src="{{asset('images/portfolioImg.jpg')}}" alt="">
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                                <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
-                            </div>
-                        </div>
-                        <span class="navigateBtn"></span>
-                    </div>
-                </a>
-                <a href="{{route('portfolioSingle')}}">
-                    <div class="archivePortfolio d-flex align-items-center justify-content-between">
-                        <div class="d-flex justify-content-center">
-                            <div class="imgVideoWrapper">
-                                <img src="{{asset('images/portfolioImg.jpg')}}" alt="">
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                                <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
-                            </div>
-                        </div>
-                        <span class="navigateBtn"></span>
-                    </div>
-                </a>
-                <a href="{{route('portfolioSingle')}}">
-                    <div class="archivePortfolio d-flex align-items-center justify-content-between">
-                        <div class="d-flex justify-content-center">
-                            <div class="imgVideoWrapper">
-                                <img src="{{asset('front/images/Isopoly.gif')}}" alt="">
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                                <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
-                            </div>
-                        </div>
-                        <span class="navigateBtn"></span>
-                    </div>
-                </a>
-                <a href="{{route('portfolioSingle')}}">
-                    <div class="archivePortfolio d-flex align-items-center justify-content-between">
-                        <div class="d-flex justify-content-center">
-                            <div class="imgVideoWrapper">
-                                <img src="{{asset('images/portfolioImg.jpg')}}" alt="">
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                                <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
-                            </div>
-                        </div>
-                        <span class="navigateBtn"></span>
-                    </div>
-                </a>
+                        </a>
+                    @endforeach
+
             </div>
         </div>
+        @endif
     </main>
 @endsection

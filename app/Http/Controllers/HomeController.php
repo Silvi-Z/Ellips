@@ -55,14 +55,22 @@ class HomeController extends Controller
             'systems'=>$systems
             ]);
     }
-    public function category($url)
+    public function category($url,Request $request)
     {
         $category = Category::where('url', $url)->firstOrFail();
         $systems = System::all();
         $brands = Brand::all();
+        $brand_id = isset($request->brand_id)?$request->brand_id:false;
+        $system_id = isset($request->system_id )?$request->system_id:false;
+        $search = isset($request->search )?$request->search:'';
+
+        $products = Product::whereHas('categories',function ($query) use($category){
+            $query->where('category_id',$category->id);
+        })->paginate(1);
         return view('productPage')->with([
             'category'=>$category,
             'brands'=>$brands,
+            'products'=>$products,
             'systems'=>$systems
         ]);
     }
@@ -80,13 +88,23 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function portfolio()
+    public function portfolios()
     {
-        return view('portfolio');
+        $top_portfolios = Portfolio::where('top',1)->get();
+        $portfolios = Portfolio::where('top',0)->get();
+        return view('portfolio')->with([
+            'portfolios'=>$portfolios,
+            'top_portfolios'=>$top_portfolios,
+        ]);
     }
-    public function portfolioSingle()
+    public function portfolioSingle($url)
     {
-        return view('portfolioSingle');
+        $portfolio = Portfolio::where('url', $url)->firstOrFail();
+        $portfolios = Portfolio::where('top',0)->get();
+        return view('portfolioSingle')->with([
+            'portfolio'=>$portfolio,
+            'portfolios'=>$portfolios,
+        ]);
     }
     public function blogs()
     {

@@ -152,7 +152,7 @@
                 <div class="portfolio ">
                     <div class="portfolioBigImg row">
                         <div class="col-12">
-                            <a href="{{route("portfolioSingle")}}">
+                            <a href="{{route("portfolio",['url'=>234])}}">
                                 <div class="portfolioBigImgContainer">
                                     <img src="{{asset('images/portfolioBigImg.png')}}" alt="">
                                 </div>

@@ -21,7 +21,7 @@
                     <ul class="dropdown-menu">
                         @if(!empty($brands))
                             @foreach($brands as $brand)
-                                <li><a class="dropdown-item" href="{{route('categories',['brand_id'=>$brand->id])}}">{{ $brand->{'title_'.$lang} }}</a></li>
+                                <li><a class="dropdown-item" href="{{route('category',['url'=>$category->url,'brand_id'=>$brand->id])}}">{{ $brand->{'title_'.$lang} }}</a></li>
                             @endforeach
                         @endif
                     </ul>
@@ -40,8 +40,8 @@
                 </div>
             </div>
             <div class="contentWrapper d-grid">
-                @if(!empty($category->products))
-                    @foreach($category->products as $product)
+                @if(!empty($products) && count($products))
+                    @foreach($products as $product)
                         <div class="product d-flex justify-content-center">
                             <a href="{{route('product',['url'=>$product->url])}}">
                                 <div class="d-flex align-items-center justify-content-center flex-column">
@@ -54,6 +54,7 @@
                             </a>
                         </div>
                     @endforeach
+
                 @endif
             </div>
         </div>

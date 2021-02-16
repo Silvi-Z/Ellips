@@ -53,6 +53,7 @@ class PortfolioController extends Controller
             'small_text_ru'=>$request->small_text_ru,
         ];
         $data['url'] = Helper::slugify($data['title_en']);
+        $data['top'] = isset($request->top)?1:0;
         $files = [];
 
         foreach ($request->upload_files as $key=>$file){
@@ -132,6 +133,7 @@ class PortfolioController extends Controller
             'small_text_ru'=>$request->small_text_ru,
         ];
         $data['url'] = Helper::slugify($data['title_en']);
+        $data['top'] = isset($request->top)?1:0;
         $files = [];
 
         foreach ($request->upload_files as $key=>$file){

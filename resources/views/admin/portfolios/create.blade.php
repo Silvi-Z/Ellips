@@ -161,7 +161,20 @@
 
                 @endif
             </div>
+            
+            <div class="form-group">
 
+                {!! Form::label('top', 'Top ') !!}
+                {!!  Form::checkbox('top', 1,  (isset($portfolio) && $portfolio->top)?true:false, ['class' => $errors->has('top') ? ' is-invalid' : '']); !!}
+
+                @if ($errors->has('top'))
+
+                    {{--{{ dd($errors->all()) }}--}}
+
+                    <div class="invalid-feedback">{{ $errors->first('top') }}</div>
+
+                @endif
+            </div>
 
 
             @include('admin.includes.file', ['page' => 'products', 'item'=>isset($portfolio)?$portfolio:false])
