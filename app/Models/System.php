@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class System extends Model
 {
-    protected $fillable = ['title_hy','title_ru','title_en','title_en','text_hy','text_ru','url'];
+    protected $fillable = ['title_hy','title_ru','title_en','text_en','text_hy','text_ru','url'];
 
     public function images()
     {

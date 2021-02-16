@@ -14,7 +14,7 @@ return [
     'BY BRAND'   => 'ԸՍՏ Բրենդի',
     'AMD'   => 'դր.',
     'Similar products'   => 'Նմանատիպ ապրանքեր',
-    'Company'   => 'Ընկերություն',
+    'Products involved'   => 'Ներգրավված ապրանքեր',
     'Company'   => 'Ընկերություն',
     'Company'   => 'Ընկերություն',
     'Company'   => 'Ընկերություն',

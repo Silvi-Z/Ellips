@@ -111,9 +111,12 @@ class HomeController extends Controller
             'similars'=>$similars,
         ]);
     }
-    public function system()
+    public function system($url)
     {
-        return view('system');
+        $system = System::where('url', $url)->firstOrFail();
+        return view('system')->with([
+            'system'=>$system,
+        ]);
     }
 
     public function contact()

@@ -2,110 +2,57 @@
 
 @section('content')
     <main class="singleProductPage">
-        <div class="h1Title">Տեսախցիկներ</div>
+        <div class="h1Title">@lang('static.Systems')</div>
         <div class="wrapper row">
             <div class="col-6 position-relative">
                 <div class="singleProduct">
-                    <div class="singleProductSlide">
-                        <img src="{{asset('front/images/camera3.jpg')}}" alt="img">
-                    </div>
-                    <div class="singleProductSlide">
-                        <img src="{{asset('front/images/giphy.gif')}}" alt="img">
-                    </div>
+                    @if(!empty($system->images) && count($system->images))
+                        @foreach($system->images as  $image)
+                            @if($image->image_name)
+                                <div class="singleProductSlide">
+                                    <img src="{{asset('files/'.$image->image_name)}}" alt="img">
+                                </div>
+                            @else
+                                <div class="singleProductSlide">
+                                    <iframe width="100%" src="{{$image->video}}?autoplay=1&showinfo=0&controls=0">
+                                    </iframe>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endif
                 </div>
             </div>
             <div class="col-6 singleInfo">
-                <h6>Տեսահսկման անալոգային և թվային համակարգեր</h6>
-                <div class="systemDescription">Տեսահսկումը հանդիսանում է օբյեկտի անվտանգության համակարգի անբաժանելի մասը: Տեսահսկման համակարգերի
-                    հիմնական գործառույթը վիզուալ վերահսկողությունն է, ահազանգումը իրական ժամանակի ռեժիմում և պահպանվող
-                    տարածքում գործողությունների ձայնագրումը: Ինտերնետին միացված տեսահսկման համակարգի օգնությամբ հնարավոր
-                    է իրական ժամանակում վերահսկել ընկերության այլ մասնաճյուղերի աշխատանքը, որոնք գտնվում են այլ
-                    քաղաքներում և երկրներում: Տեսահսկման համակարգերը տեղադրվում են բնակարաններում, ամառանոցներում,
-                    բանկերում, խանութներում և սուպերմարկետներում, գրասենյակներում, արտադրության և պահեստավորման
-                    վայրերում, ավտոկայանատեղերում և այլն:Տեսահսկումը հանդիսանում է օբյեկտի անվտանգության համակարգի անբաժանելի մասը: Տեսահսկման համակարգերի
-                    հիմնական գործառույթը վիզուալ վերահսկողությունն է, ահազանգումը իրական ժամանակի ռեժիմում և պահպանվող
-                    տարածքում գործողությունների ձայնագրումը: Ինտերնետին միացված տեսահսկման համակարգի օգնությամբ հնարավոր
-                    է իրական ժամանակում վերահսկել ընկերության այլ մասնաճյուղերի աշխատանքը, որոնք գտնվում են այլ
-                    քաղաքներում և երկրներում: Տեսահսկման համակարգերը տեղադրվում են բնակարաններում, ամառանոցներում,
-                    բանկերում, խանութներում և սուպերմարկետներում, գրասենյակներում, արտադրության և պահեստավորման
-                    վայրերում, ավտոկայանատեղերում և այլն:Տեսահսկումը հանդիսանում է օբյեկտի անվտանգության համակարգի անբաժանելի մասը: Տեսահսկման համակարգերի
-                    հիմնական գործառույթը վիզուալ վերահսկողությունն է, ահազանգումը իրական ժամանակի ռեժիմում և պահպանվող
-                    տարածքում գործողությունների ձայնագրումը: Ինտերնետին միացված տեսահսկման համակարգի օգնությամբ հնարավոր
-                    է իրական ժամանակում վերահսկել ընկերության այլ մասնաճյուղերի աշխատանքը, որոնք գտնվում են այլ
-                    քաղաքներում և երկրներում: Տեսահսկման համակարգերը տեղադրվում են բնակարաններում, ամառանոցներում,
-                    բանկերում, խանութներում և սուպերմարկետներում, գրասենյակներում, արտադրության և պահեստավորման
-                    վայրերում, ավտոկայանատեղերում և այլն:Տեսահսկումը հանդիսանում է օբյեկտի անվտանգության համակարգի անբաժանելի մասը: Տեսահսկման համակարգերի
-                    հիմնական գործառույթը վիզուալ վերահսկողությունն է, ահազանգումը իրական ժամանակի ռեժիմում և պահպանվող
-                    տարածքում գործողությունների ձայնագրումը: Ինտերնետին միացված տեսահսկման համակարգի օգնությամբ հնարավոր
-                    է իրական ժամանակում վերահսկել ընկերության այլ մասնաճյուղերի աշխատանքը, որոնք գտնվում են այլ
-                    քաղաքներում և երկրներում: Տեսահսկման համակարգերը տեղադրվում են բնակարաններում, ամառանոցներում,
-                    բանկերում, խանութներում և սուպերմարկետներում, գրասենյակներում, արտադրության և պահեստավորման
-                    վայրերում, ավտոկայանատեղերում և այլն:</div>
+                <h6>{{ $system->{'title_'.$lang} }}</h6>
+                <div class="systemDescription">
+                    {!!  $system->{'text_'.$lang} !!}
+                   </div>
 {{--                <span class="seeAllText">--}}
 {{--                    <img src="{{asset('front/icons/arrowSeeMore.svg')}}" alt="">--}}
 {{--                </span>--}}
             </div>
         </div>
         <div class="moreSystems container ">
-            <div class="moreSystemsTitle">Ներգրավված ապրանքեր</div>
-            <div class="systemsSlide">
-                <div class="product">
-                    <a href="{{route('system')}}">
-                        <div class="d-flex align-items-center justify-content-center flex-column">
-                            <img src='{{asset('front/images/camera1.png')}}' alt="">
-                        </div>
-                        <div>
-                            <h6>5MP Super HD Ակտիվ զսպող տեսախցիկ</h6>
-                            <p>20․000 դր․</p>
-                        </div>
-                    </a>
+            @if(!empty($system->products) && count($system->products))
+                <div class="moreSystemsTitle">@lang('static.Products involved')</div>
+                <div class="systemsSlide">
+                    @foreach($system->products as $product)
+                        @if($loop->index < 6))
+                            <div class="product">
+                                <a href="{{route('product',['url'=>$product->url])}}">
+                                    <div class="d-flex align-items-center justify-content-center flex-column">
+                                        <img src='{{$product->first_image()}}' alt="">
+                                    </div>
+                                    <div>
+                                        <h6>{{ $product->{'title_'.$lang} }}</h6>
+                                        <p>{{ $product->price }} @lang('static.AMD')</p>
+                                    </div>
+                                </a>
+                            </div>
+                        @endif
+                    @endforeach
                 </div>
-                <div class="product">
-                    <a href="{{route('product')}}">
-                        <div class="d-flex align-items-center justify-content-center flex-column">
-                            <img src='{{asset('images/camera2.png')}}' alt="">
-                        </div>
-                        <div>
-                            <h6>Տնային մոնիտորինգի հավաքածու, որն ունի Wi-Fi ջրհեղեղի տեսախցիկ և 1080p HD վիդեո դռան
-                                զանգ</h6>
-                            <p>20․000 դր․</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="product">
-                    <a href="{{route('product')}}">
-                        <div class="d-flex align-items-center justify-content-center flex-column">
-                            <img src='{{asset('front/images/camera3.jpg')}}' alt="">
-                        </div>
-                        <div>
-                            <h6>2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն</h6>
-                            <p>20․000 դր․</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="product">
-                    <a href="{{route('product')}}">
-                        <div class="d-flex align-items-center justify-content-center flex-column">
-                            <img src='{{asset('front/images/camera3.jpg')}}' alt="">
-                        </div>
-                        <div>
-                            <h6>2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն</h6>
-                            <p>20․000 դր․</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="product">
-                    <a href="{{route('product')}}">
-                        <div class="d-flex align-items-center justify-content-center flex-column">
-                            <img src='{{asset('front/images/camera3.jpg')}}' alt="">
-                        </div>
-                        <div>
-                            <h6>2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն</h6>
-                            <p>20․000 դր․</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            @endif
         </div>
     </main>
     @endsection
