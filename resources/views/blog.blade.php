@@ -6,110 +6,60 @@
             <div class="imageContainer">
                 <div class="d-flex justify-content-center">
                     <div></div>
-                    <img src="{{asset('front/images/blogSlide1.jpg')}}" alt="">
+                    <img src="{{$blog->first_image()}}" alt="">
                 </div>
             </div>
             <div></div>
             <div class="singleBlog">
                 <div class="blogSlider">
-                    <h3>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h3>
+                    <h3>{{ $blog->{'title_'.$lang} }}</h3>
                     <div>
                         <div>
                             <span class="modalSpan" data-toggle="modal" data-target="#blogModalSlide"></span>
                             <div class="sliderBlog">
-                                <div>
-                                    <img src="{{asset('front/images/blog2.png')}}"
-                                         alt="">
-                                </div>
-                                <div>
-                                    <img src="{{asset('front/images/blog1.png')}}"
-                                         alt="">
-                                </div>
-                                <div>
-                                    <img src="{{asset('front/images/giphy.gif')}}" alt="">
-                                </div>
+                                @if(!empty($blog->images) && count($blog->images))
+                                    @foreach($blog->images as  $image)
+                                        @if($image->image_name)
+                                            <div>
+                                                <img src="{{asset('files/'.$image->image_name)}}" alt="img">
+                                            </div>
+                                        @else
+                                            <div>
+                                                <iframe width="100%"
+                                                        src="{{$image->video}}?autoplay=0&showinfo=0&controls=0">
+                                                </iframe>
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                         <div class="description">
-                            <p>Հետևելով և կարևորելով Հետևելով և կարևորելով Seaside Startup Summit-ի գործունեությունը՝
-                                մենք
-                                որոշում
-                                կայացրեցինք աջակցել և հովանավորել այս տարվա գալա միջոցառումը, որը կկայանա Սևանում սույն
-                                թվականի
-                                հուլիսի 22-ից 29-ը: Seaside Startup Summint-ը վրանային ճամբար-ստարտափների միջոցառում է,
-                                որի
-                                նպատակն
-                                է ստեղծել կամուրջ ներդրողների և ձեռնարկատերերի համագործակցության համար: Սևան Ստարտափ
-                                Սամիթ
-                                2018-ը
-                                լինելու է այս տարի իրականցված բոլոր սամիթների գալա միջոցառումը: Այն միավորելու է 1000 ձե
-                                ռնարկատերերի
-                                աշխարհի տարբեր անկյուններից և ստեղծելու է համագործակցության կամուրջ: Էլլիպսը
-                                կավտոմատացնի
-                                ծառայությունները սամիթի ողջ տարածքում՝ սկսած մուտքի/ելքի համակարգից մինչև ուտեստի
-                                գնումները:
-                                Էլլիպսի
-                                շնորհիվ սամիթի տարածքում բոլոր գործողությունները կիրականացվեն առանց մարդկային
-                                միջամտության:
-                                Seaside
-                                Startup Summit-ի գործունեությունը՝ մենք որոշում կայացրեցինք աջակցել և հովանավորել այս
-                                տարվա
-                                գալա
-                                միջոցառումը, որը կկայանա Սևանում սույն թվականի հուլիսի 22-ից 29-ը: Seaside Startup
-                                Summint-ը
-                                վրանային ճամբար-ստարտափների միջոցառում է:</p>
+                            <p>{!! $blog->{'text_'.$lang} !!}</p>
                         </div>
                     </div>
                 </div>
                 <div class="wrapper">
-                    <a href="{{route('blog')}}">
-                        <div class="blog d-flex align-items-center justify-content-between">
-                            <div class="d-flex justify-content-center">
-                                <div class="imgVideoWrapper">
-                                    <img src="{{asset('front/images/blog3.png')}}" alt="">
-                                </div>
-                                <div class="d-flex flex-wrap ">
-                                    <div>
-                                        <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
+                    @if(!empty($blogs) && count($blogs))
+                        @foreach($blogs as $blog)
+                            <a href="{{route('blog',['url'=>$blog->url])}}">
+                                <div class="blog d-flex align-items-center justify-content-between">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="imgVideoWrapper">
+                                            <img src="{{$blog->first_image()}}" alt="">
+                                        </div>
+                                        <div class="d-flex flex-wrap ">
+                                            <div>
+                                                <h4>{{ $blog->{'title_'.$lang} }}</h4>
+                                            </div>
+                                            <p>{{date('m.d.Y'),strtotime($blog->updated_at)}}</p>
+                                            <span class="navigateBtn"></span>
+                                        </div>
                                     </div>
-                                    <p>12.28.2020</p>
-                                    <span class="navigateBtn"></span>
                                 </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="{{route('blog')}}">
-                        <div class="blog d-flex align-items-center justify-content-between">
-                            <div class="d-flex justify-content-center">
-                                <div class="imgVideoWrapper">
-                                    <img src="{{asset('front/images/blog3.png')}}" alt="">
-                                </div>
-                                <div class="d-flex flex-wrap ">
-                                    <div>
-                                        <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
-                                    </div>
-                                    <p>12.28.2020</p>
-                                    <span class="navigateBtn"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="{{route('blog')}}">
-                        <div class="blog d-flex align-items-center justify-content-between">
-                            <div class="d-flex justify-content-center">
-                                <div class="imgVideoWrapper">
-                                    <img src="{{asset('front/images/blog3.png')}}" alt="">
-                                </div>
-                                <div class="d-flex flex-wrap ">
-                                    <div>
-                                        <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
-                                    </div>
-                                    <p>12.28.2020</p>
-                                    <span class="navigateBtn"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                            </a>
+                        @endforeach
+                    @endif
                 </div>
             </div>
             <div class="modal fade " id="blogModalSlide" tabindex="-1" role="dialog" aria-labelledby="blogModalSlide"

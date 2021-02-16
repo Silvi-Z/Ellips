@@ -17,6 +17,9 @@ return [
     'Products involved'   => 'Ներգրավված ապրանքեր',
     'ARCHIVE'   => 'ԱՐԽԻՎ',
     'DESCRIPTION'   => 'ՆԿԱՐԱԳԻՐ',
+    'See more'   => 'Տեսնել ավելին',
+    'Company'   => 'Ընկերություն',
+    'Company'   => 'Ընկերություն',
     'Company'   => 'Ընկերություն',
     'Company'   => 'Ընկերություն',
 

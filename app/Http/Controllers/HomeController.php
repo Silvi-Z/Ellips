@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Portfolio;
@@ -108,12 +109,21 @@ class HomeController extends Controller
     }
     public function blogs()
     {
-        return view('blogs');
+        $blogs = Blog::orderBy('updated_at','DESC')->paginate(5);
+
+        return view('blogs')->with([
+            'blogs'=>$blogs
+        ]);
     }
 
-    public function blog()
+    public function blog($url)
     {
-        return view('blog');
+        $blog = Blog::where('url', $url)->firstOrFail();
+        $blogs = Blog::inRandomOrder()->take(3)->get();
+        return view('blog')->with([
+            'blog'=>$blog,
+            'blogs'=>$blogs,
+        ]);
     }
 
     public function product($url)
@@ -140,6 +150,17 @@ class HomeController extends Controller
     public function contact()
     {
         return view('contact');
+    }
+
+    public function getBlogs(Request $request)
+    {
+        $blogs = Blog::orderBy('updated_at','DESC')->paginate(5);
+        $result = [];
+        $result['total'] = $blogs->total();
+        $result['html'] =  view('ajax.blogs')->with([
+            'blogs'=>$blogs
+        ])->render();
+        return response()->json($result);
     }
 
 
