@@ -321,27 +321,27 @@
                 </ul>
 
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cities">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Social Networks">
 
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseContactservices">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseNetworks">
 
-                    <i class="fa fa-id-card-o"></i>
+                    <i class="fa fa-fw fa-address-book"></i>
 
-                    <span class="nav-link-text">Contact services</span>
+                    <span class="nav-link-text">Social Networks</span>
 
                 </a>
 
-                <ul class="sidenav-second-level collapse" id="collapseContactservices">
+                <ul class="sidenav-second-level collapse" id="collapseNetworks">
 
                     <li>
 
-                        <a href="{{ route('admin.contact_services.create') }}">Create Contact service</a>
+                        <a href="{{ route('admin.social_networks.create') }}">Create Social Networks</a>
 
                     </li>
 
                     <li>
 
-                        <a href="{{ route('admin.contact_services.index') }}">Contact services list</a>
+                        <a href="{{ route('admin.social_networks.index') }}">Cities Social Networks</a>
 
                     </li>
 
@@ -359,7 +359,11 @@
                 </a>
 
                 <ul class="sidenav-second-level collapse" id="collapseContactservices">
+                    <li>
 
+                        <a href="{{ route('admin.contacts') }}">Contact messages</a>
+
+                    </li>
                     <li>
 
                         <a href="{{ route('admin.contact_services.create') }}">Create Contact service</a>
@@ -375,6 +379,7 @@
                 </ul>
 
             </li>
+
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cities">
 

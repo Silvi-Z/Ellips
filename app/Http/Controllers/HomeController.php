@@ -2,15 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\City;
+use App\Models\Contact;
+use App\Models\ContactService;
 use App\Models\Portfolio;
 use App\Models\Product;
 use App\Models\Service;
 use App\Models\Slider;
+use App\Models\SocialNetwork;
 use App\Models\System;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Mailer;
 
 class HomeController extends Controller
 {
@@ -147,11 +153,37 @@ class HomeController extends Controller
         ]);
     }
 
-    public function contact()
+    public function contact(Request $request)
     {
-        return view('contact');
+        $cities  = City::all();
+        $contact_services  = ContactService::all();
+        $socials  = SocialNetwork::all();
+        return view('contact')->with([
+            'cities'=>$cities,
+            'socials'=>$socials,
+            'contact_services'=>$contact_services,
+        ]);
     }
 
+    public function postContact(Request $request,Mailer $mailer)
+    {
+        if($request->isMethod('POST')){
+            $request->validate([
+                'name' => 'required',
+                'phone' => 'required',
+                'email' => 'required',
+                'message' => 'required',
+
+            ]);
+            $mailer->send(new ContactMail(
+                $request->get('email'),
+                $request->all()
+            ));
+            Contact::create($request->all());
+            $request->session()->flash('alert-danger', trans('static.Message has been sent successfully'));
+            return redirect()->back();
+        }
+    }
     public function getBlogs(Request $request)
     {
         $blogs = Blog::orderBy('updated_at','DESC')->paginate(5);

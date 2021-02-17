@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
@@ -31,6 +32,14 @@ class DashboardController extends Controller
             ]
         );
 
+    }
+
+    public function contacts()
+    {
+        return view('admin.contacts',
+            ['contacts'=>Contact::orderBy('updated_at','DESC')->get(),
+            ]
+        );
     }
 
     public function upload(Request $request)
