@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="licensesWrapper">
-            <div class="licensesTitle">ՍԵՐՏԻՖԻԿԱՏՆԵՐ</div>
+            <div class="licensesTitle">@lang('static.CERTIFICATES')</div>
             <div class="licenses">
 
                 @if(!empty($certificates) && count($certificates))
