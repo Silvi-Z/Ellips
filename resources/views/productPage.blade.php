@@ -6,14 +6,17 @@
         @include('selectButtons')
         <div class="productPageWrapper">
             <div class="lastNavigate">
-                <a href="{{route('products')}}">ԱՊՐԱՆՔՆԵՐ</a>
+                <a href="{{route('categories')}}">ԱՊՐԱՆՔՆԵՐ</a>
             </div>
             <div class="filter row">
-                <div class="col-md-12 col-lg-6 col">
-                    <label>
-                        <input type="text"  data-name="product"  class="searchInput" placeholder="@lang('static.Search')">
-                    </label>
-                </div>
+                <form class="col-md-12 col-lg-6 col" action="">
+                    <div>
+                        <label>
+                            <input type="text"  data-name="product"  class="searchInput" placeholder="@lang('static.Search')">
+                        </label>
+                        <button class="searchButton btn-dark">փնտրել</button>
+                    </div>
+                </form>
                 <div class="nav-item dropdown col-md-6 col-lg-3">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
                         @lang('static.BY BRAND')

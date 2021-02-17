@@ -5,11 +5,14 @@
         <div class="h1Title">@lang('static.products and systems')</div>
         @include ('selectButtons')
             <div class="filter row">
-                <div class="col">
-                    <label>
-                        <input data-name="category" class="searchInput" type="text" placeholder=" @lang('static.Search')">
-                    </label>
-                </div>
+                <form class="col" action="">
+                    <div>
+                        <label>
+                            <input data-name="category" class="searchInput" type="text" placeholder=" @lang('static.Search')">
+                        </label>
+                        <button class="searchButton btn-dark">փնտրել</button>
+                    </div>
+                </form>
                 <div class="nav-item dropdown col-md-4">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
                        @lang('static.BY SYSTEMS')
