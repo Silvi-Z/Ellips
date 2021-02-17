@@ -4,7 +4,7 @@
     <main class="singleProductPage">
         <div class="h1Title">@lang('static.Systems')</div>
         <div class="wrapper row">
-            <div class="col-6 position-relative">
+            <div class="col-xl-6 col-12 position-relative">
                 <div class="singleProduct">
                     @if(!empty($system->images) && count($system->images))
                         @foreach($system->images as  $image)
@@ -22,7 +22,7 @@
                     @endif
                 </div>
             </div>
-            <div class="col-6 singleInfo">
+            <div class="col-xl-6 col-12 singleInfo">
                 <h6>{{ $system->{'title_'.$lang} }}</h6>
                 <div class="systemDescription">
                     {!!  $system->{'text_'.$lang} !!}

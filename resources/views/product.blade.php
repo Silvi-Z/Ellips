@@ -4,7 +4,7 @@
     <main class="singleProductPage">
         <div class="h1Title">{{ $product->brand->{'title_'.$lang} }}</div>
         <div class="wrapper row">
-            <div class="col-6 position-relative">
+            <div class="col-xl-6 col-12 position-relative">
                 <div class="singleProduct">
                     @if(!empty($product->images))
                         @foreach($product->images as  $image)
@@ -23,7 +23,7 @@
 
                 </div>
             </div>
-            <div class="col-6 singleInfo">
+            <div class="col-xl-6 col-12 singleInfo">
                 <h6>{{ $product->{'title_'.$lang} }}</h6>
                 <p class="price">{{ $product->price }} @lang('static.AMD')</p>
                 <div class="productDescription">{!!  $product->{'text_'.$lang}  !!}</div>

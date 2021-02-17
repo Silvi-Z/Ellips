@@ -31,41 +31,44 @@
             </div>
         </div>
         </div>
-        <div class="licenses">
-        @php
-           $licenses = [
-              [
-                "number" => "N11109",
-                "text" => "էներգետիկայի ոլորտում նախագծման"
-              ],
-              [
-                "number" => "N14392",
-                "text" => "հիդրոտեխնիկայի ոլորտում շինարարության"
-              ],
-              [
-                "number" => "N14394",
-                "text" => "կապի ոլորտում նախագծման"
-              ],
-              [
-                "number" => "N11110",
-                "text" => "էներգետիկայի ոլորտում շինարարության"
-              ],
-              [
-                "number" => "N14255",
-                "text" => "կապի ոլորտում շինարարության"
-              ],
-              [
-                "number"=> "N14255",
-                "text"=> "կապի ոլորտում շինարարության"
-              ]
-            ]
-           @endphp
-            @foreach ($licenses as $key => $value)
-                <div class="licensesSlideWrapper">
-                    <div>{{$value["number"]}}</div>
-                    <div>{{$value["text"]}}</div>
-                </div>
-            @endforeach
+        <div class="licensesWrapper">
+            <div class="licensesTitle">ՍԵՐՏԻՖԻԿԱՏՆԵՐ</div>
+            <div class="licenses">
+                @php
+                    $licenses = [
+                       [
+                         "number" => "N11109",
+                         "text" => "էներգետիկայի ոլորտում նախագծման"
+                       ],
+                       [
+                         "number" => "N14392",
+                         "text" => "հիդրոտեխնիկայի ոլորտում շինարարության"
+                       ],
+                       [
+                         "number" => "N14394",
+                         "text" => "կապի ոլորտում նախագծման"
+                       ],
+                       [
+                         "number" => "N11110",
+                         "text" => "էներգետիկայի ոլորտում շինարարության"
+                       ],
+                       [
+                         "number" => "N14255",
+                         "text" => "կապի ոլորտում շինարարության"
+                       ],
+                       [
+                         "number"=> "N14255",
+                         "text"=> "կապի ոլորտում շինարարության"
+                       ]
+                     ]
+                @endphp
+                @foreach ($licenses as $key => $value)
+                    <div class="licensesSlideWrapper">
+                        <div>{{$value["number"]}}</div>
+                        <div>{{$value["text"]}}</div>
+                    </div>
+                @endforeach
+            </div>
         </div>
         @include('ourExperience')
         <div class="companies">

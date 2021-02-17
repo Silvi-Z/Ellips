@@ -82,10 +82,11 @@ header{
 
 header > section > div:not(.subMenuWrapper, .responsiveMenu) {
     padding: 0 20px;
+    max-width: 1440px;
     /*justify-content: space-between !important;*/
     /*width: 100%;*/
     z-index: 20;
-    margin: 0;
+    /*margin: 0 auto;*/
 }
 
 /*header button a {*/
@@ -188,6 +189,7 @@ header button {
     height: 24px;
     width: 24px;
     outline: none;
+    /*margin: 10px 6px;*/
     border-radius: 50%;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -200,6 +202,8 @@ header button {
 
 .first {
     z-index: 10 !important;
+    /*position: absolute;*/
+    /*top: 0;*/
 }
 
 .last {
@@ -412,6 +416,7 @@ main.homePage {
 
 header section{
     top: 0;
+    max-width: 100%;
     background-color: #cfd9e2;
     /*transition: .5s linear;*/
     width: 100%;
@@ -423,6 +428,7 @@ header section{
     height: 70px;
     /*padding: 0 20px;*/
     z-index: 1000;
+    width: 100%;
     position: fixed;
     background-color: #cfd9e2;
 }
@@ -436,7 +442,9 @@ main {
     /*) repeat;*/
     /*height: 2000px;*/
 }
-
+input:focus::placeholder{
+    color: transparent;
+}
 /*footer { background: #ddd;}*/
 /** { color: transparent}*/
 
@@ -444,7 +452,21 @@ main {
     margin-right: 10px;
 }
 .next{
+    transition: 1s;
     margin-left: 10px;
+}
+
+.next:hover, .prev:hover{
+    border: 1px solid #858B91!important;
+}
+.next:before, .prev:before{
+    transition: 2s;
+}
+.prev:hover:before{
+    content: url("../icons/hoverSlideArrow.svg");
+}
+.next:hover:before{
+    content: url("../icons/hoverNextArrow.svg");
 }
 .imagesSlide .slick-prev {
     transition-duration: .9s;
@@ -834,11 +856,13 @@ main {
     line-height: 30px;
 }
 
-.portfolio button {
+.portfolio button{
     background: #FFFFFF;
     color: black;
-    margin: auto;
     border: none;
+}
+.portfolio a{
+    margin: auto;
 }
 
 .button {
@@ -897,8 +921,8 @@ main {
 }
 
 .product img, .product video {
-    max-width: 200px;
-    max-height: 200px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -1140,13 +1164,41 @@ footer h4 {
     align-items: center;
 }
 
-.follow img:nth-child(2) {
+.social{
+    display: flex;
+}
+.social > div{
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+}
+.social > div:first-child{
+    background-image: url("../icons/fb.svg");
+}
+.social > div:first-child:hover{
+    background-image: url("../icons/hoverFb.svg");
+}
+.social > div:nth-child(2) {
     margin: 0 20px;
+    background-image: url("../icons/youtube.svg");
+}
+.social > div:nth-child(2):hover {
+    margin: 0 20px;
+    background-image: url("../icons/hoverYouTube.svg");
+}
+.social > div:last-child{
+    background-image: url("../icons/google.svg");
+}
+.social > div:last-child:hover{
+    background-image: url("../icons/hoverGoogle.svg");
 }
 
 .licenses{
     padding: 0 50px 120px 50px;
     display: flex;
+}
+
+.licensesWrapper{
     background-color: white;
 }
 
@@ -1259,8 +1311,15 @@ main:not(.homePage, .companyPage) {
     margin: auto;
     padding: 50px 110px
 }
-
-.filter > div {
+button, button:focus{
+    outline: none;
+}
+.filter >  form > div{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.filter >  form , .filter > div{
     position: relative;
     height: 60px;
     background: #CFD9E2;
@@ -1273,18 +1332,26 @@ main:not(.homePage, .companyPage) {
     justify-content: center;
     align-items: center;
 }
+.searchButton{
+    width: 86px;
+    height: 36px;
+    font-size: 14px;
+    margin: 0;
+    opacity: 0;
+    transition: .2s;
+}
 
-.filter > div img {
+.filter >  form > div img {
     margin-left: 10px;
 }
 
-.filter > div:first-child {
+.filter >  form , .filter > div {
     /*flex: 1;*/
     justify-content: end;
     padding-left: 40px;
 }
 
-.filter > div:first-child input {
+.filter >  form input {
     outline: none;
     width: 100%;
     height: 24px;
@@ -1305,14 +1372,14 @@ main:not(.homePage, .companyPage) {
     align-items: center;
 }
 
-.filter > div:first-child > label:before {
+.filter >  form > div > label:before {
     content: url("../icons/search.svg");
     height: 18px;
     width: 18px;
     margin-right: 10px;
 }
 
-.filter > div:not(:first-child) {
+.filter > div {
     padding: 0;
 }
 
@@ -1458,6 +1525,7 @@ main:not(.homePage, .companyPage) {
 
 .slick-prev:before, .slick-next:before, .systemsSlide .slick-next:before {
     height: fit-content;
+    font-size: unset;
 }
 
 /*.imgVideo .slick-prev:before, */
@@ -1482,7 +1550,7 @@ main:not(.homePage, .companyPage) {
 
 .whiteBackground {
     height: auto;
-    /*background-color: #FFFFFF;*/
+    background-color: #FFFFFF;
 }
 /*.whiteBackground section{*/
 /*    background-color: #FFFFFF;*/
@@ -1647,7 +1715,7 @@ main:not(.homePage, .companyPage) {
 
 /*    company    */
 .aboutCompany {
-    padding: 90px 110px;
+    padding: 90px 110px 0 110px;
 }
 
 .aboutCompany p:first-child {
@@ -1659,8 +1727,9 @@ main:not(.homePage, .companyPage) {
 }
 
 .aboutCompany div:nth-child(2) {
-    border-top: 1px solid black;
-    padding-top: 20px;
+    border-top: 1px solid #7A8086;
+    border-bottom: 1px solid #7A8086;
+    padding: 20px 0 110px;
 }
 
 .aboutCompany div:nth-child(2) p {
@@ -1675,14 +1744,19 @@ main:not(.homePage, .companyPage) {
     margin-right: 50px;
 }
 
-.aboutCompany span, .ourExperience span {
+.aboutCompany span, .ourExperience span, .licensesTitle
+{
     font-size: 20px;
     line-height: 31px;
     letter-spacing: 0.15px;
     color: #7A8086;
     font-weight: bold;
 }
-
+.licensesTitle{
+    padding: 20px 0 50px 110px;
+    max-width: 1440px;
+    margin: auto;
+}
 .licensesSlideWrapper {
     max-width: 210px;
     margin-right: 100px;
@@ -1956,6 +2030,8 @@ main:not(.homePage, .companyPage) {
 
 .tags {
     margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
 }
 iframe{
     height: 100%!important;
@@ -1968,6 +2044,9 @@ iframe{
     /*color: black;*/
     font-size: 13px;
     margin-right: 10px;
+    margin-bottom: 10px;
+    display: block;
+    width: fit-content;
 }
 .youtube{
     height: 100%;
@@ -2061,7 +2140,7 @@ iframe{
 /*}*/
 .systemDescription, .productDescription{
     font-size: 14px;
-    max-width: 540px;
+    /*max-width: 540px;*/
     line-height: 24px;
     letter-spacing: 0.15px;
     position: relative;
@@ -2437,13 +2516,13 @@ iframe{
 form > div {
 
 }
-form > div:not(:last-of-type){
+form > div{
     height: 90px;
     border-bottom: 1px solid #CFD9E2;
     min-height: 90px;
 }
 
-form input, form textarea{
+.contactPageWrapper form input, .contactPageWrapper form textarea{
     outline: none;
     width: 95%;
     background-color: #141A1F;
@@ -2451,6 +2530,7 @@ form input, form textarea{
     padding-bottom: 15px;
     color: #FFFFFF;
 }
+
 form textarea{
     resize: none;
     top: 0;
@@ -2468,7 +2548,7 @@ input:-webkit-autofill:active  {
 input:-webkit-autofill {
     -webkit-text-fill-color: white !important;
 }
-form input::placeholder,form textarea::placeholder  {
+.contactPageWrapper .contactPageWrapper form input::placeholder,form textarea::placeholder  {
     color: white;
     font-weight: bold;
 }
@@ -2537,6 +2617,7 @@ form button {
 
 .productPageWrapper .product {
     width: fit-content;
+    margin: 0  auto;
 }
 
 .productPageWrapper .product a > div:first-child {
@@ -2571,13 +2652,15 @@ form button {
     overflow: hidden;
 }
 .homePage .blogs button {
-    margin: 50px auto 0 auto;
     background-color: #CFD9E2;
     border-color: #CFD9E2;
     color: black;
 }
-.homePage .productPageWrapper button {
-    margin: auto;
+.homePage .blogs a {
+    margin: 50px auto 0 auto;
+}
+.homePage .productPageWrapper a {
+    margin: 60px auto 0 auto;
 }
 .homePage .productPageWrapper h3 {
     font-size: 36px;
@@ -2607,14 +2690,25 @@ form button {
     width: 100%;
     object-fit: cover;
 }
-
+.opacity{
+    opacity: 1!important;
+}
+.moreServices .slick-track{
+    display: flex;
+}
+.moreServices .slick-slide{
+    margin: 0 17px;
+}
 @media only screen and (max-width: 1500px) {
     .servicesDescription{
         margin: 0;
     }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1200px){
+    .systemDescription, .productDescription {
+        max-width: 540px;
+    }
     .contactPage .col-md-4 {
         width: fit-content;
     }
@@ -2699,7 +2793,30 @@ form button {
     /*}*/
 }
 
+@media only screen and (max-width: 1220px){
+
+}
+
 @media only screen and (max-width: 1200px) {
+    /*.moreServices .slick-list{*/
+    /*    margin: auto;*/
+    /*}*/
+    footer{
+        padding: 120px 60px;
+    }
+    .singleInfo {
+        margin-left: 0;
+    }
+    .singleProduct {
+        /*width: 565px;*/
+        margin: auto;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        margin-right: 0;
+        margin-bottom: 80px !important;
+    }
 
     .bigSlide .slick-slide {
         padding: 0 50px;
@@ -2711,9 +2828,9 @@ form button {
         /*margin-left: 0 !important;*/
     }
 
-    .companiesHistory .wrapper {
-        padding: 0 94px;
-    }
+    /*.companiesHistory .wrapper {*/
+    /*    padding: 0 94px;*/
+    /*}*/
 
     .history > div:not(.companyImage) {
         order: 2;
@@ -2861,6 +2978,7 @@ form button {
         line-height: 20px;
     }
     .responsiveMenu ul ~ div {
+        margin-bottom: 50px;
         left: 0;
         bottom: 0;
         justify-content: space-between;
@@ -2875,6 +2993,21 @@ form button {
 }
 
 @media only screen and (max-width: 1024px) {
+    .licenses {
+        padding: 0 40px 120px 40px;
+    }
+    .licensesTitle{
+        padding: 20px 40px 50px;
+    }
+    .moreServicesSlide{
+        padding: 0;
+    }
+    .moreServices .slick-slide{
+        margin: 0 7px;
+    }
+    .homePage .productPageWrapper a{
+        margin: auto;
+    }
     .toggleMenu{
         z-index: 100;
     }
@@ -2930,7 +3063,7 @@ form button {
     /*}*/
 
     .aboutCompany {
-        padding: 70px 40px;
+        padding: 70px 40px 0 40px;
     }
 
     .productPageWrapper {
@@ -2946,6 +3079,9 @@ form button {
         font-size: 20px;
         line-height: 35px;
         margin-bottom: 70px;
+    }
+    .aboutCompany div:nth-child(2){
+        padding-bottom: 70px;
     }
 
     .aboutCompany div:nth-child(2) p {
@@ -3048,17 +3184,6 @@ form button {
 
     .portfolioPage ~ .darkSection {
         padding: 70px 40px 100px;
-    }
-
-    .singleProduct {
-        /*width: 565px;*/
-        /*margin: auto;*/
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        margin-right: 0;
-        margin-bottom: 80px !important;
     }
 
     /*.systemContent .slick-dotted.slick-slider {*/
@@ -3254,7 +3379,34 @@ form button {
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px){
+    .licensesTitle {
+        font-size: 18px;
+        padding: 20px 20px 30px;
+    }
+    .licenses {
+        padding: 0 20px 120px 20px;
+    }
+    .systemsSlide .slick-prev{
+        top: 105%;
+        left: 30% !important;
+    }
+    .systemsSlide .slick-next{
+        top: 105%;
+        right: 30% !important;
+    }
+    .imgVideoWrapper{
+        width: 100%;
+    }
+    .singleProduct{
+        margin-bottom: 0 !important;
+    }
+    .singleProduct .slick-list{
+        width: 320px;
+    }
+    /*.homePage .productPageWrapper button {*/
+    /*    margin: 50px auto 0 auto;*/
+    /*}*/
     .companyImage{
         height: 320px;
     }
@@ -3320,7 +3472,10 @@ form button {
     /*    display: none;*/
     /*}*/
     .aboutCompany {
-        padding: 50px 20px;
+        padding: 50px 20px 0 20px;
+    }
+    .aboutCompany div:nth-child(2){
+        padding-bottom: 50px;
     }
     .companiesHistory .wrapper {
         padding: 0 20px;
@@ -3355,7 +3510,7 @@ form button {
     .form {
         padding: 50px 20px 0 20px;
     }
-    form input {
+    .contactPageWrapper form input {
         font-size: 14px;
     }
     .contactInfo img {
@@ -3452,7 +3607,7 @@ form button {
         padding: 0 20px;
     }
     .singleInfo {
-        margin-left: 20px;
+        margin-left: 0;
     }
     .singleProduct .slick-track {
         display: flex;
@@ -3472,10 +3627,10 @@ form button {
         height: 270px;
         width: 320px;
     }
-    .singleProduct img, .singleProduct video {
-        max-width: 130px;
-        max-height: 180px;
-    }
+    /*.singleProduct img, .singleProduct video {*/
+    /*    max-width: 130px;*/
+    /*    max-height: 180px;*/
+    /*}*/
     .productsWrapper {
         /*flex-direction: column;*/
         /*align-items: center;*/
