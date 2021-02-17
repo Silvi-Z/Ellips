@@ -61,7 +61,7 @@
             <div class="archive">
                 <a href="{{route('portfolioSingle')}}">
                     <div class="archivePortfolio d-flex align-items-center justify-content-between">
-                        <div class="d-flex justify-content-center">
+                        <div class="d-flex align-items-center justify-content-center">
                             <div class="imgVideoWrapper">
                                 <img src="{{asset('images/portfolioImg.jpg')}}" alt="">
                             </div>

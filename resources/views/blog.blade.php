@@ -15,17 +15,15 @@
                     <h3>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h3>
                     <div>
                         <div>
-                            <span class="modalSpan" data-toggle="modal" data-target="#blogModalSlide"></span>
+                            <span></span>
                             <div class="sliderBlog">
-                                <div>
-                                    <img src="{{asset('front/images/blog2.png')}}"
-                                         alt="">
+                                <div class="modalSpan" data-toggle="modal" data-target="#blogModalSlide">
+                                    <img src="{{asset('front/images/blog2.png')}}" alt="">
                                 </div>
-                                <div>
-                                    <img src="{{asset('front/images/blog1.png')}}"
-                                         alt="">
+                                <div class="modalSpan" data-toggle="modal" data-target="#blogModalSlide">
+                                    <img src="{{asset('front/images/blog1.png')}}" alt="">
                                 </div>
-                                <div>
+                                <div class="modalSpan" data-toggle="modal" data-target="#blogModalSlide">
                                     <img src="{{asset('front/images/giphy.gif')}}" alt="">
                                 </div>
                             </div>

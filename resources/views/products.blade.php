@@ -5,11 +5,14 @@
         <div class="h1Title">ապրանքներ և համակարգեր</div>
         @include ('selectButtons')
             <div class="filter row">
-                <div class="col">
-                    <label>
-                        <input data-name="category" class="searchInput" type="text" placeholder="Փնտրել">
-                    </label>
-                </div>
+                <form action="" class="col">
+                    <div>
+                        <label>
+                            <input data-name="category" class="searchInput" type="text" placeholder="Փնտրել">
+                        </label>
+                        <button class="btn-dark searchButton">փնտրել</button>
+                    </div>
+                </form>
                 <div class="nav-item dropdown col-md-4">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
                         ԸՍՏ ՀամակարգերԻ
@@ -70,7 +73,7 @@
                 @endphp
                 @foreach ($products as $key => $value)
                     <div class="product d-flex justify-content-center">
-                        <a href="{{route('productPage')}}">
+                        <a href="{{route('categories')}}">
                             <div class="d-flex align-items-center justify-content-center flex-column">
                                 <img src="{{asset($value["productImage"])}}" alt="">
                             </div>

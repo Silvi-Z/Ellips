@@ -24,7 +24,7 @@ Route::get('/portfolioSingle', 'HomeController@portfolioSingle')->name('portfoli
 Route::get('/product', 'HomeController@product')->name('product');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/system', 'HomeController@system')->name('system');
-Route::get('/productPage', 'HomeController@productPage')->name('productPage');
+Route::get('/categories', 'HomeController@categories')->name('categories');
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 
 

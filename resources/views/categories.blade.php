@@ -9,11 +9,14 @@
                 <a href="{{route('products')}}">ԱՊՐԱՆՔՆԵՐ</a>
             </div>
             <div class="filter row">
-                <div class="col-md-12 col-lg-6 col">
-                    <label>
-                        <input type="text" data-name="product"  class="searchInput" placeholder="Փնտրել">
-                    </label>
-                </div>
+                <form action="" class="col-md-12 col-lg-6 col">
+                    <div>
+                        <label>
+                            <input type="text" data-name="product" class="searchInput" placeholder="Փնտրել">
+                        </label>
+                        <button class="btn-dark searchButton">փնտրել</button>
+                    </div>
+                </form>
                 <div class="nav-item dropdown col-md-6 col-lg-3">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
                         ԸՍՏ Բրենդի

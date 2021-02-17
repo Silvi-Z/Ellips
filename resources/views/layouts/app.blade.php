@@ -35,7 +35,7 @@
 </head>
 <body>
 <header class="d-flex justify-content-center w-100 align-items-center">
-    <section class="d-flex flex-column">
+    <section class="d-flex flex-column align-items-center">
         <div class="row d-flex flex-row justify-content-between w-100 align-items-center">
             <a class="col navbar-brand d-flex align-items-center text-decoration-none text-dark logo"
                href="{{route('mainpage')}}">
@@ -57,7 +57,9 @@
                     <a href="{{route('blogs')}}">Բլոգ</a>
                 </nav>
                 <div class="d-flex align-items-center">
-                    <button class="btn btn-dark"><a href={{route("contact")}}>Կապ մեզ հետ</a></button>
+                    <a href={{route("contact")}}>
+                        <button class="btn btn-dark">Կապ մեզ հետ</button>
+                    </a>
                     <div class="selectLang">
                         <div>
                             <div data-id="hy" class="hy first"></div>
@@ -172,8 +174,12 @@
     <div  class="row">
         <div class="col-lg-2 col-md col footerLogo">
             <div>
-                <img src="{{asset('front/icons/logo.svg')}}" alt="">
-                <span>ellips</span>
+                <a class="col navbar-brand d-flex align-items-center text-decoration-none text-dark logo"
+                   href="{{route('mainpage')}}">
+                    <img src="{{asset('front/icons/logo.svg')}}" width="30" height="30" class="d-inline-block align-top"
+                         alt="">
+                    <span>ellips</span>
+                </a>
             </div>
         </div>
         <div class="col-lg-7 col-md col-12 contact <!--d-flex justify-content-center-->">
@@ -195,14 +201,13 @@
         </div>
         <div class="col-lg-3 col-md col follow">
             <h4>Հետևեք Մեզ</h4>
-            <div>
-                <img src="{{asset('front/icons/fb.svg')}}" alt="">
-                <img src="{{asset('front/icons/youtube.svg')}}" alt="">
-                <img src="{{asset('front/icons/google.svg')}}" alt="">
+            <div class="social">
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
         </div>
     </div>
 </footer>
-
 </body>
 </html>
