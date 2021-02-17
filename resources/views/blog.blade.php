@@ -15,16 +15,16 @@
                     <h3>{{ $blog->{'title_'.$lang} }}</h3>
                     <div>
                         <div>
-                            <span class="modalSpan" data-toggle="modal" data-target="#blogModalSlide"></span>
+                            <span></span>
                             <div class="sliderBlog">
                                 @if(!empty($blog->images) && count($blog->images))
                                     @foreach($blog->images as  $image)
                                         @if($image->image_name)
-                                            <div>
+                                            <div class="modalSpan" data-toggle="modal" data-target="#blogModalSlide">
                                                 <img src="{{asset('files/'.$image->image_name)}}" alt="img">
                                             </div>
                                         @else
-                                            <div>
+                                            <div class="modalSpan" data-toggle="modal" data-target="#blogModalSlide">
                                                 <iframe width="100%"
                                                         src="{{$image->video}}?autoplay=0&showinfo=0&controls=0">
                                                 </iframe>

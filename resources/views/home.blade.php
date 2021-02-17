@@ -126,7 +126,7 @@
             <!--                        <div class="wrapper">-->
             <div class="moreServices row d-flex justify-content-center">
                 <div class="col servicesDescription">«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է նաև ծառայությունների առանձին փաթեթներ,որոնք են․</div>
-                <div class="d-flex col-12 col-xl-9 moreServicesSlide">
+                <div class="d-flex col-12 col-xl-9 moreServicesSlide justify-content-center">
                     <div>
                         <div class="d-flex moreService justify-content-center align-items-center w-250 ">Էլեկտրասնուցում</div>
                     </div>
@@ -135,11 +135,6 @@
                     </div>
                     <div>
                         <div class="d-flex moreService justify-content-center align-items-center w-250 ">Բակի լուսավորություն</div>
-                    </div>
-                    <div>
-                        <div class="d-flex moreService justify-content-center align-items-center w-250 ">Սանտեխնիկա նախագծումից մինչև
-                            իրականացում, ջրահեռացում, ջրամատակարարում
-                        </div>
                     </div>
                 </div>
             </div>
@@ -182,15 +177,17 @@
                                 տեսախցիկներ)</p>
                         </div>
                     </div>
-                    <button class="button">Պորտֆոլիո</button>
+                    <a href="{{route('portfolio')}}">
+                        <button class="button">Պորտֆոլիո</button>
+                    </a>
                 </div>
             </div>
         </div>
         <section>
             <div class="container">
-                
+
                 <div class="productPageWrapper d-flex flex-column">
-                    <h3>Համակարգեր և ապրանքեր</h3>
+                    <h3>Ապրանքեր և համակարգեր</h3>
                     <!--                    <div class="container">-->
                     <div class="contentWrapper d-grid">
                         <div class="product d-flex justify-content-center">
@@ -230,8 +227,25 @@
                         </div>
                         <div class="w-100"></div>
                     </div>
-                 
-                    <button type="button" class="btn btn-dark button">Տեսնել ավելին</button>
+                    <!--                    </div>-->
+                    <!--                    <div class="d-flex">-->
+                    <!---->
+                    <!--                        <div class="product">-->
+                    <!--                            <div class="d-flex align-items-center justify-content-center flex-column">
+
+                                                    <img src="/images/camera3.png" alt="">-->
+                    <!--                            </div>-->
+                    <!--                            <div>-->
+                    <!--                                <h6>2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն</h6>
+
+                                                    <p>20․000  դր․</p>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!---->
+                    <!--                    </div>-->
+                    <a href="{{route('products')}}">
+                        <button type="button" class="btn btn-dark button">Տեսնել ավելին</button>
+                    </a>
                     <!--                    <button class="button">Տեսնել ավելին</button>-->
                 </div>
             </div>
@@ -289,7 +303,9 @@
                                 </div>
                             </div>
                         </a>
-                        <button class="button btn btn-dark">Տեսնել ավելին</button>
+                        <a href="{{route('blogs')}}">
+                            <button class="button btn btn-dark">Տեսնել ավելին</button>
+                        </a>
                         {{--                        <button class="button">Տեսնել ավելին</button>--}}
                     </div>
                 </div>

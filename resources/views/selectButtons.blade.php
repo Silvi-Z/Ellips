@@ -1,5 +1,5 @@
 <div class="selectButtons">
-    <button data-select="product" class="activeButton">
+    <button data-select="product categories" class="activeButton">
         <a href="{{route('categories')}}">@lang('static.Products')</a>
     </button>
     <button data-select="systems">

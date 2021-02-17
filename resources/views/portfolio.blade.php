@@ -53,7 +53,7 @@
                     @foreach($portfolios as $portfolio)
                         <a href="{{route('portfolio',['url'=>$portfolio->url])}}">
                             <div class="archivePortfolio d-flex align-items-center justify-content-between">
-                                <div class="d-flex justify-content-center">
+                                <div class="d-flex align-items-center justify-content-center">
                                     <div class="imgVideoWrapper">
                                         <img src="{{$portfolio->first_image()}}" alt="">
                                     </div>
