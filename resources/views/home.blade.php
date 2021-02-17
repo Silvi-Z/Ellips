@@ -6,6 +6,7 @@
             <div class="container">
                 <div class="d-flex justify-content-center slider w-100">
                     <div class="w-100 position-relative d-flex justify-content-end">
+
                         <div class="wrap">
                             <div class="dots">
                                 <div class="prev"></div>

@@ -29,7 +29,6 @@ class SliderRequest extends FormRequest
             'upload_files.*.text_ru'=>'required',
             'upload_files.*.text_en'=>'required',
             ];
-
             $rules['upload_files.*.image'] = 'image|max:10240';
             $rules['upload_files.*.video'] = 'string';
         return $rules;

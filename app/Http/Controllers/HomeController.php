@@ -48,6 +48,10 @@ class HomeController extends Controller
 
         return view('home')->with([
             'products'=>$products,
+            'slider'=>$slider,
+            'top_services'=>$top_services,
+            'bottom_services'=>$bottom_services,
+            'portfolios'=>$portfolios,
         ]);
     }
 

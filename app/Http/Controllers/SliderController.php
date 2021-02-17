@@ -22,6 +22,7 @@ class SliderController extends Controller
 
         $slider = Slider::findOrFail($request->id);
         $files = [];
+
         foreach ($request->upload_files as $key=>$file){
             $files[$key] = [
                 'text_hy' => $file['text_hy'],
@@ -59,6 +60,7 @@ class SliderController extends Controller
                 $files[$key]['video'] = '';
             }
         }
+
         $slider->images()->delete();
         $slider->images()->createMany($files);
 
