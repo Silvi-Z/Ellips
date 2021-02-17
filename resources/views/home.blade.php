@@ -177,7 +177,7 @@
                                 տեսախցիկներ)</p>
                         </div>
                     </div>
-                    <a href="{{route('portfolio')}}">
+                    <a href="{{route('portfolios')}}">
                         <button class="button">Պորտֆոլիո</button>
                     </a>
                 </div>
@@ -243,7 +243,7 @@
                     <!--                        </div>-->
                     <!---->
                     <!--                    </div>-->
-                    <a href="{{route('products')}}">
+                    <a href="{{route('categories',['url'=>888])}}">
                         <button type="button" class="btn btn-dark button">Տեսնել ավելին</button>
                     </a>
                     <!--                    <button class="button">Տեսնել ավելին</button>-->
@@ -255,7 +255,7 @@
                 <h3>Բլոգ</h3>
                 <div class="blogsWrapper">
                     <div class="wrapper">
-                        <a href="{{route('blog')}}">
+                        <a href="{{route('blog',['url'=>234])}}">
                             <div class="blog d-flex align-items-center justify-content-between">
                                 <div class="d-flex justify-content-center">
                                     <div class="imgVideoWrapper">
@@ -271,7 +271,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="{{route('blog')}}">
+                        <a href="{{route('blog',['url'=>234])}}">
                             <div class="blog d-flex align-items-center justify-content-between">
                                 <div class="d-flex justify-content-center">
                                     <div class="imgVideoWrapper">
@@ -287,7 +287,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="{{route('blog')}}">
+                        <a href="{{route('blog',['url'=>234])}}">
                             <div class="blog d-flex align-items-center justify-content-between">
                                 <div class="d-flex justify-content-center">
                                     <div class="imgVideoWrapper">
@@ -303,7 +303,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="{{route('blogs')}}">
+                        <a href="{{route('blogs',['url'=>234])}}">
                             <button class="button btn btn-dark">Տեսնել ավելին</button>
                         </a>
                         {{--                        <button class="button">Տեսնել ավելին</button>--}}
