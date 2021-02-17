@@ -30,6 +30,7 @@ return [
     'YOUR MESSAGE'   => 'ՁԵՐ ՆԱՄԱԿԸ',
     'OUR PARTNERS'   => 'ՄԵՐ ԳՈՐԾԸՆԿԵՐՆԵՐԸ',
     'HISTORY'   => 'ՊԱՏՄՈՒԹՅՈՒՆ',
+    'WHO ARE WE'   => 'ՈՎ ԵՆՔ ՄԵՆՔ',
     'Email'   => 'ԷԼ․ ՀԱՍՑԵ',
 
 ];

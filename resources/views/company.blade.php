@@ -8,10 +8,10 @@
             <div class="wrapper">
                 <div class="aboutCompany">
                     <p>
-                        {!! $about?$about->{'company_'.$lang}:'' !!}
+                        <span>@lang('static.Company')</span> {!! $about?$about->{'company_'.$lang}:'' !!}
                     </p>
                     <div>
-                        <span>ՈՎ ԵՆՔ ՄԵՆՔ</span>
+                        <span>@lang('static.WHO ARE WE')</span>
                         <p>{!! $about?$about->{'text_'.$lang}:'' !!}
                         </p>
                     </div>
