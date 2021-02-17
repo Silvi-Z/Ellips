@@ -8,11 +8,11 @@
             <div class="wrapper">
                 <div class="aboutCompany">
                     <p>
-                        {!! $about->{'company_'.$lang} !!}
+                        {!! $about?$about->{'company_'.$lang}:'' !!}
                     </p>
                     <div>
                         <span>ՈՎ ԵՆՔ ՄԵՆՔ</span>
-                        <p>{!! $about->{'text_'.$lang} !!}
+                        <p>{!! $about?$about->{'text_'.$lang}:'' !!}
                         </p>
                     </div>
                 </div>

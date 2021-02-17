@@ -6,7 +6,7 @@
         @include('selectButtons')
         <div class="productPageWrapper">
             <div class="lastNavigate">
-                <a href="{{route('products')}}">ԱՊՐԱՆՔՆԵՐ</a>
+                <a href="{{route('categories')}}">@lang('static.Products')</a>
             </div>
             <div class="filter row">
                 <div class="col-md-12 col-lg-6 col">
