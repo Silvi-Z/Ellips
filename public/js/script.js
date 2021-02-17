@@ -1,4 +1,4 @@
-let key = 0;
+let key = $('.newForm').length===0 ? 0 : $('.newForm').length-1
 
 function addUpload() {
     const divEL = document.createElement('div');
