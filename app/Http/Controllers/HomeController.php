@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactMail;
+use App\Models\About;
 use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Certificate;
 use App\Models\City;
 use App\Models\Contact;
 use App\Models\ContactService;
+use App\Models\History;
 use App\Models\Portfolio;
 use App\Models\Product;
 use App\Models\Service;
@@ -50,7 +53,14 @@ class HomeController extends Controller
 
     public function company()
     {
-        return view('company');
+        $about = About::first();
+        $certificates = Certificate::all();
+        $histories = History::all();
+        return view('company')->with([
+            'about'=>$about,
+            'histories'=>$histories,
+            'certificates'=>$certificates,
+        ]);
     }
 
     public function categories(Request $request)
