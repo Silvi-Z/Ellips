@@ -14,7 +14,7 @@
                                 </div>
                             @else
                                 <div class="singleProductSlide">
-                                    <iframe width="100%" src="{{$image->video}}?autoplay=1&showinfo=0&controls=0">
+                                    <iframe width="100%" src="{{$image->video}}">
                                     </iframe>
                                 </div>
                             @endif

@@ -323,6 +323,7 @@ $(document).ready(function () {
     document.querySelectorAll('.searchInput').forEach(item => {
         item.addEventListener('keyup', (e) => {
             if (e.target.value.length > 0) {
+                console.log($('.searchButton')[0]);
                 $('.searchButton')[0].classList.add('opacity')
             } else {
                 $('.searchButton')[0].classList.remove('opacity')

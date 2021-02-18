@@ -73,11 +73,14 @@ class HomeController extends Controller
         $systems = System::all();
         return view('categories')->with([
             'categories'=>$categories,
-            'systems'=>$systems
+            'systems'=>$systems,
+            'system_id'=>isset($request->system_id)?$request->system_id:0,
+            'search'=>isset($request->search )?$request->search:''
             ]);
     }
     public function category($url,Request $request)
     {
+
         $category = Category::where('url', $url)->firstOrFail();
         $systems = System::all();
         $brands = Brand::all();
@@ -87,11 +90,15 @@ class HomeController extends Controller
 
         $products = Product::whereHas('categories',function ($query) use($category){
             $query->where('category_id',$category->id);
-        })->paginate(1);
+        })->search($request)->paginate(1);
+        $products->appends($request->all());
         return view('productPage')->with([
             'category'=>$category,
             'brands'=>$brands,
             'products'=>$products,
+            'brand_id'=>$brand_id,
+            'system_id'=>$system_id,
+            'search'=>$search,
             'systems'=>$systems
         ]);
     }

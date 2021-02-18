@@ -15,16 +15,15 @@ class Category extends Model
     public function scopeSearch($query, $request){
 
         if($request->search){
-            $query->where('tytle_'.app()->getLocale(),$request->search);
+            $query->where('title_'.app()->getLocale(),'like','%'.$request->search.'%');
         }
         if($request->system_id){
-            return $query->whereHas('products',function ($query) use($request){
+             $query->whereHas('products',function ($query) use($request){
                 $query->whereHas('systems',function ($query) use($request){
                     $query->where('systems.id',$request->system_id);
                 });
             });
-        } else {
-            return $query;
         }
+        return $query;
     }
 }
