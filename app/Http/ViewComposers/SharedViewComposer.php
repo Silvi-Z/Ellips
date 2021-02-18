@@ -10,6 +10,7 @@ use App\Models\News;
 use App\Models\Order;
 use App\Models\Services\Interfaces\PageServiceInterface;
 use App\Models\SocialNetwork;
+use App\Models\Statistic;
 use App\Models\System;
 use App\User;
 use Illuminate\Contracts\Auth\Guard;
@@ -47,6 +48,10 @@ class SharedViewComposer
     public function withSession(View $view)
     {
         return $view->with('session', $this->session);
+    }
+    public function statistic(View $view)
+    {
+        return $view->with('statistic', Statistic::firstOrFail());
     }
 
 

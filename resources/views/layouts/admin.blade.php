@@ -321,7 +321,7 @@
                 </ul>
 
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Social Networks">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Social Networks" style="display: none">
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseNetworks">
 

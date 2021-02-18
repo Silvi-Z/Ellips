@@ -20,11 +20,11 @@
                                                 @endforeach
                                             @endif
                                             <p class="numbers">
-                                            @if(!empty($city->city_phones) && count($city->city_phones))
-                                                @foreach($city->city_phones as $city_phone)
-                                                    {{ $city_phone->phone }} <br>
-                                                @endforeach
-                                            @endif
+                                                @if(!empty($city->city_phones) && count($city->city_phones))
+                                                    @foreach($city->city_phones as $city_phone)
+                                                        {{ $city_phone->phone }} <br>
+                                                    @endforeach
+                                                @endif
                                             </p>
                                             @if(!empty($city->city_emails) && count($city->city_emails))
                                                 @foreach($city->city_emails as $city_email)
@@ -36,39 +36,53 @@
 
                                 @endforeach
                             @endif
-                                @if(!empty($contact_services) && count($contact_services))
-                                    @foreach($contact_services as $contact_service)
-                            <div class="col-md-4 col-6">
-                                <div>
-                                    <div class="serviceContact">{{ $contact_service->{'title_'.$lang} }}</div>
-                                    <p class="numbers">{{ $contact_service->phone }}</p>
-                                    <p class="emailAddress">{{ $contact_service->email }}</p>
-                                </div>
-                            </div>
-                                    @endforeach
-                                @endif
+                            @if(!empty($contact_services) && count($contact_services))
+                                @foreach($contact_services as $contact_service)
+                                    <div class="col-md-4 col-6">
+                                        <div>
+                                            <div class="serviceContact">{{ $contact_service->{'title_'.$lang} }}</div>
+                                            <p class="numbers">{{ $contact_service->phone }}</p>
+                                            <p class="emailAddress">{{ $contact_service->email }}</p>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
                             <div class="col-md-7 col-6">
                                 <div class="serviceContact">@lang('static.Contact us')</div>
                                 <ul class="row">
-                                    @if(!empty($socials) && count($socials))
-                                        @foreach($socials as $social)
-                                            @if($social->name_en == 'Facebook')
-                                                <li class="col-md-2 col-2"><a target="_blank" href="{{$social->url}}"><img src="{{asset('front/icons/blackFb.svg')}}" alt=""></a> </li>
-                                            @elseif($social->name_en == 'Google')
-                                                <li class="col-md-2 col-2"><a target="_blank"  href="{{$social->url}}"><img src="{{asset('front/icons/blackGoogle.svg')}}" alt=""></a> </li>
-                                            @else
-                                                <li class="col-md-2 col-2"><a target="_blank"  href="{{$social->url}}"><img src="{{asset('front/icons/blackYouTube.svg')}}" alt=""></a> </li>
-                                            @endif
-                                        @endforeach
-                                    @endif
-
+                                    {{--@if(!empty($socials) && count($socials))--}}
+                                        {{--@foreach($socials as $social)--}}
+                                            {{--@if($social->name_en == 'Facebook')--}}
+                                                {{--<li class="col-md-2 col-2"><a target="_blank"--}}
+                                                                              {{--href="{{$social->url}}"><img--}}
+                                                                {{--src="{{asset('front/icons/blackFb.svg')}}" alt=""></a>--}}
+                                                {{--</li>--}}
+                                            {{--@elseif($social->name_en == 'Google')--}}
+                                                {{--<li class="col-md-2 col-2"><a target="_blank"--}}
+                                                                              {{--href="{{$social->url}}"><img--}}
+                                                                {{--src="{{asset('front/icons/blackGoogle.svg')}}"--}}
+                                                                {{--alt=""></a></li>--}}
+                                            {{--@else--}}
+                                                {{--<li class="col-md-2 col-2"><a target="_blank"--}}
+                                                                              {{--href="{{$social->url}}"><img--}}
+                                                                {{--src="{{asset('front/icons/blackYouTube.svg')}}" alt=""></a>--}}
+                                                {{--</li>--}}
+                                            {{--@endif--}}
+                                        {{--@endforeach--}}
+                                    {{--@endif--}}
+                                    <li class="col-md-2 col-2"><a target="_blank" href="{{$social->url}}"><img
+                                                    src="{{asset('front/icons/blackFb.svg')}}" alt=""></a></li>
+                                    <li class="col-md-2 col-2"><a target="_blank" href="{{$social->url}}"><img
+                                                    src="{{asset('front/icons/blackGoogle.svg')}}" alt=""></a></li>
+                                    <li class="col-md-2 col-2"><a target="_blank" href="{{$social->url}}"><img
+                                                    src="{{asset('front/icons/blackYouTube.svg')}}" alt=""></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-6 form">
-                        <form  method="POST"  action="{{route('postContact')}}">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}"  />
+                        <form method="POST" action="{{route('postContact')}}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                             <div class="d-flex flex-column w-100 justify-content-end">
                                 <label for="name">
                                     @if ($errors->has('name'))
@@ -82,7 +96,8 @@
                                     @if ($errors->has('email'))
                                         <span class="errorMessage">{{ $errors->first('email') }} </span>
                                     @endif
-                                    <input id="email" name="email" type="email" placeholder="@lang('static.YOUR EMAIL')">
+                                    <input id="email" name="email" type="email"
+                                           placeholder="@lang('static.YOUR EMAIL')">
                                 </label>
                             </div>
                             <div class="d-flex flex-column w-100 justify-content-end">
@@ -98,7 +113,8 @@
                                     @if ($errors->has('message'))
                                         <span class="errorMessage">{{ $errors->first('message') }} </span>
                                     @endif
-                                    <textarea rows="1" id="message" name="message" type="textarea" placeholder="@lang('static.YOUR MESSAGE')"></textarea>
+                                    <textarea rows="1" id="message" name="message" type="textarea"
+                                              placeholder="@lang('static.YOUR MESSAGE')"></textarea>
                                 </label>
                             </div>
                             <button type="submit">ՈՒղարկել</button>
