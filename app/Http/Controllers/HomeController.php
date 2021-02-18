@@ -178,10 +178,10 @@ class HomeController extends Controller
     {
         $cities  = City::all();
         $contact_services  = ContactService::all();
-        $socials  = SocialNetwork::all();
+//        $socials  = SocialNetwork::all();
         return view('contact')->with([
             'cities'=>$cities,
-            'socials'=>$socials,
+//            'socials'=>$socials,
             'contact_services'=>$contact_services,
         ]);
     }

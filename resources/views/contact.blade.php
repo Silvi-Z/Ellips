@@ -70,11 +70,11 @@
                                             {{--@endif--}}
                                         {{--@endforeach--}}
                                     {{--@endif--}}
-                                    <li class="col-md-2 col-2"><a target="_blank" href="{{$social->url}}"><img
+                                    <li class="col-md-2 col-2"><a target="_blank" href="#"><img
                                                     src="{{asset('front/icons/blackFb.svg')}}" alt=""></a></li>
-                                    <li class="col-md-2 col-2"><a target="_blank" href="{{$social->url}}"><img
+                                    <li class="col-md-2 col-2"><a target="_blank" href="#"><img
                                                     src="{{asset('front/icons/blackGoogle.svg')}}" alt=""></a></li>
-                                    <li class="col-md-2 col-2"><a target="_blank" href="{{$social->url}}"><img
+                                    <li class="col-md-2 col-2"><a target="_blank" href="#"><img
                                                     src="{{asset('front/icons/blackYouTube.svg')}}" alt=""></a></li>
                                 </ul>
                             </div>
