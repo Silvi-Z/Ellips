@@ -13,7 +13,7 @@ class Portfolio extends Model
     }
     public function first_image()
     {
-        $first = $this->images()->whereNotNull('image_name')->first();
+        $first = $this->images()->whereNotNull('image_name')->where('image_name','<>','')->first();
         if($first){
             return asset('files/'.$first->image_name);
         }else{

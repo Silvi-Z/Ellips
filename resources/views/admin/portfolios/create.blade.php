@@ -161,7 +161,7 @@
 
                 @endif
             </div>
-            
+
             <div class="form-group">
 
                 {!! Form::label('top', 'Top ') !!}
@@ -207,58 +207,9 @@
     <script type="text/javascript">
         tinymce.init({
             selector: '.html-editor',
-            plugins: 'image code',
-            forced_root_block : "",
-            relative_urls: false,
-            remove_script_host: false,
-            toolbar: 'undo redo | link image | code | fontsizeselect forecolor',
-            /* enable title field in the Image dialog*/
-            image_title: true,
-            /* enable automatic uploads of images represented by blob or data URIs*/
-            images_upload_handler: example_image_upload_handler
+            menubar: false,
+            height: 200,
+            toolbar: "bold italic fontselect | removeformat | undo redo | styleselect | alignleft aligncenter alignright alignjustify | fontsizeselect forecolor",
         });
-        function example_image_upload_handler (blobInfo, success, failure, progress) {
-            var xhr, formData;
-
-            xhr = new XMLHttpRequest();
-            xhr.withCredentials = false;
-            xhr.open('POST', '/admin/upload');
-            xhr.setRequestHeader('X-CSRF-Token','{{csrf_token()}}')
-            xhr.upload.onprogress = function (e) {
-                progress(e.loaded / e.total * 100);
-            };
-
-            xhr.onload = function() {
-                var json;
-
-                if (xhr.status === 403) {
-                    failure('HTTP Error: ' + xhr.status, { remove: true });
-                    return;
-                }
-
-                if (xhr.status < 200 || xhr.status >= 300) {
-                    failure('HTTP Error: ' + xhr.status);
-                    return;
-                }
-
-                json = JSON.parse(xhr.responseText);
-
-                if (!json || typeof json.location != 'string') {
-                    failure('Invalid JSON: ' + xhr.responseText);
-                    return;
-                }
-
-                success(json.location);
-            };
-
-            xhr.onerror = function () {
-                failure('Image upload failed due to a XHR Transport error. Code: ' + xhr.status);
-            };
-
-            formData = new FormData();
-            formData.append('file', blobInfo.blob(), blobInfo.filename());
-
-            xhr.send(formData);
-        };
     </script>
 @endsection

@@ -37,7 +37,7 @@
                 <div class="moreSystemsTitle">@lang('static.Products involved')</div>
                 <div class="systemsSlide">
                     @foreach($system->products as $product)
-                        @if($loop->index < 6))
+                        @if($loop->index < 6)
                             <div class="product">
                                 <a href="{{route('product',['url'=>$product->url])}}">
                                     <div class="d-flex align-items-center justify-content-center flex-column">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <main>
+    <main class="">
         <div class="h1Title">{{ $category->{'title_'.app()->getLocale()} }}</div>
         @include('selectButtons')
         <div class="productPageWrapper">

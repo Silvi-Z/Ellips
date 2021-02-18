@@ -159,9 +159,11 @@ header button {
 }
 
 .selectLang > div {
+    display: flex;
+    flex-direction: column;
     border-radius: 18px;
     background: #DDE4EB;
-    padding: 6px;
+    /*padding: 6px;*/
     position: relative;
     transition: height .6s;
     height: 38px;
@@ -189,7 +191,7 @@ header button {
     height: 24px;
     width: 24px;
     outline: none;
-    /*margin: 10px 6px;*/
+    margin: 7px 6px;
     border-radius: 50%;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -202,8 +204,8 @@ header button {
 
 .first {
     z-index: 10 !important;
-    /*position: absolute;*/
-    /*top: 0;*/
+    position: absolute;
+    top: 0;
 }
 
 .last {
@@ -233,7 +235,7 @@ header button {
 }
 
 .selectLang .en {
-    margin: 15px 0;
+    /*margin: 15px 0;*/
     z-index: 5;
     background-image: url("../icons/uk.svg");
 }
@@ -644,22 +646,23 @@ input:focus::placeholder{
 
 .portfolioPage ~ .darkSection {
     padding: 120px 110px;
+    margin-top: 120px;
 }
 
-.servicesTitle ~ p {
+.servicesSlideDescription {
     max-width: 340px;
     color: #7A8086;
     padding-top: 25px;
     border-top: 1px solid #CFD9E2;
 }
 
-.servicesTitle {
+.servicesTitleWrapper {
     display: flex;
     height: 90px;
     align-items: center;
 }
 
-.servicesTitle p {
+.servicesTitle {
     margin-left: 20px;
     max-width: 270px;
     font-weight: bold;
@@ -793,6 +796,7 @@ input:focus::placeholder{
 }
 .portfolioBigImg > div, .portfolioSmallImages > div{
     margin-bottom: 60px;
+    padding: 0;
 }
 .homePage > section:first-of-type > .container{
     max-width: unset;
@@ -847,7 +851,7 @@ input:focus::placeholder{
     padding-left: 20px;
 }
 
-.portfolio p {
+.portfolioSmallText {
     font-size: 16px;
     /*color: #FFFFFF;*/
     font-style: normal;
@@ -855,6 +859,7 @@ input:focus::placeholder{
     letter-spacing: .15px;
     line-height: 30px;
 }
+
 
 .portfolio button{
     background: #FFFFFF;
@@ -979,7 +984,7 @@ input:focus::placeholder{
     padding: 120px 110px;
 }
 .blogsPage .blogsWrapper{
-    padding: 0 110px ;
+    padding: 0 7%;
 }
 .blogs > div{
     max-width: 1440px;
@@ -1194,8 +1199,9 @@ footer h4 {
 }
 
 .licenses{
-    padding: 0 50px 120px 50px;
+    padding-bottom: 120px;
     display: flex;
+    flex-wrap: nowrap;
 }
 
 .licensesWrapper{
@@ -1210,7 +1216,7 @@ main:not(.homePage, .companyPage) {
     background-color:white;
     width:100%
 }
-.homePage .portfolio p {
+.homePage .portfolioSmallText {
     color: #FFFFFF;
 }
 
@@ -1530,9 +1536,9 @@ button, button:focus{
 
 /*.imgVideo .slick-prev:before, */
 .imagesSlide .slick-prev:before, .singleProduct .slick-prev:before,
-.sliderBlog .slick-prev:before, .systemsSlide .slick-prev:before,
-.sliderBlog .slick-next:before, .sliderPortfolio .slick-prev:before,
-.sliderPortfolio .slick-next:before, .prev:before{
+.sliderPortfolio .slick-prev:before, .systemsSlide .slick-prev:before,
+.sliderPortfolio .slick-next:before, .sliderBlog .slick-prev:before,
+.sliderBlog .slick-next:before, .prev:before{
     content: url("../icons/slideArrow.svg");
     font-size: unset;
     opacity: 1;
@@ -1744,8 +1750,7 @@ button, button:focus{
     margin-right: 50px;
 }
 
-.aboutCompany span, .ourExperience span, .licensesTitle
-{
+.aboutCompany span, .ourExperience span, .licensesTitle {
     font-size: 20px;
     line-height: 31px;
     letter-spacing: 0.15px;
@@ -1753,20 +1758,24 @@ button, button:focus{
     font-weight: bold;
 }
 .licensesTitle{
-    padding: 20px 0 50px 110px;
+    padding: 20px 110px 50px 110px;
     max-width: 1440px;
     margin: auto;
 }
+.licensesSlideWrapper:first-of-type{
+    margin-left: 110px;
+}
 .licensesSlideWrapper {
     max-width: 210px;
+    width: 100%!important;
     margin-right: 100px;
 }
 /*.homePage .portfolio{*/
 /*    padding: 0 7%;*/
 /*}*/
-.licensesSlideWrapper:first-of-type {
-    margin-left: 50px;
-}
+/*.licensesSlideWrapper:first-of-type {*/
+/*    margin-left: 350px;*/
+/*}*/
 
 .licensesSlideWrapper div:first-child {
     font-size: 36px;
@@ -1864,9 +1873,10 @@ button, button:focus{
 }
 
 /*    portfolio    */
-.portfolioPage {
+.portfolioPage{
+    background-color: white;
     width: 100%;
-    padding: 90px 110px 0 110px;
+    padding: 90px 110px 120px 110px;
 }
 .redCirclePosition{
     left: 30px;
@@ -2088,7 +2098,7 @@ iframe{
     top: 100%;
 }
 .blogsPage{
-    padding-bottom: 150px;
+    padding-bottom: 120px;
 }
 .blogsPage button{
     background-color: #CFD9E2;
@@ -2205,7 +2215,8 @@ iframe{
 }
 
 .modal-dialog {
-    width: fit-content;
+    max-width: 1400px;
+    max-height: 700px;
 }
 
 .modal-dialog {
@@ -2213,14 +2224,26 @@ iframe{
 }
 
 .modal-body {
-    padding: unset;
+    max-height: 70vh;
+    /*padding: 0 70px;*/
+    max-width: 1000px;
+    height: 100%;
+    margin: auto;
+    width: 100vw;
+}
+.modal-body > *{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .close {
-    width: fit-content;
-    height: fit-content;
+    cursor: pointer;
+    height: 70vh;
+    margin: auto;
+    width: 100%;
     position: absolute;
-    right: 0;
+    max-width: 1000px;
 }
 
 .close span:after {
@@ -2234,8 +2257,14 @@ iframe{
 }
 
 .modal-content {
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
     background-color: transparent;
     border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .content {
@@ -2245,7 +2274,7 @@ iframe{
 .archive {
     max-width: 1220px;
     margin: auto;
-    height: 1100px;
+    max-height: 1100px;
     overflow: auto;
     border-top: 1px solid rgba(255, 255, 255, 1);
     border-bottom: 1px solid rgba(255, 255, 255, 1);
@@ -2281,7 +2310,7 @@ iframe{
     top: unset;
 }
 
-.blogSlider span, .singlePortfolio .description span {
+.blogSlider span{
     background-image: url(../icons/modal.svg);
     height: 20px;
     width: 20px;
@@ -2312,7 +2341,7 @@ iframe{
     width: 100%;
 }
 
-.imageContainer div > div {
+.imageContainer div > div:not(.blogBigImageWrapper) {
     background-color: #CFD9E2;
     width: 100%;
     position: absolute;
@@ -2324,14 +2353,20 @@ iframe{
     padding-top: 30px;
 }
 
-.imageContainer img {
+.blogBigImageWrapper {
     z-index: 2;
-    max-width: 1140px;
-    width: 90%;
+    width: 1220px;
+    height: auto;
+    max-height: 500px;
+    /*width: 90%;*/
     margin: 0 50px;
 }
-
-.sliderBlog {
+.blogBigImageWrapper > *{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.sliderPortfolio {
     width: 560px;
     max-height: 370px;
     height: fit-content;
@@ -2339,37 +2374,39 @@ iframe{
     margin: 0 0 20px 40px;
 }
 
-.sliderPortfolio {
+.sliderBlog {
+    margin-top: 70px;
     width: 100%;
-    height: 600px;
+    /*height: 600px;*/
+    margin-bottom: 0;
 }
 
-.sliderBlog {
+.sliderPortfolio {
     float: right;
     width: 560px;
 }
 
-.sliderBlog .slick-slide {
+.sliderPortfolio .slick-slide {
     height: 370px;
     width: 560px;
 }
 
-.sliderPortfolio .slick-slide {
+.sliderBlog .slick-slide {
     /*width: 580px;*/
     height: 600px;
 }
 
-.sliderBlog img, .sliderBlog video, .sliderPortfolio img, .sliderPortfolio video {
+.sliderPortfolio img, .sliderPortfolio video, .sliderBlog .slick-slide > *, .sliderBlog .slick-slide > * {
     width: 100%;
     height: 100%;
     object-fit: cover;
 
 }
 
-/*.sliderBlog div:has(> video){*/
+/*.sliderPortfolio div:has(> video){*/
 /*    position: relative;*/
 /*}*/
-/*.sliderBlog video:before {*/
+/*.sliderPortfolio video:before {*/
 /*    content: "";*/
 /*    background-image: url("../icons/playVideo.svg");*/
 /*    background-repeat: no-repeat;*/
@@ -2415,7 +2452,7 @@ iframe{
     margin-top: 60px;
 }
 
-.singlePortfolio .row p {
+.portfolioInfo {
     font-weight: bold;
     font-size: 16px;
     line-height: 30px;
@@ -2631,9 +2668,9 @@ form button {
     padding: 0 0 50px 0;
 }
 
-.modal-body > * {
-    width: 900px;
-}
+/*.modal-body > * {*/
+/*    width: 900px;*/
+/*}*/
 
 .companiesHistory > h3 {
     margin-bottom: 120px;
@@ -2704,7 +2741,7 @@ form button {
 
 @media only screen and (min-width: 1200px){
     .systemDescription, .productDescription {
-        max-width: 540px;
+        /*max-width: 540px;*/
     }
     .contactPage .col-md-4 {
         width: fit-content;
@@ -2712,6 +2749,9 @@ form button {
 }
 
 @media only screen and (max-width: 1440px) {
+    .singleBlog{
+        padding: 70px 50px 120px 50px;
+    }
     .bigSlide .slick-slide{
         padding: 0 70px;
     }
@@ -2730,6 +2770,9 @@ form button {
 }
 
 @media only screen and (max-width: 1350px) {
+    .portfolioPage {
+        padding: 90px 50px 70px 50px;
+    }
     .bigSlide .slick-slide {
         padding: 0 60px 0 0;
     }
@@ -2781,13 +2824,16 @@ form button {
     /*    !*padding-bottom: 15px;*!*/
     /*}*/
 
-    .blogs , .blogsPage .blogsWrapper{
-        padding: 100px 40px;
-    }
+    /*.blogs , .blogsPage .blogsWrapper{*/
+    /*    padding: 100px 40px;*/
+    /*}*/
 
     /*.productsWrapper .product {*/
     /*    margin: 0 30px 40px 30px;*/
     /*}*/
+    .homePage .portfolio{
+        padding: 0 40px;
+    }
 }
 
 @media only screen and (max-width: 1220px){
@@ -2990,11 +3036,43 @@ form button {
 }
 
 @media only screen and (max-width: 1024px) {
-    .licenses {
-        padding: 0 40px 120px 40px;
+    .imageContainer div > *{
+        padding: 0;
     }
+    .blogBigImageWrapper{
+        max-height: 280px;
+        margin: 0 40px;
+    }
+    .sliderBlog{
+        margin-top: 0;
+    }
+    .sliderBlog .slick-slide{
+        height: 370px;
+    }
+    .blogsPage{
+        padding-bottom: 100px;
+    }
+    .portfolioInfo {
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+    }
+    .portfolioInfo .sliderPortfolio{
+        margin-top: 50px;
+        order: 2;
+    }
+    .portfolioInfo .sliderPortfolio ~ *{
+        margin: 0;
+        order: 1;
+    }
+    /*.licenses {*/
+    /*    padding: 0 40px 120px 40px;*/
+    /*}*/
     .licensesTitle{
         padding: 20px 40px 50px;
+    }
+    .licensesSlideWrapper:first-of-type{
+        margin-left: 40px;
     }
     .moreServicesSlide{
         padding: 0;
@@ -3120,7 +3198,7 @@ form button {
         padding-bottom: 70px;
     }
 
-    .imageContainer div > div {
+    .imageContainer div > div:not(.blogBigImageWrapper) {
         height: 200px;
     }
 
@@ -3153,7 +3231,7 @@ form button {
         font-size: 16px;
     }
 
-    .sliderBlog {
+    .sliderPortfolio {
         width: 100%;
         max-width: 900px;
         margin: 0 auto;
@@ -3212,10 +3290,7 @@ form button {
     /*    padding: 0 60px;*/
     /*}*/
     .portfolioPage{
-        padding: 50px 40px 0 40px;
-    }
-    .homePage .portfolio{
-        padding: 0 40px;
+        padding: 50px 40px 70px 40px;
     }
 
     .portfolioBigImg h3 {
@@ -3223,7 +3298,7 @@ form button {
         margin: 40px 0 20px;
     }
 
-    .portfolio p {
+    .portfolioSmallText {
         font-size: 14px;
     }
 
@@ -3377,13 +3452,31 @@ form button {
 }
 
 @media only screen and (max-width: 768px){
+    .imageContainer div > *{
+        padding-top: 10px;
+    }
+    .blogBigImageWrapper{
+        margin: 0;
+    }
+    .sliderBlog .slick-slide{
+        height: 200px;
+    }
+    .blogsPage{
+        padding-bottom: 70px;
+    }
+    header, .nav-down{
+        height: 80px;
+    }
     .licensesTitle {
         font-size: 18px;
         padding: 20px 20px 30px;
     }
-    .licenses {
-        padding: 0 20px 120px 20px;
+    .licensesSlideWrapper:first-of-type{
+        margin-left: 20px;
     }
+    /*.licenses {*/
+    /*    padding-bottom: 120px;*/
+    /*}*/
     .systemsSlide .slick-prev{
         top: 105%;
         left: 30% !important;
@@ -3541,16 +3634,13 @@ form button {
     .singlePortfolio .row {
         margin-top: 30px;
     }
-    .singlePortfolio .row p {
-        font-size: 14px;
-    }
     .blogSlider {
         padding-bottom: 70px;
     }
-    .sliderBlog .slick-slide, .sliderBlog, .sliderPortfolio, .singlePortfolio .slick-slide {
+    .sliderPortfolio .slick-slide, .sliderPortfolio, /*.sliderBlog,*/ .singlePortfolio .slick-slide {
         height: 300px;
     }
-    .imageContainer img {
+    .blogBigImageWrapper {
         width: 96%;
     }
     .singleBlog {
@@ -3563,7 +3653,7 @@ form button {
     .description > * {
         font-size: 14px;
     }
-    .imageContainer div > div {
+    .imageContainer div > div:not(.blogBigImageWrapper) {
         height: 130px;
     }
     .responsiveMenu li {
@@ -3613,7 +3703,7 @@ form button {
     /*    width: 320px;*/
     /*}*/
     .portfolioPage {
-        padding: 50px 10px 0 10px;
+        padding: 50px 10px 70px 10px;
     }
     /*.homePage .portfolio*/
     .portfolio h3 {
@@ -3723,7 +3813,7 @@ form button {
         margin-bottom: 50px;
     }
 
-    .servicesTitle p {
+    .servicesTitle {
         font-size: 16px;
         margin-bottom: 0;
     }

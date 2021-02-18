@@ -23,8 +23,6 @@
                     @endif
                 </div>
                 <div class="portfolioSmallImages row">
-
-
                     @if(!empty($top_portfolios) && count($top_portfolios))
                         @foreach($top_portfolios as $top_portfolio)
                             @if($loop->index > 0)
@@ -34,7 +32,7 @@
                                         <img src="{{$top_portfolio->first_image()}}" alt="">
                                     </div>
                                     <h3>{{ $top_portfolio->{'title_'.$lang} }}</h3>
-                                    <p>{{ $top_portfolio->{'small_text_'.$lang} }}</p>
+                                    <div class="portfolioSmallText">{{ $top_portfolio->{'small_text_'.$lang} }}</div>
                                     </a>
                                 </div>
                             @endif

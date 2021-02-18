@@ -14,7 +14,7 @@
                                         <div class="imgVideoWrapper">
                                             <img src="{{$blog->first_image()}}" alt="">
                                         </div>
-                                        <div class="d-flex flex-wrap ">
+                                        <div class="d-flex flex-wrap w-100">
                                             <div>
                                                 <h4>{{ $blog->{'title_'.$lang} }}</h4>
                                             </div>
