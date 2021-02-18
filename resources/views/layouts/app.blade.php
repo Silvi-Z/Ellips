@@ -30,6 +30,7 @@
 
     <script src="{{ asset('/front/js/ddslick.js') }}"></script>
     <script src="{{ asset('/front/js/script.js') }}"></script>
+    <script src="{{ asset('/front/js/pagination.js') }}"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=1973b4f0-00a7-49c0-9e22-9baaee610410&lang=ru_RU" type="text/javascript">
     </script>
 </head>

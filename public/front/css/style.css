@@ -759,6 +759,7 @@ input:focus::placeholder{
     margin: 0 20px;
 }
 .companyCircle {
+    padding: 50px;
     height: 270px;
     width: 270px!important;
     border-radius: 50%;
@@ -766,6 +767,11 @@ input:focus::placeholder{
     /*display: flex !important;*/
     /*justify-content: center;*/
     /*align-items: center;*/
+}
+.companyCircle img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .companies .slick-track {
@@ -2236,7 +2242,35 @@ iframe{
     height: 100%;
     object-fit: cover;
 }
-
+.pagination{
+    display: flex;
+    justify-content: center;
+}
+.pagination .page-link{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%!important;
+    background-color: #CFD9E2;
+    margin: 0 5px;
+    cursor: pointer;
+    color: black;
+}
+.pagination .page-link:hover{
+    background: #141A1F;
+    color: #FFFFFF!important;
+    border: #141A1F;
+}
+.page-link:focus{
+    box-shadow: none;
+}
+.page-item.active .page-link{
+    background: #141A1F;
+    color: #FFFFFF;
+    border: #141A1F;
+}
 .close {
     cursor: pointer;
     height: 70vh;

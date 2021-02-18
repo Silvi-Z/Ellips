@@ -139,6 +139,17 @@ $(document).ready(function () {
 
     $('.sliderBlog').on("afterChange", () => slideCount($('.sliderBlog')));
 
+    // if ($('.brand-toggle ~ .dropdown-menu .dropdown-item.activeDropdown').length > 0){
+    //     $('.brand-toggle').html($('.brand-toggle ~ .dropdown-menu .dropdown-item.activeDropdown').html())
+    // }
+    activeDropdown($('.brand-toggle ~ .dropdown-menu .dropdown-item.activeDropdown'), $('.brand-toggle'))
+    activeDropdown($('.system-toggle ~ .dropdown-menu .dropdown-item.activeDropdown'), $('.system-toggle'))
+    function activeDropdown(active, title){
+        if (active.length > 0){
+            title.html(active.html())
+        }
+    }
+
     $('.services').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
@@ -182,7 +193,7 @@ $(document).ready(function () {
 
 
     $('.company').slick({
-        slidesToShow: 5,
+        slidesToShow: $('.company .companySlideWrapper').length < 5 ? $('.company .companySlideWrapper').length : 5,
         autoplay: true,
         infinite: true,
         swipe: false,
@@ -196,30 +207,33 @@ $(document).ready(function () {
         responsive: [{
             breakpoint: 1500,
             settings: {
-                slidesToShow: 4
+                slidesToShow: $('.company .companySlideWrapper').length < 4 ? $('.company .companySlideWrapper').length : 4
             }
         }, {
             breakpoint: 1200,
             settings: {
-                slidesToShow: 3
+                slidesToShow: $('.company .companySlideWrapper').length < 3 ? $('.company .companySlideWrapper').length : 3
             }
         }, {
             breakpoint: 768,
             settings: {
-                slidesToShow: 4
+                slidesToShow: $('.company .companySlideWrapper').length < 4 ? $('.company .companySlideWrapper').length : 4
             }
         }, {
             breakpoint: 550,
             settings: {
-                slidesToShow: 3
+                slidesToShow: $('.company .companySlideWrapper').length < 3 ? $('.company .companySlideWrapper').length : 3
             }
         }, {
             breakpoint: 400,
             settings: {
-                slidesToShow: 2
+                slidesToShow: $('.company .companySlideWrapper').length < 2 ? $('.company .companySlideWrapper').length : 2
             }
         }]
     });
+    if ($('.company .companySlideWrapper').length < 5){
+        $('.company').css('justify-content', 'center')
+    }
 
 
     if ($('.systemsSlide .product').length > 3 || $('.systemsSlide .product').length > 1 && window.innerWidth < 768) {
@@ -279,7 +293,6 @@ $(document).ready(function () {
         })
     }
 
-
     window.onresize=()=> licensesMargin();
 
     function licensesMargin(){
@@ -294,6 +307,27 @@ $(document).ready(function () {
         }
     }
     licensesMargin()
+
+
+
+
+    // if ($('.pagination .page-item').length > 6){
+    //     let element = document.createElement('li')
+    //     let child = document.createElement('a')
+    //         // <a className="page-link" href="http://elips.local/category/werw?brand_id=2&amp;system_id=1&amp;page=1">1</a>
+    //     child.classList.add("page-link")
+    //     element.classList.add('page-item')
+    //     console.log(child);
+    //     child.innerHTML = '...'
+    //     element.appendChild(child)
+    //     // element.classList.add('page-item')
+    //     // document.querySelectorAll('.pagination .page-item:first-child')[0].nextElementSibling.appendChild(element);
+    //     $('.pagination')[0].insertBefore(element, $('.pagination')[0].children[1]);
+    //
+    //     // $('.pagination').splice(1, 0, element)
+    //     console.log(document.querySelectorAll('.pagination .page-item'))
+    //     // console.log($('.pagination')[0].children[2]);
+    // }
 
         // console.log('lastValue', lastValue);
         // console.log('first', $('.licensesSlideWrapper:first-of-type')[0].offsetLeft);

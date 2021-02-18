@@ -21,28 +21,28 @@
                     </div>
                 </form>
                 <div class="nav-item dropdown col-md-6 col-lg-3">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                    <a class="nav-link dropdown-toggle brand-toggle" data-toggle="dropdown" href="#">
                         @lang('static.BY BRAND')
                     </a>
                     <ul class="dropdown-menu">
                         @if(!empty($brands))
                             @foreach($brands as $brand)
-                                <li><a class="dropdown-item"
-                                       href="{{route('category',['url'=>$category->url,'brand_id'=>$brand->id])}}">{{ $brand->{'title_'.$lang} }}</a>
+                                <li><a class="dropdown-item @if($brand->id == $brand_id) activeDropdown @endif"
+                                       href="{{route('category',['url'=>$category->url,'brand_id'=>$brand->id,'system_id'=>$system_id])}}">{{ $brand->{'title_'.$lang} }}</a>
                                 </li>
                             @endforeach
                         @endif
                     </ul>
                 </div>
                 <div class="nav-item dropdown col-md-6 col-lg-3">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                    <a class="nav-link dropdown-toggle system-toggle" data-toggle="dropdown" href="#">
                         @lang('static.BY SYSTEMS')
                     </a>
                     <ul class="dropdown-menu">
                         @if(!empty($systems))
                             @foreach($systems as $system)
-                                <li><a class="dropdown-item"
-                                       href="{{route('category',['url'=>$category->url,'system_id'=>$system->id])}}">{{ $system->{'title_'.$lang} }}</a>
+                                <li><a class="dropdown-item @if($system->id == $system_id) activeDropdown @endif"
+                                       href="{{route('category',['url'=>$category->url,'system_id'=>$system->id,'brand_id'=>$brand_id])}}">{{ $system->{'title_'.$lang} }}</a>
                                 </li>
                             @endforeach
                         @endif
