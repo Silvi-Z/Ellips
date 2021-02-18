@@ -28,27 +28,18 @@ Route::get('/portfolios', 'HomeController@portfolios')->name('portfolios');
 Route::get('/portfolio/{url}', 'HomeController@portfolioSingle')->name('portfolio');
 Route::get('/product/{url}', 'HomeController@product')->name('product');
 Route::get('/contact', 'HomeController@contact')->name('contact');
+Route::post('/contact', 'HomeController@postContact')->name('postContact');
 Route::get('/system/{url}', 'HomeController@system')->name('system');
+
+
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
-
-
-
-
-
-
-
     Route::get('/', 'DashboardController@index')->name('admin.index');
+    Route::get('/contacts', 'DashboardController@contacts')->name('admin.contacts');
     Route::any('/statistics', 'StatisticController@index')->name('admin.statistics');
     Route::any('/slider', 'SliderController@index')->name('admin.slider');
     Route::post('/slider', 'SliderController@update')->name('admin.slider.update');
     Route::post('/upload', 'DashboardController@upload')->name('admin.upload');
     Route::any('/about', 'AboutController@index')->name('admin.about');
-
-
-
-//    Route::get('/orders', 'OrdersController@index')->name('admin.orders.index');
-
-
 
 
 

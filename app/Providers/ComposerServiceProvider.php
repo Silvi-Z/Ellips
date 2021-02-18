@@ -36,7 +36,9 @@ class ComposerServiceProvider extends ServiceProvider
 
         view()->composer([
             'companies'
-        ], SharedViewComposer::class . '@clients');
+        ], SharedViewComposer::class . '@clients'); view()->composer([
+            'ourExperience'
+        ], SharedViewComposer::class . '@statistic');
 
 
     }

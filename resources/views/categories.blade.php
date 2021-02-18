@@ -6,11 +6,12 @@
         @include ('selectButtons')
             <div class="filter row">
                 <form class="col" action="">
+                    <input type="hidden" name="system_id" value="{{$system_id}}">
                     <div>
                         <label>
-                            <input data-name="category" class="searchInput" type="text" placeholder=" @lang('static.Search')">
+                            <input data-name="category" name="search" class="searchInput" type="text" value="{{$search}}" placeholder=" @lang('static.Search')">
                         </label>
-                        <button class="searchButton btn-dark">փնտրել</button>
+                        <button class="searchButton btn-dark" type="input">փնտրել</button>
                     </div>
                 </form>
                 <div class="nav-item dropdown col-md-4">
@@ -27,40 +28,6 @@
                 </div>
             </div>
             <div class="productsWrapper d-grid">
-                @php
-                    $products = [
-                        [
-                            "productImage" => "front/images/camera1.png",
-                            "productName" => "5MP Super HD Ակտիվ զսպող տեսախցիկ",
-                            "productPrice" => "20․000  դր․"
-                        ],
-                        [
-                            "productImage" => "front/images/camera2.png",
-                            "productName" => "Տնային մոնիտորինգի հավաքածու, որն ունի Wi-Fi ջրհեղեղի տեսախցիկ և 1080p HD վիդեո դռան զանգ",
-                            "productPrice" => "20․000  դր․"
-                        ],
-                        [
-                            "productImage" => "front/images/camera3.jpg",
-                            "productName" => "2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն",
-                            "productPrice" => "20․000  դր․"
-                        ],
-                        [
-                            "productImage" => "front/images/camera1.png",
-                            "productName" => "5MP Super HD Ակտիվ զսպող տեսախցիկ",
-                            "productPrice" => "20․000  դր․"
-                        ],
-                        [
-                            "productImage" => "front/images/camera2.png",
-                            "productName" => "Տնային մոնիտորինգի հավաքածու, որն ունի Wi-Fi ջրհեղեղի տեսախցիկ և 1080p HD վիդեո դռան զանգ",
-                            "productPrice" => "20․000  դր․"
-                        ],
-                        [
-                            "productImage" => "front/images/camera3.jpg",
-                            "productName" => "2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն",
-                            "productPrice" => "20․000  դր․"
-                        ]
-                    ]
-                @endphp
                 @foreach ($categories as $key => $category)
                     <div class="product d-flex justify-content-center">
                         <a href="{{route('category',['url'=>$category->url])}}">

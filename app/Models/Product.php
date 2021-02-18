@@ -34,4 +34,21 @@ class Product extends Model
             return asset('front/images/camera1.png');
         }
     }
+
+    public function scopeSearch($query, $request){
+
+        if($request->search){
+            $query->where('title_'.app()->getLocale(),'like','%'.$request->search.'%');
+        }
+        if($request->system_id){
+           return $query->whereHas('systems',function ($query) use($request){
+                $query->where('system_id',$request->system_id);
+            });
+
+        }
+        if($request->brand_id){
+            return $query->where('brand_id', $request->brand_id);
+        }
+        return $query;
+    }
 }

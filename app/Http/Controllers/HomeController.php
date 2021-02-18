@@ -2,15 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
+use App\Models\About;
 use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Certificate;
+use App\Models\City;
+use App\Models\Contact;
+use App\Models\ContactService;
+use App\Models\History;
 use App\Models\Portfolio;
 use App\Models\Product;
 use App\Models\Service;
 use App\Models\Slider;
+use App\Models\SocialNetwork;
 use App\Models\System;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Mailer;
 
 class HomeController extends Controller
 {
@@ -39,12 +48,23 @@ class HomeController extends Controller
 
         return view('home')->with([
             'products'=>$products,
+            'slider'=>$slider,
+            'top_services'=>$top_services,
+            'bottom_services'=>$bottom_services,
+            'portfolios'=>$portfolios,
         ]);
     }
 
     public function company()
     {
-        return view('company');
+        $about = About::first();
+        $certificates = Certificate::all();
+        $histories = History::all();
+        return view('company')->with([
+            'about'=>$about,
+            'histories'=>$histories,
+            'certificates'=>$certificates,
+        ]);
     }
 
     public function categories(Request $request)
@@ -53,11 +73,14 @@ class HomeController extends Controller
         $systems = System::all();
         return view('categories')->with([
             'categories'=>$categories,
-            'systems'=>$systems
+            'systems'=>$systems,
+            'system_id'=>isset($request->system_id)?$request->system_id:0,
+            'search'=>isset($request->search )?$request->search:''
             ]);
     }
     public function category($url,Request $request)
     {
+
         $category = Category::where('url', $url)->firstOrFail();
         $systems = System::all();
         $brands = Brand::all();
@@ -67,11 +90,15 @@ class HomeController extends Controller
 
         $products = Product::whereHas('categories',function ($query) use($category){
             $query->where('category_id',$category->id);
-        })->paginate(1);
+        })->search($request)->paginate(1);
+        $products->appends($request->all());
         return view('productPage')->with([
             'category'=>$category,
             'brands'=>$brands,
             'products'=>$products,
+            'brand_id'=>$brand_id,
+            'system_id'=>$system_id,
+            'search'=>$search,
             'systems'=>$systems
         ]);
     }
@@ -147,11 +174,37 @@ class HomeController extends Controller
         ]);
     }
 
-    public function contact()
+    public function contact(Request $request)
     {
-        return view('contact');
+        $cities  = City::all();
+        $contact_services  = ContactService::all();
+        $socials  = SocialNetwork::all();
+        return view('contact')->with([
+            'cities'=>$cities,
+            'socials'=>$socials,
+            'contact_services'=>$contact_services,
+        ]);
     }
 
+    public function postContact(Request $request,Mailer $mailer)
+    {
+        if($request->isMethod('POST')){
+            $request->validate([
+                'name' => 'required',
+                'phone' => 'required',
+                'email' => 'required',
+                'message' => 'required',
+
+            ]);
+            $mailer->send(new ContactMail(
+                $request->get('email'),
+                $request->all()
+            ));
+            Contact::create($request->all());
+            $request->session()->flash('alert-danger', trans('static.Message has been sent successfully'));
+            return redirect()->back();
+        }
+    }
     public function getBlogs(Request $request)
     {
         $blogs = Blog::orderBy('updated_at','DESC')->paginate(5);

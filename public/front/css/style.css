@@ -2602,7 +2602,6 @@ form button {
     margin-bottom: 166px;
 }
 .errorMessage{
-    display: none;
     bottom: -27px;
     position: absolute;
     color: #a92b2b;

@@ -6,15 +6,18 @@
         @include('selectButtons')
         <div class="productPageWrapper">
             <div class="lastNavigate">
-                <a href="{{route('categories')}}">ԱՊՐԱՆՔՆԵՐ</a>
+                <a href="{{route('categories')}}">@lang('static.Products')</a>
             </div>
             <div class="filter row">
                 <form class="col-md-12 col-lg-6 col" action="">
+                    <input type="hidden" name="system_id" value="{{$system_id}}">
+                    <input type="hidden" name="brand_id" value="{{$brand_id}}">
                     <div>
                         <label>
-                            <input type="text"  data-name="product"  class="searchInput" placeholder="@lang('static.Search')">
+                            <input type="text" data-name="product" name="search" value="{{$search}}" class="searchInput"
+                                   placeholder="@lang('static.Search')">
                         </label>
-                        <button class="searchButton btn-dark">փնտրել</button>
+                        <button class="searchButton btn-dark">@lang('static.Search')</button>
                     </div>
                 </form>
                 <div class="nav-item dropdown col-md-6 col-lg-3">
@@ -24,7 +27,9 @@
                     <ul class="dropdown-menu">
                         @if(!empty($brands))
                             @foreach($brands as $brand)
-                                <li><a class="dropdown-item" href="{{route('categories',['brand_id'=>$brand->id])}}">{{ $brand->{'title_'.$lang} }}</a></li>
+                                <li><a class="dropdown-item"
+                                       href="{{route('category',['url'=>$category->url,'brand_id'=>$brand->id])}}">{{ $brand->{'title_'.$lang} }}</a>
+                                </li>
                             @endforeach
                         @endif
                     </ul>
@@ -36,29 +41,35 @@
                     <ul class="dropdown-menu">
                         @if(!empty($systems))
                             @foreach($systems as $system)
-                                <li><a class="dropdown-item" href="{{route('categories',['system_id'=>$system->id])}}">{{ $system->{'title_'.$lang} }}</a></li>
+                                <li><a class="dropdown-item"
+                                       href="{{route('category',['url'=>$category->url,'system_id'=>$system->id])}}">{{ $system->{'title_'.$lang} }}</a>
+                                </li>
                             @endforeach
                         @endif
                     </ul>
                 </div>
             </div>
             <div class="contentWrapper d-grid">
-                @if(!empty($category->products))
-                    @foreach($category->products as $product)
-                        <div class="product d-flex justify-content-center">
-                            <a href="{{route('product',['url'=>$product->url])}}">
-                                <div class="d-flex align-items-center justify-content-center flex-column">
-                                    <img src="{{$product->first_image()}}" alt="">
-                                </div>
-                                <div>
-                                    <h6>{{ $product->{'title_'.$lang} }}</h6>
-                                    <p>{{$product->price}} @lang('static.AMD') </p>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-                @endif
+                <div class="">
+                    @if(!empty($products))
+                        @foreach($products as $product)
+                            <div class="product d-flex justify-content-center">
+                                <a href="{{route('product',['url'=>$product->url])}}">
+                                    <div class="d-flex align-items-center justify-content-center flex-column">
+                                        <img src="{{$product->first_image()}}" alt="">
+                                    </div>
+                                    <div>
+                                        <h6>{{ $product->{'title_'.$lang} }}</h6>
+                                        <p>{{$product->price}} @lang('static.AMD') </p>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+
             </div>
+            {{ $products->links() }}
         </div>
     </main>
 @endsection

@@ -45,7 +45,7 @@ class SotialNetworkController extends Controller
         ]);
         SocialNetwork::create($request->all());
         $request->session()->flash('alert-success', 'Sotial was successful added!');
-        return redirect()->route('admin.social_networks.create');
+        return redirect()->route('admin.social_networks.index');
 
     }
 

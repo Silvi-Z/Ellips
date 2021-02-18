@@ -1,7 +1,7 @@
 <section>
     <div class="about d-flex w-100 justify-content-center">
         <div class="d-flex flex-column circleWrapper">
-            <span>ՄԵՐ ՓՈՐՁԸ</span>
+            <span>@lang('static.OUR EXPERIENCE')</span>
             <div class="circles">
                 <img class="redCircle" src="{{asset('front/images/redCircle.png')}}" alt="redCircle">
                 <img class="transparentCircle" src="{{asset('front/images/transparentCircle.png')}}" alt="transparentCircle">
@@ -9,27 +9,27 @@
             </div>
         </div>
         <div>
-            <div class="ourExperienceParagraph">«Էլլիպս ՋիԷյ» ՍՊԸ-ն Հայաստանում անվտանգության համակարգերի ոլորտում գործող առաջին ձեռնարկությունն է:
-                Այն ստեղծվել է 1989թ-ին՝ որպես նեղ մասնագիտական կազմակերպություն՝ անվտանգության տեխնիկական միջոցների
-                նախագծման,
-                արտադրության, ներմուծման, տեղադրման և սպասարկման ոլորտում։</div>
+            <div class="ourExperienceParagraph">@lang('static.«Ellipse GA» LLC is the first enterprise operating in the field of security systems in Armenia.
+                 It was established in 1989 as a specialized professional organization for security technical means
+                 design,
+                 in the field of production, import, installation and service.')</div>
             <div class="row ourExperienceNumbers">
                 <div class="col text-light">
-                    <div data-number="30">30+</div>
-                    <div>Տարվա փորձ</div>
+                    <div data-number="30">{{isset($statistic)?$statistic->year_exp:0}}+</div>
+                    <div>@lang('static.Years of experience')</div>
                 </div>
                 <div class="col text-light">
-                    <div data-number="250">250+</div>
-                    <div>Իրականացված նախագծեր</div>
+                    <div data-number="250">{{isset($statistic)?$statistic->works:0}}+</div>
+                    <div>@lang('static.Implemented projects')</div>
                 </div>
                 <div class="w-100"></div>
                 <div class="col">
-                    <div data-number="40">40+</div>
-                    <div>Մասնագիտացված բրենդեր</div>
+                    <div data-number="40">{{isset($statistic)?$statistic->work_brands:0}}+</div>
+                    <div>@lang('static.Specialized brands')</div>
                 </div>
                 <div class="col">
-                    <div data-number="100">100+</div>
-                    <div>Բարձրակարգ մասնագետներ</div>
+                    <div data-number="100">{{isset($statistic)?$statistic->exp_workers:0}}+</div>
+                    <div>@lang('static.High quality specialists')</div>
                 </div>
             </div>
         </div>
