@@ -45,6 +45,7 @@ class HomeController extends Controller
         $bottom_services = Service::where('bottom',1)->get();
         $portfolios = Portfolio::inRandomOrder()->take(5)->get();
         $products = Product::inRandomOrder()->take(3)->get();
+        $blogs = Blog::inRandomOrder()->take(3)->get();
 
         return view('home')->with([
             'products'=>$products,
@@ -52,6 +53,7 @@ class HomeController extends Controller
             'top_services'=>$top_services,
             'bottom_services'=>$bottom_services,
             'portfolios'=>$portfolios,
+            'blogs'=>$blogs,
         ]);
     }
 

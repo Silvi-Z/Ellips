@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <main class="homePage d-flex flex-column">
-        <div class="homePageTitle h1Title">ԱՆՎՏԱՆԳՈՒԹՅՈՒՆ․ ՈՐԱԿ․ ՀՈՒՍԱԼԻՈՒԹՅՈՒՆ</div>
+        <div class="homePageTitle h1Title">@lang('static.SECURITY ․ QUALITY. RELIABILITY')</div>
         <section>
             <div class="container">
                 <div class="d-flex justify-content-center slider w-100">
@@ -11,34 +11,46 @@
                             <div class="dots">
                                 <div class="prev"></div>
                                 <div class="heroSlider textSlide bigSlide">
-                                    <div>ԼՈՒՍԱՑՈՒՅՑԻ ԶԱՐԳԱՑՈՒՄԸ</div>
-                                    <div>ԼՈՒՍԱՑՈՒՅՑԻ</div>
-                                    <div>ԼՈՒՍԱՑՈՒՅՑԻ ԶԱՐԳԱՑՈՒՄԸ ԼՈՒՍԱՑՈՒՅՑԻ</div>
+                                    @if(!empty($slider->images) && count($slider->images))
+                                        @foreach($slider->images as $image)
+                                            <div><a href="{{$image->url}}">{{$image->{'text_'.$lang} }}</a></div>
+                                        @endforeach
+                                    @endif
+
                                 </div>
                                 <div class="heroSlider imagesSlide">
-                                    <div>
-                                        <img src="{{asset('front/images/Isopoly.gif')}}" alt="">
-                                    </div>
-                                    <div>
-                                        <img src="{{asset('images/img2.jfif')}}" alt="img1" data-text="ԼՈՒՍԱՑՈՒՅՑԻ">
-                                    </div>
-                                    <div>
-                                        <img src="{{asset('images/img3.jfif')}}" alt="img1"
-                                             data-text="ԼՈՒՍԱՑՈՒՅՑԻ ԶԱՐԳԱՑՈՒՄԸ ԼՈՒՍԱՑՈՒՅՑԻ">
-                                    </div>
+                                    @if(!empty($slider->images) && count($slider->images))
+                                        @foreach($slider->images as $image)
+                                            @if($image->image_name)
+                                                <div>
+                                                    <img src="{{asset('files/'.$image->image_name)}}" alt="">
+                                                </div>
+                                            @else
+                                                <div>
+                                                    <iframe width="100%" src="{{$image->video}}">
+                                                    </iframe>
+                                                </div>
+                                            @endif
+
+                                        @endforeach
+                                    @endif
                                 </div>
                                 <div class="heroSlider imagesSmallSlide">
-                                    <div>
-                                        <img src="{{asset('front/images/Isopoly.gif')}}"
-                                             data-text="ԼՈՒՍԱՑՈՒՅՑԻ ԼՈՒՍԱՑՈՒՅՑԻ" alt="">
-                                    </div>
-                                    <div>
-                                        <img src="{{asset('images/img2.jfif')}}" alt="img1" data-text="ԼՈՒՍԱՑՈՒՅՑԻ">
-                                    </div>
-                                    <div>
-                                        <img src="{{asset('images/img3.jfif')}}" alt="img1"
-                                             data-text="ԼՈՒՍԱՑՈՒՅՑԻ ԶԱՐԳԱՑՈՒՄԸ ԼՈՒՍԱՑՈՒՅՑԻ">
-                                    </div>
+                                    @if(!empty($slider->images) && count($slider->images))
+                                        @foreach($slider->images as $image)
+                                            @if($image->image_name)
+                                                <div>
+                                                    <img src="{{asset('files/'.$image->image_name)}}"
+                                                         data-text="{{$image->{'text_'.$lang} }}" alt="">
+                                                </div>
+                                            @else
+                                                <div>
+                                                    <iframe width="100%" src="{{$image->video}}"  data-text="{{$image->{'text_'.$lang} }}">
+                                                    </iframe>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                    @endif
                                 </div>
                                 <div class="next"></div>
                             </div>
@@ -50,266 +62,142 @@
         @include('ourExperience')
         <div class="darkSection w-100 d-flex flex-column justify-content-center">
             <!--                <div>-->
-            <h3>Ծառայություններ</h3>
+            <h3>@lang('static.Services')</h3>
             <div class="services d-flex">
-                <div class="serviceWrapper">
-                    <div class="servicesTitle">
-                        <img src="{{asset('front/icons/slide01.svg')}}" alt="">
-                        <p>Տեխնիկական Խորհրդատվություն</p>
-                    </div>
-                    <p>«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է տեխնիկական խորհրդատվություն բարձրակարգ մասնագետների
-                        կողմից, ինչպես նոր ձեռք բերվող ապրանքների,
-                        այնպես էլ գործող անվտանգության համակարգերի վերաբերյալ: Վերջինիս համար խորհրդատվությունը տրվում է
-                        պայմանագրային հիմունքներով:</p>
-                </div>
-                <div class="serviceWrapper">
-                    <div class="servicesTitle">
-                        <img src="{{asset('front/icons/slide02.svg')}}" alt="">
-                        <p> Նախագծում, Արտադրություն և Ներկրում</p>
-                    </div>
-                    <p>«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է տեխնիկական խորհրդատվություն բարձրակարգ մասնագետների
-                        կողմից, ինչպես նոր ձեռք բերվող ապրանքների,
-                        այնպես էլ գործող անվտանգության համակարգերի վերաբերյալ: Վերջինիս համար խորհրդատվությունը տրվում է
-                        պայմանագրային հիմունքներով:</p>
-                </div>
-                <div class="serviceWrapper">
-                    <div class="servicesTitle">
-                        <img src="{{asset('front/icons/slide03.svg')}}" alt="">
-                        <p>Տեղադրում և Գործարկում</p>
-                    </div>
-                    <p>«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է տեխնիկական խորհրդատվություն բարձրակարգ մասնագետների
-                        կողմից, ինչպես նոր ձեռք բերվող ապրանքների,
-                        այնպես էլ գործող անվտանգության համակարգերի վերաբերյալ: Վերջինիս համար խորհրդատվությունը տրվում է
-                        պայմանագրային հիմունքներով:</p>
-                </div>
-                <div class="serviceWrapper">
-                    <div class="servicesTitle">
-                        <img src="{{asset('front/icons/slide02.svg')}}" alt="">
-                        <p>Տեղադրում և Գործարկում</p>
-                    </div>
-                    <p>«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է տեխնիկական խորհրդատվություն բարձրակարգ մասնագետների
-                        կողմից, ինչպես նոր ձեռք բերվող ապրանքների,
-                        այնպես էլ գործող անվտանգության համակարգերի վերաբերյալ: Վերջինիս համար խորհրդատվությունը տրվում է
-                        պայմանագրային հիմունքներով:</p>
-                </div>
-                <div class="serviceWrapper">
-                    <div class="servicesTitle">
-                        <img src="{{asset('front/icons/slide02.svg')}}" alt="">
-                        <p> Նախագծում, Արտադրություն և Ներկրում</p>
-                    </div>
-                    <p>«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է տեխնիկական խորհրդատվություն բարձրակարգ մասնագետների
-                        կողմից, ինչպես նոր ձեռք բերվող ապրանքների,
-                        այնպես էլ գործող անվտանգության համակարգերի վերաբերյալ: Վերջինիս համար խորհրդատվությունը տրվում է
-                        պայմանագրային հիմունքներով:</p>
-                </div>
-                <div class="serviceWrapper">
-                    <div class="servicesTitle">
-                        <img src="{{asset('front/icons/slide03.svg')}}" alt="">
-                        <p>Տեղադրում և Գործարկում</p>
-                    </div>
-                    <p>«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է տեխնիկական խորհրդատվություն բարձրակարգ մասնագետների
-                        կողմից, ինչպես նոր ձեռք բերվող ապրանքների,
-                        այնպես էլ գործող անվտանգության համակարգերի վերաբերյալ: Վերջինիս համար խորհրդատվությունը տրվում է
-                        պայմանագրային հիմունքներով:</p>
-                </div>
-                <div class="serviceWrapper">
-                    <div class="servicesTitle">
-                        <img src="{{asset('front/icons/slide02.svg')}}" alt="">
-                        <p>Տեղադրում և Գործարկում</p>
-                    </div>
-                    <p>«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է տեխնիկական խորհրդատվություն բարձրակարգ մասնագետների
-                        կողմից, ինչպես նոր ձեռք բերվող ապրանքների,
-                        այնպես էլ գործող անվտանգության համակարգերի վերաբերյալ: Վերջինիս համար խորհրդատվությունը տրվում է
-                        պայմանագրային հիմունքներով:</p>
-                </div>
+                @if(!empty($top_services) && count($top_services))
+                    @foreach($top_services as $key => $top_service)
+                        <div class="serviceWrapper">
+                            <div class="servicesTitle">
+                                <img src="{{asset('front/icons/slide0'.($key+1).'.svg')}}" alt="">
+                                <p>{{ $top_service->{'title_'.$lang} }}</p>
+                            </div>
+                            <p>{!! $top_service->{'text_'.$lang} !!}</p>
+                        </div>
+                    @endforeach
+                @endif
+
                 <!--                    </div>-->
             </div>
             <!--                        <div class="wrapper">-->
             <div class="moreServices row d-flex justify-content-center">
-                <div class="col servicesDescription">«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է նաև ծառայությունների առանձին փաթեթներ,որոնք են․</div>
+                <div class="col servicesDescription">@lang('static.Ellipse GA company also offers separate packages of services, which are')</div>
                 <div class="d-flex col-12 col-xl-9 moreServicesSlide justify-content-center">
-                    <div>
-                        <div class="d-flex moreService justify-content-center align-items-center w-250 ">Էլեկտրասնուցում</div>
-                    </div>
-                    <div>
-                        <div class="d-flex moreService justify-content-center align-items-center w-250 ">Բակի լուսավորություն</div>
-                    </div>
-                    <div>
-                        <div class="d-flex moreService justify-content-center align-items-center w-250 ">Բակի լուսավորություն</div>
-                    </div>
+                    @if(!empty($bottom_services) && count($bottom_services))
+                        @foreach($bottom_services as $key => $bottom_service)
+                            <div>
+                                <div class="d-flex moreService justify-content-center align-items-center w-250 ">{{ $bottom_service->{'title_'.$lang} }}</div>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
             <!--                        </div>-->
             <div class="companies w-100">
-                <div class="companiesTitle">Մեզ վստահում են</div>
+                <div class="companiesTitle">@lang('static.They trust us')</div>
                 @include ('companies')
             </div>
             <div class="wrapper">
                 <div class="portfolio ">
                     <div class="portfolioBigImg row">
-                        <div class="col-12">
-                            <a href="{{route("portfolio",['url'=>234])}}">
-                                <div class="portfolioBigImgContainer">
-                                    <img src="{{asset('images/portfolioBigImg.png')}}" alt="">
+                        @if(!empty($portfolios) && count($portfolios))
+                            @foreach($portfolios as $key => $portfolio)
+                                @if($key == 0)
+                                <div class="col-12">
+                                    <a href="{{route("portfolio",['url'=>$portfolio->url])}}">
+                                        <div class="portfolioBigImgContainer">
+                                            <img src="{{$portfolio->first_image()}}" alt="">
+                                        </div>
+                                        <h3>{{ $bottom_service->{'title_'.$lang} }}</h3>
+                                        <p>{{ $bottom_service->{'small_text_'.$lang} }}
+                                        </p>
+                                    </a>
                                 </div>
-                                <h3>Կենդանաբանական այգի</h3>
-                                <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային
-                                    տեսախցիկներ)
-                                    Պահպանման և տագնապի ահազանգման համակարգ (EVO-192)
-                                </p>
-                            </a>
-                        </div>
+                                @endif
+                            @endforeach
+                        @endif
                     </div>
                     <div class="portfolioSmallImages row">
-                        <div class="col-12 col-md-6">
-                            <div class="portfolioContainer">
-                                <img src="{{asset('images/portfolioFirstSmallImg.png')}}" alt="">
-                            </div>
-                            <h3>«Էլիտ Պլազա» բիզնես կենտրոն</h3>
-                            <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային
-                                տեսախցիկներ)</p>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="portfolioContainer">
-                                <img src="{{asset('images/portfolioSecondSmallImg.png')}}" alt="">
-                            </div>
-                            <h3>HSBC Բանկ Հայաստան</h3>
-                            <p>Հակահրդեհային ահազանգման համակարգ (ORENA SYSTEM),Տեսահսկման համակարգ (Անալոգային
-                                տեսախցիկներ)</p>
-                        </div>
+                        @if(!empty($portfolios) && count($portfolios))
+                            @foreach($portfolios as $key => $portfolio)
+                                @if($key == 0)
+                                    <div class="col-12 col-md-6">
+                                        <div class="portfolioContainer">
+                                            <img src="{{$portfolio->first_image()}}" alt="">
+                                        </div>
+                                        <h3>{{ $bottom_service->{'title_'.$lang} }}</h3>
+                                        <p>{{ $bottom_service->{'small_text_'.$lang} }}</p>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endif
                     </div>
+
                     <a href="{{route('portfolios')}}">
-                        <button class="button">Պորտֆոլիո</button>
+                        <button class="button">@lang('static.Portfolios')</button>
                     </a>
                 </div>
             </div>
         </div>
         <section>
             <div class="container">
-
+                @if(!empty($products) && count($products))
                 <div class="productPageWrapper d-flex flex-column">
-                    <h3>Ապրանքեր և համակարգեր</h3>
+                    <h3>@lang('static.Products և systems')</h3>
                     <!--                    <div class="container">-->
                     <div class="contentWrapper d-grid">
-                        <div class="product d-flex justify-content-center">
-                            <a href="{{route('product',['url'=>111])}}">
-                                <div class="d-flex align-items-center justify-content-center flex-column">
-                                    <img src="{{asset('front/images/camera2.png')}}" alt="">
-                                </div>
-                                <div>
-                                    <h6>Տնային մոնիտորինգի հավաքածու, որն ունի Wi-Fi ջրհեղեղի տեսախցիկ և 1080p HD վիդեո
-                                        դռան
-                                        զանգ</h6>
-                                    <p>20․000 դր․ </p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="product d-flex justify-content-center">
-                            <a href="{{route('product',['url'=>111])}}">
-                                <div class="d-flex align-items-center justify-content-center flex-column">
-                                    <img src="{{asset('front/images/camera3.jpg')}}" alt="">
-                                </div>
-                                <div>
-                                    <h6>2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն</h6>
-                                    <p>20․000 դր․ </p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="product d-flex justify-content-center">
-                            <a href="{{'product'}}">
-                                <div class="d-flex align-items-center justify-content-center flex-column">
-                                    <img src="{{asset('front/images/camera1.png')}}" alt="">
-                                </div>
-                                <div>
-                                    <h6>5MP Super HD Ակտիվ զսպող տեսախցիկ</h6>
-                                    <p>20․000 դր․ </p>
-                                </div>
-                            </a>
-                        </div>
+                        @foreach($products as $key => $product)
+                            <div class="product d-flex justify-content-center">
+                                <a href="{{route('product',['url'=>$product->url])}}">
+                                    <div class="d-flex align-items-center justify-content-center flex-column">
+                                        <img src="{{$product->first_image()}}" alt="">
+                                    </div>
+                                    <div>
+                                        <h6>{{ $product->{'title_'.$lang} }}</h6>
+                                        <p>{{$product->price}} @lang('static.AMD') </p>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
                         <div class="w-100"></div>
-                    </div>
-                    <!--                    </div>-->
-                    <!--                    <div class="d-flex">-->
-                    <!---->
-                    <!--                        <div class="product">-->
-                    <!--                            <div class="d-flex align-items-center justify-content-center flex-column">
-
-                                                    <img src="/images/camera3.png" alt="">-->
-                    <!--                            </div>-->
-                    <!--                            <div>-->
-                    <!--                                <h6>2K HD բացօթյա PTZ IP տեսախցիկ 330ft IR գիշերային տեսողություն</h6>
-
-                                                    <p>20․000  դր․</p>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
-                    <!---->
-                    <!--                    </div>-->
-                    <a href="{{route('categories',['url'=>888])}}">
-                        <button type="button" class="btn btn-dark button">Տեսնել ավելին</button>
+                    <a href="{{route('categories')}}">
+                        <button type="button" class="btn btn-dark button">@lang('static.See more')</button>
                     </a>
                     <!--                    <button class="button">Տեսնել ավելին</button>-->
                 </div>
+                </div>
+                @endif
             </div>
         </section>
         <div class="blogs w-100 d-flex justify-content-center bg-white">
             <div class="w-100">
-                <h3>Բլոգ</h3>
-                <div class="blogsWrapper">
-                    <div class="wrapper">
-                        <a href="{{route('blog',['url'=>234])}}">
-                            <div class="blog d-flex align-items-center justify-content-between">
-                                <div class="d-flex justify-content-center">
-                                    <div class="imgVideoWrapper">
-                                        <img src="{{asset('front/images/blog1.png')}}" alt="">
-                                    </div>
-                                    <div class="d-flex flex-wrap">
-                                        <div>
-                                            <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
+                @if(!empty($blogs) && count($blogs))
+                    <h3>@lang('static.Blog')</h3>
+                    <div class="blogsWrapper">
+                        <div class="wrapper">
+                            @foreach($blogs as $key => $blog)
+                            <a href="{{route('blog',['url'=>$blog->url])}}">
+                                <div class="blog d-flex align-items-center justify-content-between">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="imgVideoWrapper">
+                                            <img src="{{$blog->first_image()}}" alt="">
                                         </div>
-                                        <p>12.28.2020</p>
-                                        <span class="navigateBtn"></span>
+                                        <div class="d-flex flex-wrap">
+                                            <div>
+                                                <h4>{{ $blog->{'title_'.$lang} }}</h4>
+                                            </div>
+                                            <p>1{{date('m.d.Y'),strtotime($blog->updated_at)}}</p>
+                                            <span class="navigateBtn"></span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                        <a href="{{route('blog',['url'=>234])}}">
-                            <div class="blog d-flex align-items-center justify-content-between">
-                                <div class="d-flex justify-content-center">
-                                    <div class="imgVideoWrapper">
-                                        <img src="{{asset('front/images/blog2.png')}}" alt="">
-                                    </div>
-                                    <div class="d-flex flex-wrap">
-                                        <div>
-                                            <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
-                                        </div>
-                                        <p>12.28.2020</p>
-                                        <span class="navigateBtn"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="{{route('blog',['url'=>234])}}">
-                            <div class="blog d-flex align-items-center justify-content-between">
-                                <div class="d-flex justify-content-center">
-                                    <div class="imgVideoWrapper">
-                                        <img src="{{asset('front/images/blog3.png')}}" alt="">
-                                    </div>
-                                    <div class="d-flex flex-wrap">
-                                        <div>
-                                            <h4>Անվտանգության համակարգի ամենախոշոր ձեռքբերումները 2020 թվականին</h4>
-                                        </div>
-                                        <p>12.28.2020</p>
-                                        <span class="navigateBtn"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="{{route('blogs',['url'=>234])}}">
-                            <button class="button btn btn-dark">Տեսնել ավելին</button>
-                        </a>
-                        {{--                        <button class="button">Տեսնել ավելին</button>--}}
+                            </a>
+                            @endforeach
+                                <a href="{{route('blogs')}}">
+                                    <button class="button btn btn-dark">@lang('static.See more')</button>
+                                </a>
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </main>
