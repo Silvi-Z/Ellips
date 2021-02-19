@@ -348,7 +348,7 @@
                 </ul>
 
             </li>
-            <li class="nav-item {{ (Request::is('admin/contacts') || Request::is('admin/contact_services*')) ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Cities">
+            <li class="nav-item {{ (Request::is('admin/contacts') || Request::is('admin/contact_services*')) ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Contact services">
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseContactservices">
 
@@ -381,7 +381,7 @@
             </li>
 
 
-            <li class="nav-item {{(Request::is('admin/about') || Request::is('admin/certificates*') || Request::is('admin/histories*') ) ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Cities">
+            <li class="nav-item {{(Request::is('admin/about') || Request::is('admin/certificates*') || Request::is('admin/histories*') ) ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="About">
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseAbout">
 
@@ -425,7 +425,7 @@
 
             </li>
 
-            <li class="nav-item {{Request::is('admin/statistics') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Link">
+            <li class="nav-item {{Request::is('admin/statistics') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Statistics">
 
                 <a class="nav-link" href="{{ route('admin.statistics') }}">
 
@@ -436,7 +436,7 @@
                 </a>
 
             </li>
-            <li class="nav-item {{Request::is('admin/slider') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Link">
+            <li class="nav-item {{Request::is('admin/slider') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Slider">
 
                 <a class="nav-link" href="{{ route('admin.slider') }}">
 

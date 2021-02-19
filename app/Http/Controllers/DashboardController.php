@@ -16,19 +16,21 @@ class DashboardController extends Controller
 
     {
 
-        $systems_count = System::all()->count();
+        $systems_count = System::count();
 
-        $services_count = Service::all()->count();
+        $services_count = Service::count();
 
-        $products_count = Product::all()->count();
+        $products_count = Product::count();
 
-        $categories_count = Category::all()->count();
+        $categories_count = Category::count();
+        $contacts = Contact::count();
 
         return view('admin.index',
             ['products_count'=>$products_count,
                 'categories_count'=>$categories_count,
                 'services_count'=>$services_count,
-                'systems_count'=> $systems_count
+                'systems_count'=> $systems_count,
+                'contacts'=> $contacts
             ]
         );
 
