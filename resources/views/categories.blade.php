@@ -11,7 +11,7 @@
                         <label>
                             <input data-name="category" name="search" class="searchInput" type="text" value="{{$search}}" placeholder=" @lang('static.Search')">
                         </label>
-                        <button class="searchButton btn-dark" type="input">փնտրել</button>
+                        <button class="searchButton btn-dark" type="input">@lang('static.Search')</button>
                     </div>
                 </form>
                 <div class="nav-item dropdown col-md-4">

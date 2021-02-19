@@ -45,7 +45,7 @@ return [
 'Implemented projects'   => 'Реализованные проекты',
 'Specialized brands'   => 'Специализированные бренды',
 'High quality specialists'   => 'Высококлассные специалисты',
-'SECURITY ․ QUALITY. RELIABILITY'   => 'БЕЗОПАСНОСТЬ . КАЧЕСТВЕННЫЙ. НАДЕЖНОСТЬ',
+'SECURITY ․ QUALITY. RELIABILITY'   => 'БЕЗОПАСНОСТЬ . КАЧЕСТВО. НАДЕЖНОСТЬ',
 'Services'   => 'Услуги',
 'Ellipse GA company also offers separate packages of services, which are'   => 'Компания ‘Ellipse GA’ также предлагает отдельные пакеты услуг, которые',
 'They trust us'   => 'Нам доверяют',
