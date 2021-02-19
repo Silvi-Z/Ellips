@@ -1,9 +1,17 @@
+@font-face {
+    font-family: 'Arial';
+    src: url('../fonts/Arial-AMU-Regular-8891.ttf') format('ttf');
+    /*src: url('../fonts/Arial-AMU-Regular-8891.ttf?iefix') format('ttf');*/
+}
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', serif;
-}
 
+}
+body{
+    font-family: 'Arial', serif;
+    -moz-font-family: 'Arial', serif;
+}
 a {
     color: unset;
     text-decoration: none;
@@ -16,11 +24,6 @@ a:hover, .subMenu li:hover {
 button {
     cursor: pointer;
     outline: none;
-}
-
-@font-face {
-    font-family: 'Arial';
-    src: url('../fonts/Arial-AMU-Regular-8891.ttf') format('ttf')
 }
 
 body {
@@ -1384,7 +1387,7 @@ main:not(.homePage, .companyPage) {
 }
 
 .dropdown-item.active, .dropdown-item:active {
-    background-color: #7A8086;
+    background-color: white;
 }
 
 /*.productsPage > .wrapper {*/
@@ -1421,13 +1424,17 @@ button, button:focus {
     border: 1px solid white;
     line-height: 24px;
     letter-spacing: .15px;
-    text-transform: uppercase;
     color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
+.filter .nav-link{
+    text-transform: uppercase;
+}
+.dropdown-item{
+    white-space: normal;
+}
 .searchButton {
     width: 86px;
     height: 36px;
@@ -2066,25 +2073,31 @@ button, button:focus {
 }
 
 * ::-webkit-scrollbar {
-    border: 3px solid #CFD9E2;
+    border: 2px solid #CFD9E2;
     background-color: white;
-    width: 1px;
-    height: 18px;
+    width: 12px;
+    left: 10px;
+    height: 20px;
     border-radius: 10px;
+    margin-left: 20px;
 }
 
 * ::-webkit-scrollbar-thumb {
     height: 2px;
+    width: 2px;
     border: 4px solid transparent;
-    background-clip: padding-box;
-    -webkit-border-radius: 7px;
-    background-color: rgba(98, 98, 98, 1);
-    -webkit-box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.05), inset 1px 1px 0 rgba(0, 0, 0, 0.05);
+    /* background-clip: padding-box; */
+    /* -webkit-border-radius: 7px; */
+    /* background-color: rgba(98, 98, 98, 1); */
+    -webkit-box-shadow: inset 6px -1px 0 #626262, inset 14px 1px 0 #626262;
+}
+.filter .dropdown ::-webkit-scrollbar{
+    width: 9px!important;
 }
 
 *::-webkit-scrollbar, *::-webkit-scrollbar-thumb {
-    border: none;
-    background-color: transparent;
+    /*border: none;*/
+    /*background-color: transparent;*/
 }
 
 
@@ -2628,6 +2641,7 @@ iframe {
     line-height: 30px;
     letter-spacing: 0.25px;
 }
+
 
 .singlePortfolio h5 {
     font-size: 18px;

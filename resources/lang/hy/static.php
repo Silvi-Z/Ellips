@@ -1,6 +1,9 @@
 <?php
 return [
     'Company'   => 'Ընկերություն',
+    'Home'   => 'Գլխավոր',
+    'Contact'   => 'Կապ',
+    'Send'   => 'Ուղարկել',
     'Products / Systems'   => 'Ապրանքներ / համակարգեր',
     'Portfolio'   => 'Պորտֆոլիո',
     'Blog'   => 'Բլոգ',

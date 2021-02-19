@@ -77,12 +77,12 @@
                                         </a>
 {{--                                    </li>--}}
 {{--                                    <li class="col-md-2 col-2">--}}
-                                        <a href="https://www.facebook.com/www.sec.am">
+                                        <a href="https://www.youtube.com/channel/UCFMpy6JYN7D_-Rzjkbp-Crg">
                                             <div></div>
                                         </a>
 {{--                                    </li>--}}
 {{--                                    <li class="col-md-2 col-2">--}}
-                                        <a href="https://www.facebook.com/www.sec.am">
+                                        <a href="https://www.google.com/maps/place/ELLIPS+GA/@40.213124,44.521059,15z/data=!4m5!3m4!1s0x0:0xb57ecc12190ddc0f!8m2!3d40.213124!4d44.521059">
                                             <div></div>
                                         </a>
 {{--                                    </li>--}}
