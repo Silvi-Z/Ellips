@@ -13,7 +13,6 @@ $(document).ready(function () {
             initialSlide: num === 2 ? 1 : 0,
             pauseOnDotsHover: false,
             arrows: false,
-            // letiableWidth: true,
             cssEase: 'ease-in-out',
             responsive: [
                 {
@@ -26,51 +25,12 @@ $(document).ready(function () {
         });
     });
 
-    // $('.imagesSlide').slick({
-    //     speed: 1000,
-    //     slidesToShow: 1,
-    //     autoplay: true,
-    //     infinite: true,
-    //     accessibility:false,
-    //     swipe: false,
-    //     pauseOnFocus: false,
-    //     pauseOnHover: false,
-    //     pauseOnDotsHover: false,
-    //     arrows: false,
-    //     // letiableWidth: true,
-    //     cssEase: 'ease-in-out',
-    //     responsive: [
-    //         {
-    //             breakpoint: 768,
-    //             settings: {
-    //                 arrows: false,
-    //                 swipe: true,
-    //             }
-    //         }
-    //     ]
-    // });
-    // $('.imagesSmallSlide').slick({
-    //     speed: 1000,
-    //     slidesToShow: 1,
-    //     autoplay: true,
-    //     initialSlide: 1,
-    //     accessibility:false,
-    //     arrows: false,
-    //     swipe: false,
-    //     infinite: true,
-    //     pauseOnFocus: false,
-    //     pauseOnHover: false,
-    //     pauseOnDotsHover: false,
-    //     letiableWidth: true,
-    //     cssEase: 'ease-in-out',
-    // });
-
     $('.singleProduct').slick({
         slidesToShow: 1,
         infinite: true,
         slidesToScroll: 1,
         arrows: true,
-        dots: true,
+        dots: $('.singleProduct .slick-slide').length > 1 ? true : false,
     });
 
     $('.imgVideo').slick({
@@ -82,27 +42,27 @@ $(document).ready(function () {
         dots: true,
     });
 
-    $('.sliderBlog').slick({
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        cssEase: 'linear',
-        dots: true,
-    });
-
     $('.sliderPortfolio').slick({
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
         cssEase: 'linear',
-        dots: true,
+        dots: $('.sliderPortfolio .slick-slide').length > 1 ? true : false,
+    });
+
+    $('.sliderBlog').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        cssEase: 'linear',
+        dots: $('.sliderBlog .modalSpan').length > 1 ? true : false,
     });
 
     function slideCount(slider) {
         let currentSlide = slider.slick('slickCurrentSlide') + 1;
         let slideCount = slider.slick("getSlick").slideCount;
-        let p = $(".slick-dots")[0]
-        p.innerHTML = currentSlide + '/' + slideCount;
+        let p = $(".sliderBlog .slick-dots")
+        p.html(currentSlide + '/' + slideCount);
     }
 
     if ($('.selectButtons').length) {
@@ -129,7 +89,7 @@ $(document).ready(function () {
 
     $('.imgVideo').length > 0 && slideCount($('.imgVideo'));
 
-    $('.sliderBlog').length > 0 && slideCount($('.sliderBlog'));
+    $('.sliderBlog').length > 0 && $('.sliderBlog .slick-slide').length > 1 && slideCount($('.sliderBlog'));
 
     $('.singleProduct').length > 0 && slideCount($('.singleProduct'));
 
@@ -139,22 +99,33 @@ $(document).ready(function () {
 
     $('.sliderBlog').on("afterChange", () => slideCount($('.sliderBlog')));
 
+    activeDropdown($('.brand-toggle ~ .dropdown-menu .dropdown-item.activeDropdown'), $('.brand-toggle'))
+    activeDropdown($('.system-toggle ~ .dropdown-menu .dropdown-item.activeDropdown'), $('.system-toggle'))
+    activeDropdown($('.system-toggle ~ .dropdown-menu .dropdown-item.activeDropdown'), $('.system-toggle'))
+
+    function activeDropdown(active, title) {
+        if (active.length > 0) {
+            title.html(active.html())
+        }
+    }
+
     $('.services').slick({
-        slidesToShow: 3,
+        slidesToShow: $('.services .serviceWrapper').length < 4 ? $('.services .serviceWrapper').length : 4,
+        variableWidth: true,
         slidesToScroll: 1,
         swipeToSlide: false,
         arrows: false,
         infinite: false,
         responsive: [{
-            breakpoint: 1500,
+            breakpoint: 1700,
             settings: {
-                slidesToShow: 3,
+                slidesToShow: $('.services .serviceWrapper').length < 3 ? $('.services .serviceWrapper').length : 3,
             }
         },
             {
                 breakpoint: 1200,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: $('.services .serviceWrapper').length < 2 ? $('.services .serviceWrapper').length : 2,
                 }
             },
             {
@@ -163,26 +134,24 @@ $(document).ready(function () {
                     slidesToShow: 1,
                 }
             }],
-
     });
 
     $('.moreServicesSlide').slick({
-        slidesToShow: 3,
+        slidesToShow: $('.moreServicesSlide .moreService').length < 3 ? $('.moreServicesSlide .moreService').length : 3,
         arrows: false,
         infinite: false,
         responsive: [{
             breakpoint: 850,
             settings: {
-                arrows:true,
+                arrows: true,
                 slidesToShow: 1,
             }
         },
         ]
     });
 
-
     $('.company').slick({
-        slidesToShow: 5,
+        slidesToShow: $('.company .companySlideWrapper').length < 5 ? $('.company .companySlideWrapper').length : 5,
         autoplay: true,
         infinite: true,
         swipe: false,
@@ -196,31 +165,38 @@ $(document).ready(function () {
         responsive: [{
             breakpoint: 1500,
             settings: {
-                slidesToShow: 4
+                slidesToShow: $('.company .companySlideWrapper').length < 4 ? $('.company .companySlideWrapper').length : 4
             }
         }, {
             breakpoint: 1200,
             settings: {
-                slidesToShow: 3
+                slidesToShow: $('.company .companySlideWrapper').length < 3 ? $('.company .companySlideWrapper').length : 3
             }
         }, {
             breakpoint: 768,
             settings: {
-                slidesToShow: 4
+                slidesToShow: $('.company .companySlideWrapper').length < 4 ? $('.company .companySlideWrapper').length : 4
             }
         }, {
             breakpoint: 550,
             settings: {
-                slidesToShow: 3
+                slidesToShow: $('.company .companySlideWrapper').length < 3 ? $('.company .companySlideWrapper').length : 3
             }
         }, {
             breakpoint: 400,
             settings: {
-                slidesToShow: 2
+                slidesToShow: $('.company .companySlideWrapper').length < 2 ? $('.company .companySlideWrapper').length : 2
             }
         }]
     });
 
+    function centeredSliders(slides, slider, count) {
+        (slides.length < count) && slider.css('justify-content', 'center')
+    }
+
+    centeredSliders($('.company .companySlideWrapper'), $('.company'), 5)
+    centeredSliders($('.licenses .licensesSlideWrapper'), $('.licenses'), 5)
+    centeredSliders($('.services .serviceWrapper'), $('.services'), 4)
 
     if ($('.systemsSlide .product').length > 3 || $('.systemsSlide .product').length > 1 && window.innerWidth < 768) {
         $('.systemsSlide').slick({
@@ -243,16 +219,15 @@ $(document).ready(function () {
     }
 
     $('.licenses').slick({
-        slidesToShow: 5,
+        slidesToShow: $('.licenses .licensesSlideWrapper').length < 5 ? $('.licenses .licensesSlideWrapper').length : 5,
         slidesToScroll: 1,
         infinite: false,
-        variableWidth: true,
         swipeToSlide: true,
         arrows: false,
         responsive: [{
             breakpoint: 1024,
             settings: {
-                slidesToShow: 3,
+                slidesToShow: $('.licenses .licensesSlideWrapper').length < 3 ? $('.licenses .licensesSlideWrapper').length : 3,
             }
         }, {
             breakpoint: 850,
@@ -263,54 +238,37 @@ $(document).ready(function () {
         ]
     })
 
-    // document.querySelector('.img').addEventListener('click', showModal)
-    // function showImage() {
-    //    function showModal(){
-    //        let input = this;
-    //        //     let imgAlt = input.getAttribute("alt");
-    //        // console.log(imgAlt);
-    //        //     $("#theModal h4.modal-title").html(imgAlt);
-    //        let img = this;
-    //        let imageHeight = input.height;
-    //        // console.dir(input);
-    //        let imagWidth = input.width;
-    //        let NewimgWidth = imagWidth * 2;
-    //        let NewImgHeight = imageHeight * 2;
-    //        let picSrc = input.getAttribute("src");
-    //        document.querySelector("#picSrc img").setAttribute('src', picSrc);
-    //        document.querySelector("div.modal-dialog").style.width = NewimgWidth + 'px';
-    //        document.querySelector("#picSrc img").style.width = NewimgWidth + 'px';
-    //        document.querySelector("#picSrc img").style.height = NewImgHeight + 'px';
-    //
-    //            $("#theModal").modal("show");
-    //        console.log(NewimgWidth);
-    //        console.log(document.querySelector(".modal-dialog").style.width);
-    //    }
-    //     let MyHtml = '<div id="theModal" class="modal fade">' +
-    //         ' <div class="modal-dialog ">' +
-    //         '<div class="modal-content">' +
-    //         ' <div class="modal-header">' +
-    //         '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
-    //         '<h4 class="modal-title">Hello!</h4>' +
-    //         '</div>' +
-    //         '<div class="modal-body" id="picSrc">' +
-    //         '  <img  not-to-enlarge="true" class="img-responsive" + src=""alt="...">' +
-    //         '</div>' +
-    //         '<div class="modal-footer">' +
-    //         '<button type="button" class="btn btn-default" data-dismiss="modal">' +
-    //         'Close' +
-    //         '</button>' +
-    //         '</div>' +
-    //         '</div>' +
-    //         '</div>' +
-    //         '</div>';
-    //     $("div.body-content").append(MyHtml);
-    // $("img[not-to-enlarge!=true]").click(showModal);
-    // $("img[not-to-enlarge!=true]").css("cursor", "pointer");
-    // };
-    // $('#myModal').on('shown.bs.modal', function () {
-    //     $('#myInput').trigger('focus')
+
+    document.querySelectorAll('.modalSpan').forEach(item => {
+        item.addEventListener('click', () => {
+            $('.modalOpen')[0].src = item.children[0].src
+        })
+    })
+    // $('.blogSlider span').addEventListener('click', ()=>{
+    //     $('.modalOpen')[0].src = item.children[0].src
     // })
+    // function openModal(openElement, modal) {
+    //     openElement.forEach(item => {
+    //         item.addEventListener('click', () => {
+    //             $('.modalOpen')[0].src = item.children[0].src
+    //         })
+    //     })
+    // }
+    window.onresize=()=> licensesMargin();
+
+    let lastValue = $('.licensesTitle')[0] && $('.licensesTitle')[0].offsetLeft;
+    let newValue;
+    let marginLeft = $('.licensesSlideWrapper:first-of-type').css('marginLeft')
+
+    function licensesMargin(){
+        if ($('.licensesTitle')[0] && window.innerWidth > 1024){
+            newValue = $('.licensesTitle')[0].offsetLeft;
+            let marginLeftNumber = Number(marginLeft.substring(0, marginLeft.length - 2))
+            newValue = Math.abs((marginLeftNumber + lastValue - lastValue + newValue))
+            $('.licensesSlideWrapper:first-of-type').css('marginLeft', newValue + 'px')
+        }
+    }
+    licensesMargin()
 
     $('.bigImgVideo').slick({
         // slidesToShow: 5,
@@ -323,7 +281,6 @@ $(document).ready(function () {
     document.querySelectorAll('.searchInput').forEach(item => {
         item.addEventListener('keyup', (e) => {
             if (e.target.value.length > 0) {
-                console.log($('.searchButton')[0]);
                 $('.searchButton')[0].classList.add('opacity')
             } else {
                 $('.searchButton')[0].classList.remove('opacity')
@@ -342,8 +299,13 @@ $(document).ready(function () {
 
     const elements = document.querySelectorAll(".experienceCount");
 
-    elements.forEach((e
-    ) => {
+
+    // window.onscroll=()=>{
+    //     console.log(elements[0].getBoundingClientRect().top + (elements[0].clientHeight*2));
+    //     console.log('clientHeight',elements[0].clientHeight);
+    //     console.log(window.scrollY);
+    // }
+    elements.forEach((e) => {
         const finalCount = Number(e.getAttribute('data-number'));
         let counter = 0;
         const timer = setInterval(() => {
@@ -384,15 +346,13 @@ $(document).ready(function () {
     const select = document.querySelector('.selectLang').children[0];
 
     select.addEventListener('click', function () {
-        select.childNodes.forEach((e, index)=> {
+        select.childNodes.forEach((e, index) => {
             if (e.nodeName === 'DIV') {
                 select.classList.toggle('selectClass')
-                // console.log(select.childNodes[index].classList.remove('first'));
                 setTimeout(() => {
                     e.classList.toggle('openSelect')
                 }, 70)
                 e.addEventListener('click', () => {
-                    console.log($(e)[0]);
                     // $(e).siblings().removeClass('first').addClass('last');
                     // $(e).addClass('first').removeClass('last')
                 })
@@ -454,6 +414,7 @@ $(document).ready(function () {
 
     function circleAnimation() {
         if (document.querySelector('.circles')) {
+            console.log('sdfsdfsdf');
             const top = document.querySelector('.circles').getBoundingClientRect().top
             const redCircle = document.querySelector('.redCircle')
             const transparentCircle = document.querySelector('.transparentCircle')
@@ -476,7 +437,7 @@ $(document).ready(function () {
     ymaps.ready(init);
 
     function init() {
-        if ($('#map').length > 0){
+        if ($('#map').length > 0) {
             let coords = [40.213236, 44.520613]
             let myMap = new ymaps.Map("map", {
                 center: coords,
@@ -525,6 +486,15 @@ $(document).ready(function () {
             }
         })
     });
+    $('.imagesSlide').on('swipe', function (event, slick, direction) {
+        if (direction === 'left') {
+            $('.textSlide').slick("slickNext")
+        } else {
+            $('.textSlide').slick("slickPrev")
+        }
+
+        // left
+    });
 
     let didScroll;
     let lastScrollTop = 0;
@@ -558,9 +528,9 @@ $(document).ready(function () {
         lastScrollTop = st;
     }
 
-    $(document).on('click',".openSelect", function () {
+    $(document).on('click', ".openSelect", function () {
         console.log(1000)
-        window.location.href = '/locale/'+$(this).data('id')
+        window.location.href = '/locale/' + $(this).data('id')
 
     })
 });

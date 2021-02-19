@@ -24,7 +24,6 @@
                                 <li><a class="dropdown-item" href="{{route('categories',['system_id'=>$system->id])}}">{{ $system->{'title_'.$lang} }}</a></li>
                             @endforeach
                         @endif
-
                     </ul>
                 </div>
             </div>

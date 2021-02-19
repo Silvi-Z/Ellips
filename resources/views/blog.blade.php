@@ -6,7 +6,9 @@
             <div class="imageContainer">
                 <div class="d-flex justify-content-center">
                     <div></div>
-                    <img src="{{$blog->first_image()}}" alt="">
+                    <div class="blogBigImageWrapper">
+                        <img src="{{$blog->first_image()}}" alt="">
+                    </div>
                 </div>
             </div>
             <div></div>
@@ -14,6 +16,9 @@
                 <div class="blogSlider">
                     <h3>{{ $blog->{'title_'.$lang} }}</h3>
                     <div>
+                        <div class="description">
+                            <p>{!! $blog->{'text_'.$lang} !!}</p>
+                        </div>
                         <div>
                             <span></span>
                             <div class="sliderBlog">
@@ -21,21 +26,17 @@
                                     @foreach($blog->images as  $image)
                                         @if($image->image_name)
                                             <div class="modalSpan" data-toggle="modal" data-target="#blogModalSlide">
-                                                <img src="{{asset('files/'.$image->image_name)}}" alt="img">
+                                                <img class="modalImg" src="{{asset('files/'.$image->image_name)}}" alt="img">
                                             </div>
                                         @else
                                             <div class="modalSpan" data-toggle="modal" data-target="#blogModalSlide">
-                                                <iframe width="100%"
-                                                        src="{{$image->video}}?autoplay=0&showinfo=0&controls=0">
+                                                <iframe width="100%" src="{{$image->video}}">
                                                 </iframe>
                                             </div>
                                         @endif
                                     @endforeach
                                 @endif
                             </div>
-                        </div>
-                        <div class="description">
-                            <p>{!! $blog->{'text_'.$lang} !!}</p>
                         </div>
                     </div>
                 </div>
@@ -70,7 +71,7 @@
                             <span aria-hidden="true"></span>
                         </div>
                         <div class="modal-body">
-                            <img src="{{asset('front/images/blog3.png')}}" alt="">
+                            <img class="modalOpen" src="" alt="">
                         </div>
                     </div>
                 </div>

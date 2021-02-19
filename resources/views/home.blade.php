@@ -16,7 +16,6 @@
                                             <div><a href="{{$image->url}}">{{$image->{'text_'.$lang} }}</a></div>
                                         @endforeach
                                     @endif
-
                                 </div>
                                 <div class="heroSlider imagesSlide">
                                     @if(!empty($slider->images) && count($slider->images))
@@ -67,11 +66,12 @@
                 @if(!empty($top_services) && count($top_services))
                     @foreach($top_services as $key => $top_service)
                         <div class="serviceWrapper">
-                            <div class="servicesTitle">
-                                <img src="{{asset('front/icons/slide0'.($key+1).'.svg')}}" alt="">
-                                <p>{{ $top_service->{'title_'.$lang} }}</p>
+                            <div class="servicesTitleWrapper">
+                                <span class="slideNumber">0{{$key+1}}</span>
+{{--                                <img src="{{asset('front/icons/slide0'.($key+1).'.svg')}}" alt="">--}}
+                                <div class="servicesTitle">{{ $top_service->{'title_'.$lang} }}</div>
                             </div>
-                            <p>{!! $top_service->{'text_'.$lang} !!}</p>
+                            <div class="servicesSlideDescription">{!! $top_service->{'text_'.$lang} !!}</div>
                         </div>
                     @endforeach
                 @endif
@@ -107,9 +107,9 @@
                                         <div class="portfolioBigImgContainer">
                                             <img src="{{$portfolio->first_image()}}" alt="">
                                         </div>
-                                        <h3>{{ $bottom_service->{'title_'.$lang} }}</h3>
-                                        <p>{{ $bottom_service->{'small_text_'.$lang} }}
-                                        </p>
+                                        <h3>{{ $portfolio->{'title_'.$lang} }}</h3>
+                                        <div class="portfolioSmallText">{{ $portfolio->{'small_text_'.$lang} }}
+                                        </div>
                                     </a>
                                 </div>
                                 @endif
@@ -124,8 +124,8 @@
                                         <div class="portfolioContainer">
                                             <img src="{{$portfolio->first_image()}}" alt="">
                                         </div>
-                                        <h3>{{ $bottom_service->{'title_'.$lang} }}</h3>
-                                        <p>{{ $bottom_service->{'small_text_'.$lang} }}</p>
+                                        <h3>{{ $portfolio->{'title_'.$lang} }}</h3>
+                                        <div class="portfolioSmallText">{{ $portfolio->{'small_text_'.$lang} }}</div>
                                     </div>
                                 @endif
                             @endforeach
@@ -159,11 +159,12 @@
                             </div>
                         @endforeach
                         <div class="w-100"></div>
+                    </div>
                     <a href="{{route('categories')}}">
                         <button type="button" class="btn btn-dark button">@lang('static.See more')</button>
                     </a>
                     <!--                    <button class="button">Տեսնել ավելին</button>-->
-                </div>
+
                 </div>
                 @endif
             </div>
