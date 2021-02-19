@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title') @lang('static.products and systems') @endsection
 @section('content')
     <main class="productsPage wrapper">
         <div class="h1Title">@lang('static.products and systems')</div>

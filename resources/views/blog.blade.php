@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title'){{ $blog->{'title_'.$lang} }} @endsection
 @section('content')
     <main>
         <div class="blogWrapper flex-column align-items-center justify-content-center">

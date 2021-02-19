@@ -1,8 +1,9 @@
 @extends('layouts.app')
+@section('title') @lang('static.Products / Systems') @endsection
 
 @section('content')
     <main>
-        <div class="h1Title">Համակարգեր և ապրանքներ</div>
+        <div class="h1Title">@lang('static.Products / Systems')</div>
         @include('selectButtons')
         <div class="wrapper">
             <div class="systemsWrapper d-grid">

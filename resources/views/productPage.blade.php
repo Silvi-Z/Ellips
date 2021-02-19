@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title') {{ $category->{'title_'.app()->getLocale()} }} @endsection
 
 @section('content')
     <main class="">

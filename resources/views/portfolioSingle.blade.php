@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title'){{ $portfolio->{'title_'.$lang} }} @endsection
 
 @section('content')
     <main>

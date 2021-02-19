@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title') @lang('static.Contact us') @endsection
 
 @section('content')
     <main class="contactPageWrapper">
