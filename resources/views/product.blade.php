@@ -32,6 +32,9 @@
                     @foreach($product->systems as $system)
                     <a href="{{route('system',['url'=>$system->url])}}">{{ $system->{'title_'.$lang} }}</a>
                     @endforeach
+                        @foreach($product->categories as $category)
+                            <a href="{{route('category',['url'=>$category->url])}}">{{ $category->{'title_'.$lang} }}</a>
+                        @endforeach
                 </div>
 {{--                <span class="seeAllText"><img src="{{asset('front/icons/arrowSeeMore.svg')}}" alt=""></span>--}}
             </div>
