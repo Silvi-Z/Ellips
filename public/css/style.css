@@ -63,3 +63,10 @@
 .newForm .invalid-feedback{
     display: block;
 }
+
+
+
+
+.edit-btn, .emailInput, .addresses > div{
+    margin-bottom: 10px;
+}

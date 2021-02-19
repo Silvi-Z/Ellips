@@ -22,6 +22,7 @@ Route::get('/systems', 'HomeController@systems')->name('systems');
 Route::get('/blogs', 'HomeController@blogs')->name('blogs');
 Route::get('/blog/{url}', 'HomeController@blog')->name('blog');
 Route::get('/get-blog', 'HomeController@getBlogs')->name('getBlogs');
+Route::get('/get-portfolios', 'HomeController@getPortfolios')->name('getPortfolios');
 Route::get('/company', 'HomeController@company')->name('company');
 Route::get('/categories', 'HomeController@categories')->name('categories');
 Route::get('/portfolios', 'HomeController@portfolios')->name('portfolios');

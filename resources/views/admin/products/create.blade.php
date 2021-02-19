@@ -2,7 +2,7 @@
 
 
 
-@section('title')  @if(!empty($product)) Create @else Edit @endif category @endsection
+@section('title')  @if(!empty($product)) Create @else Edit @endif Product @endsection
 
 
 
@@ -18,7 +18,7 @@
         <div class="col-lg-6 mt-4">
 
 
-            <h1>@if(empty($product)) Create @else Edit @endif category</h1>
+            <h1>@if(empty($product)) Create @else Edit @endif Product</h1>
 
 
             @if(empty($product))

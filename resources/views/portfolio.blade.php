@@ -37,16 +37,18 @@
                                 </div>
                             @endif
                         @endforeach
+                        @endif
+                    </div>
+                    @if(!empty($top_portfolios) && count($top_portfolios) && $top_portfolios->total() > 5)
+                        <button class="button see_more_portfolios" data-page="2">@lang('static.See more')</button>
                     @endif
 
-                </div>
-                <!--                <button class="button">Պորտֆոլիո</button>-->
             </div>
         </div>
         @if(!empty($portfolios) && count($portfolios))
-        <div class="darkSection">
-            <h3>@lang('static.ARCHIVE')</h3>
-            <div class="archive">
+            <div class="darkSection">
+                <h3>@lang('static.ARCHIVE')</h3>
+                <div class="archive">
 
                     @foreach($portfolios as $portfolio)
                         <a href="{{route('portfolio',['url'=>$portfolio->url])}}">
@@ -64,8 +66,27 @@
                         </a>
                     @endforeach
 
+                </div>
             </div>
-        </div>
         @endif
     </main>
+@endsection
+@section('script')
+    <script>
+        $(".see_more_portfolios").click(function () {
+            var page = Number($(this).attr('data-page'))
+            $.ajax({
+                url: '{{route('getPortfolios')}}', data: {page: page}, success: function (result) {
+
+                    $('.portfolioSmallImages').append(result.html)
+                    if (page * 5 >= result.total) {
+                        $(".see_more_portfolios").remove()
+                    } else {
+                        page += 1;
+                        $(".see_more_portfolios").attr('data-page', page);
+                    }
+                }
+            });
+        })
+    </script>
 @endsection

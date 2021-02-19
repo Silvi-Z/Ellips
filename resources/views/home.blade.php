@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title') @lang('static.Home') @endsection
 @section('content')
     <main class="homePage d-flex flex-column">
         <div class="homePageTitle h1Title">@lang('static.SECURITY ․ QUALITY. RELIABILITY')</div>

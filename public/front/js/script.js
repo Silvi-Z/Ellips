@@ -309,6 +309,7 @@ $(document).ready(function () {
         const finalCount = Number(e.getAttribute('data-number'));
         let counter = 0;
         const timer = setInterval(() => {
+
             if (counter === finalCount) {
                 e.innerHTML = counter + '+';
                 clearInterval(timer)
