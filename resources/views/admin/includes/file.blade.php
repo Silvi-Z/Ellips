@@ -9,9 +9,12 @@
             <div class="newForm" draggable="true">
                 <div class="d-flex align-items-center">
                     <div class="d-flex align-items-center">
+                        @if($item && !empty($item->images) && isset($item->images[$key]) )
+                            <input type="hidden" name="upload_files[{{$key}}][id]" value="{{$item->images[$key]->id}}">
+                        @endif
                         <input class="checkbox position-static" @if(isset($upload_file["video"]) ) checked @endif data-type="video" type="checkbox"
                                value="option1" aria-label="...">
-                        <p class="toggle">is_video</p>
+                        <p class="toggle">Is video</p>
                     </div>
                     @if($key != 0)
                         <span class="delete"><i class="fa fa-trash" aria-hidden="true"></i></span>
@@ -59,11 +62,11 @@
                         <label>ARM</label>
                         <textarea name="upload_files[{{$key}}][text_hy]" class="w-100 tox tox-tinymce form-control html-editor"
                                   cols="30" rows="1">{{$upload_file["text_hy"]}}</textarea>
-                        @if ($errors->has('upload_files.'.$key.'.image'))
+                        @if ($errors->has('upload_files.'.$key.'.text_hy'))
 
 
 
-                            <div class="invalid-feedback">{{ $errors->first('upload_files.'.$key.'.image') }}</div>
+                            <div class="invalid-feedback">{{ $errors->first('upload_files.'.$key.'.text_hy') }}</div>
 
                         @endif
                     </div>
@@ -113,7 +116,7 @@
                             <input type="hidden" name="upload_files[{{$key}}][id]" value="{{$upload_file['id']}}">
                             <input class="checkbox position-static" @if($upload_file["video"] ) checked @endif data-type="video" type="checkbox"
                                     value="option1" aria-label="...">
-                            <p class="toggle">is_video</p>
+                            <p class="toggle">Is video</p>
                         </div>
                         @if($key != 0)
                         <span class="delete"><i class="fa fa-trash" aria-hidden="true"></i></span>
@@ -206,7 +209,7 @@
             <div class="d-flex align-items-center">
                 <input class="checkbox position-static" data-type="video" type="checkbox"
                         value="option1" aria-label="...">
-                <p class="toggle">is_video</p>
+                <p class="toggle">Is video</p>
             </div>
             <div class="d-flex flex-wrap justify-content-between">
                 <div class="imageUpload upload" data-type="image">
