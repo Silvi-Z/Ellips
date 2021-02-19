@@ -300,7 +300,7 @@
 
                     <i class="fa fa-fw fa-address-book"></i>
 
-                    <span class="nav-link-text">Cities</span>
+                    <span class="nav-link-text">Addresses</span>
 
                 </a>
 
@@ -308,13 +308,13 @@
 
                     <li>
 
-                        <a href="{{ route('admin.cities.create') }}">Create City</a>
+                        <a href="{{ route('admin.cities.create') }}">Create Address</a>
 
                     </li>
 
                     <li>
 
-                        <a href="{{ route('admin.cities.index') }}">Cities list</a>
+                        <a href="{{ route('admin.cities.index') }}">Addresses list</a>
 
                     </li>
 
