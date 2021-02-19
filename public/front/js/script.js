@@ -13,7 +13,6 @@ $(document).ready(function () {
             initialSlide: num === 2 ? 1 : 0,
             pauseOnDotsHover: false,
             arrows: false,
-            // letiableWidth: true,
             cssEase: 'ease-in-out',
             responsive: [
                 {
@@ -25,45 +24,6 @@ $(document).ready(function () {
             ]
         });
     });
-
-    // $('.imagesSlide').slick({
-    //     speed: 1000,
-    //     slidesToShow: 1,
-    //     autoplay: true,
-    //     infinite: true,
-    //     accessibility:false,
-    //     swipe: false,
-    //     pauseOnFocus: false,
-    //     pauseOnHover: false,
-    //     pauseOnDotsHover: false,
-    //     arrows: false,
-    //     // letiableWidth: true,
-    //     cssEase: 'ease-in-out',
-    //     responsive: [
-    //         {
-    //             breakpoint: 768,
-    //             settings: {
-    //                 arrows: false,
-    //                 swipe: true,
-    //             }
-    //         }
-    //     ]
-    // });
-    // $('.imagesSmallSlide').slick({
-    //     speed: 1000,
-    //     slidesToShow: 1,
-    //     autoplay: true,
-    //     initialSlide: 1,
-    //     accessibility:false,
-    //     arrows: false,
-    //     swipe: false,
-    //     infinite: true,
-    //     pauseOnFocus: false,
-    //     pauseOnHover: false,
-    //     pauseOnDotsHover: false,
-    //     letiableWidth: true,
-    //     cssEase: 'ease-in-out',
-    // });
 
     $('.singleProduct').slick({
         slidesToShow: 1,
@@ -95,14 +55,14 @@ $(document).ready(function () {
         slidesToShow: 1,
         slidesToScroll: 1,
         cssEase: 'linear',
-        dots: $('.sliderBlog .slick-slide').length > 1 ? true : false,
+        dots: $('.sliderBlog .modalSpan').length > 1 ? true : false,
     });
 
     function slideCount(slider) {
         let currentSlide = slider.slick('slickCurrentSlide') + 1;
         let slideCount = slider.slick("getSlick").slideCount;
-        let p = $(".slick-dots")[0]
-        p.innerHTML = currentSlide + '/' + slideCount;
+        let p = $(".sliderBlog .slick-dots")
+        p.html(currentSlide + '/' + slideCount);
     }
 
     if ($('.selectButtons').length) {
@@ -139,33 +99,33 @@ $(document).ready(function () {
 
     $('.sliderBlog').on("afterChange", () => slideCount($('.sliderBlog')));
 
-    // if ($('.brand-toggle ~ .dropdown-menu .dropdown-item.activeDropdown').length > 0){
-    //     $('.brand-toggle').html($('.brand-toggle ~ .dropdown-menu .dropdown-item.activeDropdown').html())
-    // }
     activeDropdown($('.brand-toggle ~ .dropdown-menu .dropdown-item.activeDropdown'), $('.brand-toggle'))
     activeDropdown($('.system-toggle ~ .dropdown-menu .dropdown-item.activeDropdown'), $('.system-toggle'))
-    function activeDropdown(active, title){
-        if (active.length > 0){
+    activeDropdown($('.system-toggle ~ .dropdown-menu .dropdown-item.activeDropdown'), $('.system-toggle'))
+
+    function activeDropdown(active, title) {
+        if (active.length > 0) {
             title.html(active.html())
         }
     }
 
     $('.services').slick({
-        slidesToShow: 3,
+        slidesToShow: $('.services .serviceWrapper').length < 4 ? $('.services .serviceWrapper').length : 4,
+        variableWidth: true,
         slidesToScroll: 1,
         swipeToSlide: false,
         arrows: false,
         infinite: false,
         responsive: [{
-            breakpoint: 1500,
+            breakpoint: 1700,
             settings: {
-                slidesToShow: 3,
+                slidesToShow: $('.services .serviceWrapper').length < 3 ? $('.services .serviceWrapper').length : 3,
             }
         },
             {
                 breakpoint: 1200,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: $('.services .serviceWrapper').length < 2 ? $('.services .serviceWrapper').length : 2,
                 }
             },
             {
@@ -174,11 +134,10 @@ $(document).ready(function () {
                     slidesToShow: 1,
                 }
             }],
-
     });
 
     $('.moreServicesSlide').slick({
-        slidesToShow: 3,
+        slidesToShow: $('.moreServicesSlide .moreService').length < 3 ? $('.moreServicesSlide .moreService').length : 3,
         arrows: false,
         infinite: false,
         responsive: [{
@@ -190,7 +149,6 @@ $(document).ready(function () {
         },
         ]
     });
-
 
     $('.company').slick({
         slidesToShow: $('.company .companySlideWrapper').length < 5 ? $('.company .companySlideWrapper').length : 5,
@@ -231,10 +189,14 @@ $(document).ready(function () {
             }
         }]
     });
-    if ($('.company .companySlideWrapper').length < 5){
-        $('.company').css('justify-content', 'center')
+
+    function centeredSliders(slides, slider, count) {
+        (slides.length < count) && slider.css('justify-content', 'center')
     }
 
+    centeredSliders($('.company .companySlideWrapper'), $('.company'), 5)
+    centeredSliders($('.licenses .licensesSlideWrapper'), $('.licenses'), 5)
+    centeredSliders($('.services .serviceWrapper'), $('.services'), 4)
 
     if ($('.systemsSlide .product').length > 3 || $('.systemsSlide .product').length > 1 && window.innerWidth < 768) {
         $('.systemsSlide').slick({
@@ -257,7 +219,7 @@ $(document).ready(function () {
     }
 
     $('.licenses').slick({
-        slidesToShow: 5,
+        slidesToShow: $('.licenses .licensesSlideWrapper').length < 5 ? $('.licenses .licensesSlideWrapper').length : 5,
         slidesToScroll: 1,
         infinite: false,
         swipeToSlide: true,
@@ -265,7 +227,7 @@ $(document).ready(function () {
         responsive: [{
             breakpoint: 1024,
             settings: {
-                slidesToShow: 3,
+                slidesToShow: $('.licenses .licensesSlideWrapper').length < 3 ? $('.licenses .licensesSlideWrapper').length : 3,
             }
         }, {
             breakpoint: 850,
@@ -285,21 +247,21 @@ $(document).ready(function () {
     // $('.blogSlider span').addEventListener('click', ()=>{
     //     $('.modalOpen')[0].src = item.children[0].src
     // })
-    function openModal(openElement, modal){
-        openElement.forEach(item => {
-            item.addEventListener('click', () => {
-                $('.modalOpen')[0].src = item.children[0].src
-            })
-        })
-    }
-
+    // function openModal(openElement, modal) {
+    //     openElement.forEach(item => {
+    //         item.addEventListener('click', () => {
+    //             $('.modalOpen')[0].src = item.children[0].src
+    //         })
+    //     })
+    // }
     window.onresize=()=> licensesMargin();
 
+    let lastValue = $('.licensesTitle')[0] && $('.licensesTitle')[0].offsetLeft;
+    let newValue;
+    let marginLeft = $('.licensesSlideWrapper:first-of-type').css('marginLeft')
+
     function licensesMargin(){
-        if ($('.licensesTitle').length > 0){
-            let lastValue = $('.licensesTitle')[0].offsetLeft;
-            let newValue;
-            let marginLeft = $('.licensesSlideWrapper:first-of-type').css('marginLeft')
+        if ($('.licensesTitle')[0] && window.innerWidth > 1024){
             newValue = $('.licensesTitle')[0].offsetLeft;
             let marginLeftNumber = Number(marginLeft.substring(0, marginLeft.length - 2))
             newValue = Math.abs((marginLeftNumber + lastValue - lastValue + newValue))
@@ -307,88 +269,6 @@ $(document).ready(function () {
         }
     }
     licensesMargin()
-
-
-
-
-    // if ($('.pagination .page-item').length > 6){
-    //     let element = document.createElement('li')
-    //     let child = document.createElement('a')
-    //         // <a className="page-link" href="http://elips.local/category/werw?brand_id=2&amp;system_id=1&amp;page=1">1</a>
-    //     child.classList.add("page-link")
-    //     element.classList.add('page-item')
-    //     console.log(child);
-    //     child.innerHTML = '...'
-    //     element.appendChild(child)
-    //     // element.classList.add('page-item')
-    //     // document.querySelectorAll('.pagination .page-item:first-child')[0].nextElementSibling.appendChild(element);
-    //     $('.pagination')[0].insertBefore(element, $('.pagination')[0].children[1]);
-    //
-    //     // $('.pagination').splice(1, 0, element)
-    //     console.log(document.querySelectorAll('.pagination .page-item'))
-    //     // console.log($('.pagination')[0].children[2]);
-    // }
-
-        // console.log('lastValue', lastValue);
-        // console.log('first', $('.licensesSlideWrapper:first-of-type')[0].offsetLeft);
-        // console.log('first', $('.licensesTitle')[0].offsetLeft);
-        // console.log($('.licensesSlideWrapper:first-of-type')[0].offsetLeft + $('.licensesTitle')[0].offsetLeft);
-        // console.log('newValue', newValue);
-        // console.log($('.licensesSlideWrapper:first-of-type')[0].offsetLeft + $('.licensesTitle')[0].offsetLeft);
-        // console.log($('.licensesSlideWrapper:first-of-type').css('marginLeft'));
-
-        // console.log($('.licensesSlideWrapper:first-of-type')[0].offsetLeft);
-
-    // }
-
-    // document.querySelector('.modalImg').addEventListener('click', showModal)
-    // // function showImage() {
-    //    function showModal(){
-    //        let input = this;
-    //        //     let imgAlt = input.getAttribute("alt");
-    //        // console.log(imgAlt);
-    //        //     $("#theModal h4.modal-title").html(imgAlt);
-    //        let img = this;
-    //        let imageHeight = input.height;
-    //        // console.dir(input);
-    //        let imagWidth = input.width;
-    //        let NewimgWidth = imagWidth * 2;
-    //        let NewImgHeight = imageHeight * 2;
-    //        let picSrc = input.getAttribute("src");
-    //        document.querySelector("#picSrc img").setAttribute('src', picSrc);
-    //        document.querySelector("div.modal-dialog").style.width = NewimgWidth + 'px';
-    //        document.querySelector("#picSrc img").style.width = NewimgWidth + 'px';
-    //        document.querySelector("#picSrc img").style.height = NewImgHeight + 'px';
-    //
-    //            $("#theModal").modal("show");
-    //        console.log(NewimgWidth);
-    //        console.log(document.querySelector(".modal-dialog").style.width);
-    //    }
-    //     let MyHtml = '<div id="theModal" class="modal fade">' +
-    //         ' <div class="modal-dialog ">' +
-    //         '<div class="modal-content">' +
-    //         ' <div class="modal-header">' +
-    //         '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
-    //         '<h4 class="modal-title">Hello!</h4>' +
-    //         '</div>' +
-    //         '<div class="modal-body" id="picSrc">' +
-    //         '  <img  not-to-enlarge="true" class="img-responsive" + src=""alt="...">' +
-    //         '</div>' +
-    //         '<div class="modal-footer">' +
-    //         '<button type="button" class="btn btn-default" data-dismiss="modal">' +
-    //         'Close' +
-    //         '</button>' +
-    //         '</div>' +
-    //         '</div>' +
-    //         '</div>' +
-    //         '</div>';
-    //     $("div.body-content").append(MyHtml);
-    // $("img[not-to-enlarge!=true]").click(showModal);
-    // $("img[not-to-enlarge!=true]").css("cursor", "pointer");
-    // // };
-    // $('#myModal').on('shown.bs.modal', function () {
-    //     $('#myInput').trigger('focus')
-    // })
 
     $('.bigImgVideo').slick({
         // slidesToShow: 5,
@@ -401,7 +281,6 @@ $(document).ready(function () {
     document.querySelectorAll('.searchInput').forEach(item => {
         item.addEventListener('keyup', (e) => {
             if (e.target.value.length > 0) {
-                console.log($('.searchButton')[0]);
                 $('.searchButton')[0].classList.add('opacity')
             } else {
                 $('.searchButton')[0].classList.remove('opacity')
@@ -420,8 +299,13 @@ $(document).ready(function () {
 
     const elements = document.querySelectorAll(".experienceCount");
 
-    elements.forEach((e
-    ) => {
+
+    // window.onscroll=()=>{
+    //     console.log(elements[0].getBoundingClientRect().top + (elements[0].clientHeight*2));
+    //     console.log('clientHeight',elements[0].clientHeight);
+    //     console.log(window.scrollY);
+    // }
+    elements.forEach((e) => {
         const finalCount = Number(e.getAttribute('data-number'));
         let counter = 0;
         const timer = setInterval(() => {
@@ -465,12 +349,10 @@ $(document).ready(function () {
         select.childNodes.forEach((e, index) => {
             if (e.nodeName === 'DIV') {
                 select.classList.toggle('selectClass')
-                // console.log(select.childNodes[index].classList.remove('first'));
                 setTimeout(() => {
                     e.classList.toggle('openSelect')
                 }, 70)
                 e.addEventListener('click', () => {
-                    console.log($(e)[0]);
                     // $(e).siblings().removeClass('first').addClass('last');
                     // $(e).addClass('first').removeClass('last')
                 })
@@ -532,6 +414,7 @@ $(document).ready(function () {
 
     function circleAnimation() {
         if (document.querySelector('.circles')) {
+            console.log('sdfsdfsdf');
             const top = document.querySelector('.circles').getBoundingClientRect().top
             const redCircle = document.querySelector('.redCircle')
             const transparentCircle = document.querySelector('.transparentCircle')
@@ -602,6 +485,15 @@ $(document).ready(function () {
                 $('.textSlide').slick("slickPrev")
             }
         })
+    });
+    $('.imagesSlide').on('swipe', function (event, slick, direction) {
+        if (direction === 'left') {
+            $('.textSlide').slick("slickNext")
+        } else {
+            $('.textSlide').slick("slickPrev")
+        }
+
+        // left
     });
 
     let didScroll;

@@ -1,7 +1,7 @@
 <?php
 return [
     'Company'   => 'Company',
-    'Company'   => 'Company',
+    'BY BRAND'   => 'BY BRAND',
     'Company'   => 'Company',
     'Company'   => 'Company',
     'Company'   => 'Company',

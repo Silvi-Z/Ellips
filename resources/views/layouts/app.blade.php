@@ -26,7 +26,7 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{ asset('/front/slick-1.8.1/slick/slick.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('./front/slick-1.8.1/slick/slick.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/front/slick-1.8.1/slick/slick.min.js') }}"></script>
 
     <script src="{{ asset('/front/js/ddslick.js') }}"></script>
     <script src="{{ asset('/front/js/script.js') }}"></script>
@@ -212,9 +212,13 @@
         <div class="col-lg-3 col-md col follow">
             <h4>@lang('static.Follow Us!')</h4>
             <div class="social">
-                <div></div>
-                <div></div>
-                <div></div>
+                <a href="https://www.facebook.com/www.sec.am">
+                    <div></div>
+                </a><a href="https://www.youtube.com/channel/UCFMpy6JYN7D_-Rzjkbp-Crg">
+                    <div></div>
+                </a><a href="https://www.google.com/maps/place/ELLIPS+GA/@40.213124,44.521059,15z/data=!4m5!3m4!1s0x0:0xb57ecc12190ddc0f!8m2!3d40.213124!4d44.521059">
+                    <div></div>
+                </a>
             </div>
         </div>
     </div>

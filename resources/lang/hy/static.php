@@ -44,6 +44,13 @@ return [
     'Implemented projects'   => 'Իրականացված նախագծեր',
     'Specialized brands'   => 'Մասնագիտացված բրենդեր',
     'High quality specialists'   => 'Բարձրակարգ մասնագետներ',
+    'SECURITY ․ QUALITY. RELIABILITY'   => 'ԱՆՎՏԱՆԳՈՒԹՅՈՒՆ․ ՈՐԱԿ․ ՀՈՒՍԱԼԻՈՒԹՅՈՒՆ',
+    'Services'   => 'Ծառայություններ',
+    'Ellipse GA company also offers separate packages of services, which are'   => '«Էլլիպս ՋիԷյ» ընկերությունն առաջարկում է նաև ծառայությունների առանձին փաթեթներ,որոնք են․',
+    'They trust us'   => 'Մեզ վստահում են',
+    'Portfolios'   => 'Պորտֆոլիո',
+    'Products և systems'   => 'Ապրանքեր և համակարգեր',
+    'HISTORY'   => 'ՊԱՏՄՈՒԹՅՈՒՆ',
     'HISTORY'   => 'ՊԱՏՄՈՒԹՅՈՒՆ',
 
 ];

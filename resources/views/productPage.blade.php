@@ -21,9 +21,7 @@
                     </div>
                 </form>
                 <div class="nav-item dropdown col-md-6 col-lg-3">
-                    <a class="nav-link dropdown-toggle brand-toggle" data-toggle="dropdown" href="#">
-                        @lang('static.BY BRAND')
-                    </a>
+                    <a class="nav-link dropdown-toggle brand-toggle" data-toggle="dropdown" href="#">@lang('static.BY BRAND')</a>
                     <ul class="dropdown-menu">
                         @if(!empty($brands))
                             @foreach($brands as $brand)
@@ -35,9 +33,7 @@
                     </ul>
                 </div>
                 <div class="nav-item dropdown col-md-6 col-lg-3">
-                    <a class="nav-link dropdown-toggle system-toggle" data-toggle="dropdown" href="#">
-                        @lang('static.BY SYSTEMS')
-                    </a>
+                    <a class="nav-link dropdown-toggle system-toggle" data-toggle="dropdown" href="#">@lang('static.BY SYSTEMS')</a>
                     <ul class="dropdown-menu">
                         @if(!empty($systems))
                             @foreach($systems as $system)

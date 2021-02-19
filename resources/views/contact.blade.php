@@ -49,7 +49,7 @@
                             @endif
                             <div class="col-md-7 col-6">
                                 <div class="serviceContact">@lang('static.Contact us')</div>
-                                <ul class="row">
+                                <div class="social">
                                     {{--@if(!empty($socials) && count($socials))--}}
                                         {{--@foreach($socials as $social)--}}
                                             {{--@if($social->name_en == 'Facebook')--}}
@@ -70,13 +70,22 @@
                                             {{--@endif--}}
                                         {{--@endforeach--}}
                                     {{--@endif--}}
-                                    <li class="col-md-2 col-2"><a target="_blank" href="{{$social->url}}"><img
-                                                    src="{{asset('front/icons/blackFb.svg')}}" alt=""></a></li>
-                                    <li class="col-md-2 col-2"><a target="_blank" href="{{$social->url}}"><img
-                                                    src="{{asset('front/icons/blackGoogle.svg')}}" alt=""></a></li>
-                                    <li class="col-md-2 col-2"><a target="_blank" href="{{$social->url}}"><img
-                                                    src="{{asset('front/icons/blackYouTube.svg')}}" alt=""></a></li>
-                                </ul>
+{{--                                    <li class="col-md-2 col-2">--}}
+                                        <a href="https://www.facebook.com/www.sec.am">
+                                            <div></div>
+                                        </a>
+{{--                                    </li>--}}
+{{--                                    <li class="col-md-2 col-2">--}}
+                                        <a href="https://www.facebook.com/www.sec.am">
+                                            <div></div>
+                                        </a>
+{{--                                    </li>--}}
+{{--                                    <li class="col-md-2 col-2">--}}
+                                        <a href="https://www.facebook.com/www.sec.am">
+                                            <div></div>
+                                        </a>
+{{--                                    </li>--}}
+                                </div>
                             </div>
                         </div>
                     </div>
