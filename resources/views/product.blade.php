@@ -2,7 +2,7 @@
 
 @section('content')
     <main class="singleProductPage">
-        <div class="h1Title">{{ $product->brand->{'title_'.$lang} }}</div>
+        <div class="h1Title">@lang('static.Products')</div>
         <div class="wrapper row">
             <div class="col-xl-6 col-12 position-relative">
                 <div class="singleProduct">
@@ -25,6 +25,7 @@
             </div>
             <div class="col-xl-6 col-12 singleInfo">
                 <h6>{{ $product->{'title_'.$lang} }}</h6>
+                <h6>{{ $product->brand->{'title_'.$lang} }}</h6>
                 <p class="price">{{ $product->price }} @lang('static.AMD')</p>
                 <div class="productDescription">{!!  $product->{'text_'.$lang}  !!}</div>
                 <div class="tags">

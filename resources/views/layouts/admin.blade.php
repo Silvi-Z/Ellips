@@ -55,7 +55,7 @@
 
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+            <li class="nav-item {{Request::is('admin') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Dashboard">
 
                 <a class="nav-link" href="{{  route('admin.index') }}">
 
@@ -67,7 +67,7 @@
 
             </li>
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Products">
+            <li class="nav-item {{Request::is('admin/categories*') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Categories">
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseCategories" data-parent="#exampleAccordion">
 
@@ -95,7 +95,7 @@
 
             </li>
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Clients">
+            <li class="nav-item {{Request::is('admin/clients*') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Clients">
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseClients" data-parent="#exampleAccordion">
 
@@ -124,7 +124,7 @@
             </li>
 
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Brands">
+            <li class="nav-item {{Request::is('admin/brands*') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Brands">
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseBrands" data-parent="#exampleAccordion">
 
@@ -152,7 +152,7 @@
 
             </li>
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Users">
+            <li class="nav-item {{Request::is('admin/systems*') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Systems">
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseUsers" data-parent="#exampleAccordion">
 
@@ -182,7 +182,7 @@
 
 
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Products">
+            <li class="nav-item {{Request::is('admin/products*') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Products">
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProducts" data-parent="#exampleAccordion">
 
@@ -209,7 +209,7 @@
                 </ul>
 
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Products">
+            <li class="nav-item {{Request::is('admin/portfolios*') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Portfolios">
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsePortfolios" data-parent="#exampleAccordion">
 
@@ -239,7 +239,7 @@
 
 
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="FAQ">
+            <li class="nav-item {{Request::is('admin/services*') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Services">
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseFaq">
 
@@ -267,7 +267,7 @@
 
             </li>
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Blogs">
+            <li class="nav-item {{Request::is('admin/blogs*') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Blogs">
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseBlogs">
 
@@ -294,7 +294,7 @@
                 </ul>
 
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cities">
+            <li class="nav-item {{Request::is('admin/cities*') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Cities">
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseCities">
 
@@ -321,7 +321,7 @@
                 </ul>
 
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Social Networks" style="display: none">
+            <li class="nav-item {{Request::is('admin/social_networks*') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Social Networks" style="display: none">
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseNetworks">
 
@@ -348,7 +348,7 @@
                 </ul>
 
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cities">
+            <li class="nav-item {{ (Request::is('admin/contacts') || Request::is('admin/contact_services*')) ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Cities">
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseContactservices">
 
@@ -381,7 +381,7 @@
             </li>
 
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cities">
+            <li class="nav-item {{(Request::is('admin/about') || Request::is('admin/certificates*') || Request::is('admin/histories*') ) ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Cities">
 
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseAbout">
 
@@ -425,7 +425,7 @@
 
             </li>
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+            <li class="nav-item {{Request::is('admin/statistics') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Link">
 
                 <a class="nav-link" href="{{ route('admin.statistics') }}">
 
@@ -436,7 +436,7 @@
                 </a>
 
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+            <li class="nav-item {{Request::is('admin/slider') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Link">
 
                 <a class="nav-link" href="{{ route('admin.slider') }}">
 
