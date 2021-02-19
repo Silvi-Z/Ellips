@@ -36,9 +36,9 @@ return [
     'WHO ARE WE'   => 'WHO ARE WE',
     'CERTIFICATES'   => 'CERTIFICATES',
     '«Ellipse GA» LLC is the first enterprise operating in the field of security systems in Armenia.
-            It was established in 1989 as a specialized professional organization for security technical means
-            design,
-            in the field of production, import, installation and service.'   => '’Ellipse GA’ LLC is the first enterprise operating in the field of security systems in Armenia.
+                 It was established in 1989 as a specialized professional organization for security technical means
+                 design,
+                 in the field of production, import, installation and service.'   => '’Ellipse GA’ LLC is the first enterprise operating in the field of security systems in Armenia.
             It was established in 1989 as a specialized professional organization for security technical means, design, in the field of production, import, installation and service.',
     'OUR EXPERIENCE'   => 'OUR EXPERIENCE',
     'Years of experience'   => 'Years of experience',
@@ -47,8 +47,10 @@ return [
     'High quality specialists'   => 'High-quality specialists',
     'SECURITY ․ QUALITY. RELIABILITY'   => 'SECURITY . QUALITY . RELIABILITY',
     'Services'   => 'Services',
-    'Ellipse GA company also offers separate packages of services, which are'   => '‘Ellipse GA’ company also offers separate packages of services, which are',
+    'Ellipse GA company also offers separate packages of services, which are'   => '‘Ellipse GA’ company also offers separate packages of services, which are the following',
     'They trust us'   => 'They trust us',
-    'Portfolios'   => 'Portfolio',
     'Products և systems'   => 'Products and system',
+    'Portfolios'   => 'Portfolio',
+    'Yerjan Nikoghayos Tigranyan 27'   => 'Երևան Նիկողայոս Տիգրանյան 27',
+    'Gyumri Haghtanak Avenue 42/9'   => 'Գյումրի Հաղթանակի պողոտա 42/9',
 ];
