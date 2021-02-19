@@ -49,7 +49,7 @@
                                 @endforeach
                             @endif
                             <div class="col-md-7 col-6">
-                                <div class="serviceContact">@lang('static.Contact us')</div>
+                                <div class="serviceContact">@lang('static.Follow Us!')</div>
                                 <div class="social">
                                     {{--@if(!empty($socials) && count($socials))--}}
                                         {{--@foreach($socials as $social)--}}
