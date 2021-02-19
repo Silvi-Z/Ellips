@@ -120,7 +120,7 @@ class HomeController extends Controller
 
     public function portfolios()
     {
-        $top_portfolios = Portfolio::where('top',1)->get();
+        $top_portfolios = Portfolio::where('top',1)->paginate(5);
         $portfolios = Portfolio::where('top',0)->get();
         return view('portfolio')->with([
             'portfolios'=>$portfolios,
@@ -190,22 +190,21 @@ class HomeController extends Controller
 
     public function postContact(Request $request,Mailer $mailer)
     {
-        if($request->isMethod('POST')){
-            $request->validate([
-                'name' => 'required',
-                'phone' => 'required',
-                'email' => 'required',
-                'message' => 'required',
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'message' => 'required',
 
-            ]);
-            $mailer->send(new ContactMail(
-                $request->get('email'),
-                $request->all()
-            ));
-            Contact::create($request->all());
-            $request->session()->flash('alert-danger', trans('static.Message has been sent successfully'));
-            return redirect()->back();
-        }
+        ]);
+        $mailer->send(new ContactMail(
+            $request->get('email'),
+            $request->all()
+        ));
+        Contact::create($request->all());
+        $request->session()->flash('alert-danger', trans('static.Message has been sent successfully'));
+        return redirect()->back();
+
     }
     public function getBlogs(Request $request)
     {
@@ -214,6 +213,16 @@ class HomeController extends Controller
         $result['total'] = $blogs->total();
         $result['html'] =  view('ajax.blogs')->with([
             'blogs'=>$blogs
+        ])->render();
+        return response()->json($result);
+    }
+    public function getPortfolios(Request $request)
+    {
+        $top_portfolios = Portfolio::where('top',1)->paginate(5);
+        $result = [];
+        $result['total'] = $top_portfolios->total();
+        $result['html'] =  view('ajax.portfolios')->with([
+            'top_portfolios'=>$top_portfolios
         ])->render();
         return response()->json($result);
     }
