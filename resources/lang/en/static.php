@@ -2,6 +2,8 @@
 return [
     'Company'   => 'Company',
     'Home'   => 'Home',
+    'Contact'   => 'Contact',
+    'Send'   => 'Send',
     'Products / Systems'   => 'Products / Systems',
     'Portfolio'   => 'Portfolio',
     'Blog'   => 'Blog',

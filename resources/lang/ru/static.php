@@ -2,6 +2,8 @@
 return [
     'Company'   => 'Компания',
     'Home'   => 'Главная',
+    'Contact'   => 'Контакт',
+    'Send'   => 'Отправлять',
     'Products / Systems'   => 'Продукция / системы',
     'Portfolio'   => 'Портфолио',
     'Blog'   => 'Блог',

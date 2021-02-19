@@ -127,7 +127,7 @@
                                               placeholder="@lang('static.YOUR MESSAGE')"></textarea>
                                 </label>
                             </div>
-                            <button type="submit">ՈՒղարկել</button>
+                            <button type="submit">@lang('static.Send')</button>
                         </form>
                     </div>
                 </div>
