@@ -1,6 +1,7 @@
 <?php
 return [
     'Company'   => 'Компания',
+    'Home'   => 'Главная',
     'Products / Systems'   => 'Продукция / системы',
     'Portfolio'   => 'Портфолио',
     'Blog'   => 'Блог',

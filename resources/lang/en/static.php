@@ -1,6 +1,7 @@
 <?php
 return [
     'Company'   => 'Company',
+    'Home'   => 'Home',
     'Products / Systems'   => 'Products / Systems',
     'Portfolio'   => 'Portfolio',
     'Blog'   => 'Blog',
