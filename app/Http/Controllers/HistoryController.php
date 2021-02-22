@@ -41,7 +41,7 @@ class HistoryController extends Controller
         $data = $request->except('image');
         $photoName = '';
         if ($request->hasFile('image')) {
-            $photoName = time() . '.' . $request->image->getClientOriginalExtension();
+            $photoName =  md5(microtime()) . '.' . $request->image->getClientOriginalExtension();
             $request->image->move(public_path('files'), $photoName);
 
         }
@@ -93,7 +93,7 @@ class HistoryController extends Controller
         $data = $request->except('image');
 
         if ($request->hasFile('image')) {
-            $photoName = time() . '.' . $request->image->getClientOriginalExtension();
+            $photoName =  md5(microtime()) . '.' . $request->image->getClientOriginalExtension();
             $request->image->move(public_path('files'), $photoName);
             $data['image'] = $photoName;
         }

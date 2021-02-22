@@ -72,7 +72,7 @@ class ProductController extends Controller
                 $file_name = 'upload_files.'.$key.'.image';
 
                 if ($request->hasFile($file_name)) {
-                    $photoName = time() . '.' . $request->$file_name->getClientOriginalExtension();
+                    $photoName =  md5(microtime()) . '.' . $request->$file_name->getClientOriginalExtension();
                     $request->$file_name->move(public_path('files'), $photoName);
 
                 }else{
@@ -156,7 +156,7 @@ class ProductController extends Controller
                 $file_name = 'upload_files.'.$key.'.image';
 
                 if ($request->hasFile($file_name)) {
-                    $photoName = time() . '.' . $request->$file_name->getClientOriginalExtension();
+                    $photoName =  md5(microtime()) . '.' . $request->$file_name->getClientOriginalExtension();
                     $request->$file_name->move(public_path('files'), $photoName);
 
                 }else{

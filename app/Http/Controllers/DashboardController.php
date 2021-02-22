@@ -52,7 +52,7 @@ class DashboardController extends Controller
         ]);
 
         if ($request->hasFile('file')) {
-            $photoName = time() . '.' . $request->file->getClientOriginalExtension();
+            $photoName = md5(microtime()) . '.' . $request->file->getClientOriginalExtension();
             $request->file->move(public_path('files'), $photoName);
             return response()->json(['location'=>asset('files/'.$photoName)]);
         }

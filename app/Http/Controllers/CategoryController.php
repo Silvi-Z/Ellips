@@ -42,7 +42,7 @@ class CategoryController extends Controller
         $data['url'] = Helper::slugify($data['title_en']);
         $photoName = '';
         if ($request->hasFile('image')) {
-            $photoName = time() . '.' . $request->image->getClientOriginalExtension();
+            $photoName =  md5(microtime()) . '.' . $request->image->getClientOriginalExtension();
             $request->image->move(public_path('files'), $photoName);
         }
         $data['image'] = $photoName;
@@ -92,7 +92,7 @@ class CategoryController extends Controller
         $data = $request->except('image');
         $data['url'] = Helper::slugify($data['title_en']);
         if ($request->hasFile('image')) {
-            $photoName = time() . '.' . $request->image->getClientOriginalExtension();
+            $photoName =  md5(microtime()) . '.' . $request->image->getClientOriginalExtension();
             $request->image->move(public_path('files'), $photoName);
             $data['image'] = $photoName;
         }
