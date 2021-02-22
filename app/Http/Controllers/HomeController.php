@@ -92,7 +92,7 @@ class HomeController extends Controller
 
         $products = Product::whereHas('categories',function ($query) use($category){
             $query->where('category_id',$category->id);
-        })->search($request)->paginate(1);
+        })->search($request)->paginate(9);
         $products->appends($request->all());
         return view('productPage')->with([
             'category'=>$category,
@@ -130,7 +130,7 @@ class HomeController extends Controller
     public function portfolioSingle($url)
     {
         $portfolio = Portfolio::where('url', $url)->firstOrFail();
-        $portfolios = Portfolio::where('top',0)->get();
+        $portfolios = Portfolio::where('id','<>',$portfolio->id)->where('top',0)->get();
         return view('portfolioSingle')->with([
             'portfolio'=>$portfolio,
             'portfolios'=>$portfolios,
@@ -148,7 +148,7 @@ class HomeController extends Controller
     public function blog($url)
     {
         $blog = Blog::where('url', $url)->firstOrFail();
-        $blogs = Blog::inRandomOrder()->take(3)->get();
+        $blogs = Blog::where('id','<>',$blog->id)->inRandomOrder()->take(3)->get();
         return view('blog')->with([
             'blog'=>$blog,
             'blogs'=>$blogs,

@@ -2,7 +2,7 @@
 
 
 
-@section('title') Statistics @endsection
+@section('title') Slider @endsection
 
 
 

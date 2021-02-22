@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title') @lang('static.Portfolio') @endsection
 @section('content')
     <main>
         <div class="h1Title">@lang('static.Portfolio')</div>

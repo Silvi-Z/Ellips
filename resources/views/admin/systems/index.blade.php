@@ -82,14 +82,13 @@
 
                     @if($systems)
 
-                        @foreach($systems as $system)
+                        @foreach($systems as $key=>$system)
 
                             <tr>
 
                                 <td>
 
-                                    {{$system -> id}}
-
+                                    {{ ($key+1) }}
                                 </td>
 
                                 <td>{{ $system->title_hy }}</td>

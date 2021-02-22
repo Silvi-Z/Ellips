@@ -82,13 +82,13 @@
 
                     @if($blogs)
 
-                        @foreach($blogs as $blog)
+                        @foreach($blogs as  $key =>$blog)
 
                             <tr>
 
                                 <td>
 
-                                    {{$blog -> id}}
+                                    {{ ($key+1) }}
 
                                 </td>
 

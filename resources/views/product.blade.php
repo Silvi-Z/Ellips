@@ -1,8 +1,9 @@
 @extends('layouts.app')
+@section('title') @lang('static.Products') @endsection
 
 @section('content')
     <main class="singleProductPage">
-        <div class="h1Title">{{ $product->brand->{'title_'.$lang} }}</div>
+        <div class="h1Title">@lang('static.Products')</div>
         <div class="wrapper row">
             <div class="col-xl-6 col-12 position-relative">
                 <div class="singleProduct">
@@ -25,12 +26,16 @@
             </div>
             <div class="col-xl-6 col-12 singleInfo">
                 <h6>{{ $product->{'title_'.$lang} }}</h6>
+                <h6>{{ $product->brand->{'title_'.$lang} }}</h6>
                 <p class="price">{{ $product->price }} @lang('static.AMD')</p>
                 <div class="productDescription">{!!  $product->{'text_'.$lang}  !!}</div>
                 <div class="tags">
                     @foreach($product->systems as $system)
                     <a href="{{route('system',['url'=>$system->url])}}">{{ $system->{'title_'.$lang} }}</a>
                     @endforeach
+                        @foreach($product->categories as $category)
+                            <a href="{{route('category',['url'=>$category->url])}}">{{ $category->{'title_'.$lang} }}</a>
+                        @endforeach
                 </div>
 {{--                <span class="seeAllText"><img src="{{asset('front/icons/arrowSeeMore.svg')}}" alt=""></span>--}}
             </div>

@@ -78,14 +78,13 @@
 
                     @if($contacts)
 
-                        @foreach($contacts as $contact)
+                        @foreach($contacts as $key=>$contact)
 
                             <tr>
 
                                 <td>
 
-                                    {{$contact -> id}}
-
+                                    {{ ($key+1) }}
                                 </td>
 
                                 <td>{{ $contact->name }}</td>

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title') @lang('static.Company') @endsection
 @section('content')
     {{--    $licenses = json_decode(file_get_contents("licenses.json"),true);--}}
     <main class="companyPage">

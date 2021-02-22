@@ -197,14 +197,14 @@
                 <h4>Կապ</h4>
                 <div>
                     <ul>
-                        <li>Երևան Նիկողայոս Տիգրանյան 27</li>
+                        <li>@lang('static.Yerjan Nikoghayos Tigranyan 27')</li>
                         <li>(010) 23 01 07, (010) 23 01 08</li>
                         <li>office@sec.am</li>
                     </ul>
                     <ul>
-                        <li>Երևան Նիկողայոս Տիգրանյան 27</li>
-                        <li>(010) 23 01 07, (010) 23 01 08</li>
-                        <li>office@sec.am</li>
+                        <li>@lang('static.Gyumri Haghtanak Avenue 42/9')</li>
+                        <li>(096) 63 61 03</li>
+                        <li>ellips.gyumri@sec.am</li>
                     </ul>
                 </div>
             </div>
@@ -212,11 +212,11 @@
         <div class="col-lg-3 col-md col follow">
             <h4>@lang('static.Follow Us!')</h4>
             <div class="social">
-                <a href="https://www.facebook.com/www.sec.am">
+                <a target="_blank" href="https://www.facebook.com/www.sec.am">
                     <div></div>
-                </a><a href="https://www.youtube.com/channel/UCFMpy6JYN7D_-Rzjkbp-Crg">
+                </a><a target="_blank" href="https://www.youtube.com/channel/UCFMpy6JYN7D_-Rzjkbp-Crg">
                     <div></div>
-                </a><a href="https://www.google.com/maps/place/ELLIPS+GA/@40.213124,44.521059,15z/data=!4m5!3m4!1s0x0:0xb57ecc12190ddc0f!8m2!3d40.213124!4d44.521059">
+                </a><a target="_blank" href="https://www.google.com/maps/place/ELLIPS+GA/@40.213124,44.521059,15z/data=!4m5!3m4!1s0x0:0xb57ecc12190ddc0f!8m2!3d40.213124!4d44.521059">
                     <div></div>
                 </a>
             </div>

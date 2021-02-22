@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title') @lang('static.Contact us') @endsection
 
 @section('content')
     <main class="contactPageWrapper">
@@ -48,7 +49,7 @@
                                 @endforeach
                             @endif
                             <div class="col-md-7 col-6">
-                                <div class="serviceContact">@lang('static.Contact us')</div>
+                                <div class="serviceContact">@lang('static.Follow Us!')</div>
                                 <div class="social">
                                     <a href="https://www.facebook.com/www.sec.am">
                                         <div></div>
@@ -100,7 +101,7 @@
                                               onfocus="this.placeholder = ''" onblur="this.placeholder = '@lang('static.YOUR MESSAGE')'" placeholder="@lang('static.YOUR MESSAGE')"></textarea>
                                 </label>
                             </div>
-                            <button type="submit">ՈՒղարկել</button>
+                            <button type="submit">@lang('static.Send')</button>
                         </form>
                     </div>
                 </div>

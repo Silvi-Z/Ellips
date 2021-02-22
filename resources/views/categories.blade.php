@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title') @lang('static.products and systems') @endsection
 @section('content')
     <main class="productsPage wrapper">
         <div class="h1Title">@lang('static.products and systems')</div>
@@ -11,7 +11,7 @@
                         <label>
                             <input data-name="category" name="search" class="searchInput" type="text" value="{{$search}}" placeholder=" @lang('static.Search')">
                         </label>
-                        <button class="searchButton btn-dark" type="input">փնտրել</button>
+                        <button class="searchButton btn-dark" type="input">@lang('static.Search')</button>
                     </div>
                 </form>
                 <div class="nav-item dropdown col-md-4">

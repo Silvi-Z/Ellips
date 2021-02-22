@@ -19,6 +19,10 @@ class Localization
         {
             \App::setlocale(\Session::get('locale'));
         }
+        if(request()->is('admin/*')){
+            app()->setLocale( 'en');
+
+        }
         return $next($request);
     }
 }

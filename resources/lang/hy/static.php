@@ -2,6 +2,8 @@
 return [
     'Company'   => 'Ընկերություն',
     'Home'   => 'Գլխավոր',
+    'Contact'   => 'Կապ',
+    'Send'   => 'Ուղարկել',
     'Products / Systems'   => 'Ապրանքներ / համակարգեր',
     'Portfolio'   => 'Պորտֆոլիո',
     'Blog'   => 'Բլոգ',
@@ -51,7 +53,8 @@ return [
     'They trust us'   => 'Մեզ վստահում են',
     'Portfolios'   => 'Պորտֆոլիո',
     'Products և systems'   => 'Ապրանքեր և համակարգեր',
-    'HISTORY'   => 'ՊԱՏՄՈՒԹՅՈՒՆ',
+    'Yerjan Nikoghayos Tigranyan 27'   => 'Երևան Նիկողայոս Տիգրանյան 27',
+    'Gyumri Haghtanak Avenue 42/9'   => 'Գյումրի Հաղթանակի պողոտա 42/9',
     'HISTORY'   => 'ՊԱՏՄՈՒԹՅՈՒՆ',
 
 ];

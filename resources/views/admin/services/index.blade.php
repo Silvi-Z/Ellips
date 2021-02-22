@@ -86,14 +86,13 @@
 
                     @if($services)
 
-                        @foreach($services as $service)
+                        @foreach($services as $key=>$service)
 
                             <tr>
 
                                 <td>
 
-                                    {{$service -> id}}
-
+                                    {{ ($key+1) }}
                                 </td>
 
                                 <td>{{ $service->title_hy }}</td>
