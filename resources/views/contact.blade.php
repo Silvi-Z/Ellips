@@ -39,7 +39,7 @@
                             @endif
                             @if(!empty($contact_services) && count($contact_services))
                                 @foreach($contact_services as $contact_service)
-                                    <div class="col-md-4 col-6">
+                                    <div class="col-md-12 col-6">
                                         <div>
                                             <div class="serviceContact">{{ $contact_service->{'title_'.$lang} }}</div>
                                             <p class="numbers">{{ $contact_service->phone }}</p>

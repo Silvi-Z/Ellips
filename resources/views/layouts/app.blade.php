@@ -35,7 +35,7 @@
     </script>
 </head>
 <body>
-<header class="d-flex justify-content-center w-100 align-items-center">
+<header class="d-flex justify-content-center w-100 align-items-center justify-content-center">
     <section class="d-flex flex-column align-items-center">
         <div class="row d-flex flex-row justify-content-between w-100 align-items-center">
             <a class="col navbar-brand d-flex align-items-center text-decoration-none text-dark logo"

@@ -194,7 +194,7 @@
                                 </div>
                             </a>
                             @endforeach
-                                <a href="{{route('blogs')}}">
+                                <a class="blogButton" href="{{route('blogs')}}">
                                     <button class="button btn">@lang('static.See more')</button>
                                 </a>
                         </div>
