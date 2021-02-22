@@ -15,20 +15,20 @@
                  in the field of production, import, installation and service.')</div>
             <div class="row ourExperienceNumbers">
                 <div class="col text-light">
-                    <div class="experienceCount" data-number="30">{{isset($statistic)?$statistic->year_exp:0}}+</div>
+                    <div class="experienceCount" data-number="30"></div>
                     <div>@lang('static.Years of experience')</div>
                 </div>
                 <div class="col text-light">
-                    <div class="experienceCount" data-number="250">{{isset($statistic)?$statistic->works:0}}+</div>
+                    <div class="experienceCount" data-number="250"></div>
                     <div>@lang('static.Implemented projects')</div>
                 </div>
                 <div class="w-100"></div>
                 <div class="col">
-                    <div class="experienceCount" data-number="40">{{isset($statistic)?$statistic->work_brands:0}}+</div>
+                    <div class="experienceCount" data-number="40"></div>
                     <div>@lang('static.Specialized brands')</div>
                 </div>
                 <div class="col">
-                    <div class="experienceCount" data-number="100">{{isset($statistic)?$statistic->exp_workers:0}}+</div>
+                    <div class="experienceCount" data-number="100"></div>
                     <div>@lang('static.High quality specialists')</div>
                 </div>
             </div>

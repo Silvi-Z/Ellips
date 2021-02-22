@@ -19,15 +19,18 @@
                         <div class="description">
                             <p>{!! $blog->{'text_'.$lang} !!}</p>
                         </div>
+
+                        @if(!empty($blog->images) && count($blog->images)>1)
                         <div>
-                            <span></span>
                             <div class="sliderBlog">
-                                @if(!empty($blog->images) && count($blog->images))
                                     @foreach($blog->images as  $image)
-                                        @if($image->image_name && asset('files/'.$image->image_name) != $blog->first_image())
-                                            <div class="modalSpan" data-toggle="modal" data-target="#blogModalSlide">
-                                                <img class="modalImg" src="{{asset('files/'.$image->image_name)}}" alt="img">
-                                            </div>
+                                        @if($image->image_name )
+                                            @if(asset('files/'.$image->image_name) != $blog->first_image())
+
+                                                <div class="modalSpan" data-toggle="modal" data-target="#blogModalSlide">
+                                                    <img class="modalImg" src="{{asset('files/'.$image->image_name)}}" alt="img">
+                                                </div>
+                                            @endif
                                         @else
                                             <div class="modalSpan" data-toggle="modal" data-target="#blogModalSlide">
                                                 <iframe width="100%" src="{{$image->video}}">
@@ -35,25 +38,25 @@
                                             </div>
                                         @endif
                                     @endforeach
-                                @endif
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
                 <div class="wrapper">
                     @if(!empty($blogs) && count($blogs))
-                        @foreach($blogs as $blog)
-                            <a href="{{route('blog',['url'=>$blog->url])}}">
+                        @foreach($blogs as $sblog)
+                            <a href="{{route('blog',['url'=>$sblog->url])}}">
                                 <div class="blog d-flex align-items-center justify-content-between">
                                     <div class="d-flex justify-content-center">
                                         <div class="imgVideoWrapper">
-                                            <img src="{{$blog->first_image()}}" alt="">
+                                            <img src="{{$sblog->first_image()}}" alt="">
                                         </div>
                                         <div class="d-flex flex-wrap ">
                                             <div>
-                                                <h4>{{ $blog->{'title_'.$lang} }}</h4>
+                                                <h4>{{ $sblog->{'title_'.$lang} }}</h4>
                                             </div>
-                                            <p>{{date('m.d.Y'),strtotime($blog->updated_at)}}</p>
+                                            <p>{{date('m.d.Y'),strtotime($sblog->updated_at)}}</p>
                                             <span class="navigateBtn"></span>
                                         </div>
                                     </div>
@@ -61,19 +64,6 @@
                             </a>
                         @endforeach
                     @endif
-                </div>
-            </div>
-            <div class="modal fade " id="blogModalSlide" tabindex="-1" role="dialog" aria-labelledby="blogModalSlide"
-                 aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true"></span>
-                        </div>
-                        <div class="modal-body">
-                            <img class="modalOpen" src="" alt="">
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

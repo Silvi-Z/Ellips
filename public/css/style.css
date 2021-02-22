@@ -29,12 +29,15 @@
     display: flex;
     justify-content: space-between;
 }
-.add_file_blog{
-    margin-top: 10px;
-}
+/*.add_file_blog{*/
+/*    margin-top: 10px;*/
+/*}*/
 .add_file_blog, .delete{
     cursor: pointer;
     outline: none;
+}
+.form-blog{
+    min-height: 60px;
 }
 .delete{
     height: 22px;
@@ -67,6 +70,18 @@
 
 
 
-.edit-btn, .emailInput, .addresses > div{
+.edit-btn, .emailInput, .addresses > div, .phoneAddress{
+    /*width: 90%;*/
+    display: flex;
     margin-bottom: 10px;
+}
+.delete_row{
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    outline: none;
+}
+.addressrow > div, .address > div{
+    width: 27%;
+    margin:0 15px;
 }

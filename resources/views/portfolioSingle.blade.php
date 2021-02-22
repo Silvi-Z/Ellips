@@ -15,10 +15,12 @@
                         <div class="sliderPortfolio">
                             @if(!empty($portfolio->images) && count($portfolio->images))
                                 @foreach($portfolio->images as  $image)
-                                    @if($image->image_name && asset('files/'.$image->image_name) != $portfolio->first_image())
-                                        <div class="modalSpan" data-toggle="modal" data-target="#blogModalSlide">
-                                            <img src="{{asset('files/'.$image->image_name)}}" alt="img">
-                                        </div>
+                                    @if($image->image_name)
+                                        @if(asset('files/'.$image->image_name) != $portfolio->first_image())
+                                            <div class="modalSpan" data-toggle="modal" data-target="#blogModalSlide">
+                                                <img src="{{asset('files/'.$image->image_name)}}" alt="img">
+                                            </div>
+                                        @endif
                                     @else
                                         <div>
                                             <iframe width="100%"

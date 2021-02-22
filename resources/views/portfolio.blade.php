@@ -57,7 +57,7 @@
                                     <div class="imgVideoWrapper">
                                         <img src="{{$portfolio->first_image()}}" alt="">
                                     </div>
-                                    <div class="d-flex flex-column justify-content-center">
+                                    <div class="d-flex flex-column justify-content-center align-items-center">
                                         <h4>{{ $portfolio->{'title_'.$lang} }}</h4>
                                     </div>
                                 </div>

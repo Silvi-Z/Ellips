@@ -47,7 +47,7 @@ $(document).ready(function () {
         slidesToShow: 1,
         slidesToScroll: 1,
         cssEase: 'linear',
-        dots: $('.sliderPortfolio .slick-slide').length > 1 ? true : false,
+        dots: $('.sliderPortfolio .modalSpan').length > 1 ? true : false,
     });
 
     $('.sliderBlog').slick({
@@ -61,30 +61,18 @@ $(document).ready(function () {
     function slideCount(slider) {
         let currentSlide = slider.slick('slickCurrentSlide') + 1;
         let slideCount = slider.slick("getSlick").slideCount;
-        let p = $(".sliderBlog .slick-dots")
-        p.html(currentSlide + '/' + slideCount);
+        let p = $(".slick-dots")[0]
+        p.innerHTML = currentSlide + '/' + slideCount;
+        // slider[0].childNodes.item(6).innerHtml = currentSlide + '/' + slideCount;
     }
 
-    if ($('.selectButtons').length) {
-        const selectButton = $('.selectButtons')[0].children;
-        Array.from(selectButton).forEach((button, index) => {
-            locationCheck(button, selectButton[index].getAttribute('data-select'), index)
-            button.addEventListener('click', (e) => {
-                locationCheck(e.target, e.target.getAttribute('data-select'), index)
-            })
+    if ($('.selectButtons')) {
+        $('.selectButtons a').each(function () {
+            if ($(this)[0].href === window.location.href) {
+                $(this).addClass('activeButton')
+                $(this).parent().siblings().removeClass('activeButton')
+            }
         })
-    }
-
-    function locationCheck(button, type, i) {
-        // console.log(button);
-        // let it = [type.includes(' ') ? type.split(' ')[i] : type]
-        // console.log(it);
-        // if (it.some =()=>{ window.location.pathname.split('/')[1] }) {
-        //     button.classList.add('activeButton')
-        //     console.dir(button);
-        //     console.log(button.parentNode.childNodes);
-        //     // button.sibling.classList.remove('activeButton')
-        // }
     }
 
     $('.imgVideo').length > 0 && slideCount($('.imgVideo'));
@@ -93,7 +81,11 @@ $(document).ready(function () {
 
     $('.singleProduct').length > 0 && slideCount($('.singleProduct'));
 
+    $('.sliderPortfolio').length > 0 && slideCount($('.sliderPortfolio'));
+
     $('.imgVideo').on("afterChange", () => slideCount($('.imgVideo')));
+
+    $('.sliderPortfolio').on("afterChange", () => slideCount($('.sliderPortfolio')));
 
     $('.singleProduct').on("afterChange", () => slideCount($('.singleProduct')));
 
@@ -105,7 +97,7 @@ $(document).ready(function () {
 
     function activeDropdown(active, title) {
         if (active.length > 0) {
-            title.html(active.html())
+            title.innerHtml = active.innerHtml
         }
     }
 
@@ -239,35 +231,28 @@ $(document).ready(function () {
     })
 
 
-    document.querySelectorAll('.modalSpan').forEach(item => {
-        item.addEventListener('click', () => {
-            $('.modalOpen')[0].src = item.children[0].src
-        })
+    $('.modalSpan').each(function () {
+        $(this).click(function () {
+            $('.modalOpen')[0].src = $(this).children()[0].src
+        });
     })
-    // $('.blogSlider span').addEventListener('click', ()=>{
-    //     $('.modalOpen')[0].src = item.children[0].src
-    // })
-    // function openModal(openElement, modal) {
-    //     openElement.forEach(item => {
-    //         item.addEventListener('click', () => {
-    //             $('.modalOpen')[0].src = item.children[0].src
-    //         })
-    //     })
-    // }
-    window.onresize=()=> licensesMargin();
 
-    let lastValue = $('.licensesTitle')[0] && $('.licensesTitle')[0].offsetLeft;
+    window.onresize = () => licensesMargin();
+
+    const licensesTitle = document.querySelector('.licensesTitle');
+
+    let lastValue = licensesTitle && licensesTitle.offsetLeft;
     let newValue;
-    let marginLeft = $('.licensesSlideWrapper:first-of-type').css('marginLeft')
+    let marginLeft = licensesTitle && document.querySelector('.licensesSlideWrapper:first-of-type').offsetLeft
 
-    function licensesMargin(){
-        if ($('.licensesTitle')[0] && window.innerWidth > 1024){
-            newValue = $('.licensesTitle')[0].offsetLeft;
-            let marginLeftNumber = Number(marginLeft.substring(0, marginLeft.length - 2))
-            newValue = Math.abs((marginLeftNumber + lastValue - lastValue + newValue))
-            $('.licensesSlideWrapper:first-of-type').css('marginLeft', newValue + 'px')
+    function licensesMargin() {
+        if (licensesTitle && window.innerWidth > 1024) {
+            newValue = licensesTitle.offsetLeft;
+            newValue = Math.abs((marginLeft + lastValue - lastValue + newValue));
+            document.querySelector('.licensesSlideWrapper:first-of-type').style.marginLeft = newValue + 'px';
         }
     }
+
     licensesMargin()
 
     $('.bigImgVideo').slick({
@@ -295,29 +280,6 @@ $(document).ready(function () {
         menu.toggle('d-flex');
         header.toggle('whiteBackground')
         section.toggle('whiteBackground')
-    })
-
-    const elements = document.querySelectorAll(".experienceCount");
-
-
-    // window.onscroll=()=>{
-    //     console.log(elements[0].getBoundingClientRect().top + (elements[0].clientHeight*2));
-    //     console.log('clientHeight',elements[0].clientHeight);
-    //     console.log(window.scrollY);
-    // }
-    elements.forEach((e) => {
-        const finalCount = Number(e.getAttribute('data-number'));
-        let counter = 0;
-        const timer = setInterval(() => {
-
-            if (counter === finalCount) {
-                e.innerHTML = counter + '+';
-                clearInterval(timer)
-            } else {
-                counter++;
-                e.innerHTML = counter + '+';
-            }
-        }, 0.1)
     })
 
     const lang = [
@@ -415,23 +377,46 @@ $(document).ready(function () {
 
     function circleAnimation() {
         if (document.querySelector('.circles')) {
-            console.log('sdfsdfsdf');
             const top = document.querySelector('.circles').getBoundingClientRect().top
             const redCircle = document.querySelector('.redCircle')
             const transparentCircle = document.querySelector('.transparentCircle')
             const blueCircle = document.querySelector('.blueCircle')
-
+            const elements = document.querySelectorAll(".experienceCount");
+            console.log(document.querySelector('.circles').offsetTop);
+            console.log('scrollY', window.scrollY);
             if (top > 0 && top <= window.innerHeight - 200) {
+                if (top > 0 && top <= window.innerHeight - 100) {
+                    elements.forEach((e) => {
+                        const finalCount = Number(e.getAttribute('data-number'));
+                        let counter = 0;
+                        const timer = setInterval(() => {
+                            if (counter === finalCount) {
+                                e.innerHTML = counter + '+';
+                                clearInterval(timer)
+                            } else if (e.innerHTML !== finalCount + '+') {
+                                counter++;
+                                e.innerHTML = counter + '+';
+                            }
+                        }, 0.1)
+                    })
+                }
                 redCircle.classList.add('redCirclePosition')
                 transparentCircle.classList.add('transparentCirclePosition')
                 blueCircle.classList.add('blueCirclePosition')
-            } else if (window.scrollY >= document.querySelector('.circles').offsetTop - 1000) {
+            } else if (window.scrollY >= document.querySelector('.circles').offsetTop) {
                 $('.redCircle')[0].classList.add('redCirclePosition')
                 $('.transparentCircle')[0].classList.add('transparentCirclePosition')
                 $('.blueCircle')[0].classList.add('blueCirclePosition')
+                elements.forEach((e) => {
+                    console.log('sad');
+                    const finalCount = Number(e.getAttribute('data-number'));
+                    e.innerHTML = finalCount + '+'
+                })
+
             }
         }
     }
+
 
     circleAnimation()
 
@@ -487,15 +472,18 @@ $(document).ready(function () {
             }
         })
     });
-    $('.imagesSlide').on('swipe', function (event, slick, direction) {
-        if (direction === 'left') {
-            $('.textSlide').slick("slickNext")
-        } else {
-            $('.textSlide').slick("slickPrev")
-        }
 
-        // left
-    });
+    swipeSlide($('.imagesSlide'), $('.textSlide'))
+    swipeSlide($('.textSlide') ,$('.imagesSlide'))
+    function swipeSlide(slide, otherSlide){
+        slide.on('swipe', function (event, slick, direction) {
+            if (direction === 'left') {
+                otherSlide.slick("slickNext")
+            } else {
+                otherSlide.slick("slickPrev")
+            }
+        });
+    }
 
     let didScroll;
     let lastScrollTop = 0;

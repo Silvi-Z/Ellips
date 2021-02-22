@@ -88,16 +88,16 @@
                 @if(isset($city) && $city->city_addresses)
                     @foreach($city->city_addresses as $city_address)
                         <div class="row addressrow">
-                            <div class="col-4"><input class="form-control" name="adresses[0][title_hy]" type="text" value="{{$city_address->title_hy}}" placeholder="AM"></div>
-                            <div class="col-4"><input class="form-control" name="adresses[0][title_ru]" type="text" value="{{$city_address->title_ru}}" placeholder="RU"></div>
-                            <div class="col-4"><input class="form-control" name="adresses[0][title_en]" type="text" value="{{$city_address->title_en}}" placeholder="EN"></div> <span class="delete_row">X</span>
+                            <div><input class="form-control" name="adresses[0][title_hy]" type="text" value="{{$city_address->title_hy}}" placeholder="AM"></div>
+                            <div><input class="form-control" name="adresses[0][title_ru]" type="text" value="{{$city_address->title_ru}}" placeholder="RU"></div>
+                            <div><input class="form-control" name="adresses[0][title_en]" type="text" value="{{$city_address->title_en}}" placeholder="EN"></div> <span class="delete_row">X</span>
                         </div>
                     @endforeach
                 @else
                     <div class="row addressrow">
-                        <div class="col-4"><input class="form-control" name="adresses[0][title_hy]" type="text" value="" placeholder="AM"></div>
-                        <div class="col-4"><input class="form-control" name="adresses[0][title_ru]" type="text" value="" placeholder="RU"></div>
-                        <div class="col-4"><input class="form-control" name="adresses[0][title_en]" type="text" value="" placeholder="EN"></div>
+                        <div><input class="form-control" name="adresses[0][title_hy]" type="text" value="" placeholder="AM"></div>
+                        <div><input class="form-control" name="adresses[0][title_ru]" type="text" value="" placeholder="RU"></div>
+                        <div><input class="form-control" name="adresses[0][title_en]" type="text" value="" placeholder="EN"></div>
                     </div>
                 @endif
 
@@ -179,18 +179,18 @@
             $(this).parent().remove();
         })
         $(document).on('click', '#add_email', function () {
-            $('.emails-group').append(' <div class="emailAddress emailInput"><input  class="form-control" name="emails[][email]" type="text" value="" ><spam class="delete_row">X</span></div>')
+            $('.emails-group').append(' <div class="emailAddress emailInput"><input  class="form-control" name="emails[][email]" type="text" value="" ><button class="delete_row">X</button></div>')
         })
         $(document).on('click', '#add_phone', function () {
-            $('.phone-group').append(' <div class="phoneAddress"><input  class="form-control" name="phones[][phone]" type="text" value="" ><spam class="delete_row">X</span></div>')
+            $('.phone-group').append(' <div class="phoneAddress"><input  class="form-control" name="phones[][phone]" type="text" value="" ><button class="delete_row">X</button></div>')
         })
         $(document).on('click', '#add_adrress', function () {
             var count = $('.addressrow').length;
             $('.address-group').append(' <div class="row address" >\n' +
-                '                        <div class="col-4"><input class="form-control" name="adresses['+count+'][title_hy]" type="text" value="" placeholder="AM"></div>\n' +
-                '                        <div class="col-4"><input class="form-control" name="adresses['+count+'][title_ru]" type="text" value="" placeholder="RU"></div>\n' +
-                '                        <div class="col-4"><input class="form-control" name="adresses['+count+'][title_en]" type="text" value="" placeholder="EN"></div>\n' +
-                '                    <spam class="delete_row">X</span></div>')
+                '                        <div><input class="form-control" name="adresses['+count+'][title_hy]" type="text" value="" placeholder="AM"></div>\n' +
+                '                        <div><input class="form-control" name="adresses['+count+'][title_ru]" type="text" value="" placeholder="RU"></div>\n' +
+                '                        <div><input class="form-control" name="adresses['+count+'][title_en]" type="text" value="" placeholder="EN"></div>\n' +
+                '                    <button class="delete_row">X</button></div>')
         })
     </script>
 @endsection
