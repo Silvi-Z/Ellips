@@ -1,5 +1,5 @@
 
-<div class="form-group form {{$page}}"
+<div class="form-group form form-blog {{$page}}"
      style="border: 1px solid #ccc; padding: 10px; display: flex; flex-direction: column">
     <button class="button add_file_blog"><i class="fa fa-plus-square" aria-hidden="true"></i></button>
 @if($item)

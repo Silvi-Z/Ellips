@@ -297,29 +297,6 @@ $(document).ready(function () {
         section.toggle('whiteBackground')
     })
 
-    const elements = document.querySelectorAll(".experienceCount");
-
-
-    // window.onscroll=()=>{
-    //     console.log(elements[0].getBoundingClientRect().top + (elements[0].clientHeight*2));
-    //     console.log('clientHeight',elements[0].clientHeight);
-    //     console.log(window.scrollY);
-    // }
-    elements.forEach((e) => {
-        const finalCount = Number(e.getAttribute('data-number'));
-        let counter = 0;
-        const timer = setInterval(() => {
-
-            if (counter === finalCount) {
-                e.innerHTML = counter + '+';
-                clearInterval(timer)
-            } else {
-                counter++;
-                e.innerHTML = counter + '+';
-            }
-        }, 0.1)
-    })
-
     const lang = [
         {
             text: "Facebook",
@@ -415,23 +392,46 @@ $(document).ready(function () {
 
     function circleAnimation() {
         if (document.querySelector('.circles')) {
-            console.log('sdfsdfsdf');
             const top = document.querySelector('.circles').getBoundingClientRect().top
             const redCircle = document.querySelector('.redCircle')
             const transparentCircle = document.querySelector('.transparentCircle')
             const blueCircle = document.querySelector('.blueCircle')
-
+            const elements = document.querySelectorAll(".experienceCount");
+            console.log(document.querySelector('.circles').offsetTop);
+            console.log('scrollY',window.scrollY);
             if (top > 0 && top <= window.innerHeight - 200) {
+                if (top > 0 && top <= window.innerHeight - 100) {
+                    elements.forEach((e) => {
+                        const finalCount = Number(e.getAttribute('data-number'));
+                        let counter = 0;
+                        const timer = setInterval(() => {
+                            if (counter === finalCount) {
+                                e.innerHTML = counter + '+';
+                                clearInterval(timer)
+                            } else if (e.innerHTML!==finalCount+'+'){
+                                counter++;
+                                e.innerHTML = counter + '+';
+                            }
+                        }, 0.1)
+                    })
+                }
                 redCircle.classList.add('redCirclePosition')
                 transparentCircle.classList.add('transparentCirclePosition')
                 blueCircle.classList.add('blueCirclePosition')
-            } else if (window.scrollY >= document.querySelector('.circles').offsetTop - 1000) {
+            } else if (window.scrollY >= document.querySelector('.circles').offsetTop) {
                 $('.redCircle')[0].classList.add('redCirclePosition')
                 $('.transparentCircle')[0].classList.add('transparentCirclePosition')
                 $('.blueCircle')[0].classList.add('blueCirclePosition')
+                elements.forEach((e) => {
+                    console.log('sad');
+                    const finalCount = Number(e.getAttribute('data-number'));
+                  e.innerHTML = finalCount + '+'
+                })
+
             }
         }
     }
+
 
     circleAnimation()
 

@@ -916,14 +916,24 @@ input:focus::placeholder {
 }
 
 
-.portfolio button {
-    background: #FFFFFF;
-    color: black;
+.see_more_portfolios {
+    margin: auto;
     border: none;
 }
 
 .portfolio a {
     margin: auto;
+}
+.homePage .portfolio .button{
+    color: black;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    border: none;
+}
+.homePage .portfolio .button:hover,  .homePage .blogs button:hover, .see_more_portfolios:hover{
+    background-color: black;
+    transition: .2s;
+    color: #FFFFFF;
 }
 
 .button {
@@ -931,8 +941,6 @@ input:focus::placeholder {
     height: 60px;
     border-radius: 30px;
     outline: none;
-    /*border: none;*/
-    /*font-size: 16px;*/
     letter-spacing: .15px;
     line-height: 20px;
 }
@@ -1093,11 +1101,16 @@ input:focus::placeholder {
 .navigateBtn {
     height: 50px;
     width: 50px;
+    transition: .2s;
     border: 1px solid #7A8086;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+button:focus{
+    border: none;
+    box-shadow: none!important;
 }
 
 .archivePortfolio span {
@@ -2879,8 +2892,14 @@ form button {
 .overflow {
     overflow: hidden;
 }
+.btn-dark:hover{
+    transition: .2s;
+    background-color: white;
+    border-color: #CFD9E2;
+    color: black;
+}
 
-.homePage .blogs button {
+.homePage .blogs button, .see_more_portfolios {
     background-color: #CFD9E2;
     border-color: #CFD9E2;
     color: black;

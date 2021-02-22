@@ -50,41 +50,15 @@
                             <div class="col-md-7 col-6">
                                 <div class="serviceContact">@lang('static.Contact us')</div>
                                 <div class="social">
-                                    {{--@if(!empty($socials) && count($socials))--}}
-                                        {{--@foreach($socials as $social)--}}
-                                            {{--@if($social->name_en == 'Facebook')--}}
-                                                {{--<li class="col-md-2 col-2"><a target="_blank"--}}
-                                                                              {{--href="{{$social->url}}"><img--}}
-                                                                {{--src="{{asset('front/icons/blackFb.svg')}}" alt=""></a>--}}
-                                                {{--</li>--}}
-                                            {{--@elseif($social->name_en == 'Google')--}}
-                                                {{--<li class="col-md-2 col-2"><a target="_blank"--}}
-                                                                              {{--href="{{$social->url}}"><img--}}
-                                                                {{--src="{{asset('front/icons/blackGoogle.svg')}}"--}}
-                                                                {{--alt=""></a></li>--}}
-                                            {{--@else--}}
-                                                {{--<li class="col-md-2 col-2"><a target="_blank"--}}
-                                                                              {{--href="{{$social->url}}"><img--}}
-                                                                {{--src="{{asset('front/icons/blackYouTube.svg')}}" alt=""></a>--}}
-                                                {{--</li>--}}
-                                            {{--@endif--}}
-                                        {{--@endforeach--}}
-                                    {{--@endif--}}
-{{--                                    <li class="col-md-2 col-2">--}}
-                                        <a href="https://www.facebook.com/www.sec.am">
-                                            <div></div>
-                                        </a>
-{{--                                    </li>--}}
-{{--                                    <li class="col-md-2 col-2">--}}
-                                        <a href="https://www.youtube.com/channel/UCFMpy6JYN7D_-Rzjkbp-Crg">
-                                            <div></div>
-                                        </a>
-{{--                                    </li>--}}
-{{--                                    <li class="col-md-2 col-2">--}}
-                                        <a href="https://www.google.com/maps/place/ELLIPS+GA/@40.213124,44.521059,15z/data=!4m5!3m4!1s0x0:0xb57ecc12190ddc0f!8m2!3d40.213124!4d44.521059">
-                                            <div></div>
-                                        </a>
-{{--                                    </li>--}}
+                                    <a href="https://www.facebook.com/www.sec.am">
+                                        <div></div>
+                                    </a>
+                                    <a href="https://www.youtube.com/channel/UCFMpy6JYN7D_-Rzjkbp-Crg">
+                                        <div></div>
+                                    </a>
+                                    <a href="https://www.google.com/maps/place/ELLIPS+GA/@40.213124,44.521059,15z/data=!4m5!3m4!1s0x0:0xb57ecc12190ddc0f!8m2!3d40.213124!4d44.521059">
+                                        <div></div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +71,7 @@
                                     @if ($errors->has('name'))
                                         <span class="errorMessage">{{ $errors->first('name') }} </span>
                                     @endif
-                                    <input id="name" name="name" type="text" placeholder="@lang('static.YOUR NAME')">
+                                    <input id="name" name="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = '@lang('static.YOUR NAME')'" placeholder="@lang('static.YOUR NAME')">
                                 </label>
                             </div>
                             <div class="d-flex flex-column w-100 justify-content-end">
@@ -106,7 +80,7 @@
                                         <span class="errorMessage">{{ $errors->first('email') }} </span>
                                     @endif
                                     <input id="email" name="email" type="email"
-                                           placeholder="@lang('static.YOUR EMAIL')">
+                                           onfocus="this.placeholder = ''" onblur="this.placeholder = '@lang('static.YOUR EMAIL')'" placeholder="@lang('static.YOUR EMAIL')">
                                 </label>
                             </div>
                             <div class="d-flex flex-column w-100 justify-content-end">
@@ -114,7 +88,7 @@
                                     @if ($errors->has('phone'))
                                         <span class="errorMessage">{{ $errors->first('phone') }} </span>
                                     @endif
-                                    <input id="phone" name="phone" type="tel" placeholder="@lang('static.YOUR PHONE')">
+                                    <input id="phone" name="phone" type="tel" onfocus="this.placeholder = ''" onblur="this.placeholder = '@lang('static.YOUR PHONE')'" placeholder="@lang('static.YOUR PHONE')">
                                 </label>
                             </div>
                             <div class="d-flex flex-column w-100 justify-content-end">
@@ -123,7 +97,7 @@
                                         <span class="errorMessage">{{ $errors->first('message') }} </span>
                                     @endif
                                     <textarea rows="1" id="message" name="message" type="textarea"
-                                              placeholder="@lang('static.YOUR MESSAGE')"></textarea>
+                                              onfocus="this.placeholder = ''" onblur="this.placeholder = '@lang('static.YOUR MESSAGE')'" placeholder="@lang('static.YOUR MESSAGE')"></textarea>
                                 </label>
                             </div>
                             <button type="submit">ՈՒղարկել</button>

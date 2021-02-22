@@ -120,7 +120,7 @@
                     <div class="portfolioSmallImages row">
                         @if(!empty($portfolios) && count($portfolios))
                             @foreach($portfolios as $key => $portfolio)
-                                @if($key == 0)
+                                @if($key > 0)
                                     <div class="col-12 col-md-6">
                                         <div class="portfolioContainer">
                                             <img src="{{$portfolio->first_image()}}" alt="">
@@ -195,7 +195,7 @@
                             </a>
                             @endforeach
                                 <a href="{{route('blogs')}}">
-                                    <button class="button btn btn-dark">@lang('static.See more')</button>
+                                    <button class="button btn">@lang('static.See more')</button>
                                 </a>
                         </div>
                     </div>
