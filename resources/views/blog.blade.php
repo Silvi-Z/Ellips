@@ -24,7 +24,7 @@
                             <div class="sliderBlog">
                                 @if(!empty($blog->images) && count($blog->images))
                                     @foreach($blog->images as  $image)
-                                        @if($image->image_name)
+                                        @if($image->image_name && asset('files/'.$image->image_name) != $blog->first_image())
                                             <div class="modalSpan" data-toggle="modal" data-target="#blogModalSlide">
                                                 <img class="modalImg" src="{{asset('files/'.$image->image_name)}}" alt="img">
                                             </div>
