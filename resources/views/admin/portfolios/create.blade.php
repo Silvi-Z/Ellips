@@ -210,6 +210,24 @@
             menubar: false,
             height: 200,
             toolbar: "bold italic fontselect | removeformat | undo redo | styleselect | alignleft aligncenter alignright alignjustify | fontsizeselect forecolor",
+            valid_elements : ""
+                +"a[href|target],"
+                +"b,"
+                +"br,"
+                +"font[color|face|size],"
+                +"img[src|id|width|height|align|hspace|vspace],"
+                +"i,"
+                +"li,"
+                +"p[align|class],"
+                +"h1,"
+                +"h2,"
+                +"h3,"
+                +"h4,"
+                +"h5,"
+                +"h6,"
+                +"span[class],"
+                +"textformat[blockindent|indent|leading|leftmargin|rightmargin|tabstops],"
+                +"u"
         });
     </script>
 @endsection
