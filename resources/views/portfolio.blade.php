@@ -51,7 +51,7 @@
                 <div class="archive">
 
                     @foreach($portfolios as $portfolio)
-                        <a href="{{route('portfolio',['url'=>$portfolio->url])}}">
+                        <a  @if( $portfolio->{'text_'.$lang} ) href="{{route('portfolio',['url'=>$portfolio->url])}}" @else href="javascript:void(0)" @endif>
                             <div class="archivePortfolio d-flex align-items-center justify-content-between">
                                 <div class="d-flex align-items-center justify-content-center">
                                     <div class="imgVideoWrapper">
@@ -61,7 +61,9 @@
                                         <h4>{{ $portfolio->{'title_'.$lang} }}</h4>
                                     </div>
                                 </div>
+                                @if( $portfolio->{'text_'.$lang} )
                                 <span class="navigateBtn"></span>
+                                @endif
                             </div>
                         </a>
                     @endforeach

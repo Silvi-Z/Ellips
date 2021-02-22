@@ -27,12 +27,12 @@ class PortfolioRequest extends FormRequest
             'title_hy'=>'required',
             'title_ru'=>'required',
             'title_en'=>'required',
-            'text_hy'=>'required',
-            'text_ru'=>'required',
-            'text_en'=>'required',
-            'small_text_hy'=>'required',
-            'small_text_ru'=>'required',
-            'small_text_en'=>'required',
+            'text_hy'=>'required_with:top',
+            'text_ru'=>'required_with:top',
+            'text_en'=>'required_with:top',
+            'small_text_hy'=>'required_with:top',
+            'small_text_ru'=>'required_with:top',
+            'small_text_en'=>'required_with:top',
             'upload_files'=>'required|array',
         ];
         if ($this->method() == "PUT") {
