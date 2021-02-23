@@ -151,7 +151,7 @@
             selector: '.html-editor',
             menubar: false,
             height: 200,
-            toolbar: "bold italic fontselect | removeformat | undo redo | styleselect | alignleft aligncenter alignright alignjustify | fontsizeselect forecolor",
+            toolbar: "bold | removeformat | undo redo | styleselect | alignleft aligncenter alignright alignjustify | fontsizeselect forecolor",
             valid_elements : ""
                 +"a[href|target],"
                 +"b,"
