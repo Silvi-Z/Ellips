@@ -43,7 +43,7 @@ class HomeController extends Controller
         $slider = Slider::first();
         $top_services = Service::where('top',1)->get();
         $bottom_services = Service::where('bottom',1)->get();
-        $portfolios = Portfolio::inRandomOrder()->take(5)->get();
+        $portfolios = Portfolio::where('top',1)->inRandomOrder()->take(3)->get();
         $products = Product::inRandomOrder()->take(3)->get();
         $blogs = Blog::inRandomOrder()->take(3)->get();
 
