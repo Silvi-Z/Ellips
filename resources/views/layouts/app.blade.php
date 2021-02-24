@@ -178,12 +178,11 @@
 
 @yield('content')
 
-@php($pop_up = false)
-@if($pop_up == true )
+@if(session()->has('alert-success'))
     <section class="modalWrapper">
         <div class="successMessageModal">
             <span class="closeModal"></span>
-            <div class="successMessage">Success Message</div>
+            <div class="successMessage">{{session()->get('alert-success')}}</div>
         </div>
     </section>
 @endif
