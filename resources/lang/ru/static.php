@@ -20,6 +20,8 @@ return [
     'Products involved' => 'включены продукты',
     'ARCHIVE' => 'АРХИВ',
     'DESCRIPTION' => 'ОПИСАНИЕ',
+    'CLIENT' => 'ЗАКАЗЧИК',
+    'WORK' => 'РАБОТА',
     'See more' => 'Узнать больше',
     '(See on map)' => '(Посмотреть на карте)',
     'Message has been sent successfully' => 'Сообщение было успешно отправлено',

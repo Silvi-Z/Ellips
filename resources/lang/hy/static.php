@@ -20,6 +20,8 @@ return [
     'Products involved'   => 'Ներգրավված ապրանքեր',
     'ARCHIVE'   => 'ԱՐԽԻՎ',
     'DESCRIPTION'   => 'ՆԿԱՐԱԳԻՐ',
+    'CLIENT' => 'ՊԱՏՎԻՐԱՏՈՒ',
+    'WORK' => 'ԱՇԽԱՏԱՆՔ',
     'See more'   => 'Տեսնել ավելին',
     '(See on map)'   => '(Տեսնել քարտեզի վրա)',
     'Message has been sent successfully'   => 'Հաղորդագրությունը հաջողությամբ ուղարկվել է',
@@ -56,5 +58,4 @@ return [
     'Yerjan Nikoghayos Tigranyan 27'   => 'Երևան Նիկողայոս Տիգրանյան 27',
     'Gyumri Haghtanak Avenue 42/9'   => 'Գյումրի Հաղթանակի պողոտա 42/9',
     'Thank you! Your request has been successfully sent.'   => 'Շնորհակալություն! Ձեր հայցը հաջողությամբ ուղարկվել է:',
-
 ];
