@@ -3,7 +3,7 @@
 
 @section('content')
     <main class="singleProductPage">
-        <div class="h1Title">@lang('static.Products')</div>
+        <h1>@lang('static.Products')</h1>
         <div class="wrapper row">
             <div class="col-xl-6 col-12 position-relative">
                 <div class="singleProduct">

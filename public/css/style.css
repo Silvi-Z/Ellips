@@ -71,7 +71,6 @@
 
 
 .edit-btn, .emailInput, .addresses > div, .phoneAddress{
-    /*width: 90%;*/
     display: flex;
     margin-bottom: 10px;
 }
@@ -85,3 +84,13 @@
     width: 27%;
     margin:0 15px;
 }
+.my-delete-button , .edit-btn{
+    width: 45px;
+}
+.container-fluid > h1{
+    padding-left: 35px;
+}
+.card-header{
+    padding: 12px 35px;
+}
+

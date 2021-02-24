@@ -3,15 +3,18 @@
     src: url('../fonts/Arial-AMU-Regular-8891.ttf') format('ttf');
     /*src: url('../fonts/Arial-AMU-Regular-8891.ttf?iefix') format('ttf');*/
 }
+
 * {
     margin: 0;
     padding: 0;
 
 }
-body{
+
+body {
     font-family: 'Arial', serif;
     -moz-font-family: 'Arial', serif;
 }
+
 a {
     color: unset;
     text-decoration: none;
@@ -25,14 +28,18 @@ button {
     cursor: pointer;
     outline: none;
 }
+button:focus{
+    outline: none!important;
+}
 
 body {
     background: #CFD9E2;
 }
 
-section {
+section:not(.loginPage section, header section, .modalWrapper) {
     max-width: 1440px;
     width: 100%;
+    margin: auto;
 }
 
 .slider {
@@ -74,7 +81,7 @@ section {
 /*padding-right: 50px;*/
 /*}*/
 
-header {
+header:not(.loginPage header) {
     height: 140px;
     /*display: flex;*/
     /*align-items: center;*/
@@ -213,7 +220,7 @@ header button {
     z-index: 10 !important;
     position: absolute;
     top: 0;
-    opacity: 1!important;
+    opacity: 1 !important;
 }
 
 .last {
@@ -222,7 +229,7 @@ header button {
 
 .openSelect {
     position: relative !important;
-    opacity: 1!important;
+    opacity: 1 !important;
 }
 
 .lastNavigate {
@@ -267,7 +274,7 @@ main.homePage {
 /*    padding: 0 50px;*/
 /*}*/
 
-.h1Title {
+h1:not(.page_404 h1) {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 40px;
@@ -443,17 +450,38 @@ header section {
     width: 100%;
 }
 
+@keyframes sectionOpacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .services .slick-track {
     display: flex;
 }
 
+section.whiteBackground {
+    position: absolute;
+    z-index: 100;
+}
+
 .nav-down {
-    height: 70px;
+    animation-name: sectionOpacity;
+    animation-duration: .5s;
+    height: 140px;
     /*padding: 0 20px;*/
     z-index: 1000;
     width: 100%;
-    position: fixed;
+    position: fixed !important;
     background-color: #cfd9e2;
+}
+
+section.whiteBackground {
+    animation: none;
+    transition: none;
 }
 
 .nav-up {
@@ -649,6 +677,10 @@ input:focus::placeholder {
 .portfolioSmallImages h3 {
     font-size: 24px;
     margin: 30px 0 20px;
+}
+
+.portfolioSmallImages > div {
+    cursor: pointer;
 }
 
 .companiesTitle, .darkSection > h3 {
@@ -923,13 +955,15 @@ input:focus::placeholder {
 .portfolio a {
     margin: auto;
 }
-.homePage .portfolio .button{
+
+.homePage .portfolio .button {
     color: black;
     background-color: #FFFFFF;
     cursor: pointer;
     border: none;
 }
-.homePage .portfolio .button:hover,  .homePage .blogs button:hover, .see_more_portfolios:hover{
+
+.homePage .portfolio .button:hover, .homePage .blogs button:hover, .see_more_portfolios:hover, .contactPage button:hover {
     background-color: black;
     transition: .2s;
     color: #FFFFFF;
@@ -1058,7 +1092,8 @@ input:focus::placeholder {
 .blogs .blogsWrapper {
     padding: 0 7%;
 }
-.homePage .blogs{
+
+.homePage .blogs {
     padding: 120px 0;
 }
 
@@ -1107,9 +1142,10 @@ input:focus::placeholder {
     align-items: center;
     justify-content: center;
 }
-button:focus{
+
+button:focus {
     border: none;
-    box-shadow: none!important;
+    box-shadow: none !important;
 }
 
 .archivePortfolio span {
@@ -1214,7 +1250,7 @@ button:focus{
 }
 
 /*    footer    */
-footer {
+footer:not(.loginPage footer) {
     border-top: 1px solid #7A8086;
     background-color: #FFFFFF;
     padding: 120px 130px;
@@ -1269,30 +1305,15 @@ footer h4 {
     width: 40px;
 }
 
-.social > a:first-child > div{
-    background-image: url("../icons/fb.svg");
+.social > a:hover .hoverIcon{
+    fill: #A2A6AA;
 }
 
-.social > a:first-child > div:hover {
-    background-image: url("../icons/hoverFb.svg");
-}
-
-.social > a:nth-child(2) > div {
+.social > a:nth-child(2){
     margin: 0 20px;
-    background-image: url("../icons/youtube.svg");
 }
-
-.social > a:nth-child(2) > div:hover{
-    margin: 0 20px;
-    background-image: url("../icons/hoverYouTube.svg");
-}
-
-.social > a:last-child > div{
-    background-image: url("../icons/google.svg");
-}
-
-.social > a:last-child > div:hover{
-    background-image: url("../icons/hoverGoogle.svg");
+.slick-slide{
+    cursor: grab;
 }
 
 .licenses {
@@ -1300,15 +1321,17 @@ footer h4 {
     display: flex;
     flex-wrap: nowrap;
 }
-.licenses .slick-track{
+
+.licenses .slick-track {
     display: flex;
 }
+
 .licensesWrapper {
     background-color: white;
 }
 
 /*   products  */
-main:not(.homePage, .companyPage) {
+main:not(.homePage, .companyPage, .loginPage main) {
     background-color: #FFFFFF;
 }
 
@@ -1321,14 +1344,34 @@ main:not(.homePage, .companyPage) {
     color: #FFFFFF;
 }
 
-.h1Title:not(.homePageTitle) {
+h1:not(.homePageTitle, .page_404 h1) {
     font-size: 48px;
     color: black;
     padding: 80px 0 120px;
     background: #CFD9E2;
     margin-bottom: 0;
 }
-
+.messageContainer{
+    padding: 50px 0 90px;
+    background: #CFD9E2;
+}
+.page_404 h1{
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    line-height: 31px;
+    max-width: 400px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.icon_404 img{
+    padding: 75px 0;
+    margin: auto;
+}
+.page_404 button{
+    height: 36px;
+    width: 140px;
+}
 .selectButtons {
     display: flex;
 }
@@ -1441,12 +1484,15 @@ button, button:focus {
     justify-content: center;
     align-items: center;
 }
-.filter .nav-link{
+
+.filter .nav-link {
     text-transform: uppercase;
 }
-.dropdown-item{
+
+.dropdown-item {
     white-space: normal;
 }
+
 .searchButton {
     width: 86px;
     height: 36px;
@@ -1727,8 +1773,7 @@ button, button:focus {
 
 .subMenu li {
     cursor: pointer;
-    max-width: 180px;
-    width: 100%;
+    width: 180px;
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.15px;
@@ -2050,9 +2095,10 @@ button, button:focus {
 .redCircle {
     left: 30px;
 }
-.slideNumber{
+
+.slideNumber {
     -webkit-text-stroke: 1px #7A8086;
-    color: transparent!important;
+    color: transparent !important;
     font-weight: bold;
     font-size: 48px;
     -ms-backgound-color: #7A8086
@@ -2103,8 +2149,9 @@ button, button:focus {
     /* background-color: rgba(98, 98, 98, 1); */
     -webkit-box-shadow: inset 6px -1px 0 #626262, inset 14px 1px 0 #626262;
 }
-.filter .dropdown ::-webkit-scrollbar{
-    width: 9px!important;
+
+.filter .dropdown ::-webkit-scrollbar {
+    width: 9px !important;
 }
 
 *::-webkit-scrollbar, *::-webkit-scrollbar-thumb {
@@ -2132,7 +2179,7 @@ button, button:focus {
     background-color: #cfd9e2;
 }
 
-.companies ~ .wrapper{
+.companies ~ .wrapper {
     width: 100%;
 }
 
@@ -2372,16 +2419,16 @@ iframe {
     padding: 0 40px;
 }
 
-.modal-dialog {
+.blogsPage .modal-dialog {
     max-width: 1400px;
     max-height: 700px;
 }
 
-.modal-dialog {
+.blogsPage .modal-dialog {
     max-width: unset !important;
 }
 
-.modal-body {
+.blogsPage .modal-body {
     max-height: 70vh;
     /*padding: 0 70px;*/
     max-width: 1000px;
@@ -2390,7 +2437,7 @@ iframe {
     width: 100vw;
 }
 
-.modal-body > * {
+.blogsPage .modal-body > * {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -2430,7 +2477,7 @@ iframe {
     border: #141A1F;
 }
 
-.close {
+.blogsPage .close {
     cursor: pointer;
     height: 70vh;
     margin: auto;
@@ -2439,7 +2486,7 @@ iframe {
     max-width: 1000px;
 }
 
-.close span:after {
+.blogsPage .close span:after {
     content: url("../icons/modalClose.svg");
     position: absolute;
     z-index: 1;
@@ -2449,7 +2496,7 @@ iframe {
     right: 0;
 }
 
-.modal-content {
+.blogsPage .modal-content {
     justify-content: center;
     height: 100vh;
     width: 100vw;
@@ -2625,7 +2672,7 @@ iframe {
 .singlePortfolio > div:first-child > * {
     width: 100%;
     height: 100%;
-    max-width: 1140px;
+    /*max-width: 1140px;*/
     /*margin: 0 50px;*/
     object-fit: cover;
 }
@@ -2680,7 +2727,8 @@ iframe {
     color: #000000;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.singleBlog > .wrapper{
+
+.singleBlog > .wrapper {
     border-top: 1px solid black;
 }
 
@@ -2772,14 +2820,14 @@ form textarea {
     border-bottom: 1px solid #CFD9E2;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
+input:not(.loginPage input):-webkit-autofill,
+input:not(.loginPage input):-webkit-autofill:hover,
+input:not(.loginPage input):-webkit-autofill:focus,
+input:not(.loginPage input):-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px #141A1F inset !important;
 }
 
-input:-webkit-autofill {
+input:not(.loginPage input):-webkit-autofill {
     -webkit-text-fill-color: white !important;
 }
 
@@ -2792,7 +2840,7 @@ form > div {
     position: relative;
 }
 
-form button {
+form button:not(.loginPage button) {
     height: 60px;
     width: 180px;
     background: #FFFFFF;
@@ -2890,10 +2938,16 @@ form button {
     z-index: 100;
 }
 
+/*.headerFix > section{*/
+/*    position: absolute;*/
+/*    z-index: 100;*/
+/*}*/
+
 .overflow {
     overflow: hidden;
 }
-.btn-dark:hover{
+
+.btn-dark:hover {
     transition: .2s;
     background-color: white;
     border-color: #CFD9E2;
@@ -2958,8 +3012,16 @@ form button {
 .moreServices .slick-slide {
     margin: 0 17px;
 }
-.modal-dialog{
+
+.blogsPage .modal-dialog {
     margin: 0;
+}
+
+.blogsPage .blogsWrapper > .wrapper{
+    padding: 50px 10px;
+}
+.homePage .circleWrapper , .companyPage .about{
+    overflow: hidden;
 }
 
 @media only screen and (max-width: 1500px) {
@@ -3206,7 +3268,7 @@ form button {
         background-color: white;
         position: fixed;
         z-index: 10;
-        height: 100vh;
+        height: 100%;
         top: 0;
         padding-top: 0;
         width: 100vw;
@@ -3279,6 +3341,29 @@ form button {
 }
 
 @media only screen and (max-width: 1024px) {
+    .selectLang > div {
+        flex-direction: row;
+        width: 38px;
+    }
+
+    .selectClass {
+        animation-name: rowLang;
+        animation-duration: .4s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes rowLang {
+        from {
+            width: 38px;
+        }
+        to {
+            width: 118px;
+        }
+    }
+    .selectLang > div > div {
+        margin: 7px 8px;
+    }
+
     .imageContainer div > * {
         padding: 0;
     }
@@ -3377,7 +3462,7 @@ form button {
     }
 
     footer {
-        padding: 0;
+        padding: 0!important;
     }
 
     .homePage .productPageWrapper {
@@ -3662,7 +3747,7 @@ form button {
     /*    display: flex;*/
     /*    flex-direction: column;*/
     /*}*/
-    .h1Title:not(.homePageTitle) {
+    h1:not(.homePageTitle, .page_404 h1) {
         font-size: 36px;
         padding: 30px 0 70px
     }
@@ -3698,9 +3783,10 @@ form button {
 }
 
 @media only screen and (max-width: 900px) {
-    .bigSlide .slick-list{
+    .bigSlide .slick-list {
         pointer-events: all;
     }
+
     .homePage .companies {
         padding: 70px 0;
     }
@@ -3724,9 +3810,18 @@ form button {
 }
 
 @media only screen and (max-width: 768px) {
-    .serviceWrapper{
-        width: 260px!important;
+    .setLang.first {
+        order: 3 !important;
     }
+
+    #map {
+        height: 400px;
+    }
+
+    .serviceWrapper {
+        width: 260px !important;
+    }
+
     .imageContainer div > * {
         padding-top: 10px;
     }
@@ -4023,7 +4118,7 @@ form button {
     }
 
     .archivePortfolio > div {
-        width: 75%;
+        max-width: 75%;
     }
 
     .archivePortfolio h4 {
@@ -4210,7 +4305,7 @@ form button {
         padding: 30px 0;
     }
 
-    .archivePortfolio .imgVideoWrapper > * {
+    .archivePortfolio .imgVideoWrapper{
         display: none;
     }
 
@@ -4254,7 +4349,7 @@ form button {
         justify-content: space-between;
     }
 
-    .h1Title:not(.homePageTitle) {
+    h1:not(.homePageTitle) {
         font-size: 24px;
         line-height: 40px;
     }
@@ -4285,4 +4380,104 @@ form button {
     /*.product > a > div:last-child {*/
     /*    max-width: 300px;*/
     /*}*/
+}
+
+/*     LoginPage     */
+.loginPage {
+    background-color: #CFD9E2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.loginPage .form-group {
+    display: flex;
+    justify-content: center;
+}
+
+.loginPage section {
+    /*background-color: #343a40;*/
+    padding: 20px;
+}
+
+.setLang {
+    order: 2;
+}
+
+.setLang.first {
+    order: 1;
+}
+
+.loginPage .card-body {
+    padding: 50px 10px 50px;
+    background-color: #495057;
+    border-radius: 1rem;
+}
+
+.loginPage button {
+    margin-top: 20px;
+    border: none;
+    outline: none;
+}
+
+.loginPage button:hover {
+    background-color: #CFD9E2;
+}
+
+.loginPage .buttonWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    border-radius: 1rem;
+    border: none !important;
+    background-color: transparent !important;
+}
+
+.email-input {
+    margin-bottom: 20px;
+}
+
+.loginPage input:-webkit-autofill,
+.loginPage input:-webkit-autofill:hover,
+.loginPage input:-webkit-autofill:focus,
+.loginPage input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+
+.modalWrapper{
+    width: 100%;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.successMessageModal{
+    position: relative;
+    height: 300px;
+    width: 600px;
+    background-color: #FFFFFF;
+    z-index: 5;
+    box-shadow: 0 0 10px rgba(181, 213, 241, 0.4);
+}
+.closeModal:after{
+    content: url("../icons/blackModalCloser.svg");
+    position: absolute;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+}
+.successMessage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 20px;
 }

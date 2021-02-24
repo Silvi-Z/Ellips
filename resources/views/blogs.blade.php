@@ -2,7 +2,7 @@
 @section('title') @lang('static.Blog') @endsection
 @section('content')
     <main class="blogsPage">
-        <div class="h1Title">@lang('static.Blog')</div>
+        <h1>@lang('static.Blog')</h1>
         <div class="blogsWrapper">
             <div class="wrapper">
                 <div class="all_blogs">
