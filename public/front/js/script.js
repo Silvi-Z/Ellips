@@ -30,8 +30,9 @@ $(document).ready(function () {
         infinite: true,
         slidesToScroll: 1,
         arrows: true,
-        dots: $('.singleProduct .slick-slide').length > 1 ? true : false,
+        dots: $('.singleProduct .singleProductSlide').length > 1 ? true : false,
     });
+    console.log($('.singleProduct').length);
 
     $('.imgVideo').slick({
         infinite: true,
@@ -79,7 +80,7 @@ $(document).ready(function () {
 
     $('.sliderBlog').length > 0 && $('.sliderBlog .slick-slide').length > 1 && slideCount($('.sliderBlog'));
 
-    $('.singleProduct').length > 0 && slideCount($('.singleProduct'));
+    $('.singleProduct').length > 1 && slideCount($('.singleProduct'));
 
     $('.sliderPortfolio').length > 0 && slideCount($('.sliderPortfolio'));
 
@@ -97,7 +98,7 @@ $(document).ready(function () {
 
     function activeDropdown(active, title) {
         if (active.length > 0) {
-            title.innerHtml = active.innerHtml
+            title.innerHTML = active.innerHTML
         }
     }
 
@@ -306,20 +307,45 @@ $(document).ready(function () {
         },
     ];
 
-    const select = document.querySelector('.selectLang').children[0];
+    const select = document.querySelectorAll('.selectLang');
 
-    select.addEventListener('click', function () {
-        select.childNodes.forEach((e, index) => {
-            if (e.nodeName === 'DIV') {
-                select.classList.toggle('selectClass')
-                setTimeout(() => {
-                    e.classList.toggle('openSelect')
-                }, 70)
-                e.addEventListener('click', () => {
-                    // $(e).siblings().removeClass('first').addClass('last');
-                    // $(e).addClass('first').removeClass('last')
+    select.forEach((item) => {
+        const languageElements = item.firstElementChild.childNodes
+        item.firstElementChild.addEventListener('click', (e) => {
+            e.stopPropagation()
+            e.currentTarget.classList.add('selectClass')
+            languageElements.forEach((element, index) => {
+                if (index % 2 === 1) {
+                    setTimeout(() => {
+                        element.classList.add('openSelect')
+                    }, 70)
+                }
+            })
+        })
+        languageElements.forEach((element, index) => {
+            if (index % 2 === 1) {
+                element.addEventListener('click', (e) => {
+                    if (item.firstElementChild.classList.contains('selectClass')) {
+                        e.stopPropagation()
+                        const id = e.target.getAttribute('data-id')
+                        window.location.href = '/locale/' + id
+                    }
                 })
             }
+        })
+
+    })
+
+    document.querySelector('body').addEventListener('click', (e) => {
+        select.forEach((item) => {
+            item.children[0].childNodes.forEach((e, index) => {
+                if (e.nodeName === 'DIV') {
+                    item.children[0].classList.remove('selectClass')
+                    setTimeout(() => {
+                        e.classList.remove('openSelect')
+                    }, 70)
+                }
+            })
         })
     })
 
@@ -382,24 +408,22 @@ $(document).ready(function () {
             const transparentCircle = document.querySelector('.transparentCircle')
             const blueCircle = document.querySelector('.blueCircle')
             const elements = document.querySelectorAll(".experienceCount");
-            console.log(document.querySelector('.circles').offsetTop);
-            console.log('scrollY', window.scrollY);
             if (top > 0 && top <= window.innerHeight - 200) {
-                if (top > 0 && top <= window.innerHeight - 100) {
-                    elements.forEach((e) => {
-                        const finalCount = Number(e.getAttribute('data-number'));
-                        let counter = 0;
-                        const timer = setInterval(() => {
-                            if (counter === finalCount) {
-                                e.innerHTML = counter + '+';
-                                clearInterval(timer)
-                            } else if (e.innerHTML !== finalCount + '+') {
-                                counter++;
-                                e.innerHTML = counter + '+';
-                            }
-                        }, 0.1)
-                    })
-                }
+                elements.forEach((e) => {
+                    const finalCount = Number(e.getAttribute('data-number'));
+                    let counter = 0;
+                    const timer = setInterval(() => {
+                        if (counter === finalCount) {
+                            e.innerHTML = counter + '+';
+                            clearInterval(timer)
+                        } else if (e.innerHTML !== finalCount + '+') {
+                            console.log(e.innerHTML);
+                            counter++;
+                            e.innerHTML = counter + '+';
+                            console.log();
+                        }
+                    }, 0.1)
+                })
                 redCircle.classList.add('redCirclePosition')
                 transparentCircle.classList.add('transparentCirclePosition')
                 blueCircle.classList.add('blueCirclePosition')
@@ -408,7 +432,6 @@ $(document).ready(function () {
                 $('.transparentCircle')[0].classList.add('transparentCirclePosition')
                 $('.blueCircle')[0].classList.add('blueCirclePosition')
                 elements.forEach((e) => {
-                    console.log('sad');
                     const finalCount = Number(e.getAttribute('data-number'));
                     e.innerHTML = finalCount + '+'
                 })
@@ -474,8 +497,9 @@ $(document).ready(function () {
     });
 
     swipeSlide($('.imagesSlide'), $('.textSlide'))
-    swipeSlide($('.textSlide') ,$('.imagesSlide'))
-    function swipeSlide(slide, otherSlide){
+    swipeSlide($('.textSlide'), $('.imagesSlide'))
+
+    function swipeSlide(slide, otherSlide) {
         slide.on('swipe', function (event, slick, direction) {
             if (direction === 'left') {
                 otherSlide.slick("slickNext")
@@ -516,11 +540,7 @@ $(document).ready(function () {
         }
         lastScrollTop = st;
     }
-
-    $(document).on('click', ".openSelect", function () {
-        console.log(1000)
-        window.location.href = '/locale/' + $(this).data('id')
-
-    })
+    document.querySelector('.closeModal').addEventListener('click', ()=>
+    document.querySelector('.modalWrapper').classList.add('d-none'))
 });
 

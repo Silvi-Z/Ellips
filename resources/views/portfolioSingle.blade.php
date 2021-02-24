@@ -3,7 +3,7 @@
 
 @section('content')
     <main>
-        <div class="h1Title">{{ $portfolio->{'title_'.$lang} }}</div>
+        <h1>{{ $portfolio->{'title_'.$lang} }}</h1>
         <div class="portfolioPage singlePortfolio">
             <div>
                 <img src="{{$portfolio->first_image()}}" alt="">
@@ -36,20 +36,7 @@
 
                 </div>
             </div>
-            <div class="modal fade " id="portfolioModalSlide" tabindex="-1" role="dialog"
-                 aria-labelledby="portfolioModalSlide"
-                 aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true"></span>
-                        </div>
-                        <div class="modal-body">
-                            <img src="{{asset("front/images/portfolio2.jpg")}}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
         @if(!empty($portfolios) && count($portfolios))
             <div class="darkSection">
@@ -59,7 +46,7 @@
                     @foreach($portfolios as $portfolio)
                         <a @if( $portfolio->{'text_'.$lang} ) href="{{route('portfolio',['url'=>$portfolio->url])}}" @else href="javascript:void(0)" @endif >
                             <div class="archivePortfolio d-flex align-items-center justify-content-between">
-                                <div class="d-flex justify-content-center">
+                                <div class="d-flex justify-content-center align-items-center">
                                     <div class="imgVideoWrapper" >
                                         <img src="{{$portfolio->first_image()}}" alt="">
                                     </div>
@@ -77,19 +64,5 @@
                 </div>
             </div>
         @endif
-
-        <div class="modal fade " id="blogModalSlide" tabindex="-1" role="dialog" aria-labelledby="blogModalSlide"
-             aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"></span>
-                    </div>
-                    <div class="modal-body">
-                        <img class="modalOpen" src="" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
 @endsection

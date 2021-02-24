@@ -3,7 +3,7 @@
 @section('content')
     {{--    $licenses = json_decode(file_get_contents("licenses.json"),true);--}}
     <main class="companyPage">
-        <div class="h1Title">@lang('static.Company')</div>
+        <h1>@lang('static.Company')</h1>
         <div class="background">
             <div class="wrapper">
                 <div class="aboutCompany">

@@ -3,7 +3,7 @@
 
 @section('content')
     <main class="">
-        <div class="h1Title">{{ $category->{'title_'.app()->getLocale()} }}</div>
+        <h1>{{ $category->{'title_'.app()->getLocale()} }}</h1>
         @include('selectButtons')
         <div class="productPageWrapper">
             <div class="lastNavigate">
