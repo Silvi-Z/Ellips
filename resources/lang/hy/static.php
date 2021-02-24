@@ -55,6 +55,6 @@ return [
     'Products և systems'   => 'Ապրանքեր և համակարգեր',
     'Yerjan Nikoghayos Tigranyan 27'   => 'Երևան Նիկողայոս Տիգրանյան 27',
     'Gyumri Haghtanak Avenue 42/9'   => 'Գյումրի Հաղթանակի պողոտա 42/9',
-    'HISTORY'   => 'ՊԱՏՄՈՒԹՅՈՒՆ',
+    'Thank you! Your request has been successfully sent.'   => 'Շնորհակալություն! Ձեր հայցը հաջողությամբ ուղարկվել է:',
 
 ];

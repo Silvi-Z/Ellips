@@ -51,6 +51,7 @@ return [
     'They trust us'   => 'They trust us',
     'Products և systems'   => 'Products and system',
     'Portfolios'   => 'Portfolio',
-    'Yerjan Nikoghayos Tigranyan 27'   => 'Երևան Նիկողայոս Տիգրանյան 27',
-    'Gyumri Haghtanak Avenue 42/9'   => 'Գյումրի Հաղթանակի պողոտա 42/9',
+    'Yerjan Nikoghayos Tigranyan 27'   => 'Yerjan Nikoghayos Tigranyan 27',
+    'Gyumri Haghtanak Avenue 42/9'   => 'Gyumri Haghtanak Avenue 42/9',
+    'Thank you! Your request has been successfully sent.'   => 'Thank you! Your request has been successfully sent.',
 ];

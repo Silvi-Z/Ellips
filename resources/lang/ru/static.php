@@ -52,5 +52,5 @@ return [
     'Portfolios' => 'Портфолио',
     'Yerjan Nikoghayos Tigranyan 27' => 'Ереван ул. Никогайоса Тиграняна 27',
     'Gyumri Haghtanak Avenue 42/9' => 'Гюмри Проспект Хагтанак 42/9',
-    'Products և systems' => 'продукты и системы'
+    'Thank you! Your request has been successfully sent.' => 'Спасибо! Ваш запрос был успешно отправлен.'
 ];

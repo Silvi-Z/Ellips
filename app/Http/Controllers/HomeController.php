@@ -197,12 +197,13 @@ class HomeController extends Controller
             'message' => 'required',
 
         ]);
+        Contact::create($request->all());
         $mailer->send(new ContactMail(
             $request->get('email'),
             $request->all()
         ));
-        Contact::create($request->all());
-        $request->session()->flash('alert-danger', trans('static.Message has been sent successfully'));
+
+        $request->session()->flash('alert-success', trans('static.Thank you! Your request has been successfully sent.'));
         return redirect()->back();
 
     }
