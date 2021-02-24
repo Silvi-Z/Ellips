@@ -1,6 +1,8 @@
 <?php
 return [
     'Company'   => 'Ընկերություն',
+    'Main page'   => 'Գլխավոր էջ',
+    'DEAR USER, PAGE NOT FOUND ․ YOU CAN RETURN'   => 'ՀԱՐԳԵԼԻ ՕԳՏԱՏԵՐ, ԷՋԸ ՉԻ ԳՏՆՎԵԼ․ ԿԱՐՈՂ ԵՔ ՎԵՐԱԴԱՌՆԱԼ',
     'Home'   => 'Գլխավոր',
     'Contact'   => 'Կապ',
     'Send'   => 'Ուղարկել',
