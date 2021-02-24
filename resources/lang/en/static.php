@@ -22,6 +22,8 @@ return [
     'Products involved'   => 'Included Products',
     'ARCHIVE'   => 'ARCHIVE',
     'DESCRIPTION'   => 'DESCRIPTION',
+    'CLIENT' => 'CUSTOMER',
+    'WORK' => 'WORK',
     'See more'   => 'See more',
     '(See on map)'   => '(See on map)',
     'Message has been sent successfully'   => 'Message has been successfully sent',

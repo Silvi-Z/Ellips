@@ -63,14 +63,14 @@ $(document).ready(function () {
         let currentSlide = slider.slick('slickCurrentSlide') + 1;
         let slideCount = slider.slick("getSlick").slideCount;
         let p = $(".slick-dots")[0]
-        p.innerHTML = currentSlide + '/' + slideCount;
+        p && (p.innerHTML = currentSlide + '/' + slideCount)
         // slider[0].childNodes.item(6).innerHtml = currentSlide + '/' + slideCount;
     }
 
     if ($('.selectButtons')) {
         $('.selectButtons a').each(function () {
             if ($(this)[0].href === window.location.href) {
-                $(this).addClass('activeButton')
+                $(this).parent().addClass('activeButton')
                 $(this).parent().siblings().removeClass('activeButton')
             }
         })
@@ -328,6 +328,7 @@ $(document).ready(function () {
                     if (item.firstElementChild.classList.contains('selectClass')) {
                         e.stopPropagation()
                         const id = e.target.getAttribute('data-id')
+                        console.log(window.location.href);
                         window.location.href = '/locale/' + id
                     }
                 })
@@ -540,7 +541,8 @@ $(document).ready(function () {
         }
         lastScrollTop = st;
     }
-    document.querySelector('.closeModal').addEventListener('click', ()=>
+
+    const closeModal = document.querySelector('.closeModal') && document.querySelector('.closeModal')
+    closeModal && closeModal.addEventListener('click', ()=>
     document.querySelector('.modalWrapper').classList.add('d-none'))
 });
-

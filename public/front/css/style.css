@@ -20,7 +20,7 @@ a {
     text-decoration: none;
 }
 
-a:hover, .subMenu li:hover {
+a:hover:not(.selectButtons a), .subMenu li:hover {
     color: #7A8086 !important;
 }
 
@@ -1216,6 +1216,7 @@ button:focus {
 .blogs > .wrapper, .blogsWrapper > .wrapper, .blogWrapper > .wrapper {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .blogs button, .blogsWrapper button:not('.slick-arrow') {
@@ -1371,6 +1372,7 @@ h1:not(.homePageTitle, .page_404 h1) {
 .page_404 button{
     height: 36px;
     width: 140px;
+    border: none;
 }
 .selectButtons {
     display: flex;
@@ -1421,6 +1423,7 @@ h1:not(.homePageTitle, .page_404 h1) {
 
 .activeButton:hover {
     color: white !important;
+    background-color: #141A1F!important;
 }
 
 .selectButtons > button:hover {
@@ -1440,6 +1443,13 @@ h1:not(.homePageTitle, .page_404 h1) {
     align-items: center;
     justify-content: center;
 }
+.activeButton a:hover{
+    color: white;
+}
+.selectButtons a:not(.activeButton a):hover{
+    color: #141A1F;
+}
+
 
 .dropdown-item.active, .dropdown-item:active {
     background-color: white;
@@ -1496,6 +1506,8 @@ button, button:focus {
 .searchButton {
     width: 86px;
     height: 36px;
+    border-radius: 30px;
+    border: none;
     font-size: 14px;
     margin: 0;
     opacity: 0;
@@ -2042,6 +2054,9 @@ button, button:focus {
     background-color: white;
     width: 100%;
     padding: 90px 110px 120px 110px;
+}
+.singlePortfolio ~ .darkSection{
+    margin-top: 0;
 }
 
 .redCirclePosition {
@@ -2684,9 +2699,20 @@ iframe {
     max-width: 1440px;
 }
 
+.clientInfo{
+    margin-top: 60px;
+}
+.clientInfo p{
+    font-weight: bold;
+    margin: 0;
+}
 
-.singlePortfolio .description {
-    margin-top: 44px;
+.clientInfo > div{
+    width: fit-content;
+    max-width: 50%;
+}
+.clientInfo > div:first-child{
+    margin-right: 60px;
 }
 
 .singlePortfolio .row {
@@ -2840,7 +2866,7 @@ form > div {
     position: relative;
 }
 
-form button:not(.loginPage button) {
+form button:not(.loginPage button, .productsPage form button) {
     height: 60px;
     width: 180px;
     background: #FFFFFF;
@@ -3019,6 +3045,8 @@ form button:not(.loginPage button) {
 
 .blogsPage .blogsWrapper > .wrapper{
     padding: 50px 10px;
+    max-width: 1440px;
+    width: 100%;
 }
 .homePage .circleWrapper , .companyPage .about{
     overflow: hidden;
@@ -3810,6 +3838,15 @@ form button:not(.loginPage button) {
 }
 
 @media only screen and (max-width: 768px) {
+    .singlePortfolio .description{
+        margin-top: 0;
+    }
+    .clientInfo{
+        flex-direction: column;
+    }
+    .clientInfo > div:first-child p{
+        margin-bottom: 30px;
+    }
     .setLang.first {
         order: 3 !important;
     }
@@ -4381,6 +4418,7 @@ form button:not(.loginPage button) {
     /*    max-width: 300px;*/
     /*}*/
 }
+
 
 /*     LoginPage     */
 .loginPage {
