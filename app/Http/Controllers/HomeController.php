@@ -203,8 +203,8 @@ class HomeController extends Controller
             $request->all()
         ));
 
-        $request->session()->flash('alert-success', trans('static.Thank you! Your request has been successfully sent.'));
-        return redirect()->back();
+//        $request->session()->flash('alert-success', trans('static.Thank you! Your request has been successfully sent.'));
+        return response()->json(['success'=>true]);
 
     }
     public function getBlogs(Request $request)

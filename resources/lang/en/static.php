@@ -4,6 +4,8 @@ return [
     'Home'   => 'Home',
     'Contact'   => 'Contact',
     'Send'   => 'Send',
+    'Sending'   => 'Sending',
+    'Sent'   => 'Sent',
     'Products / Systems'   => 'Products / Systems',
     'Portfolio'   => 'Portfolio',
     'Blog'   => 'Blog',

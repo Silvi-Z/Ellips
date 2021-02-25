@@ -78,7 +78,7 @@
                         </div>
                     </div>
                     <div class="col-xl-6 form">
-                        <form method="POST" action="{{route('postContact')}}">
+                        <form method="POST" id="contactForm" action="{{route('postContact')}}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                             <div class="d-flex flex-column w-100 justify-content-end">
                                 <label for="name">
@@ -114,7 +114,7 @@
                                               onfocus="this.placeholder = ''" onblur="this.placeholder = '@lang('static.YOUR MESSAGE')'" placeholder="@lang('static.YOUR MESSAGE')"></textarea>
                                 </label>
                             </div>
-                            <button type="submit">@lang('static.Send')</button>
+                            <button id="submit" type="submit">@lang('static.Send')</button>
                         </form>
                     </div>
                 </div>
@@ -122,4 +122,26 @@
         </div>
         <div id="map"></div>
     </main>
+@endsection
+@section('script')
+    <script>
+        $("#submit").click(function (e) {
+            let self =  $(this)
+            self.text('{{trans('static.Sending')}}')
+            e.preventDefault()
+            let formData = $("#contactForm").serialize();
+
+            let page = Number($(this).attr('data-page'))
+            $.ajax({
+                url: '{{route('postContact')}}',method:'POST', data: formData, success: function (result) {
+                    self.text('{{trans('static.Sent')}}')
+
+                },
+                error:function (data)
+                {
+                    console.log(data.responseJSON)
+                }
+            });
+        })
+    </script>
 @endsection
