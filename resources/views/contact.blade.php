@@ -175,7 +175,6 @@
 
             $.ajax({
                 url: '{{route('postContact')}}',method:'POST', data: formData, success: function (result) {
-                    self.html('{{trans('static.Sent')}}')
                     setTimeout(function () {
                         email.val('');
                         message.val('');
