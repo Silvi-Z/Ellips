@@ -1,16 +1,5 @@
 @extends('layouts.app')
 @section('title') @lang('static.Contact us') @endsection
-@section('css')
-{{--    <link rel="stylesheet" href="{{asset('front/css/font-awesome.min.css')}}">--}}
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <style>
-        .fa {
-            margin-left: -12px;
-            margin-right: 8px;
-        }
-    </style>
-@endsection
 
 @section('content')
     <main class="contactPageWrapper">
