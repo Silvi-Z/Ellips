@@ -1,6 +1,8 @@
 <?php
 return [
     'Company'   => 'Company',
+    'Main page'   => 'Main page',
+    'DEAR USER, PAGE NOT FOUND ․ YOU CAN RETURN'   => 'DEAR USER, PAGE NOT FOUND ․ YOU CAN RETURN',
     'Home'   => 'Home',
     'Contact'   => 'Contact',
     'Send'   => 'Send',

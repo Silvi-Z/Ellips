@@ -1,6 +1,8 @@
 <?php
 return [
     'Company' => 'Компания',
+    'Main page' => 'Главная страница',
+    'DEAR USER, PAGE NOT FOUND ․ YOU CAN RETURN' => 'УВАЖАЕМЫЙ ПОЛЬЗОВАТЕЛЬ, СТРАНИЦА НЕ НАЙДЕНА ․ ВЫ МОЖЕТЕ ВЕРНУТЬСЯ',
     'Home' => 'Главная',
     'Contact' => 'Контакт',
     'Send' => 'Отправить',

@@ -341,3 +341,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 
 
 });
+
+Route::get('/{url}', function (){
+    return view('errors.404');
+});
