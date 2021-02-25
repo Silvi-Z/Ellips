@@ -180,6 +180,10 @@
                     },2000);
                     setTimeout(function () {
                         self.html('{{trans('static.Send')}}')
+                        email.val('')
+                        message.val('')
+                        phone.val('')
+                        name.val('')
                     },5000)
 
                 },
