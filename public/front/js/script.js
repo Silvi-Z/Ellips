@@ -234,9 +234,15 @@ $(document).ready(function () {
 
     $('.modalSpan').each(function () {
         $(this).click(function () {
+            console.log($('.modalOpen'));
             $('.modalOpen')[0].src = $(this).children()[0].src
         });
     })
+    // document.querySelectorAll('.modalSpan').forEach((e)=>{
+    //     e.addEventListener('click', ()=>{
+    //         console.log(e.children[0].getAttribute('src'));
+    //     })
+    // })
 
     window.onresize = () => licensesMargin();
 

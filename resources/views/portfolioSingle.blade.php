@@ -27,7 +27,7 @@
                                 @foreach($portfolio->images as  $image)
                                     @if($image->image_name)
                                         @if(asset('files/'.$image->image_name) != $portfolio->first_image())
-                                            <div class="modalSpan" data-toggle="modal" data-target="#blogModalSlide">
+                                            <div class="modalSpan" data-toggle="modal" data-target="#portfolioModalSlide">
                                                 <img src="{{asset('files/'.$image->image_name)}}" alt="img">
                                             </div>
                                         @endif
@@ -46,7 +46,20 @@
 
                 </div>
             </div>
-
+            <div class="modal fade " id="portfolioModalSlide" tabindex="-1" role="dialog"
+                 aria-labelledby="portfolioModalSlide"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                        </div>
+                        <div class="modal-body">
+                            <img class="modalOpen" src="" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         @if(!empty($portfolios) && count($portfolios))
             <div class="darkSection">
