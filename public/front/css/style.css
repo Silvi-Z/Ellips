@@ -380,7 +380,7 @@ h1:not(.page_404 h1) {
 .bigSlide > * {
     right: 600px;
     position: absolute;
-    /*width: 740px;*/
+    width: 740px;
     /*right: 0;*/
 }
 
@@ -712,10 +712,13 @@ input:focus::placeholder {
 .portfolioPage ~ .darkSection h3 {
     margin-bottom: 60px;
 }
+.fa {
+    margin-left: -12px;
+    margin-right: 8px;
+}
 
 .portfolioPage ~ .darkSection {
     padding: 120px 110px;
-    margin-top: 120px;
 }
 
 .servicesSlideDescription {
@@ -1248,6 +1251,7 @@ button:focus {
     width: 200px;
     height: 150px;
     margin-right: 40px;
+    object-fit: cover;
 }
 
 /*    footer    */
@@ -1371,7 +1375,6 @@ h1:not(.homePageTitle, .page_404 h1) {
 }
 .page_404 button{
     height: 36px;
-    width: 140px;
     border: none;
 }
 .selectButtons {
@@ -2159,9 +2162,6 @@ button, button:focus {
     height: 2px;
     width: 2px;
     border: 4px solid transparent;
-    /* background-clip: padding-box; */
-    /* -webkit-border-radius: 7px; */
-    /* background-color: rgba(98, 98, 98, 1); */
     -webkit-box-shadow: inset 6px -1px 0 #626262, inset 14px 1px 0 #626262;
 }
 
@@ -2169,11 +2169,11 @@ button, button:focus {
     width: 9px !important;
 }
 
-*::-webkit-scrollbar, *::-webkit-scrollbar-thumb {
-    /*border: none;*/
-    /*background-color: transparent;*/
+.archive::-webkit-scrollbar, .archive::-webkit-scrollbar-thumb {
+    border: none;
+    background-color: transparent;
+    -webkit-box-shadow:none;
 }
-
 
 .redCircle, .transparentCircle, .blueCircle {
     top: 600px;
@@ -3666,7 +3666,7 @@ form button:not(.loginPage button, .productsPage form button) {
     }
 
     .homePageTitle {
-        font-size: 30px;
+        font-size: 30px!important;
     }
 
     /*.portfolio {*/
@@ -3836,8 +3836,15 @@ form button:not(.loginPage button, .productsPage form button) {
         right: unset;
     }
 }
+.slick-slide{
+    touch-action: none!important;
+}
 
 @media only screen and (max-width: 768px) {
+    .textSlide{
+        top: 0;
+        pointer-events: none;
+    }
     .singlePortfolio .description{
         margin-top: 0;
     }
@@ -4276,10 +4283,10 @@ form button:not(.loginPage button, .productsPage form button) {
     }
 
     .homePageTitle {
-        font-size: 22px;
-        line-height: 35px;
+        font-size: 22px!important;
+        line-height: 35px!important;
         margin-bottom: 40px;
-        padding-bottom: 0;
+        padding-bottom: 0!important;
     }
 
     header > section > div, .responsiveMenu ul ~ div, header > section > div:not(.subMenuWrapper, .responsiveMenu) {

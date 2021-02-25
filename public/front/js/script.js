@@ -418,7 +418,6 @@ $(document).ready(function () {
                             e.innerHTML = counter + '+';
                             clearInterval(timer)
                         } else if (e.innerHTML !== finalCount + '+') {
-                            console.log(e.innerHTML);
                             counter++;
                             e.innerHTML = counter + '+';
                             console.log();
@@ -500,15 +499,44 @@ $(document).ready(function () {
     swipeSlide($('.imagesSlide'), $('.textSlide'))
     swipeSlide($('.textSlide'), $('.imagesSlide'))
 
+    //
     function swipeSlide(slide, otherSlide) {
-        slide.on('swipe', function (event, slick, direction) {
+        slide.on('swipe',function (event, slick, direction) {
+            if (event.cancelable) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
             if (direction === 'left') {
                 otherSlide.slick("slickNext")
             } else {
                 otherSlide.slick("slickPrev")
             }
         });
+
     }
+
+    // document.querySelector('.imagesSlide').addEventListener('click', function(event, slick, direction){
+    //     console.log(event);
+    //     if (typeof event.cancelable !== 'boolean' || event.cancelable) {
+    //         // event.preventDefault();
+    //         // event.stopPropagation();
+    //         if (direction === 'left') {
+    //             $('.textSlide').slick("slickNext")
+    //             $('.imagesSlide').slick("slickNext")
+    //         } else {
+    //             $('.imagesSlide').slick("slickPrev")
+    //             $('.textSlide').slick("slickPrev")
+    //         }
+    //     }
+    // });
+    // $('.imagesSlide').on('swipe', function(event, slick, direction){
+    //     console.log(event);
+    //     if (direction === 'left') {
+    //         $('.textSlide').slick("slickNext")
+    //     } else {
+    //         $('.textSlide').slick("slickPrev")
+    //     }
+    // });
 
     let didScroll;
     let lastScrollTop = 0;

@@ -15,20 +15,20 @@
                  in the field of production, import, installation and service.')</div>
             <div class="row ourExperienceNumbers">
                 <div class="col text-light">
-                    <div class="experienceCount" data-number="30"></div>
+                    <div class="experienceCount" data-number="30">1+</div>
                     <div>@lang('static.Years of experience')</div>
                 </div>
                 <div class="col text-light">
-                    <div class="experienceCount" data-number="250"></div>
+                    <div class="experienceCount" data-number="250">1+</div>
                     <div>@lang('static.Implemented projects')</div>
                 </div>
                 <div class="w-100"></div>
                 <div class="col">
-                    <div class="experienceCount" data-number="40"></div>
+                    <div class="experienceCount" data-number="40">1+</div>
                     <div>@lang('static.Specialized brands')</div>
                 </div>
                 <div class="col">
-                    <div class="experienceCount" data-number="100"></div>
+                    <div class="experienceCount" data-number="100">1+</div>
                     <div>@lang('static.High quality specialists')</div>
                 </div>
             </div>

@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{asset('front/bootstrapCSS/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/fontawesome-free-5.15.2-web/css/all.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('front/slick-1.8.1/slick/slick.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('front/slick-1.8.1/slick/slick-theme.css')}}"/>
     <link rel="stylesheet" href="{{asset('front/css/style.css')}}">
