@@ -1,5 +1,16 @@
 @extends('layouts.app')
 @section('title') @lang('static.Contact us') @endsection
+@section('css')
+{{--    <link rel="stylesheet" href="{{asset('front/css/font-awesome.min.css')}}">--}}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .fa {
+            margin-left: -12px;
+            margin-right: 8px;
+        }
+    </style>
+@endsection
 
 @section('content')
     <main class="contactPageWrapper">
@@ -126,15 +137,50 @@
 @section('script')
     <script>
         $("#submit").click(function (e) {
-            let self =  $(this)
-            self.text('{{trans('static.Sending')}}')
             e.preventDefault()
+            let self =  $(this);
+            let email = $("#email");
+            let message = $("#message");
+            let phone = $("#phone");
+            let name = $("#name");
+            let error = false;
+            if(!checkfield(name) && error == false){
+                error = true;
+            }
+            console.log(phone)
+            if(!checkfield(email)){
+                error = true;
+            }
+
+
+            if(!checkfield(phone)){
+                error = true;
+            }
+            if(!checkfield(message)){
+                error = true;
+            }
+            if(!validateEmail(email.val())){
+                email.closest('.justify-content-end').css('border-color','red');
+                error = true
+            }
+            if(error){
+                return false;
+            }
+
+            self.html('<i class="fa fa-spinner fa-spin"></i>{{trans('static.Sending')}}')
+
             let formData = $("#contactForm").serialize();
 
-            let page = Number($(this).attr('data-page'))
+            let page = Number($(this).attr('data-page'));
             $.ajax({
                 url: '{{route('postContact')}}',method:'POST', data: formData, success: function (result) {
-                    self.text('{{trans('static.Sent')}}')
+                    self.html('{{trans('static.Sent')}}')
+                    setTimeout(function () {
+                        self.html('{{trans('static.Sent')}}')
+                    },2000);
+                    setTimeout(function () {
+                        self.html('{{trans('static.Send')}}')
+                    },5000)
 
                 },
                 error:function (data)
@@ -142,6 +188,19 @@
                     console.log(data.responseJSON)
                 }
             });
-        })
+        });
+
+        function validateEmail(email) {
+            const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+        function checkfield(input){
+            if(!input.val()){
+                input.closest('.justify-content-end').css('border-color','red');
+                return false;
+            }
+            input.closest('.justify-content-end').css('border-color','#CFD9E2');
+            return true
+        }
     </script>
 @endsection
