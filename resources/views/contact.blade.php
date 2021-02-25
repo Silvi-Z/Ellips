@@ -172,18 +172,20 @@
             let formData = $("#contactForm").serialize();
 
             let page = Number($(this).attr('data-page'));
+
             $.ajax({
                 url: '{{route('postContact')}}',method:'POST', data: formData, success: function (result) {
                     self.html('{{trans('static.Sent')}}')
                     setTimeout(function () {
                         self.html('{{trans('static.Sent')}}')
+                        email.val('');
+                        message.val('');
+                        phone.val('');
+                        name.val('');
                     },2000);
                     setTimeout(function () {
                         self.html('{{trans('static.Send')}}')
-                        email.val('')
-                        message.val('')
-                        phone.val('')
-                        name.val('')
+
                     },5000)
 
                 },
