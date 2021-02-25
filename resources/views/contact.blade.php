@@ -168,7 +168,7 @@
             }
 
             self.html('<i class="fa fa-spinner fa-spin"></i>{{trans('static.Sending')}}')
-
+            self.attr('disabled',true)
             let formData = $("#contactForm").serialize();
 
             let page = Number($(this).attr('data-page'));
@@ -185,7 +185,7 @@
                     },2000);
                     setTimeout(function () {
                         self.html('{{trans('static.Send')}}')
-
+                        self.attr('disabled',false)
                     },5000)
 
                 },
