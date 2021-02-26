@@ -45,7 +45,8 @@
                                                 </div>
                                             @else
                                                 <div>
-                                                    <iframe width="100%" src="{{$image->video}}"  data-text="{{$image->{'text_'.$lang} }}">
+                                                    <iframe width="100%" src="{{$image->video}}"
+                                                            data-text="{{$image->{'text_'.$lang} }}">
                                                     </iframe>
                                                 </div>
                                             @endif
@@ -69,24 +70,26 @@
                         <div class="serviceWrapper">
                             <div class="servicesTitleWrapper">
                                 <span class="slideNumber">0{{$key+1}}</span>
-{{--                                <img src="{{asset('front/icons/slide0'.($key+1).'.svg')}}" alt="">--}}
+                                {{--                                <img src="{{asset('front/icons/slide0'.($key+1).'.svg')}}" alt="">--}}
                                 <div class="servicesTitle">{{ $top_service->{'title_'.$lang} }}</div>
                             </div>
                             <div class="servicesSlideDescription">{!! $top_service->{'text_'.$lang} !!}</div>
                         </div>
-                    @endforeach
-                @endif
+                @endforeach
+            @endif
 
-                <!--                    </div>-->
+            <!--                    </div>-->
             </div>
             <!--                        <div class="wrapper">-->
             <div class="moreServices row d-flex justify-content-center">
-                <div class="col servicesDescription">@lang('static.Ellipse GA company also offers separate packages of services, which are')</div>
+                <div
+                    class="col servicesDescription">@lang('static.Ellipse GA company also offers separate packages of services, which are')</div>
                 <div class="d-flex col-12 col-xl-9 moreServicesSlide justify-content-center">
                     @if(!empty($bottom_services) && count($bottom_services))
                         @foreach($bottom_services as $key => $bottom_service)
                             <div>
-                                <div class="d-flex moreService justify-content-center align-items-center w-250 ">{{ $bottom_service->{'title_'.$lang} }}</div>
+                                <div
+                                    class="d-flex moreService justify-content-center align-items-center w-250 ">{{ $bottom_service->{'title_'.$lang} }}</div>
                             </div>
                         @endforeach
                     @endif
@@ -103,16 +106,16 @@
                         @if(!empty($portfolios) && count($portfolios))
                             @foreach($portfolios as $key => $portfolio)
                                 @if($key == 0)
-                                <div class="col-12">
-                                    <a href="{{route("portfolio",['url'=>$portfolio->url])}}">
-                                        <div class="portfolioBigImgContainer">
-                                            <img src="{{$portfolio->first_image()}}" alt="">
-                                        </div>
-                                        <h3>{{ $portfolio->{'title_'.$lang} }}</h3>
-                                        <div class="portfolioSmallText">{{ $portfolio->{'small_text_'.$lang} }}
-                                        </div>
-                                    </a>
-                                </div>
+                                    <div class="col-12">
+                                        <a href="{{route("portfolio",['url'=>$portfolio->url])}}">
+                                            <div class="portfolioBigImgContainer">
+                                                <img src="{{$portfolio->first_image()}}" alt="">
+                                            </div>
+                                            <h3>{{ $portfolio->{'title_'.$lang} }}</h3>
+                                            <div class="portfolioSmallText">{{ $portfolio->{'small_text_'.$lang} }}
+                                            </div>
+                                        </a>
+                                    </div>
                                 @endif
                             @endforeach
                         @endif
@@ -122,11 +125,14 @@
                             @foreach($portfolios as $key => $portfolio)
                                 @if($key > 0)
                                     <div class="col-12 col-md-6">
-                                        <div class="portfolioContainer">
-                                            <img src="{{$portfolio->first_image()}}" alt="">
-                                        </div>
-                                        <h3>{{ $portfolio->{'title_'.$lang} }}</h3>
-                                        <div class="portfolioSmallText">{{ $portfolio->{'small_text_'.$lang} }}</div>
+                                        <a href="{{route("portfolio",['url'=>$portfolio->url])}}">
+                                            <div class="portfolioContainer">
+                                                <img src="{{$portfolio->first_image()}}" alt="">
+                                            </div>
+                                            <h3>{{ $portfolio->{'title_'.$lang} }}</h3>
+                                            <div
+                                                class="portfolioSmallText">{{ $portfolio->{'small_text_'.$lang} }}</div>
+                                        </a>
                                     </div>
                                 @endif
                             @endforeach
@@ -142,31 +148,31 @@
         <section>
             <div class="container">
                 @if(!empty($products) && count($products))
-                <div class="productPageWrapper d-flex flex-column">
-                    <h3>@lang('static.Products և systems')</h3>
-                    <!--                    <div class="container">-->
-                    <div class="contentWrapper d-grid">
-                        @foreach($products as $key => $product)
-                            <div class="product d-flex justify-content-center">
-                                <a href="{{route('product',['url'=>$product->url])}}">
-                                    <div class="d-flex align-items-center justify-content-center flex-column">
-                                        <img src="{{$product->first_image()}}" alt="">
-                                    </div>
-                                    <div>
-                                        <h6>{{ $product->{'title_'.$lang} }}</h6>
-                                        <p>{{$product->price}} @lang('static.AMD') </p>
-                                    </div>
-                                </a>
-                            </div>
-                        @endforeach
-                        <div class="w-100"></div>
-                    </div>
-                    <a href="{{route('categories')}}">
-                        <button type="button" class="btn btn-dark button">@lang('static.See more')</button>
-                    </a>
-                    <!--                    <button class="button">Տեսնել ավելին</button>-->
+                    <div class="productPageWrapper d-flex flex-column">
+                        <h3>@lang('static.Products և systems')</h3>
+                        <!--                    <div class="container">-->
+                        <div class="contentWrapper d-grid">
+                            @foreach($products as $key => $product)
+                                <div class="product d-flex justify-content-center">
+                                    <a href="{{route('product',['url'=>$product->url])}}">
+                                        <div class="d-flex align-items-center justify-content-center flex-column">
+                                            <img src="{{$product->first_image()}}" alt="">
+                                        </div>
+                                        <div>
+                                            <h6>{{ $product->{'title_'.$lang} }}</h6>
+                                            <p>{{$product->price}} @lang('static.AMD') </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
+                            <div class="w-100"></div>
+                        </div>
+                        <a href="{{route('categories')}}">
+                            <button type="button" class="btn btn-dark button">@lang('static.See more')</button>
+                        </a>
+                        <!--                    <button class="button">Տեսնել ավելին</button>-->
 
-                </div>
+                    </div>
                 @endif
             </div>
         </section>
@@ -177,26 +183,26 @@
                     <div class="blogsWrapper">
                         <div class="wrapper">
                             @foreach($blogs as $key => $blog)
-                            <a href="{{route('blog',['url'=>$blog->url])}}">
-                                <div class="blog d-flex align-items-center justify-content-between">
-                                    <div class="d-flex justify-content-center">
-                                        <div class="imgVideoWrapper">
-                                            <img src="{{$blog->first_image()}}" alt="">
-                                        </div>
-                                        <div class="d-flex flex-wrap">
-                                            <div>
-                                                <h4>{{ $blog->{'title_'.$lang} }}</h4>
+                                <a href="{{route('blog',['url'=>$blog->url])}}">
+                                    <div class="blog d-flex align-items-center justify-content-between">
+                                        <div class="d-flex justify-content-center">
+                                            <div class="imgVideoWrapper">
+                                                <img src="{{$blog->first_image()}}" alt="">
                                             </div>
-                                            <p>1{{date('m.d.Y'),strtotime($blog->updated_at)}}</p>
-                                            <span class="navigateBtn"></span>
+                                            <div class="d-flex flex-wrap">
+                                                <div>
+                                                    <h4>{{ $blog->{'title_'.$lang} }}</h4>
+                                                </div>
+                                                <p>1{{date('m.d.Y'),strtotime($blog->updated_at)}}</p>
+                                                <span class="navigateBtn"></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
-                            @endforeach
-                                <a class="blogButton" href="{{route('blogs')}}">
-                                    <button class="button btn">@lang('static.See more')</button>
                                 </a>
+                            @endforeach
+                            <a class="blogButton" href="{{route('blogs')}}">
+                                <button class="button btn">@lang('static.See more')</button>
+                            </a>
                         </div>
                     </div>
                 @endif
