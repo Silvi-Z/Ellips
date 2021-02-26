@@ -52,7 +52,7 @@
                                 </div>
                                 <div>
                                     <h6>{{ $similar->{'title_'.$lang} }}</h6>
-                                    <p>{{ $similar->price }} @lang('static.AMD')</p>
+                                    <p>{{  number_format($similar->price) }} @lang('static.AMD')</p>
                                 </div>
                             </a>
                         </div>
