@@ -22,7 +22,7 @@
                 <div class="col-md-12 description">
                     <h5>@lang('static.DESCRIPTION')</h5>
                     <div class="portfolioInfo">
-                        @if(!empty($portfolio->images) && count($portfolio->images))
+                        @if(!empty($portfolio->images) && count($portfolio->images) > 1)
                         <div class="sliderPortfolio">
                                 @foreach($portfolio->images as  $image)
                                     @if($image->image_name)

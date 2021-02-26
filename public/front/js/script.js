@@ -92,14 +92,16 @@ $(document).ready(function () {
 
     $('.sliderBlog').on("afterChange", () => slideCount($('.sliderBlog')));
 
-    activeDropdown($('.brand-toggle ~ .dropdown-menu .dropdown-item.activeDropdown'), $('.brand-toggle'))
-    activeDropdown($('.system-toggle ~ .dropdown-menu .dropdown-item.activeDropdown'), $('.system-toggle'))
-    activeDropdown($('.system-toggle ~ .dropdown-menu .dropdown-item.activeDropdown'), $('.system-toggle'))
+    activeDropdown(document.querySelectorAll('.brand-toggle ~ .dropdown-menu .dropdown-item'), $('.brand-toggle'))
+    activeDropdown(document.querySelectorAll('.system-toggle ~ .dropdown-menu .dropdown-item'), $('.system-toggle'))
+    activeDropdown(document.querySelectorAll('.system-toggle ~ .dropdown-menu .dropdown-item'), $('.system-toggle'))
 
     function activeDropdown(active, title) {
-        if (active.length > 0) {
-            title.innerHTML = active.innerHTML
-        }
+        active.forEach((e) => {
+            if (e.href === location.href) {
+                title[0].innerHTML = e.innerHTML
+            }
+        })
     }
 
     $('.services').slick({
@@ -215,7 +217,6 @@ $(document).ready(function () {
         slidesToShow: $('.licenses .licensesSlideWrapper').length < 5 ? $('.licenses .licensesSlideWrapper').length : 5,
         slidesToScroll: 1,
         infinite: false,
-        swipeToSlide: true,
         arrows: false,
         responsive: [{
             breakpoint: 1024,
@@ -225,9 +226,16 @@ $(document).ready(function () {
         }, {
             breakpoint: 850,
             settings: {
-                slidesToShow: 1,
+                slidesToShow: $('.licenses .licensesSlideWrapper').length < 2 ? $('.licenses .licensesSlideWrapper').length : 2,
             }
         },
+            {
+                breakpoint: 450,
+                settings: {
+                    slidesToShow: 1,
+                }
+            },
+
         ]
     })
 
@@ -280,14 +288,36 @@ $(document).ready(function () {
         })
     })
 
-    $('.selectMenu')[0].addEventListener('click', () => {
-        const menu = $('.subMenuWrapper')[0].classList;
-        const header = $('header')[0].classList;
-        const section = $('header section')[0].classList;
-        menu.toggle('d-flex');
-        header.toggle('whiteBackground')
-        section.toggle('whiteBackground')
+    const menu = $('.subMenuWrapper')[0].classList;
+    const header = $('header')[0].classList;
+    const section = $('header section')[0].classList;
+    const toggleArrow = $('.toggleArrow')[0].classList;
+    $('.selectMenu')[0].addEventListener('mouseover', () => {
+        toggleArrow.add('transform');
+        menu.add('d-flex');
+        header.add('whiteBackground');
+        section.add('whiteBackground');
     })
+    $('.subMenuWrapper')[0].addEventListener('mouseover', () => {
+        toggleArrow.add('transform');
+        menu.add('d-flex');
+        header.add('whiteBackground');
+        section.add('whiteBackground');
+    })
+    $('.subMenuWrapper')[0].addEventListener('mouseleave', () => {
+        toggleArrow.remove('transform');
+        menu.remove('d-flex');
+        header.remove('whiteBackground');
+        section.remove('whiteBackground');
+    })
+
+    $('.selectMenu')[0].addEventListener('mouseleave', () => {
+        toggleArrow.remove('transform');
+        menu.remove('d-flex');
+        header.remove('whiteBackground');
+        section.remove('whiteBackground');
+    })
+
 
     const lang = [
         {
@@ -507,7 +537,7 @@ $(document).ready(function () {
 
     //
     function swipeSlide(slide, otherSlide) {
-        slide.on('swipe',function (event, slick, direction) {
+        slide.on('swipe', function (event, slick, direction) {
             if (event.cancelable) {
                 event.preventDefault();
                 event.stopPropagation();
@@ -577,6 +607,6 @@ $(document).ready(function () {
     }
 
     const closeModal = document.querySelector('.closeModal') && document.querySelector('.closeModal')
-    closeModal && closeModal.addEventListener('click', ()=>
-    document.querySelector('.modalWrapper').classList.add('d-none'))
+    closeModal && closeModal.addEventListener('click', () =>
+        document.querySelector('.modalWrapper').classList.add('d-none'))
 });

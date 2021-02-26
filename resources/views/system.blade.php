@@ -33,8 +33,8 @@
 {{--                </span>--}}
             </div>
         </div>
+        @if(!empty($system->products) && count($system->products))
         <div class="moreSystems container ">
-            @if(!empty($system->products) && count($system->products))
                 <div class="moreSystemsTitle">@lang('static.Products involved')</div>
                 <div class="systemsSlide">
                     @foreach($system->products as $product)
@@ -53,8 +53,8 @@
                         @endif
                     @endforeach
                 </div>
-            @endif
         </div>
+        @endif
     </main>
     @endsection
 
