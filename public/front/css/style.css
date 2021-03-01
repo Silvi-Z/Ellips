@@ -51,7 +51,7 @@ a:hover:not(.selectButtons a, .logo, .portfolio a, .blogsWrapper a, .subMenu .ti
 }
 
 .blog:hover .navigateBtn:before, .blog:active .navigateBtn:before {
-    content: url("../icons/whiteArrow.svg");
+    /*content: url("../icons/whiteArrow.svg");*/
 }
 .blogsWrapper a:hover {
     color: black;
