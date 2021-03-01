@@ -406,6 +406,10 @@ header section {
     }
 }
 
+.grab{
+    cursor: grab;
+}
+
 .services .slick-track {
     display: flex;
 }
@@ -1807,7 +1811,6 @@ button, button:focus {
     white-space: pre-line;
     height: 100%;
     align-items: center;
-    justify-content: center;
 }
 
 * ::-webkit-scrollbar {
@@ -1909,7 +1912,7 @@ button, button:focus {
     bottom: 0;
 }
 
-.singleProductSlide > * {
+.singleProductSlide > *:not(iframe) {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -2565,6 +2568,10 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
     opacity: 1 !important;
 }
 
+.singleProduct .slick-slide{
+    display: flex;
+}
+
 .moreServices .slick-track {
     display: flex;
 }
@@ -2654,7 +2661,7 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
     }
 
     .singleInfo {
-        margin-bottom: 70px;
+        /*margin-bottom: 70px;*/
         padding-top: 0!important;
         margin-left: 0;
     }
@@ -2825,6 +2832,9 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 }
 
 @media only screen and (max-width: 1024px) {
+    .moreProducts, .moreSystems{
+        margin-top: 100px;
+    }
     .selectLang > div {
         flex-direction: row;
         width: 38px;
@@ -3223,6 +3233,21 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 }
 
 @media only screen and (max-width: 768px) {
+    .productPageWrapper .product a > div:first-child, .systemImgContainer, .productsPage .product > a > div:first-child{
+        width: 100%;
+    }
+    .filter > form{
+        padding-left: 10px;
+    }
+    .productPageWrapper {
+        padding: 0 10px 120px;
+    }
+    .system > a > div:last-child{
+        max-width: unset;
+    }
+    .moreProducts, .moreSystems{
+        margin-top: 70px;
+    }
     h1:not(.homePageTitle, .page_404 h1){
         font-size: 20px;
         line-height: 40px;
@@ -3561,6 +3586,7 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
     }
 
     .singleInfo {
+        margin-top: 40px;
         margin-left: 0;
     }
 
