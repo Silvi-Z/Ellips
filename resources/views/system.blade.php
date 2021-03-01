@@ -2,7 +2,7 @@
 @section('title') @lang('static.Systems') @endsection
 
 @section('content')
-    <main class="singleProductPage">
+    <main class="singleProductPage systemPage">
         <h1>@lang('static.Systems')</h1>
         <div class="wrapper row">
             <div class="col-xl-6 col-12 position-relative">
@@ -15,7 +15,7 @@
                                 </div>
                             @else
                                 <div class="singleProductSlide">
-                                    <iframe width="100%" src="{{$image->video}}?autoplay=1&showinfo=0&controls=0">
+                                    <iframe width="100%" src="{{$image->video}}?autoplay=1&showinfo=0&controls=0" allowfullscreen>
                                     </iframe>
                                 </div>
                             @endif

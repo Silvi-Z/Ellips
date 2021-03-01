@@ -181,8 +181,6 @@ $(document).ready(function () {
 
     $('.imgVideo').length > 0 && slideCount($('.imgVideo'));
 
-    $('.singleProduct').length > 1 && slideCount($('.singleProduct'));
-
     $('.imgVideo').on("afterChange", () => slideCount($('.imgVideo')));
 
     $('.sliderPortfolio').length > 0 && slideCount($('.sliderPortfolio'));
@@ -192,6 +190,8 @@ $(document).ready(function () {
     $('.singleProduct').on("afterChange", () => slideCount($('.singleProduct')));
 
     $('.sliderPortfolio').on("afterChange", () => slideCount($('.sliderPortfolio')));
+
+    $('.singleProduct .singleProductSlide').length > 1 && slideCount($('.singleProduct'));
 
     $('.sliderBlog').length > 0 && $('.sliderBlog .slick-slide').length > 1 && slideCount($('.sliderBlog'));
 
@@ -235,7 +235,7 @@ $(document).ready(function () {
 
     function centeredSliders(slides, slider, count) {
         (slides.length < count) && slider.css('justify-content', 'center')
-        addCursor(slider[0], slides, count)
+        !slider[0] == $('.company')[0] && addCursor(slider[0], slides, count)
     }
 
     centeredSliders($('.services .serviceWrapper'), $('.services'), 4)
@@ -537,4 +537,22 @@ $(document).ready(function () {
         }
         lastScrollTop = st;
     }
+
+    document.querySelectorAll('.singleProductPage .singleProductSlide').forEach(e => {
+        if (e.firstElementChild.tagName === 'IFRAME'){
+            e.classList.add('black')
+            e.firstElementChild.classList.add('height')
+        }
+    })
+
+    function addBackground(elements){
+        elements.forEach(e => {
+            if (e.firstElementChild.tagName === 'IFRAME'){
+                e.classList.add('black')
+                e.firstElementChild.classList.add('height')
+            }
+        })
+    }
+    addBackground(document.querySelectorAll('.singleProductPage .singleProductSlide'))
+    addBackground(document.querySelectorAll('.modalSpan'))
 });
