@@ -22,7 +22,8 @@
                     </div>
                 </form>
                 <div class="nav-item dropdown col-md-6 col-lg-3">
-                    <a class="nav-link dropdown-toggle brand-toggle" data-toggle="dropdown" href="#">@lang('static.BY BRAND')</a>
+                    <a class="nav-link dropdown-toggle brand-toggle" data-toggle="dropdown"
+                       href="#">@lang('static.BY BRAND')</a>
                     <ul class="dropdown-menu">
                         @if(!empty($brands))
                             @foreach($brands as $brand)
@@ -34,7 +35,8 @@
                     </ul>
                 </div>
                 <div class="nav-item dropdown col-md-6 col-lg-3">
-                    <a class="nav-link dropdown-toggle system-toggle" data-toggle="dropdown" href="#">@lang('static.BY SYSTEMS')</a>
+                    <a class="nav-link dropdown-toggle system-toggle" data-toggle="dropdown"
+                       href="#">@lang('static.BY SYSTEMS')</a>
                     <ul class="dropdown-menu">
                         @if(!empty($systems))
                             @foreach($systems as $system)
@@ -47,23 +49,21 @@
                 </div>
             </div>
             <div class="contentWrapper d-grid">
-                <div class="">
-                    @if(!empty($products))
-                        @foreach($products as $product)
-                            <div class="product d-flex justify-content-center">
-                                <a href="{{route('product',['url'=>$product->url])}}">
-                                    <div class="d-flex align-items-center justify-content-center flex-column">
-                                        <img src="{{$product->first_image()}}" alt="">
-                                    </div>
-                                    <div>
-                                        <h6>{{ $product->{'title_'.$lang} }}</h6>
-                                        <p>{{$product->price}} @lang('static.AMD') </p>
-                                    </div>
-                                </a>
-                            </div>
-                        @endforeach
-                    @endif
-                </div>
+                @if(!empty($products))
+                    @foreach($products as $product)
+                        <div class="product d-flex justify-content-center">
+                            <a href="{{route('product',['url'=>$product->url])}}">
+                                <div class="d-flex align-items-center justify-content-center flex-column">
+                                    <img src="{{$product->first_image()}}" alt="">
+                                </div>
+                                <div>
+                                    <h6>{{ $product->{'title_'.$lang} }}</h6>
+                                    <p>{{$product->price}} @lang('static.AMD') </p>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                @endif
 
             </div>
             {{ $products->links() }}

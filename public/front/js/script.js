@@ -195,6 +195,8 @@ $(document).ready(function () {
 
     $('.sliderBlog').length > 0 && $('.sliderBlog .slick-slide').length > 1 && slideCount($('.sliderBlog'));
 
+    document.querySelectorAll('.moreServicesSlide .moreService').length > 3 && document.querySelectorAll('.moreServicesSlide')[0].classList.add('grab');
+
     activeDropdown(document.querySelectorAll('.brand-toggle ~ .dropdown-menu .dropdown-item'), $('.brand-toggle'))
 
     activeDropdown(document.querySelectorAll('.system-toggle ~ .dropdown-menu .dropdown-item'), $('.system-toggle'))
@@ -217,6 +219,12 @@ $(document).ready(function () {
         })
     }
 
+    function addCursor(slide, itemSlides, count){
+        itemSlides.length > count && slide.classList.add('grab');
+    }
+    addCursor(document.querySelectorAll('.moreServicesSlide')[0] , document.querySelectorAll('.moreServicesSlide .moreService'), 3)
+
+
     function activeDropdown(active, title) {
         active.forEach((e) => {
             if (e.href === location.href) {
@@ -227,6 +235,7 @@ $(document).ready(function () {
 
     function centeredSliders(slides, slider, count) {
         (slides.length < count) && slider.css('justify-content', 'center')
+        addCursor(slider[0], slides, count)
     }
 
     centeredSliders($('.services .serviceWrapper'), $('.services'), 4)
@@ -421,7 +430,7 @@ $(document).ready(function () {
             const transparentCircle = document.querySelector('.transparentCircle')
             const blueCircle = document.querySelector('.blueCircle')
             const elements = document.querySelectorAll(".experienceCount");
-            if (top > 0 && top <= window.innerHeight - 200) {
+            if (top > 0 && top <= window.innerHeight - 50) {
                 elements.forEach((e) => {
                     const finalCount = Number(e.getAttribute('data-number'));
                     let counter = 0;

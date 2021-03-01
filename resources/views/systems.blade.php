@@ -22,6 +22,6 @@
                     @endforeach
                 @endif
             </div>
-        </div>c
+        </div>
     </main>
 @endsection
