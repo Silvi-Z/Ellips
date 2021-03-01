@@ -23,7 +23,8 @@ a:hover:not(.selectButtons a, .logo, .portfolio a, .blogsWrapper a, .subMenu .ti
     color: #7A8086 !important;
 }
 .portfolioPage .portfolio a:hover h3, .blogsWrapper a:hover h4{
-    box-shadow: 0 2px 0 0 #000;
+    text-decoration: underline;
+    text-underline-position: under;
 }
 .product a:hover h6, .system a:hover h6{
     box-shadow: 0 1px 0 0 #000;
