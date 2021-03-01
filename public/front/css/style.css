@@ -22,7 +22,7 @@ a {
 a:hover:not(.selectButtons a, .logo, .portfolio a, .blogsWrapper a, .subMenu .title,.product a, .system a), .subMenu li:hover {
     color: #7A8086 !important;
 }
-.portfolioPage .portfolio a:hover h3, .blogsWrapper a:hover h4, .product a:hover h6, .system a:hover h6{
+.portfolioPage .portfolio a:hover h3, .blogsWrapper a:hover h4, .product a:hover h6, .system a:hover h6, .archivePortfolio:hover h4{
     text-decoration: underline;
     text-underline-position: under;
 }
@@ -37,10 +37,6 @@ a:hover:not(.selectButtons a, .logo, .portfolio a, .blogsWrapper a, .subMenu .ti
 }
 .subMenu .title:hover path{
     fill:white
-}
-
-.homePage .portfolio a:hover h3{
-    box-shadow: 0 2px 0 0 white;
 }
 
 .archivePortfolio:hover .navigateBtn, .archivePortfolio:active .navigateBtn {
@@ -74,7 +70,9 @@ a:hover:not(.selectButtons a, .logo, .portfolio a, .blogsWrapper a, .subMenu .ti
 .selectMenu .toggleArrow{
     margin: 0 5px;
 }
-
+.portfolioModalSlide{
+    padding-left: 0;
+}
 button {
     cursor: pointer;
     outline: none;
@@ -1961,7 +1959,7 @@ iframe .ytp-cued-thumbnail-overlay-image{
 .singleInfo {
     z-index: 1;
     position: relative;
-    padding-top: 140px;
+    padding-top: 50px;
     margin: auto;
 }
 
@@ -3249,6 +3247,9 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 }
 
 @media only screen and (max-width: 768px) {
+    .singleBlog .modalSpan, .singleBlog .sliderBlog{
+        height: 300px!important;
+    }
     .productPageWrapper .product a > div:first-child, .systemImgContainer, .productsPage .product > a > div:first-child{
         width: 100%;
     }
@@ -3464,10 +3465,10 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
         padding: 50px 10px;
     }
 
-    .product {
-        margin-left: auto;
-        margin-right: auto;
-    }
+    /*.product {*/
+    /*    margin-left: auto;*/
+    /*    margin-right: auto;*/
+    /*}*/
 
     .product a{
         width: 100%;
