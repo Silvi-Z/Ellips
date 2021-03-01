@@ -27,12 +27,12 @@
                                         @if($image->image_name )
                                             @if(asset('files/'.$image->image_name) != $blog->first_image())
 
-                                                <div class="modalSpan" data-toggle="modal" data-target="#blogModalSlide">
+                                                <div class="modalSpan d-flex align-items-center" data-toggle="modal" data-target="#blogModalSlide">
                                                     <img class="modalImg" src="{{asset('files/'.$image->image_name)}}" alt="img">
                                                 </div>
                                             @endif
                                         @else
-                                            <div class="modalSpan" data-toggle="modal" data-target="#blogModalSlide">
+                                            <div class="modalSpan d-flex align-items-center" data-toggle="modal" data-target="#blogModalSlide">
                                                 <iframe width="100%" src="{{$image->video}}">
                                                 </iframe>
                                             </div>

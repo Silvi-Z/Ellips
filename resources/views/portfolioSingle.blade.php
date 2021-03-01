@@ -27,12 +27,12 @@
                                 @foreach($portfolio->images as  $image)
                                     @if($image->image_name)
                                         @if(asset('files/'.$image->image_name) != $portfolio->first_image())
-                                            <div class="modalSpan" data-toggle="modal" data-target="#portfolioModalSlide">
+                                            <div class="modalSpan d-flex align-items-center" data-toggle="modal" data-target="#portfolioModalSlide">
                                                 <img src="{{asset('files/'.$image->image_name)}}" alt="img">
                                             </div>
                                         @endif
                                     @else
-                                        <div>
+                                        <div class="modalSpan d-flex align-items-center">
                                             <iframe width="100%"
                                                     src="{{$image->video}}?autoplay=0&showinfo=0&controls=0">
                                             </iframe>

@@ -22,12 +22,9 @@ a {
 a:hover:not(.selectButtons a, .logo, .portfolio a, .blogsWrapper a, .subMenu .title,.product a, .system a), .subMenu li:hover {
     color: #7A8086 !important;
 }
-.portfolioPage .portfolio a:hover h3, .blogsWrapper a:hover h4{
+.portfolioPage .portfolio a:hover h3, .blogsWrapper a:hover h4, .product a:hover h6, .system a:hover h6{
     text-decoration: underline;
     text-underline-position: under;
-}
-.product a:hover h6, .system a:hover h6{
-    box-shadow: 0 1px 0 0 #000;
 }
 .product a:hover, .system a:hover{
     color: black;
@@ -1901,6 +1898,17 @@ button, button:focus {
     justify-content: center;
     align-items: center;
 }
+.systemPage .singleProductSlide{
+    height: 480px;
+}
+
+.black{
+    background-color: black;
+}
+
+.height{
+    height: 80% !important;
+}
 
 .fixed {
     position: fixed;
@@ -1928,6 +1936,10 @@ button, button:focus {
 iframe {
     height: 100% !important;
     width: 100%;
+}
+
+iframe .ytp-cued-thumbnail-overlay-image{
+    background-size: contain!important;
 }
 
 .tags a {
@@ -2601,6 +2613,9 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 }
 
 @media only screen and (min-width: 1200px) {
+    .filter .dropdown-toggle{
+        justify-content: center;
+    }
     .contactPage .col-md-4 {
         width: fit-content;
     }
@@ -3076,7 +3091,7 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 
     .blogSlider > div {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 
     .singleBlog {
@@ -3324,6 +3339,7 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 
     .imgVideoWrapper {
         width: 100%;
+        height: 180px;
     }
 
     .singleProduct {
@@ -3453,6 +3469,10 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
         margin-right: auto;
     }
 
+    .product a{
+        width: 100%;
+    }
+
     .system {
         display: flex;
         justify-content: center;
@@ -3558,7 +3578,7 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 
     .blog .imgVideoWrapper > * {
         width: 100%;
-        height: unset;
+        height: 100%;
         max-height: 350px;
     }
 
