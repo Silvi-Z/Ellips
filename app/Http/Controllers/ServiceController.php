@@ -37,7 +37,7 @@ class ServiceController extends Controller
         $data['text_ru'] = $data['text_ru']?$data['text_ru']:'   ';
         $data['text_en'] = $data['text_en']?$data['text_en']:'   ';
         Service::create($data);
-        $request->session()->flash('alert-success', 'Service has successful added!');
+        $request->session()->flash('alert-success', 'Service has been successfully added!');
         return redirect()->route('admin.services.index');
 
     }
@@ -85,7 +85,7 @@ class ServiceController extends Controller
         $data['text_en'] = $data['text_en']?$data['text_en']:'   ';
         Service::findOrFail($id)->update($data);
 
-        $request->session()->flash('alert-success', 'Service has successful edited!');
+        $request->session()->flash('alert-success', 'Service has been successfully edited!');
 
         return redirect()->route('admin.services.index');
     }

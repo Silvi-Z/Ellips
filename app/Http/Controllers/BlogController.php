@@ -75,7 +75,7 @@ class BlogController extends Controller
         $blog = Blog::create($data);
         
         $blog->images()->createMany($files);
-        $request->session()->flash('alert-success', 'Blog has successful added!');
+        $request->session()->flash('alert-success', 'Blog has been successfully added!');
         return redirect()->route('admin.blogs.index');
     }
 
@@ -164,7 +164,7 @@ class BlogController extends Controller
         $blog->update($data);
         $blog->images()->delete();
         $blog->images()->createMany($files);
-        $request->session()->flash('alert-success', 'Blog has successful updated!');
+        $request->session()->flash('alert-success', 'Blog has been successfully updated!');
         return redirect()->route('admin.blogs.index');
     }
 
@@ -179,7 +179,7 @@ class BlogController extends Controller
         $blog = Blog::findOrFail($id);
         $blog->images()->delete();
         $blog->delete();
-        $request->session()->flash('alert-success', 'Blog has successful deleted!');
+        $request->session()->flash('alert-success', 'Blog has been successfully deleted!');
         return redirect()->route('admin.blogs.index');
     }
 }

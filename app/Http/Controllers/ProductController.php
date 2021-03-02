@@ -88,7 +88,7 @@ class ProductController extends Controller
         $product->systems()->attach($request->systems);
         $product->categories()->attach($request->categories);
         $product->images()->createMany($files);
-        $request->session()->flash('alert-success', 'Product has successful added!');
+        $request->session()->flash('alert-success', 'Product has been successfully added!');
         return redirect()->route('admin.products.index');
     }
 
@@ -185,7 +185,7 @@ class ProductController extends Controller
         $product->categories()->sync($request->categories);
         $product->images()->delete();
         $product->images()->createMany($files);
-        $request->session()->flash('alert-success', 'Product has successful updated!');
+        $request->session()->flash('alert-success', 'Product has been successfully updated!');
         return redirect()->route('admin.products.index');
     }
 
@@ -202,7 +202,7 @@ class ProductController extends Controller
         $product->categories()->detach();
         $product->images()->delete();
         $product->delete();
-        $request->session()->flash('alert-success', 'Product has successful deleted!');
+        $request->session()->flash('alert-success', 'Product has been successfully deleted!');
         return redirect()->route('admin.products.index');
     }
 }
