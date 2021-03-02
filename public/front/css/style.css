@@ -27,9 +27,12 @@ a {
 a:hover:not(.selectButtons a, .logo, .portfolio a, .blogsWrapper a, .subMenu .title,.product a, .system a), .subMenu li:hover {
     color: #7A8086 !important;
 }
-.portfolio a:hover h3, .blogsWrapper a:hover h4, .product a:hover h6, .system a:hover h6, .archivePortfolio:hover h4{
+.blogsWrapper a:hover h3, .blogsWrapper a:hover h4, .product a:hover h6, .system a:hover h6, .archivePortfolio:hover h4{
     text-decoration: underline;
     text-underline-position: under;
+}
+.blogsWrapper a:hover .navigateBtn, .blogsWrapper a:active .navigateBtn {
+    background-color: #1E201D;
 }
 .product a:hover, .system a:hover{
     color: black;
@@ -51,12 +54,9 @@ a:hover:not(.selectButtons a, .logo, .portfolio a, .blogsWrapper a, .subMenu .ti
 .archivePortfolio:hover .navigateBtn:before, .archivePortfolio:active .navigateBtn:before {
     content: url("../icons/blackArrow.svg");
 }
-.blog:hover .navigateBtn, .blog:active .navigateBtn {
-    background-color: #1E201D;
-}
 
 .blog:hover .navigateBtn:before, .blog:active .navigateBtn:before {
-    /*content: url("../icons/whiteArrow.svg");*/
+    content: url("../icons/whiteArrow.svg");
 }
 .blogsWrapper a:hover {
     color: black;
@@ -1223,27 +1223,16 @@ h1:not(.homePageTitle, .page_404 h1) {
     background: #FFFFFF !important;
 }
 .selectButtons > button:not(.activeButton):after {
-    color: #141A1F !important;
-    background: white; !important;
+    background: #7A8086 !important;
 }
-
-
-.activeButton:after {
-    content: "";
-    background: #141A1F !important;
-}
-
-.activeButton:hover {
-    color: white !important;
-    background-color: #141A1F!important;
-}
-
-.selectButtons > button:hover {
+.selectButtons > button:not(.activeButton):hover {
     transform: translateY(0px);
-    color: #141A1F;
+}
+.selectButtons > button:not(.activeButton):hover a{
+    color: white;
 }
 
-.selectButtons > button:hover::after, .activeButton:hover::after {
+.selectButtons:not(.activeButton) > button:hover::after{
     height: 100%;
 }
 
@@ -1256,12 +1245,8 @@ h1:not(.homePageTitle, .page_404 h1) {
     justify-content: center;
 }
 .activeButton a:hover{
-    color: white;
-}
-.selectButtons a:not(.activeButton a):hover{
     color: #141A1F;
 }
-
 
 .dropdown-item.active, .dropdown-item:active {
     background-color: white;
