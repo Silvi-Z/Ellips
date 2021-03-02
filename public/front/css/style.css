@@ -293,13 +293,13 @@ main.homePage {
 h1:not(.page_404 h1) {
     text-transform: uppercase;
     font-weight: bold;
+    padding: 0 50px 55px 50px;
     font-size: 40px;
     line-height: 70px;
     text-align: center;
     letter-spacing: .15px;
     color: #FFFFFF;
     text-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
-    padding-bottom: 55px;
 }
 
 .contactInfo {
