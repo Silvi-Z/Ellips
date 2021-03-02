@@ -42,11 +42,7 @@ function addUpload() {
         '                    </div>'
     divEL.innerHTML = uploads;
     divEL.draggable = true;
-    if(!$('.slider').length){
-        divEL.querySelectorAll('textarea').forEach(e=>{
-            e.classList.add('html-editor')});
-        tinymce.init({selector:'textarea'});
-    }
+
 
 
     deleteItem()

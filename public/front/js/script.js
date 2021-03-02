@@ -235,7 +235,7 @@ $(document).ready(function () {
 
     function centeredSliders(slides, slider, count) {
         (slides.length < count) && slider.css('justify-content', 'center')
-        !slider[0] == $('.company')[0] && addCursor(slider[0], slides, count)
+        !(slider[0] == $('.company')[0]) && addCursor(slider[0], slides, count)
     }
 
     centeredSliders($('.services .serviceWrapper'), $('.services'), 4)
@@ -264,12 +264,19 @@ $(document).ready(function () {
         })
     }
 
-    $('.modalSpan').each(function () {
-        $(this).click(function () {
-            console.log($('.modalOpen'));
-            $('.modalOpen')[0].src = $(this).children()[0].src
-        });
-    })
+    document.querySelectorAll('.modalSpan').forEach( (e) =>{
+            if (window.innerWidth > 1000 ){
+                e.addEventListener('click', function (element) {
+                    document.querySelector('#portfolioModalSlide').classList.add('show')
+                    document.querySelector('.modal-backdrop') && document.querySelector('.modal-backdrop').classList.add('show')
+                    document.querySelector('body').classList.add('modal-open')
+                    $('.modalOpen')[0].setAttribute('src', e.firstElementChild.getAttribute('src'))
+                })
+            }else{
+                e.removeAttribute('data-target')
+            }
+        })
+
     window.onresize = () => licensesMargin();
 
     document.querySelectorAll('.searchInput').forEach(item => {
@@ -325,7 +332,6 @@ $(document).ready(function () {
                     if (item.firstElementChild.classList.contains('selectClass')) {
                         e.stopPropagation()
                         const id = e.target.getAttribute('data-id')
-                        console.log(window.location.href);
                         window.location.href = '/locale/' + id
                     }
                 })
@@ -441,7 +447,6 @@ $(document).ready(function () {
                         } else if (e.innerHTML !== finalCount + '+') {
                             counter++;
                             e.innerHTML = counter + '+';
-                            console.log();
                         }
                     }, 0.1)
                 })
