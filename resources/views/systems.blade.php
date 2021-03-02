@@ -3,7 +3,9 @@
 
 @section('content')
     <main>
-        <h1>@lang('static.products and systems')</h1>
+        <div class="pageTitle">
+            <h1>@lang('static.products and systems')</h1>
+        </div>
         @include('selectButtons')
         <div class="wrapper">
             <div class="systemsWrapper d-grid">

@@ -3,7 +3,9 @@
 
 @section('content')
     <main class="contactPageWrapper">
-        <h1>@lang('static.Contact us')</h1>
+        <div class="pageTitle">
+            <h1>@lang('static.Contact us')</h1>
+        </div>
         <div class="contactPage">
             <div class="container">
                 <div class="row contactInfo">

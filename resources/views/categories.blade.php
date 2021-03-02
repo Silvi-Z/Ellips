@@ -2,7 +2,9 @@
 @section('title') @lang('static.products and systems') @endsection
 @section('content')
     <main class="productsPage wrapper">
-        <h1>@lang('static.products and systems')</h1>
+        <div class="pageTitle">
+            <h1>@lang('static.products and systems')</h1>
+        </div>
         @include ('selectButtons')
             <div class="filter row">
                 <form class="col" action="">
