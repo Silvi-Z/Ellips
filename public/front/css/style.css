@@ -1150,13 +1150,16 @@ main:not(.homePage, .companyPage, .loginPage main) {
 .homePage .portfolioSmallText {
     color: #FFFFFF;
 }
-
+.pageTitle{
+    background: #CFD9E2;
+}
 h1:not(.homePageTitle, .page_404 h1) {
     font-size: 48px;
+    margin: auto;
+    max-width: 1440px;
     color: black;
     padding: 80px 0 120px;
     background: #CFD9E2;
-    margin-bottom: 0;
 }
 .messageContainer{
     padding: 50px 0 90px;

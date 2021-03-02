@@ -2,7 +2,9 @@
 @section('title') @lang('static.Home') @endsection
 @section('content')
     <main class="homePage d-flex flex-column">
-        <h1 class="homePageTitle">@lang('static.SECURITY ․ QUALITY. RELIABILITY')</h1>
+        <div class="pageTitle">
+            <h1 class="homePageTitle">@lang('static.SECURITY ․ QUALITY. RELIABILITY')</h1>
+        </div>
         <section>
             <div class="container">
                 <div class="d-flex justify-content-center slider w-100">

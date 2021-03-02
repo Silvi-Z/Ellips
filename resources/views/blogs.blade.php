@@ -2,7 +2,9 @@
 @section('title') @lang('static.Blog') @endsection
 @section('content')
     <main class="blogsPage">
-        <h1>@lang('static.Blog')</h1>
+        <div class="pageTitle">
+            <h1>@lang('static.Blog')</h1>
+        </div>
         <div class="blogsWrapper">
             <div class="wrapper">
                 <div class="all_blogs">
@@ -38,16 +40,18 @@
     <script>
         $(".see_more_blogs").click(function () {
             var page = Number($(this).attr('data-page'))
-            $.ajax({url: '{{route('getBlogs')}}', data:{page:page}, success: function(result){
+            $.ajax({
+                url: '{{route('getBlogs')}}', data: {page: page}, success: function (result) {
 
                     $('.all_blogs').append(result.html)
-                    if(page*5 >=  result.total){
+                    if (page * 5 >= result.total) {
                         $(".see_more_blogs").remove()
-                    }else{
+                    } else {
                         page += 1;
-                        $(".see_more_blogs").attr('data-page',page);
+                        $(".see_more_blogs").attr('data-page', page);
                     }
-                }});
+                }
+            });
         })
     </script>
 @endsection

@@ -3,7 +3,9 @@
 
 @section('content')
     <main>
-        <h1>{{ $portfolio->{'title_'.$lang} }}</h1>
+        <div class="pageTitle">
+            <h1>{{ $portfolio->{'title_'.$lang} }}</h1>
+        </div>
         <div class="portfolioPage singlePortfolio">
             <div>
                 <img src="{{$portfolio->first_image()}}" alt="">

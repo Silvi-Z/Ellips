@@ -2,7 +2,9 @@
 @section('title') @lang('static.Portfolio') @endsection
 @section('content')
     <main>
-        <h1>@lang('static.Portfolio')</h1>
+        <div class="pageTitle">
+            <h1>@lang('static.Portfolio')</h1>
+        </div>
         <div class="portfolioPage">
             <div class="portfolio">
                 <div class="portfolioBigImg row">
