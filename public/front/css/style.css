@@ -9,8 +9,13 @@
 
 }
 
+:root{
+    scrollbar-color: white !important;
+    scrollbar-width: thin !important;
+    font-family: "Arial", serif
+}
+
 body {
-    font-family: 'Arial', serif;
     -moz-font-family: 'Arial', serif;
 }
 
@@ -22,7 +27,7 @@ a {
 a:hover:not(.selectButtons a, .logo, .portfolio a, .blogsWrapper a, .subMenu .title,.product a, .system a), .subMenu li:hover {
     color: #7A8086 !important;
 }
-.portfolioPage .portfolio a:hover h3, .blogsWrapper a:hover h4, .product a:hover h6, .system a:hover h6, .archivePortfolio:hover h4{
+.portfolio a:hover h3, .blogsWrapper a:hover h4, .product a:hover h6, .system a:hover h6, .archivePortfolio:hover h4{
     text-decoration: underline;
     text-underline-position: under;
 }
@@ -1809,7 +1814,7 @@ button, button:focus {
     align-items: center;
 }
 
-* ::-webkit-scrollbar {
+* ::-webkit-scrollbar{
     border: 2px solid #CFD9E2;
     background-color: white;
     width: 12px;
@@ -2098,7 +2103,7 @@ iframe .ytp-cued-thumbnail-overlay-image{
 
 .portfolioPage .close {
     cursor: pointer;
-    height: 70vh;
+    height: 100%;
     margin: auto;
     width: 100%;
     position: absolute;
@@ -2117,13 +2122,14 @@ iframe .ytp-cued-thumbnail-overlay-image{
 
 .portfolioPage .modal-content {
     justify-content: center;
-    height: 100vh;
-    width: 100vw;
+    /*height: 100vh;*/
+    width: fit-content;
     background-color: transparent;
     border: none;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto;
 }
 
 .content {
@@ -3247,6 +3253,9 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 }
 
 @media only screen and (max-width: 768px) {
+    .portfolioModalSlide{
+        padding-left: 0;
+    }
     .singleBlog .modalSpan, .singleBlog .sliderBlog{
         height: 300px!important;
     }
@@ -3470,9 +3479,9 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
     /*    margin-right: auto;*/
     /*}*/
 
-    .product a{
-        width: 100%;
-    }
+    /*.product a{*/
+    /*    width: 100%;*/
+    /*}*/
 
     .system {
         display: flex;

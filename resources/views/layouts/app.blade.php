@@ -14,18 +14,12 @@
     <link rel="stylesheet" href="{{asset('front/css/style.css')}}">
     <script src="{{asset("front/js/jquery-3.5.1.min.js")}}"></script>
     <script src="{{asset("front/js/popper.min.js")}}"></script>
-    <script type="text/javascript" src="{{ asset('front/bootstrapJS/bootstrap.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/bootstrapJS/bootstrap.min.js') }}"></script>
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js') }}"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
             crossorigin="anonymous"></script>
-    <script src="{{ asset('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js') }}"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{ asset('/front/slick-1.8.1/slick/slick.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/front/slick-1.8.1/slick/slick.min.js') }}"></script>
-    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js') }}"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
     <script src="{{ asset('/front/js/ddslick.js') }}"></script>
     <script src="{{ asset('/front/js/script.js') }}"></script>
     <script src="{{ asset('/front/js/pagination.js') }}"></script>
