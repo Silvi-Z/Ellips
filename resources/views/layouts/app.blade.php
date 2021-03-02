@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('front/slick-1.8.1/slick/slick.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('front/slick-1.8.1/slick/slick-theme.css')}}"/>
     <link rel="stylesheet" href="{{asset('front/css/style.css')}}">
+    <link rel="shortcut icon" type="image/jpg" href="{{asset('front/icons/favicon.png')}}"/>
     <script src="{{asset("front/js/jquery-3.5.1.min.js")}}"></script>
     <script src="{{asset("front/js/popper.min.js")}}"></script>
     <script type="text/javascript" src="{{ asset('front/bootstrapJS/bootstrap.min.js') }}"></script>
