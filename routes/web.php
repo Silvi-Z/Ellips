@@ -17,6 +17,7 @@ Route::get('locale/{locale}', function ($locale){
 });
 //Auth::routes();
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::get('portexcel', 'ExcelController@index')->name('portexcel');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/category/{url}', 'HomeController@category')->name('category');
