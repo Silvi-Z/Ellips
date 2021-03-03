@@ -1158,7 +1158,7 @@ h1:not(.homePageTitle, .page_404 h1) {
     margin: auto;
     max-width: 1440px;
     color: black;
-    padding: 80px 0 120px;
+    padding: 80px 110px 120px;
     background: #CFD9E2;
 }
 .messageContainer{
@@ -1713,6 +1713,10 @@ button, button:focus {
 }
 .singlePortfolio ~ .darkSection, .portfolioPage ~ .darkSection{
     margin-top: 0!important;
+}
+.singlePortfolio .row{
+    margin-right: 0;
+    margin-left: 0;
 }
 
 .redCirclePosition {
@@ -2626,6 +2630,9 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 }
 
 @media only screen and (max-width: 1350px) {
+    h1:not(.homePageTitle, .page_404 h1){
+        padding: 70px 50px;
+    }
     .portfolioPage {
         padding: 90px 50px 70px 50px;
     }
@@ -3612,6 +3619,10 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
     .singleProduct .slick-track {
         display: flex;
     }
+    h1:not(.homePageTitle, .page_404 h1){
+        padding: 0 10px 70px;
+    }
+
     .portfolioPage {
         padding: 50px 10px 70px 10px;
     }
