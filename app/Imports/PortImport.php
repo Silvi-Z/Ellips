@@ -23,7 +23,7 @@ class PortImport implements ToModel
             'url'=>Helper::slugify($row[2])
         ]);
         $portfolio->images()->create([
-           'image'=>'1613977262.jpg'
+           'image_name'=>'1613977262.jpg'
         ]);
         return $portfolio;
     }
