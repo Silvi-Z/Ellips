@@ -24,23 +24,21 @@ a {
     text-decoration: none;
 }
 
-a:hover:not(.selectButtons a, .logo, .portfolio a, .blogsWrapper a, .subMenu .title,.product a, .system a), .subMenu li:hover {
+a:hover:not(.selectButtons a, .singleBlog a, .logo, .portfolio a, .blogsWrapper a, .subMenu .title,.product a, .system a), .subMenu li:hover {
     color: #7A8086 !important;
 }
-.blogsWrapper a:hover h3, .blogsWrapper a:hover h4, .product a:hover h6, .system a:hover h6, .archivePortfolio:hover h4{
+.blogsWrapper a:hover h3,.blogsWrapper a:hover h4, .blogWrapper a:hover h4, .product a:hover h6, .system a:hover h6, .archivePortfolio:hover h4, .portfolio a:hover h3{
     text-decoration: underline;
     text-underline-position: under;
 }
 .blogsWrapper a:hover .navigateBtn, .blogsWrapper a:active .navigateBtn {
     background-color: #1E201D;
 }
-.product a:hover, .system a:hover{
+.product a:hover, .system a:hover, .singleBlog a, .blogsWrapper a:hover, .subMenu .title:hover{
     color: black;
 }
-.subMenu .title:hover {
-    color: black;
-}
-.subMenu .title:hover .arrow{
+
+.subMenu .title:hover .arrow, .blog:hover .navigateBtn, .blog:active .navigateBtn{
     background-color: black;
 }
 .subMenu .title:hover path{
@@ -57,9 +55,6 @@ a:hover:not(.selectButtons a, .logo, .portfolio a, .blogsWrapper a, .subMenu .ti
 
 .blog:hover .navigateBtn:before, .blog:active .navigateBtn:before {
     content: url("../icons/whiteArrow.svg");
-}
-.blogsWrapper a:hover {
-    color: black;
 }
 .transform{
     transform: rotate(180deg);
@@ -2327,7 +2322,6 @@ iframe .ytp-cued-thumbnail-overlay-image{
     line-height: 25px;
     letter-spacing: 0.15px;
     color: #000000;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .singleBlog > .wrapper {
