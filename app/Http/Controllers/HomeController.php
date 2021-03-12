@@ -161,7 +161,7 @@ class HomeController extends Controller
         $ids = $product->categories()->pluck('category_id');
         $similars = Product::whereHas('categories',function ($query) use($ids){
             $query->whereIn('category_id',$ids);
-        })->inRandomOrder()->take(3)->get();
+        })->inRandomOrder()->take(6)->get();
 
         return view('product')->with([
             'product'=>$product,
