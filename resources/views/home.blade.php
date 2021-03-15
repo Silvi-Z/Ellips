@@ -66,24 +66,7 @@
                 @endforeach
             @endif
 
-            <!--                    </div>-->
             </div>
-            <!--                        <div class="wrapper">-->
-            <div class="moreServices row d-flex justify-content-center">
-                <div
-                    class="col servicesDescription">@lang('static.Ellipse GA company also offers separate packages of services, which are')</div>
-                <div class="d-flex col-12 col-xl-9 moreServicesSlide justify-content-center">
-                    @if(!empty($bottom_services) && count($bottom_services))
-                        @foreach($bottom_services as $key => $bottom_service)
-                            <div>
-                                <div
-                                    class="d-flex moreService justify-content-center align-items-center w-250 ">{{ $bottom_service->{'title_'.$lang} }}</div>
-                            </div>
-                        @endforeach
-                    @endif
-                </div>
-            </div>
-            <!--                        </div>-->
             <div class="companies w-100">
                 <div class="companiesTitle">@lang('static.They trust us')</div>
                 @include ('companies')

@@ -31,7 +31,7 @@
                 @foreach ($categories as $key => $category)
                     <div class="product d-flex justify-content-center">
                         <a href="{{route('category',['url'=>$category->url])}}">
-                            <div class="d-flex align-items-center justify-content-center flex-column">
+                            <div class="productImage d-flex align-items-center justify-content-center flex-column">
                                 <img src="{{asset('files/'.$category->image)}}" alt="">
                             </div>
                             <div>

@@ -43,13 +43,13 @@
             </div>
         </div>
         @if(!empty($similars))
-            <div class="moreProducts">
+            <div class="moreProducts container ">
                 <h5>@lang('static.Similar products')</h5>
-                <div class="d-flex justify-content-center">
+                <div class="productSlide">
                     @foreach($similars as  $similar)
                         <div class="product">
                             <a href="{{route('product',['url'=>$similar->url])}}">
-                                <div class="d-flex align-items-center justify-content-center flex-column">
+                                <div class="productImage d-flex align-items-center justify-content-center flex-column">
                                     <img src='{{$similar->first_image()}}' alt="">
                                 </div>
                                 <div>

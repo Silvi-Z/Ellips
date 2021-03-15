@@ -41,9 +41,17 @@ $(document).ready(function () {
 
     $('.licenses').slick({
         slidesToShow: $('.licenses .licensesSlideWrapper').length < 5 ? $('.licenses .licensesSlideWrapper').length : 5,
-        slidesToScroll: 1,
-        infinite: false,
-        arrows: false,
+        // autoplay: true,
+        infinite: true,
+        pauseOnFocus: true,
+        arrow:true,
+        pauseOnHover: false,
+        pauseOnDotsHover: false,
+        arrows: true,
+        swipe:true,
+        autoplaySpeed: 0,
+        // speed: 3000,
+        // cssEase: 'linear',
         responsive: [{
             breakpoint: 1024,
             settings: {
@@ -67,11 +75,14 @@ $(document).ready(function () {
 
     $('.services').slick({
         slidesToShow: $('.services .serviceWrapper').length < 4 ? $('.services .serviceWrapper').length : 4,
-        variableWidth: true,
         slidesToScroll: 1,
+        pauseOnDotsHover:false,
         swipeToSlide: false,
-        arrows: false,
-        infinite: false,
+        arrows: true,
+        pauseOnFocus:true,
+        autoplay:true,
+        autoplaySpeed:3000,
+        infinite: true,
         responsive: [{
             breakpoint: 1700,
             settings: {
@@ -244,25 +255,52 @@ $(document).ready(function () {
 
     centeredSliders($('.licenses .licensesSlideWrapper'), $('.licenses'), 5)
 
-    if ($('.systemsSlide .product').length > 3 || $('.systemsSlide .product').length > 1 && window.innerWidth < 768) {
+    // if ($('.systemsSlide .product').length > 3 || $('.systemsSlide .product').length > 1 && window.innerWidth < 768) {
         $('.systemsSlide').slick({
-            slidesToShow: 3,
+            slidesToShow: 6,
             infinite: true,
             arrows: true,
             responsive: [{
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 2
+                    slidesToShow: 5
                 }
             }, {
-                breakpoint: 850,
+                breakpoint: 768,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 4,
+                }
+            },{
+                breakpoint: 500,
+                settings: {
+                    slidesToShow: 3,
                 }
             },
             ]
         })
-    }
+    $('.productSlide').slick({
+            slidesToShow: $('.productSlide .product').length < 6 ? $('.productSlide .product').length : 6,
+            infinite: true,
+            arrows: true,
+            responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 4
+                }
+            }, {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 4,
+                }
+            },{
+                breakpoint: 500,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            ]
+        })
+    // }
 
     document.querySelectorAll('.modalSpan').forEach( (e) =>{
             if (window.innerWidth > 1000 ){
@@ -491,7 +529,9 @@ $(document).ready(function () {
 
     }
 
-    window.addEventListener('resize', responsiveMenu)
+    window.addEventListener('resize',()=>{
+        responsiveMenu()
+    })
     window.addEventListener('scroll', () => {
         circleAnimation()
         if ($('.singleProduct').length > 0 && window.innerWidth > 1200) {
@@ -561,3 +601,18 @@ $(document).ready(function () {
     addBackground(document.querySelectorAll('.singleProductPage .singleProductSlide'))
     addBackground(document.querySelectorAll('.modalSpan'))
 });
+window.onload = function (){
+    console.log('sdfsdf');
+    const productImages = document.querySelectorAll('.productImage')
+    const products = document.querySelectorAll('.product')
+
+    function calcHeight(){
+        productImages.forEach((e, index)=>{
+            e.style.height = products[index].clientWidth - 10 + 'px';
+        })
+    }
+    calcHeight()
+    window.addEventListener('resize', ()=>{
+        calcHeight()
+    })
+}
