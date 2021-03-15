@@ -33,9 +33,7 @@ class ServiceController extends Controller
     public function store(ServiceRequest $request)
     {
         $data = $request->all();
-        $data['text_hy'] = $data['text_hy']?$data['text_hy']:'   ';
-        $data['text_ru'] = $data['text_ru']?$data['text_ru']:'   ';
-        $data['text_en'] = $data['text_en']?$data['text_en']:'   ';
+        $data['top'] = 1;
         Service::create($data);
         $request->session()->flash('alert-success', 'Service has been successfully added!');
         return redirect()->route('admin.services.index');
@@ -78,11 +76,7 @@ class ServiceController extends Controller
     public function update(ServiceRequest $request, $id)
     {
         $data = $request->all();
-        $data['top'] = isset($request->top)?1:0;
-        $data['bottom'] = isset($request->bottom)?1:0;
-        $data['text_hy'] = $data['text_hy']?$data['text_hy']:'   ';
-        $data['text_ru'] = $data['text_ru']?$data['text_ru']:'   ';
-        $data['text_en'] = $data['text_en']?$data['text_en']:'   ';
+        $data['top'] = 1;
         Service::findOrFail($id)->update($data);
 
         $request->session()->flash('alert-success', 'Service has been successfully edited!');

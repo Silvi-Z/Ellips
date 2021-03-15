@@ -118,6 +118,28 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 
     ]);
 
+    Route::resource('sliders', 'SliderImageController', [
+
+        'names' => [
+
+            'index' => 'admin.sliders.index',
+
+            'store' => 'admin.sliders.store',
+
+            'create' => 'admin.sliders.create',
+
+            'destroy' => 'admin.sliders.destroy',
+
+            'update' => 'admin.sliders.update',
+
+            'show' => 'admin.sliders.show',
+
+            'edit' => 'admin.sliders.edit',
+
+        ]
+
+    ]);
+
 
 
 
