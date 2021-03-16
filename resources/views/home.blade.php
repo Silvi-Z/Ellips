@@ -136,11 +136,11 @@
                     <div class="productPageWrapper d-flex flex-column">
                         <h3>@lang('static.Products և systems')</h3>
                         <!--                    <div class="container">-->
-                        <div class="contentWrapper d-grid">
+                        <div class="contentWrapper row">
                             @foreach($products as $key => $product)
-                                <div class="product d-flex justify-content-center">
+                                <div class="col product d-flex justify-content-.productPageWrapper .productcenter">
                                     <a href="{{route('product',['url'=>$product->url])}}">
-                                        <div class="d-flex align-items-center justify-content-center flex-column">
+                                        <div class="d-flex productImage align-items-center justify-content-center flex-column">
                                             <img src="{{$product->first_image()}}" alt="">
                                         </div>
                                         <div>
