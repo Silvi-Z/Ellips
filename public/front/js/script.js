@@ -602,7 +602,6 @@ $(document).ready(function () {
     addBackground(document.querySelectorAll('.modalSpan'))
 });
 window.onload = function (){
-    console.log('sdfsdf');
     const productImages = document.querySelectorAll('.productImage')
     const products = document.querySelectorAll('.product')
 

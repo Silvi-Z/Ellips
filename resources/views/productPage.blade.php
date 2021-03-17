@@ -53,7 +53,7 @@
             <div class="contentWrapper d-grid">
                 @if(!empty($products))
                     @foreach($products as $product)
-                        <div class="product d-flex justify-content-center">
+                        <div class=" product d-flex justify-content-center">
                             <a href="{{route('product',['url'=>$product->url])}}">
                                 <div class="productImage d-flex align-items-center justify-content-center flex-column">
                                     <img src="{{$product->first_image()}}" alt="">
