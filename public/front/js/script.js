@@ -42,14 +42,14 @@ $(document).ready(function () {
     $('.licenses').slick({
         slidesToShow: $('.licenses .licensesSlideWrapper').length < 5 ? $('.licenses .licensesSlideWrapper').length : 5,
         // autoplay: true,
-        infinite: true,
-        pauseOnFocus: true,
+        infinite: false,
+        // pauseOnFocus: true,
         arrow:true,
-        pauseOnHover: false,
-        pauseOnDotsHover: false,
+        // pauseOnHover: false,
+        // pauseOnDotsHover: false,
         arrows: true,
         swipe:true,
-        autoplaySpeed: 0,
+        // autoplaySpeed: 0,
         // speed: 3000,
         // cssEase: 'linear',
         responsive: [{
@@ -315,7 +315,7 @@ $(document).ready(function () {
             }
         })
 
-    window.onresize = () => licensesMargin();
+    // window.onresize = () => licensesMargin();
 
     document.querySelectorAll('.searchInput').forEach(item => {
         item.addEventListener('keyup', (e) => {
@@ -505,14 +505,14 @@ $(document).ready(function () {
     }
     circleAnimation()
 
-    function licensesMargin() {
-        if (licensesTitle && window.innerWidth > 1024) {
-            newValue = licensesTitle.offsetLeft;
-            newValue = Math.abs((marginLeft + lastValue - lastValue + newValue));
-            document.querySelector('.licensesSlideWrapper:first-of-type').style.marginLeft = newValue + 'px';
-        }
-    }
-    licensesMargin()
+    // function licensesMargin() {
+    //     if (licensesTitle && window.innerWidth > 1024) {
+    //         newValue = licensesTitle.offsetLeft;
+    //         newValue = Math.abs((marginLeft + lastValue - lastValue + newValue));
+    //         document.querySelector('.licensesSlideWrapper:first-of-type').style.marginLeft = newValue + 'px';
+    //     }
+    // }
+    // licensesMargin()
 
     function swipeSlide(slide, otherSlide) {
         slide.on('swipe', function (event, slick, direction) {

@@ -29,6 +29,10 @@ a:focus{
     outline: none;
 }
 
+.slick-disabled{
+    cursor: auto!important;
+}
+
 a:hover:not(.selectButtons a, .singleBlog a, .logo, .portfolio a, .blogsWrapper a, .subMenu .title,.product a, .system a), .subMenu li:hover {
     color: #7A8086 !important;
 }
@@ -474,6 +478,7 @@ input:focus::placeholder {
     border: 1px solid #858B91 !important;
     height: 50px;
     width: 50px;
+    z-index: 10;
     border-radius: 50%;
 }
 
@@ -1155,6 +1160,7 @@ footer h4 {
 
 .licenses {
     width: 90%;
+    max-width: 1220px;
     margin: auto;
     display: flex;
     flex-wrap: nowrap;
@@ -1169,10 +1175,10 @@ footer h4 {
     background-color: white;
 }
 .licenses .slick-next{
-    right: -50px;
+    right: -55px;
 }
 .licenses .slick-prev{
-    left: -50px;
+    left: -55px;
 }
 
     /*   products  */
@@ -1680,7 +1686,7 @@ button, button:focus {
 .licensesSlideWrapper {
     max-width: 210px;
     /*width: 100% !important;*/
-    margin: 0 50px;
+    margin: 0 50px 0 0;
 }
 
 .licensesSlideWrapper div:first-child {
@@ -2954,6 +2960,15 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 }
 
 @media only screen and (max-width: 1024px) {
+    .licenses {
+        width: 80%;
+    }
+    /*.licenses .slick-next{*/
+    /*    right: -45px;*/
+    /*}*/
+    /*.licenses .slick-prev{*/
+    /*    left: -45px;*/
+    /*}*/
     .productPageWrapper .product {
         /*width: 100%;*/
         /*margin: 0 24px;*/
@@ -3055,9 +3070,9 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
         padding: 20px 40px 50px;
     }
 
-    .licensesSlideWrapper:first-of-type {
-        margin-left: 40px;
-    }
+    /*.licensesSlideWrapper:first-of-type {*/
+    /*    margin-left: 40px;*/
+    /*}*/
 
     .moreServicesSlide {
         padding: 0;
@@ -3358,11 +3373,6 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
     .systemsWrapper {
         padding: 80px 40px 120px;
     }
-
-    .licenses {
-        width: 90%;
-    }
-
 }
 
 @media only screen and (max-width: 900px) {
@@ -3514,9 +3524,9 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
         padding: 20px 20px 30px;
     }
 
-    .licensesSlideWrapper:first-of-type {
-        margin-left: 20px;
-    }
+    /*.licensesSlideWrapper:first-of-type {*/
+    /*    margin-left: 20px;*/
+    /*}*/
 
     .systemsSlide .slick-prev, .productSlide .slick-prev {
         top: 110%;
