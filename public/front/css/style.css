@@ -464,8 +464,11 @@ input:focus::placeholder {
     margin-left: -70px;
 }
 
-.next:hover, .prev:hover {
+.next:hover, .prev:hover, .services .slick-next, .services .slick-prev {
     border: 1px solid #858B91 !important;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
 }
 
 .next:before, .prev:before {
@@ -879,7 +882,7 @@ input:focus::placeholder {
 
 .system > a > div:nth-child(2) > * {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
     width: fit-content;
     line-height: 20px;
     text-align: center;
@@ -2008,6 +2011,7 @@ iframe .ytp-cued-thumbnail-overlay-image {
 }
 
 .singleInfo {
+    padding-left: 30px;
     z-index: 1;
     position: relative;
     padding-top: 50px;
@@ -2543,6 +2547,10 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 
 .singleProductPage .product {
     margin: 0 15px;
+}
+.singleProductPage .productImage{
+    max-width: 340px;
+    max-height: 330px;
 }
 
 .moreSystems, .moreProducts {
