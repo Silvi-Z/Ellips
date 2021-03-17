@@ -15,10 +15,6 @@
                     <h5>@lang('static.CLIENT')</h5>
                     <p>{{ $portfolio->{'client_'.$lang} }}</p>
                 </div>
-                <div>
-                    <h5>@lang('static.WORK')</h5>
-                    <p>{{ $portfolio->{'work_'.$lang} }}</p>
-                </div>
             </div>
             <div class="row">
                 <div class="col-md-12 description">
