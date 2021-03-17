@@ -28,8 +28,8 @@
             </div>
             <div class="col-xl-6 col-12 singleInfo">
                 <h6>{{ $product->{'title_'.$lang} }}</h6>
-                <h6>{{ $product->brand->{'title_'.$lang} }}</h6>
-                <p class="price">{{ $product->price }} @lang('static.AMD')</p>
+                <h6>{{ $product->brand?$product->brand->{'title_'.$lang}:'' }}</h6>
+                <p class="price">{{ number_format($product->price) }} @lang('static.AMD')</p>
                 <div class="productDescription">{!!  $product->{'text_'.$lang}  !!}</div>
                 <div class="tags">
                     @foreach($product->systems as $system)
@@ -54,7 +54,7 @@
                                 </div>
                                 <div>
                                     <h6>{{ $similar->{'title_'.$lang} }}</h6>
-                                    <p>{{ $similar->price }} @lang('static.AMD')</p>
+                                    <p>{{  number_format($similar->price) }} @lang('static.AMD')</p>
                                 </div>
                             </a>
                         </div>

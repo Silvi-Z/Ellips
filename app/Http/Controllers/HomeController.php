@@ -16,6 +16,7 @@ use App\Models\Portfolio;
 use App\Models\Product;
 use App\Models\Service;
 use App\Models\Slider;
+use App\Models\SliderImage;
 use App\Models\SocialNetwork;
 use App\Models\System;
 use Illuminate\Http\Request;
@@ -40,18 +41,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $slider = Slider::first();
+        $sliders = SliderImage::where('lang',app()->getLocale())->get();
         $top_services = Service::where('top',1)->get();
-        $bottom_services = Service::where('bottom',1)->get();
         $portfolios = Portfolio::where('top',1)->inRandomOrder()->take(3)->get();
         $products = Product::inRandomOrder()->take(3)->get();
         $blogs = Blog::inRandomOrder()->take(3)->get();
 
         return view('home')->with([
             'products'=>$products,
-            'slider'=>$slider,
+            'sliders'=>$sliders,
             'top_services'=>$top_services,
-            'bottom_services'=>$bottom_services,
             'portfolios'=>$portfolios,
             'blogs'=>$blogs,
         ]);

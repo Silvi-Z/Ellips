@@ -73,7 +73,7 @@ class SystemController extends Controller
 
         $system = System::create($data);
         $system->images()->createMany($files);
-        $request->session()->flash('alert-success', 'System has successful added!');
+        $request->session()->flash('alert-success', 'System has been successfully added!');
         return redirect()->route('admin.systems.index');
     }
 
@@ -154,7 +154,7 @@ class SystemController extends Controller
         $system->update($data);
         $system->images()->delete();
         $system->images()->createMany($files);
-        $request->session()->flash('alert-success', 'System has successful updated!');
+        $request->session()->flash('alert-success', 'System has been successfully updated!');
         return redirect()->route('admin.systems.index');
     }
 

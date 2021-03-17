@@ -159,24 +159,24 @@
             }
 
             self.html('<i class="fa fa-spinner fa-spin"></i>{{trans('static.Sending')}}')
-
+            self.attr('disabled',true)
             let formData = $("#contactForm").serialize();
 
             let page = Number($(this).attr('data-page'));
 
             $.ajax({
                 url: '{{route('postContact')}}',method:'POST', data: formData, success: function (result) {
-                    self.html('{{trans('static.Sent')}}')
                     setTimeout(function () {
-                        self.html('{{trans('static.Sent')}}')
                         email.val('');
                         message.val('');
                         phone.val('');
                         name.val('');
+                        self.html('{{trans('static.Sent')}}')
+
                     },2000);
                     setTimeout(function () {
                         self.html('{{trans('static.Send')}}')
-
+                        self.attr('disabled',false)
                     },5000)
 
                 },

@@ -23,14 +23,17 @@ class SliderRequest extends FormRequest
      */
     public function rules()
     {
+
         $rules =  [
-            'upload_files'=>'required|array',
-            'upload_files.*.text_hy'=>'required',
-            'upload_files.*.text_ru'=>'required',
-            'upload_files.*.text_en'=>'required',
-            ];
-            $rules['upload_files.*.image'] = 'image|max:10240';
-            $rules['upload_files.*.video'] = 'string';
+            'title'=>'required',
+            'lang'=>'required',
+        ];
+        if ($this->method() == "PUT") {
+            $rules['image'] = 'image|max:10240';
+
+        }else{
+            $rules['image'] = 'required|image|max:10240';
+        }
         return $rules;
     }
 }

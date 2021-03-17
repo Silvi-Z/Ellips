@@ -126,52 +126,6 @@
 
 
 
-            <div class="form-group">
-
-                {!! Form::label('work_hy', 'Work AM *') !!}
-
-                {!! Form::text('work_hy', isset($portfolio)?$portfolio->work_hy:'', ['class' => $errors->has('work_hy') ? 'form-control is-invalid' : 'form-control',]) !!}
-
-                @if ($errors->has('work_hy'))
-
-                    {{--{{ dd($errors->all()) }}--}}
-
-                    <div class="invalid-feedback">{{ $errors->first('work_hy') }}</div>
-
-                @endif
-
-            </div>
-
-            <div class="form-group">
-
-                {!! Form::label('work_ru', 'Work RU *') !!}
-
-                {!! Form::text('work_ru', isset($portfolio)?$portfolio->work_ru:'', ['class' => $errors->has('work_ru') ? 'form-control is-invalid' : 'form-control',]) !!}
-
-                @if ($errors->has('work_ru'))
-
-                    {{--{{ dd($errors->all()) }}--}}
-
-                    <div class="invalid-feedback">{{ $errors->first('work_hy') }}</div>
-
-                @endif
-
-            </div>
-            <div class="form-group">
-
-                {!! Form::label('work_en', 'Work EN *') !!}
-
-                {!! Form::text('work_en', isset($portfolio)?$portfolio->work_en:'', ['class' => $errors->has('work_en') ? 'form-control is-invalid' : 'form-control',]) !!}
-
-                @if ($errors->has('work_en'))
-
-                    {{--{{ dd($errors->all()) }}--}}
-
-                    <div class="invalid-feedback">{{ $errors->first('work_en') }}</div>
-
-                @endif
-
-            </div>
 
             <div class="form-group">
 

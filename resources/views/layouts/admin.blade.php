@@ -436,17 +436,36 @@
                 </a>
 
             </li>
-            <li class="nav-item {{Request::is('admin/slider') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Slider">
+            <li class="nav-item {{(Request::is('admin/sliders') || Request::is('admin/sliders*'))  ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Sliders">
 
-                <a class="nav-link" href="{{ route('admin.slider') }}">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#Sliders">
 
                     <i class="fa fa-slideshare"></i>
 
-                    <span class="nav-link-text">Slider</span>
+                    <span class="nav-link-text">Sliders</span>
 
                 </a>
 
+                <ul class="sidenav-second-level collapse" id="Sliders">
+
+
+                    <li>
+
+                        <a href="{{ route('admin.sliders.create') }}">Create slider image</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ route('admin.sliders.index') }}">Slider images list</a>
+
+                    </li>
+
+
+                </ul>
+
             </li>
+
 
 
 

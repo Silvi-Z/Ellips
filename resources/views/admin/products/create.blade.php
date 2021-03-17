@@ -102,6 +102,7 @@
 
                 <select name="brand_id" class="form-control @if ($errors->has('brand_id')) is-invalid @endif">
                     @if(!empty($brands))
+                        <option value="">Choose Brand</option>
                         @foreach($brands as $barnd)
                             <option @if(isset($product) && $product->barnd_id == $barnd->id) selected @endif value="{{$barnd->id}}">{{$barnd->title_en}}</option>
                         @endforeach

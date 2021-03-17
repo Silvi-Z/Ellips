@@ -23,17 +23,15 @@ class ProductRequest extends FormRequest
      */
     public function rules()
     {
+
         $rules =  [
             'title_hy'=>'required',
             'title_ru'=>'required',
             'title_en'=>'required',
-            'text_hy'=>'required',
-            'text_ru'=>'required',
-            'text_en'=>'required',
             'price'=>'required|numeric|min:0.01',
             'categories'=>'required|array',
             'categories.*'=>'required|exists:categories,id',
-            'brand_id'=>'required|exists:brands,id',
+            'brand_id'=>'nullable|exists:brands,id',
             'systems'=>'required|array',
             'systems.*'=>'required|exists:systems,id',
             'upload_files'=>'required|array',

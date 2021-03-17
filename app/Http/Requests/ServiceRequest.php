@@ -27,11 +27,9 @@ class ServiceRequest extends FormRequest
             'title_hy'=>'required',
             'title_ru'=>'required',
             'title_en'=>'required',
-            'text_hy'=>'required_with:top|max:400',
-            'text_ru'=>'required_with:top|max:400',
-            'text_en'=>'required_with:top|max:400',
-            'top'=>'required_without:bottom',
-            'bottom'=>'required_without:top'
+            'text_hy'=>'required|max:400',
+            'text_ru'=>'required|max:400',
+            'text_en'=>'required|max:400',
         ];
     }
 }

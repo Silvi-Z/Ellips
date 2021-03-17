@@ -14,44 +14,30 @@
                             <div class="dots">
                                 <div class="prev"></div>
                                 <div class="heroSlider textSlide bigSlide">
-                                    @if(!empty($slider->images) && count($slider->images))
-                                        @foreach($slider->images as $image)
-                                            <div><a href="{{$image->url}}">{{$image->{'text_'.$lang} }}</a></div>
+                                    @if(!empty($sliders) && count($sliders))
+                                        @foreach($sliders as $image)
+                                            <div><a href="{{$image->url}}">{{$image->title }}</a></div>
                                         @endforeach
                                     @endif
                                 </div>
                                 <div class="heroSlider imagesSlide">
-                                    @if(!empty($slider->images) && count($slider->images))
-                                        @foreach($slider->images as $image)
-                                            @if($image->image_name)
-                                                <div>
-                                                    <img src="{{asset('files/'.$image->image_name)}}" alt="">
-                                                </div>
-                                            @else
-                                                <div>
-                                                    <iframe width="100%" src="{{$image->video}}">
-                                                    </iframe>
-                                                </div>
-                                            @endif
+                                    @if(!empty($sliders) && count($sliders))
+                                        @foreach($sliders as $image)
+                                            <div>
+                                                <img src="{{asset('files/'.$image->image)}}" alt="">
+                                            </div>
+
 
                                         @endforeach
                                     @endif
                                 </div>
                                 <div class="heroSlider imagesSmallSlide">
-                                    @if(!empty($slider->images) && count($slider->images))
-                                        @foreach($slider->images as $image)
-                                            @if($image->image_name)
-                                                <div>
-                                                    <img src="{{asset('files/'.$image->image_name)}}"
-                                                         data-text="{{$image->{'text_'.$lang} }}" alt="">
-                                                </div>
-                                            @else
-                                                <div>
-                                                    <iframe width="100%" src="{{$image->video}}"
-                                                            data-text="{{$image->{'text_'.$lang} }}">
-                                                    </iframe>
-                                                </div>
-                                            @endif
+                                    @if(!empty($sliders) && count($sliders))
+                                        @foreach($sliders as $image)
+                                            <div>
+                                                <img src="{{asset('files/'.$image->image)}}"
+                                                     data-text="{{$image->title }}" alt="">
+                                            </div>
                                         @endforeach
                                     @endif
                                 </div>
@@ -145,7 +131,7 @@
                                         </div>
                                         <div>
                                             <h6>{{ $product->{'title_'.$lang} }}</h6>
-                                            <p>{{$product->price}} @lang('static.AMD') </p>
+                                            <p>{{number_format($product->price)}} @lang('static.AMD') </p>
                                         </div>
                                     </a>
                                 </div>

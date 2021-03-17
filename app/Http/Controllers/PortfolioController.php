@@ -85,7 +85,7 @@ class PortfolioController extends Controller
         $portfolio = Portfolio::create($data);
         
         $portfolio->images()->createMany($files);
-        $request->session()->flash('alert-success', 'Portfolio has successful added!');
+        $request->session()->flash('alert-success', 'Portfolio has been successfully added!');
         return redirect()->route('admin.portfolios.index');
     }
 
@@ -184,7 +184,7 @@ class PortfolioController extends Controller
         $portfolio->update($data);
         $portfolio->images()->delete();
         $portfolio->images()->createMany($files);
-        $request->session()->flash('alert-success', 'Portfolio has successful updated!');
+        $request->session()->flash('alert-success', 'Portfolio has been successfully updated!');
         return redirect()->route('admin.portfolios.index');
     }
 
@@ -199,7 +199,7 @@ class PortfolioController extends Controller
         $portfolio = Portfolio::findOrFail($id);
         $portfolio->images()->delete();
         $portfolio->delete();
-        $request->session()->flash('alert-success', 'Portfolio has successful deleted!');
+        $request->session()->flash('alert-success', 'Portfolio has been successfully deleted!');
         return redirect()->route('admin.portfolios.index');
     }
 }

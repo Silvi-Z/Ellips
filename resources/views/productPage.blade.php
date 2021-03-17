@@ -60,7 +60,7 @@
                                 </div>
                                 <div>
                                     <h6>{{ $product->{'title_'.$lang} }}</h6>
-                                    <p>{{$product->price}} @lang('static.AMD') </p>
+                                    <p>{{number_format($product->price)}} @lang('static.AMD') </p>
                                 </div>
                             </a>
                         </div>

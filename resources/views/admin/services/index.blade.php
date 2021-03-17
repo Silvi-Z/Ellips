@@ -39,8 +39,6 @@
                         <th>Title RU</th>
 
                         <th>Title EN</th>
-                        <th>Home page top</th>
-                        <th>Home page bottom</th>
 
                         <th>Created</th>
 
@@ -63,8 +61,6 @@
                         <th>Title RU</th>
 
                         <th>Title EN</th>
-                        <th>Home page top</th>
-                        <th>Home page bottom</th>
 
                         <th>Created</th>
 
@@ -100,9 +96,6 @@
                                 <td>{{ $service->title_ru }}</td>
 
                                 <td>{{ $service->title_en }}</td>
-                                <td>{{ $service->top?'Yes':'No' }}</td>
-                                <td>{{ $service->bottom?'Yes':'No' }}</td>
-
                                 <td>{{ $service->created_at }}</td>
                                 <td>{{ $service->updated_at }}</td>
 
