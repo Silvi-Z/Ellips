@@ -25,6 +25,10 @@ a {
     text-decoration: none;
 }
 
+a:focus{
+    outline: none;
+}
+
 a:hover:not(.selectButtons a, .singleBlog a, .logo, .portfolio a, .blogsWrapper a, .subMenu .title,.product a, .system a), .subMenu li:hover {
     color: #7A8086 !important;
 }
@@ -394,8 +398,10 @@ h1:not(.page_404 h1) {
     display: flex;
     cursor: pointer;
     align-items: center;
-    z-index: 200;
     justify-content: center;
+}
+.imagesSlide .slick-arrow, .prev, .next{
+    z-index: 200;
 }
 
 header section {
@@ -464,7 +470,7 @@ input:focus::placeholder {
     margin-left: -70px;
 }
 
-.next:hover, .prev:hover, .services .slick-next, .services .slick-prev {
+.next:hover, .prev:hover, .services .slick-next, .services .slick-prev, .licenses .slick-next, .licenses .slick-prev {
     border: 1px solid #858B91 !important;
     height: 50px;
     width: 50px;
@@ -1148,9 +1154,8 @@ footer h4 {
 }
 
 .licenses {
-    width: 95%;
+    width: 90%;
     margin: auto;
-    padding-bottom: 120px;
     display: flex;
     flex-wrap: nowrap;
 }
@@ -1160,10 +1165,17 @@ footer h4 {
 }
 
 .licensesWrapper {
+    padding-bottom: 120px;
     background-color: white;
 }
+.licenses .slick-next{
+    right: -50px;
+}
+.licenses .slick-prev{
+    left: -50px;
+}
 
-/*   products  */
+    /*   products  */
 main:not(.homePage, .companyPage, .loginPage main) {
     background-color: #FFFFFF;
 }
@@ -2944,7 +2956,7 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 @media only screen and (max-width: 1024px) {
     .productPageWrapper .product {
         /*width: 100%;*/
-        margin: 0 24px;
+        /*margin: 0 24px;*/
     }
 
     .moreSystems.container {
@@ -3381,8 +3393,11 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 }
 
 @media only screen and (max-width: 768px) {
+    .systemsWrapper, .productsWrapper, .filter~.contentWrapper{
+        grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    }
     .productPageWrapper .product a > div:first-child {
-        height: 280px !important;
+        /*height: 280px !important;*/
         max-width: 300px !important;
     }
 
@@ -3400,7 +3415,7 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
     }
 
     .licenses {
-        width: 84%;
+        width: 70%;
     }
 
     .portfolioModalSlide {
@@ -3986,7 +4001,7 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 }
 
 @media only screen and (max-width: 500px) {
-    .systemsWrapper, .productsWrapper {
+    .systemsWrapper, .productsWrapper,  .filter~.contentWrapper{
         grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
     }
 
