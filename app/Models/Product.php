@@ -31,7 +31,7 @@ class Product extends Model
         if($first){
             return asset('files/'.$first->image_name);
         }else{
-            return asset('front/images/camera1.png');
+            return asset('files/static.png');
         }
     }
 
