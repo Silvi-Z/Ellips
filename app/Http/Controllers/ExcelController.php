@@ -14,6 +14,7 @@ class ExcelController extends Controller
     public function index()
     {
         $products = Product::all();
+        dd($products);
         foreach ($products as $product){
             $product->systems()->detach();
             $product->categories()->detach();
