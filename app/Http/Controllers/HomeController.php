@@ -91,7 +91,7 @@ class HomeController extends Controller
 
         $products = Product::whereHas('categories',function ($query) use($category){
             $query->where('category_id',$category->id);
-        })->search($request)->paginate(9);
+        })->search($request)->paginate(12);
         $products->appends($request->all());
         return view('productPage')->with([
             'category'=>$category,
