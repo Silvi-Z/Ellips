@@ -2580,6 +2580,11 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
     /*margin: 0 50px;*/
 }
 
+.productPageWrapper .product{
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
 .product a {
     width: 100%;
 }
@@ -2975,6 +2980,10 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
     .productPageWrapper .product {
         /*width: 100%;*/
         /*margin: 0 24px;*/
+    }
+    .singleInfo{
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .moreSystems.container {
@@ -3689,10 +3698,10 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
     /*.systemsSlide .slick-next{*/
     /*    right: -33px;*/
     /*}*/
-    .system {
-        display: flex;
-        justify-content: center;
-    }
+    /*.system {*/
+    /*    display: flex;*/
+    /*    justify-content: center;*/
+    /*}*/
 
     .form {
         padding: 50px 20px 0 20px;
