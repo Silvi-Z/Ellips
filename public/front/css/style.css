@@ -1684,7 +1684,7 @@ button, button:focus {
 }
 
 .licensesSlideWrapper {
-    max-width: 210px;
+    /*max-width: 210px;*/
     /*width: 100% !important;*/
     margin: 0 50px 0 0;
 }
