@@ -28,9 +28,6 @@ class SystemRequest extends FormRequest
             'title_hy'=>'required',
             'title_ru'=>'required',
             'title_en'=>'required',
-            'text_hy'=>'required',
-            'text_ru'=>'required',
-            'text_en'=>'required',
             'upload_files'=>'required|array',
         ];
 
