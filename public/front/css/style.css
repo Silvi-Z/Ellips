@@ -1684,7 +1684,7 @@ button, button:focus {
 }
 
 .licensesSlideWrapper {
-    max-width: 210px;
+    /*max-width: 210px;*/
     /*width: 100% !important;*/
     margin: 0 50px 0 0;
 }
@@ -2577,7 +2577,12 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 
 .homePage .productPageWrapper .product {
     width: 100%;
-    margin: 0 50px;
+    /*margin: 0 50px;*/
+}
+
+.productPageWrapper .product{
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 .product a {
@@ -2706,6 +2711,9 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 @media only screen and (max-width: 1500px) {
     .servicesDescription {
         margin: 0;
+    }
+    .subMenu li{
+        width: 140px;
     }
 }
 
@@ -2972,6 +2980,10 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
     .productPageWrapper .product {
         /*width: 100%;*/
         /*margin: 0 24px;*/
+    }
+    .singleInfo{
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .moreSystems.container {
@@ -3686,10 +3698,10 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
     /*.systemsSlide .slick-next{*/
     /*    right: -33px;*/
     /*}*/
-    .system {
-        display: flex;
-        justify-content: center;
-    }
+    /*.system {*/
+    /*    display: flex;*/
+    /*    justify-content: center;*/
+    /*}*/
 
     .form {
         padding: 50px 20px 0 20px;
