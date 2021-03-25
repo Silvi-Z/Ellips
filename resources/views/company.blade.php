@@ -9,9 +9,7 @@
         <div class="background">
             <div class="wrapper">
                 <div class="aboutCompany">
-                    <p>
-                        <span>@lang('static.Company')</span> {!! $about?$about->{'company_'.$lang}:'' !!}
-                    </p>
+                    <p>{!! $about?$about->{'company_'.$lang}:'' !!}</p>
                     <div>
                         <span>@lang('static.WHO ARE WE')</span>
                         <p>{!! $about?$about->{'text_'.$lang}:'' !!}
@@ -32,6 +30,9 @@
                         </div>
                     @endforeach
                 @endif
+            </div>
+            <div class="historyParagraph">
+                <p>{!! $about?$about->{'text_2_'.$lang}:'' !!}</p>
             </div>
         </div>
         @include('ourExperience')

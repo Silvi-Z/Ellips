@@ -40,7 +40,7 @@ return [
     'OUR PARTNERS'   => 'ՄԵՐ ԳՈՐԾԸՆԿԵՐՆԵՐԸ',
     'HISTORY'   => 'ՊԱՏՄՈՒԹՅՈՒՆ',
     'WHO ARE WE'   => 'ՈՎ ԵՆՔ ՄԵՆՔ',
-    'CERTIFICATES'   => 'ՍԵՐՏԻՖԻԿԱՏՆԵՐ',
+    'CERTIFICATES'   => 'ԼԻՑԵՆԶԻԱՆԵՐ',
     '«Ellipse GA» LLC is the first enterprise operating in the field of security systems in Armenia.
                  It was established in 1989 as a specialized professional organization for security technical means
                  design,

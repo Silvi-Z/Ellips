@@ -1653,7 +1653,7 @@ button, button:focus {
     padding: 20px 0 110px;
 }
 
-.aboutCompany div:nth-child(2) p {
+.aboutCompany p:first-child {
     font-size: 24px;
     line-height: 35px;
     letter-spacing: 0.15px;
@@ -1749,10 +1749,23 @@ button, button:focus {
     display: flex;
 }
 
-.history p {
+.history p, .aboutCompany div:nth-child(2) p, .historyParagraph {
     font-size: 16px;
     line-height: 25px;
     letter-spacing: 0.15px;
+}
+.aboutCompany div:nth-child(2) p, .historyParagraph{
+    margin-top: 50px;
+    font-weight: bold;
+}
+.historyParagraph{
+    max-width: 1440px;
+    width: 100%;
+    padding: 90px 110px 0 110px;
+    margin: auto;
+}
+
+.history p{
     color: #FFFFFF;
     max-width: 580px;
 }
@@ -3181,7 +3194,7 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
         padding-bottom: 70px;
     }
 
-    .aboutCompany div:nth-child(2) p {
+    .aboutCompany p:first-child {
         font-size: 18px;
         margin-top: 40px;
     }
