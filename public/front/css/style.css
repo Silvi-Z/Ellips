@@ -1159,7 +1159,7 @@ footer h4 {
 }
 
 .licenses {
-    width: 90%;
+    width: 88%;
     max-width: 1220px;
     margin: auto;
     display: flex;
@@ -1639,13 +1639,13 @@ button, button:focus {
     padding: 90px 110px 0 110px;
 }
 
-.aboutCompany p:first-child {
-    font-size: 36px;
-    line-height: 70px;
-    letter-spacing: 1px;
-    font-weight: bold;
-    margin-bottom: 90px;
-}
+/*.aboutCompany p:first-child {*/
+/*    font-size: 36px;*/
+/*    line-height: 70px;*/
+/*    letter-spacing: 1px;*/
+/*    font-weight: bold;*/
+/*    margin-bottom: 90px;*/
+/*}*/
 
 .aboutCompany div:nth-child(2) {
     border-top: 1px solid #7A8086;
@@ -1654,10 +1654,12 @@ button, button:focus {
 }
 
 .aboutCompany p:first-child {
+    max-width: 75%;
     font-size: 24px;
     line-height: 35px;
     letter-spacing: 0.15px;
-    margin-top: 50px;
+    margin: 0 auto 50px;
+    text-align: center;
     font-weight: bold;
 }
 
@@ -2741,6 +2743,9 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 }
 
 @media only screen and (max-width: 1440px) {
+    .licenses{
+        padding: 0 50px;
+    }
     .singleBlog {
         padding: 70px 50px 120px 50px;
     }
@@ -2983,6 +2988,7 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
 @media only screen and (max-width: 1024px) {
     .licenses {
         width: 80%;
+        padding: 0;
     }
     /*.licenses .slick-next{*/
     /*    right: -45px;*/
@@ -3171,7 +3177,7 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
         right: 400px;
     }
 
-    .aboutCompany {
+    .aboutCompany , .historyParagraph{
         padding: 70px 40px 0 40px;
     }
 
@@ -3437,7 +3443,7 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
     }
 
     .productPageWrapper .product {
-        margin: auto;
+        margin: 0 auto;
     }
 
     .contentWrapper.row {
@@ -3450,7 +3456,7 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
     }
 
     .licenses {
-        width: 70%;
+        width: 63%;
     }
 
     .portfolioModalSlide {
