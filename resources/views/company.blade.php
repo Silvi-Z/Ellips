@@ -59,7 +59,7 @@
                         @else
                             <div class="history row">
                                 <div class="col-xl-6 col-12 companyImage">
-                                    <img src="{{asset('front/images/historyImg1.jpg')}}" alt="">
+                                    <img src="{{asset('files/'.$history->image)}}" alt="">
                                 </div>
                                 <div class="col-xl-6 col-12">
                                     <p>{{ $history->{'text_'.$lang} }}
