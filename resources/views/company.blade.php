@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="col-xl-6 col-12 companyImage">
                                     <img src="{{asset('files/'.$history->image)}}" alt="">
-                                </div>
+                                </div>git
                             </div>
                         @else
                             <div class="history row">
