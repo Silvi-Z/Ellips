@@ -257,7 +257,7 @@ $(document).ready(function () {
 
     // if ($('.systemsSlide .product').length > 3 || $('.systemsSlide .product').length > 1 && window.innerWidth < 768) {
         $('.systemsSlide').slick({
-            slidesToShow: $('.systemsSlide .product').length,
+            slidesToShow: $('.systemsSlide .product').length < 6 ? $('.systemsSlide .product').length : 6,
             infinite: true,
             arrows: true,
             responsive: [{
