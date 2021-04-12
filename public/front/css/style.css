@@ -3439,7 +3439,7 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
     }
     .productPageWrapper .product a > div:first-child {
         /*height: 280px !important;*/
-        max-width: 300px !important;
+        max-height: 300px !important;
     }
 
     .productPageWrapper .product {
@@ -3453,6 +3453,9 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
     .homePage .productPageWrapper a {
         width: fit-content;
         margin: auto;
+    }
+    .homePage .productPageWrapper .product{
+        padding: 0 10px;
     }
 
     .licenses {
@@ -3614,6 +3617,7 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
         font-size: 24px;
         padding-bottom: 0;
         text-align: center;
+        margin-bottom: 30px;
     }
 
     .homePage .productPageWrapper {
@@ -3934,7 +3938,11 @@ form button:not(.loginPage button, .productsPage form button, .searchButton) {
     }
 
     .homePage .about {
+        padding: 0 15px 120px;
         margin-top: 100px;
+    }
+    .homePage .portfolio{
+        padding: 0 10px;
     }
 
     .darkSection:not(.homePage .darkSection, .companyPage .darkSection), .moreServices {
